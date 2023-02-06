@@ -1,0 +1,46 @@
+#########################################################################
+# QING OPINION MODIFIERS
+##########################################################################
+# value
+# min_trust
+# max_trust
+# decay
+# months/years/days = timer
+# trade = yes/no
+
+opinion_modifiers = {
+	### QING
+	QIN_break_purchase_restriction = {
+		value = -35
+	}
+	JAP_break_korea_compromise = {
+		value = -50
+	}
+	QIN_diplomatic_effort = {
+		value = 25
+	}
+	QIN_friendship_act = {
+		value = 35
+	}
+	QIN_korean_qing_friendship = {
+		value = 80
+	}
+	QIN_opinion_ban_travel = {
+		value = -35
+	}
+	QIN_opinion_encourage_travel = {
+		value = 25
+	}
+	QIN_opinion_protect_christian = {
+		value = 20
+	}
+	QIN_opinion_christian_no = {
+		value = -40
+	}
+	QIN_opinion_foreign_compensation = {
+		value = -33
+	}
+	QIN_opinion_uncivilized = {
+		value = -15
+	}
+}	

@@ -1,0 +1,5 @@
+If Great War Update:
+
+- Update Map (Airports, Rockets, Provinces)
+- Replace China focus, events
+- Update Focus with new ID's

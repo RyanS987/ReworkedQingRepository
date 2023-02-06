@@ -1,0 +1,13 @@
+
+music_station = "base_music"
+
+#The Great War
+music = {
+	song = "qing_theme"
+	chance = {
+		modifier = {
+			factor = 2
+			tag = QIN
+		}	
+	}	
+}
