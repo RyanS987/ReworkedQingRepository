@@ -3091,18 +3091,47 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = QIN_tongmenghui_strategy
+		cost = 8
+		x = 7
+		y = 1
+		icon = GFX_focus_the_big_push
+		relative_position_id = QIN_reaffirm_the_qing_mandate
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+	
+		prerequisite = {
+			focus = QIN_reaffirm_the_qing_mandate
+		}
+		available = {
+			NOT = { has_government = democratic }
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_political_power = 25
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	focus = {
 		id = QIN_diminish_the_kuomintang
 		cost = 8
-		x = 2
-		y = 1
+		x = 8
+		y = 2
 		icon = GFX_focus_QIN_kuomintang_fire
 		relative_position_id = QIN_reaffirm_the_qing_mandate
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = no
-		mutually_exclusive = { focus = QIN_prove_our_mandate }
+	
 		prerequisite = {
-			focus = QIN_reaffirm_the_qing_mandate
+			focus = QIN_tongmenghui_strategy
 		}
 		available = {
 			NOT = { has_government = democratic }
@@ -3136,6 +3165,143 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = QIN_divide_and_conquer
+		cost = 8
+		x = 6
+		y = 2
+		icon = GFX_focus_QIN_kuomintang_fire
+		relative_position_id = QIN_reaffirm_the_qing_mandate
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+	
+		prerequisite = {
+			focus = QIN_tongmenghui_strategy
+		}
+		available = {
+			NOT = { has_government = democratic }
+		}
+		bypass = {
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_intelligence_agency = no
+					
+				}
+				hidden_effect = {
+					create_intelligence_agency = {
+						name = "Embroidered Emissaries"
+						icon = GFX_intelligence_agency_logo_chi_ww1
+					}
+				}
+				custom_effect_tooltip = QIN_effect_diminish_tongmenghui_effect
+			}
+			else = {
+				add_political_power = 25
+			}
+			custom_effect_tooltip = QIN_effect_diminish_tongmenghui
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	
+	focus = {
+		id = QIN_secure_the_minorities
+		cost = 8
+		x = 0
+		y = 2
+		icon = GFX_focus_QIN_kuomintang_fire
+		relative_position_id = QIN_divide_and_conquer
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+	
+		prerequisite = {
+			focus = QIN_divide_and_conquer
+		}
+		prerequisite = {
+			focus = QIN_integrate_mongolia
+		}
+		available = {
+			NOT = { has_government = democratic }
+		}
+		bypass = {
+		}
+		completion_reward = {
+			
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	focus = {
+		id = QIN_target_tongmenghui_cells
+		cost = 8
+		x = -1
+		y = 1
+		icon = GFX_focus_QIN_kuomintang_fire
+		relative_position_id = QIN_divide_and_conquer
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+	
+		prerequisite = {
+			focus = QIN_divide_and_conquer
+		}
+		available = {
+			NOT = { has_government = democratic }
+		}
+		bypass = {
+		}
+		completion_reward = {
+			
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	focus = {
+		id = QIN_clean_the_armies
+		cost = 8
+		x = -1
+		y = 3
+		icon = GFX_focus_QIN_kuomintang_fire
+		relative_position_id = QIN_divide_and_conquer
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+	
+		prerequisite = {
+			focus = QIN_target_tongmenghui_cells
+		}
+		available = {
+			NOT = { has_government = democratic }
+		}
+		bypass = {
+		}
+		completion_reward = {
+			
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	
+	focus = {
 		id = QIN_prove_our_mandate
 		cost = 8
 		x = -1
@@ -3145,7 +3311,6 @@ focus_tree = {
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = no
-		mutually_exclusive = { focus = QIN_diminish_the_kuomintang }
 		prerequisite = {
 			focus = QIN_reaffirm_the_qing_mandate
 		}
@@ -3742,8 +3907,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		prerequisite = {
-			#focus = QIN_the_4000_year_system
-			focus = QIN_locate_tongmenghui_leaders
+			focus = QIN_divide_and_conquer
 		}
 		available = {
 			all_owned_state = {
@@ -9708,7 +9872,7 @@ if = {
 	focus = {
 		id = QIN_prepare_to_maintain_qing
 		cost = 5
-		x = 18
+		x = 28
 		y = 2
 		icon = GFX_focus_attack_china
 		relative_position_id = QIN_national_assembly
@@ -10129,16 +10293,16 @@ if = {
 	focus = {
 		id = QIN_integrate_mongolia
 		cost = 10
-		x = 1
+		x = 0
 		y = 2
 		icon = GFX_focus_mongolia
-		relative_position_id = QIN_reaffirm_the_qing_mandate
+		relative_position_id = QIN_tongmenghui_strategy
 		#cancel_if_invalid = no
 		#continue_if_invalid = no
 		available_if_capitulated = no
 		prerequisite = {
 			focus = QIN_diminish_the_kuomintang
-			focus = QIN_prove_our_mandate
+			focus = QIN_divide_and_conquer
 		}
 		available = {
 			330 = {

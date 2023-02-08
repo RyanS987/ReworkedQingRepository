@@ -11,4 +11,4 @@ tags={
 }
 name="*Reworked Qing Repository"
 supported_version="1.12.*"
-remote_file_id="271111193"
+remote_file_id="2711121193"
