@@ -1,6 +1,20 @@
 ﻿l_english:
 #qing rework
 #focus
+ QIN_pave_way_for_industrialization:0 "A Paved Path for Industrialization"
+ QIN_pave_way_for_industrialization_desc:0 "Our collaboration with the foreign powers has finally paved the way for us to begin industrialization!"
+ QIN_south_provinces:0 "Southern Industrialization"
+ QIN_south_provinces_desc:0 "Our southern provinces remain barren swathes of mountainous land. Sufficient preparations must be made to prepare for eventual constructions."
+ QIN_north_provinces:0 "Manchurian Industrialization"
+ QIN_north_provinces_desc:0 "Most of Manchuria remains farmlands and peasantry. But, with sufficient investments, we can change this."
+ QIN_central_provinces:0 "Central Industrialization"
+ QIN_central_provinces_desc:0 "Most of our central lands remain underdeveloped, despite the vast opportunities that lie in wait. Let us sieze the initiative."
+ QIN_south_factories:0 "Southern Factories"
+ QIN_south_factories_desc:0 "Now that preparations have been made, we can begin work on numerous construction proposals."
+ QIN_central_factories:0 "Central Factories"
+ QIN_central_factories_desc:0 "With improved infrastructure, we can focus our efforts on improving our central areas."
+ QIN_manchu_factories:0 "Manchurian Factories"
+ QIN_manchu_factories_desc:0 "The farmers and peasants of Manchuria must do their part in aiding our industrialization."
  QIN_split_the_tongmenghui:0 "Split the Tongmenghui"
  QIN_split_the_tongmenghui_desc:0 "The Tongmenghui's failure to overthrow us last time has significantly strengthened an anti-Sun faction in the Tongmenghui. We should use our agents to expand this split."
  QIN_mislead_the_tongmenghui:0 "Deception Campaign"
@@ -36,7 +50,8 @@
  QIN_aviation:0 "Domestic Aviation"
  QIN_aviation_desc:0 "Despite our efforts, air combat is something we are woefully inexperienced in. The British are willing to send us some of their fighters."
  QIN_modernization_at_all_costs:0 "Modernization at all Costs"
- QIN_modernization_at_all_costs_desc:0 "Technology should not be seen as a reluctant neccesity, but as a tool for the betterment of China!"QIN_proclaim_intention_for_unification_desc:0 "Kang has outlined that he believes in a world free from political boundaries under one central government. We must create a collective East Asian civilization!"
+ QIN_modernization_at_all_costs_desc:0 "Technology should not be seen as a reluctant neccesity, but as a tool for the betterment of China!"
+ QIN_proclaim_intention_for_unification_desc:0 "Kang has outlined that he believes in a world free from political boundaries under one central government. We must create a collective East Asian civilization!"
  QIN_proclaim_intention_for_unification:0 "Proclaim Unified East Asia Idea"
  QIN_individual_welfare:0 "Individual Welfare"
  QIN_individual_welfare_desc:0 "Every person within our empire deserves to have their welfare cared for!"
@@ -439,6 +454,8 @@
  QIN_dec_disband_grand_council:0 "Disband the Grand Council"
  QIN_dec_disband_grand_council_desc:0 "The Grand Council was formed in 1733 under the Yongzheng Emperor, and has several important jobs, such as a role in passing legislation made by the PCA. The time has come, however, to replace it with a modern cabinet"
  
+ QIN_dec_end_isolation:0 "End Isolation"
+ QIN_dec_end_isolation_desc:0 "Enough is enough! It is time to embrace western industrialization, whether our court likes it or not!"
  QIN_dec_imperial_propaganda:0 "Imperial Propaganda"
  QIN_dec_emergency_reform:0 "Declare State of Emergency"
  QIN_dec_emergency_reform_desc:0 "We will declare an edict from the Emperor himself that will temporarily make court back off. We can only trick them once, however."
@@ -515,6 +532,7 @@
  QIN_constitution_category:0 "The Qing Constitution"
  QIN_constitution_category_desc:0 "It has become clear that, without a constitution, our nation is doomed to collapse. Our 1908 outline has outlined the plan to have a constitution completed by 1916, but whether this is accomplished is up to our decisions. \n\n§YEach edict will trigger an event which only times out after 100 days. \n"
 #custom effects
+ QIN_effect_appease_conservatives_warning:0 "§RIf our political power is under 0, we will suffer a small stability penalty!§!"
  QIN_effect_boxer_treaty_individual:0 "Note: If you go down Independent Recovery, you must remove the Boxer Protocol through decisions."
  QIN_no_tongmenghui_idea:0 "Does not have national spirit §YTongmenghui§W in any way"
  QIN_effect_coordination_sabotage:0 "The Tongmenghui will start with less divisions"

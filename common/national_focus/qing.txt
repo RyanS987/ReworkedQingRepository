@@ -1328,7 +1328,7 @@ focus_tree = {
 	focus = {
 		id = QIN_kang_ideals
 		cost = 10
-		x = -7
+		x = -3
 		y = 9
 		icon = GFX_focus_SOV_international_union_of_soviet_republics
 		relative_position_id = QIN_national_assembly
@@ -1373,7 +1373,7 @@ focus_tree = {
 	focus = {
 		id = QIN_communism_with_an_emperor
 		cost = 5
-		x = -9
+		x = -14
 		y = 1
 		icon = GFX_goal_tfv_burn_the_royal_portraits
 		relative_position_id = QIN_kang_ideals
@@ -1491,7 +1491,7 @@ focus_tree = {
 	focus = {
 		id = QIN_publish_the_datong_shu
 		cost = 10
-		x = -6
+		x = -10
 		y = 1
 		icon = GFX_focus_QIN_kang_youwei
 		relative_position_id = QIN_kang_ideals
@@ -1572,7 +1572,7 @@ focus_tree = {
 	focus = {
 		id = QIN_proclaim_intention_for_unification
 		cost = 10
-		x = -4
+		x = -8
 		y = 3
 		icon = GFX_focus_usa_focus_on_asia
 		relative_position_id = QIN_kang_ideals
@@ -1752,7 +1752,7 @@ focus_tree = {
 	focus = {
 		id = QIN_end_ruthless_competition
 		cost = 5
-		x = -7
+		x = -11
 		y = 5
 		icon = GFX_goal_generic_war_with_comintern
 		relative_position_id = QIN_kang_ideals
@@ -1789,7 +1789,7 @@ focus_tree = {
 	focus = {
 		id = QIN_modernization_at_all_costs
 		cost = 10
-		x = -8
+		x = -12
 		y = 6
 		icon = GFX_focus_generic_socialist_science
 		relative_position_id = QIN_kang_ideals
@@ -2788,6 +2788,7 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
+            unlock_decision_tooltip = QIN_dec_end_isolation
 			add_stability = 0.02
 			custom_effect_tooltip = QIN_effect_unlock_boxer_decisions
 			#unlock_decision_tooltip = QIN_
@@ -3936,7 +3937,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_first_qiongren_plan
-		cost = 12
+		cost = 10
 		x = 1
 		y = 1
 		icon = GFX_focus_train_railroads
@@ -3954,6 +3955,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = 0.02
+            unlock_decision_tooltip = QIN_reform_3
 			random_owned_controlled_state = {
 				limit = {
 					infrastructure < 5
@@ -4037,23 +4039,6 @@ focus_tree = {
 				limit = {
 					infrastructure < 5
 					OR = {
-						AND = {
-							is_core_of = QIN
-							owner = { is_in_faction_with = QIN }
-						}
-						is_owned_and_controlled_by = QIN
-					}
-				}
-				add_building_construction = {
-				type = infrastructure
-				level = 1
-				instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					infrastructure < 5
-					OR = {
 						is_owned_and_controlled_by = QIN
 						AND = {
 							is_core_of = QIN
@@ -4070,7 +4055,7 @@ focus_tree = {
 			
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 75
+				days = 60
 			}
 			custom_effect_tooltip = QIN_effect_court_0
 		if = {
@@ -4100,7 +4085,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_secound_qiongren_plan
-		cost = 16
+		cost = 10
 		x = 1
 		y = 2
 		icon = GFX_focus_SOV_organize_wreckers
@@ -4117,6 +4102,7 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
+            unlock_decision_tooltip = QIN_reform_7
 			add_stability = 0.02
 			build_railway = {
 				level = 1
@@ -4143,7 +4129,7 @@ focus_tree = {
 				}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 100
+				days = 60
 			}
 			
 			
@@ -4159,7 +4145,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_third_qiongren_plan
-		cost = 19
+		cost = 13
 		x = 1
 		y = 3
 		icon = GFX_goal_generic_construct_infrastructure
@@ -4179,10 +4165,10 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
-			add_stability = 0.02
+			add_stability = 0.05
 			every_state = {
 				limit = {
-					infrastructure < 5
+					infrastructure < 2
 					OR = {
 						is_owned_and_controlled_by = QIN
 						AND = {
@@ -4199,7 +4185,7 @@ focus_tree = {
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 120
+				days = 100
 			}
 			custom_effect_tooltip = QIN_effect_kang_youwei_third_qiongren
 			custom_effect_tooltip = line_description
@@ -4404,6 +4390,656 @@ focus_tree = {
 					popularity = 0.1
 				}
 			}
+		}
+	}
+    focus = {
+		id = QIN_pave_way_for_industrialization
+		icon = GFX_focus_seven_year_plan
+		cost = 10
+        relative_position_id = QIN_boxer_treaty
+		prerequisite = {
+			focus = QIN_boxer_treaty
+		}
+		x = 0
+		y = 1
+		
+		available = {
+		}
+		bypass = {
+			OR = {
+                has_idea = war_economy
+                has_idea = tot_economic_mobilisation
+                has_idea = partial_economic_mobilisation
+            }
+		}
+		completion_reward = {
+			add_ideas = partial_economic_mobilisation
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    focus = {
+		id = QIN_north_provinces
+		icon = GFX_focus_generic_industry_1
+		cost = 8
+		relative_position_id = QIN_village_mechanization
+		prerequisite = {
+			focus = QIN_village_mechanization
+            focus = QIN_pave_way_for_industrialization
+		}
+		x = -5
+		y = 1
+		available = {
+            OR = {
+                has_completed_focus = QIN_finish_the_new_qing_reforms
+                has_global_flag = qing_reformed
+            }
+			328 = {
+				is_fully_controlled_by = ROOT
+			}
+			610 = {
+				is_fully_controlled_by = ROOT
+			}
+			609 = {
+				is_fully_controlled_by = ROOT
+			}
+			617 = {
+				is_fully_controlled_by = ROOT
+			}
+			715 = {
+				is_fully_controlled_by = ROOT
+			}
+			716 = {
+				is_fully_controlled_by = ROOT
+			}
+			714 = {
+				is_fully_controlled_by = ROOT
+			}
+			717 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			328 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			610 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			609 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			617 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			714 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			717 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			715 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			716 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	focus = {
+		id = QIN_central_provinces
+		icon = GFX_focus_train_railroads
+		cost = 8
+		relative_position_id = QIN_village_mechanization
+		prerequisite = {
+			focus = QIN_village_mechanization
+            
+		}
+		x = -2
+		y = 1
+		available = {
+            OR = {
+                has_completed_focus = QIN_finish_the_new_qing_reforms
+                has_global_flag = qing_reformed
+            }
+			605 = {
+				is_fully_controlled_by = ROOT
+			}
+			620 = {
+				is_fully_controlled_by = ROOT
+			}
+			606 = {
+				is_fully_controlled_by = ROOT
+			}
+			598 = {
+				is_fully_controlled_by = ROOT
+			}
+			607 = {
+				is_fully_controlled_by = ROOT
+			}
+			622 = {
+				is_fully_controlled_by = ROOT
+			}
+			283 = {
+				is_fully_controlled_by = ROOT
+			}
+			615 = {
+				is_fully_controlled_by = ROOT
+			}
+			597 = {
+				is_fully_controlled_by = ROOT
+			}
+			614 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			605 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			620 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			606 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			598 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			607 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			622 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			283 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			615 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			597 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			614 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			
+            add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 250
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	focus = {
+		id = QIN_central_factories
+		icon = GFX_focus_industry_profit
+		cost = 10
+		relative_position_id = QIN_central_provinces
+		prerequisite = {
+			focus = QIN_central_provinces
+		}
+        mutually_exclusive = { focus = QIN_manchu_factories }
+		x = -1
+		y = 1
+		available = {
+			605 = {
+				is_fully_controlled_by = ROOT
+			}
+			603 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			605 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			603 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			283 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			607 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			622 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+            add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 400
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	focus = {
+		id = QIN_manchu_factories
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+		relative_position_id = QIN_north_provinces
+		prerequisite = {
+			focus = QIN_north_provinces
+		}
+        mutually_exclusive = { focus = QIN_central_factories }
+		x = 0
+		y = 1
+		available = {
+			328 = {
+				is_fully_controlled_by = ROOT
+			}
+			715 = {
+				is_fully_controlled_by = ROOT
+			}
+			714 = {
+				is_fully_controlled_by = ROOT
+			}
+			716 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			328 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			715 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			714 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			716 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	focus = {
+		id = QIN_south_provinces
+		icon = GFX_focus_generic_industry_1
+		cost = 8
+        relative_position_id = QIN_village_mechanization
+		prerequisite = {
+			focus = QIN_village_mechanization
+		}
+		x = 1
+		y = 1
+		available = {
+            OR = {
+                has_completed_focus = QIN_finish_the_new_qing_reforms
+                has_global_flag = qing_reformed
+            }
+			592 = {
+				is_fully_controlled_by = ROOT
+			}
+			599 = {
+				is_fully_controlled_by = ROOT
+			}
+			594 = {
+				is_fully_controlled_by = ROOT
+			}
+			593 = {
+				is_fully_controlled_by = ROOT
+			}
+			325 = {
+				is_fully_controlled_by = ROOT
+			}
+			591 = {
+				is_fully_controlled_by = ROOT
+			}
+			595 = {
+				is_fully_controlled_by = ROOT
+			}
+			596 = {
+				is_fully_controlled_by = ROOT
+			}
+			602 = {
+				is_fully_controlled_by = ROOT
+			}
+			600 = {
+				is_fully_controlled_by = ROOT
+			}
+			603 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			592 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			599 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			594 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			593 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			325 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			591 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			595 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			596 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			602 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			600 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			603 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	focus = {
+		id = QIN_south_factories
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+        relative_position_id = QIN_south_provinces
+		prerequisite = {
+			focus = QIN_south_provinces
+		}
+		x = 0
+		y = 1
+		available = {
+			592 = {
+				is_fully_controlled_by = ROOT
+			}
+			594 = {
+				is_fully_controlled_by = ROOT
+			}
+			593 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			592 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			594 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			593 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+    focus = {
+		id = QIN_nanjing_arsenal
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+        relative_position_id = QIN_south_provinces
+		prerequisite = {
+			focus = QIN_south_provinces
+            focus = QIN_central_provinces
+		}
+		x = -2
+		y = 1
+		available = {
+			613 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			613 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 	focus = {

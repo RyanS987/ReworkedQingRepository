@@ -607,7 +607,7 @@ QIN_xinhai_revolution_category = {
 		available = {
 			QIN = { has_idea = QIN_idea_court_opposition }
 			NOT = { has_government = democratic }
-			has_political_power > -250
+			has_political_power > -275
 		}
 		visible = {
 			NOT = { has_government = democratic }
@@ -620,7 +620,21 @@ QIN_xinhai_revolution_category = {
 				idea = QIN_idea_court_opposition
 				days = -50
 			}
-			
+            custom_effect_tooltip = line_description
+			custom_effect_tooltip = QIN_effect_appease_conservatives_warning
+            if = {
+                limit = {
+                    has_political_power < -200
+                }
+                add_stability = -0.004
+            }
+            else_if = {
+                limit = {
+                    has_political_power < 0
+                }
+                add_stability = -0.003
+            }
+        
 			custom_effect_tooltip = QIN_effect_10_day
 		}
 		priority = 6
@@ -717,16 +731,56 @@ QIN_xinhai_revolution_category = {
 		}
 		priority = 6
 	}
+    QIN_dec_end_isolation = { # End Isolation
+		icon = generic_civil_support
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		fire_only_once = yes
+		available = {
+			QIN = { NOT = { has_idea = QIN_idea_court_opposition } }
+            QIN = { has_idea = isolation }
+		}
+		visible = {
+			has_idea = isolation
+			has_completed_focus = QIN_reform_and_recovery
+		}
+		complete_effect = {
+			add_ideas = civilian_economy
+            add_political_power = -150
+            
+			custom_effect_tooltip = QIN_effect_court_4
+			if = {
+				limit = {
+					QIN = { has_idea = QIN_idea_court_opposition }
+				}
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = 250
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = 250
+				}
+			}
+		}
+		priority = 17
+	}
 	QIN_reform_3 = { #Poverty Relief
 		icon = generic_construction
 		allowed = {
 			original_tag = QIN
 		}
 		available = {
-		NOT = { has_global_flag = qing_reformed }
+		  NOT = { has_global_flag = qing_reformed }
+          has_completed_focus = QIN_first_qiongren_plan
 		}	
 		visible = {
 			NOT = { has_global_flag = qing_reformed }
+            has_completed_focus = QIN_reform_and_recovery
 		}
 
 		cost = 20
@@ -794,9 +848,11 @@ QIN_xinhai_revolution_category = {
 		} 
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
+            has_completed_focus = QIN_secound_qiongren_plan
 			#NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
 			#NOT = { has_global_flag = qing_reformed }
 		}
+        visible = { has_completed_focus = QIN_reform_and_recovery}
 		cost = 0
 		days_re_enable = 250
 		days_remove = 150
@@ -1411,19 +1467,17 @@ QIN_pay_indemnities_category = {
 			}
 		}
 		complete_effect = {
-		RUS = {
-			set_country_flag = {
-			flag = QIN_flag_had_war
-			value = 1
-			}
-		}
-		QIN = {
-			country_event = { id = ww1_qing.142 days = 1 }
-		}
+		  remove_ideas = { QIN_idea_payments_of_indemnities_russian}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 100
+				days = 150
 			}
+            RUS = {
+                set_country_flag = {
+                flag = QIN_flag_had_war
+                value = 1
+                }
+            }
 		}
 		priority = 8
 	}
@@ -1444,19 +1498,17 @@ QIN_pay_indemnities_category = {
 			}
 		}
 		complete_effect = {
-			JAP = {
-				set_country_flag = {
-				flag = QIN_flag_had_war
-				value = 1
-				}
-			}
-			QIN = {
-				country_event = { id = ww1_qing.145 days = 1 }
-			}
+			remove_ideas = { QIN_idea_payments_of_indemnities_japan}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 25
+				days = 100
 			}
+            JAP = {
+			 set_country_flag = {
+                flag = QIN_flag_had_war
+                value = 1
+                }
+            }
 		}
 		priority = 5
 	}
@@ -1477,19 +1529,17 @@ QIN_pay_indemnities_category = {
 			}
 		}
 		complete_effect = {
-			USA = {
-			set_country_flag = {
-			flag = QIN_flag_had_war
-			value = 1
-			}
-		}
-		QIN = {
-			country_event = { id = ww1_qing.144 days = 1 }
-		}
+			remove_ideas = { QIN_idea_payments_of_indemnities_usa}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 25
+				days = 100
 			}
+            USA = {
+			 set_country_flag = {
+                flag = QIN_flag_had_war
+                value = 1
+                }
+            }
 		}
 		priority = 5
 	}
@@ -1510,19 +1560,17 @@ QIN_pay_indemnities_category = {
 			}
 		}
 		complete_effect = {
-			ITA = {
-			set_country_flag = {
-			flag = QIN_flag_had_war
-			value = 1
-			}
-		}
-		QIN = {
-			country_event = { id = ww1_qing.146 days = 1 }
-		}
+			remove_ideas = { QIN_idea_payments_of_indemnities_italian}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 25
+				days = 100
 			}
+            ITA = {
+			 set_country_flag = {
+                flag = QIN_flag_had_war
+                value = 1
+                }
+            }
 		}
 		priority = 5
 	}
@@ -1543,19 +1591,17 @@ QIN_pay_indemnities_category = {
 			}
 		}
 		complete_effect = {
-		FRA = {
-			set_country_flag = {
-			flag = QIN_flag_had_war
-			value = 1
-			}
-		}
-		QIN = {
-			country_event = { id = ww1_qing.143 days = 1 }
-		}
+		  remove_ideas = { QIN_idea_payments_of_indemnities_french}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 50
+				days = 100
 			}
+            FRA = {
+			 set_country_flag = {
+                flag = QIN_flag_had_war
+                value = 1
+                }
+            }
 		}
 		priority = 6
 	}
@@ -1576,19 +1622,17 @@ QIN_pay_indemnities_category = {
 			}
 		}
 		complete_effect = {
-		ENG = {
-			set_country_flag = {
-			flag = QIN_flag_had_war
-			value = 1
-			}
-		}
-		QIN = {
-			country_event = { id = ww1_qing.141 days = 1 }
-		}
+		  remove_ideas = { QIN_idea_payments_of_indemnities_british}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 38
+				days = 100
 			}
+            ENG = {
+			 set_country_flag = {
+                flag = QIN_flag_had_war
+                value = 1
+                }
+            }
 		}
 		priority = 6
 	}
@@ -1609,19 +1653,17 @@ QIN_pay_indemnities_category = {
 			}
 		}
 		complete_effect = {
-			GER = {
-			set_country_flag = {
-			flag = QIN_flag_had_war
-			value = 1
-			}
-		}
-		QIN = {
-			country_event = { id = ww1_qing.140 days = 1 }
-		}
+			remove_ideas = { QIN_idea_payments_of_indemnities_german}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 70
+				days = 125
 			}
+            GER = {
+			 set_country_flag = {
+                flag = QIN_flag_had_war
+                value = 1
+                }
+            }
 		}
 		priority = 7
 	}
