@@ -1,5 +1,42 @@
 ﻿add_namespace = ww1_qing
 country_event = {
+	title = ww1_qing.238.t
+	desc = ww1_qing.238.d
+	id = ww1_qing.238
+	is_triggered_only = no
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = QIN
+		
+	}
+	picture = QIN_qing_intro_image
+	option = {
+		name = ww1_qing.238.a
+		ai_chance = { 
+			factor = 0 
+			modifier = {
+				add = 200
+				is_historical_focus_on = no
+			}
+		}	
+		custom_effect_tooltip = QIN_effect_easy
+		set_global_flag = QIN_easy_mode
+		
+		add_days_mission_timeout = {
+			mission = QIN_xinhai_timer
+			days = 365
+		}
+		add_stability = 0.17
+	}
+	option = {
+		name = ww1_qing.238.b
+		ai_chance = { factor = 1000 }	
+	}
+}
+country_event = {
 	title = ww1_qing.237.t
 	desc = ww1_qing.237.d
 	id = ww1_qing.237
@@ -1850,7 +1887,7 @@ country_event = {
 				mission = QIN_xinhai_timer
 				days = 365
 			}
-		#complete_national_focus = QIN_exploit_the_war
+		complete_national_focus = QIN_exploit_the_war
 	}
 }
 # Death of Yiquang
@@ -5715,6 +5752,9 @@ country_event = {
 			set_research_slots = 2
 			hidden_effect = {
 				load_oob = "TIB_army"
+				load_oob = "TIB_army"
+				load_oob = "TIB_army"
+				load_oob = "TIB_army"
 				add_equipment_to_stockpile = {
 					type = infantry_equipment_0
 					amount = 2100
@@ -5726,25 +5766,6 @@ country_event = {
 					producer = CHI
 				}
 			}
-		}
-		QIN = {
-			transfer_units_fraction = {
-				target = SIK
-				size = 0.11
-				stockpile_ratio = 0.11
-				army_ratio = 0.15
-				navy_ratio = 0.0
-				air_ratio = 0.0
-				keep_unit_leaders_trigger = {
-					OR = {
-						is_army_leader = yes
-						is_navy_leader = yes
-					}
-				}
-				#keep_all_characters = yes
-			}
-		}
-		if = {
 			
 		}
 		if = {
@@ -7715,7 +7736,7 @@ country_event = {
 	option = {
 		name = ww1_qing.17.a
 		ai_chance = { factor = 10 }
-		complete_national_focus = QIN_diminish_the_kuomintang
+		complete_national_focus = QIN_tongmenghui_strategy
 	}
 	option = {
 		name = ww1_qing.17.b

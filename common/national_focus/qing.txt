@@ -3130,7 +3130,7 @@ focus_tree = {
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = no
-	
+		mutually_exclusive = { focus = QIN_divide_and_conquer }
 		prerequisite = {
 			focus = QIN_tongmenghui_strategy
 		}
@@ -3170,12 +3170,12 @@ focus_tree = {
 		cost = 8
 		x = 6
 		y = 2
-		icon = GFX_focus_QIN_kuomintang_fire
+		icon = GFX_focus_SOV_merge_plants
 		relative_position_id = QIN_reaffirm_the_qing_mandate
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = no
-	
+		mutually_exclusive = { focus = QIN_diminish_the_kuomintang }
 		prerequisite = {
 			focus = QIN_tongmenghui_strategy
 		}
@@ -3185,23 +3185,7 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
-			if = {
-				limit = {
-					has_intelligence_agency = no
-					
-				}
-				hidden_effect = {
-					create_intelligence_agency = {
-						name = "Embroidered Emissaries"
-						icon = GFX_intelligence_agency_logo_chi_ww1
-					}
-				}
-				custom_effect_tooltip = QIN_effect_diminish_tongmenghui_effect
-			}
-			else = {
-				add_political_power = 25
-			}
-			custom_effect_tooltip = QIN_effect_diminish_tongmenghui
+			custom_effect_tooltip = QIN_effect_prevent_tongmenghui
 		}	
 		ai_will_do = {
 			factor = 0
@@ -3216,7 +3200,7 @@ focus_tree = {
 		cost = 8
 		x = 0
 		y = 2
-		icon = GFX_focus_QIN_kuomintang_fire
+		icon = GFX_focus_chi_one_china_policy
 		relative_position_id = QIN_divide_and_conquer
 		cancel_if_invalid = no
 		continue_if_invalid = no
@@ -3234,7 +3218,8 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
-			
+			custom_effect_tooltip = QIN_effect_minorities
+			set_global_flag = minority_rebellion_prevented
 		}	
 		ai_will_do = {
 			factor = 0
@@ -3248,7 +3233,7 @@ focus_tree = {
 		cost = 8
 		x = -1
 		y = 1
-		icon = GFX_focus_QIN_kuomintang_fire
+		icon = GFX_focus_ITA_banda_carita
 		relative_position_id = QIN_divide_and_conquer
 		cancel_if_invalid = no
 		continue_if_invalid = no
@@ -3263,7 +3248,25 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
-			
+			unlock_decision_tooltip = QIN_dec_attack_tongmenghui_cell
+			custom_effect_tooltip = line_description
+			custom_effect_tooltip = QIN_effect_decision_repeatable
+			effect_tooltip = {
+				random_owned_state = {
+					limit = {
+						arms_factory > 0
+					}
+					remove_building = {
+						type = arms_factory
+						level = 1
+					}
+				}
+
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = 200
+				}
+			}
 		}	
 		ai_will_do = {
 			factor = 0
@@ -3288,11 +3291,65 @@ focus_tree = {
 		}
 		available = {
 			NOT = { has_government = democratic }
+			has_equipment = {
+				infantry_equipment > 2999
+			}
 		}
 		bypass = {
 		}
 		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -3000
+				producer = QIN
+			}
+			if = {
+			limit = {
+			has_idea = QIN_idea_tongmenghui
+			}
+			swap_ideas = {
+				remove_idea = QIN_idea_tongmenghui
+				add_idea = QIN_idea_tongmenghui_2
+			}
+			}
+			else_if = {
+			limit = {
+			has_idea = QIN_idea_tongmenghui_2
+			}
+			swap_ideas = {
+				remove_idea = QIN_idea_tongmenghui_2
+				add_idea = QIN_idea_tongmenghui_3
+			}
+			}
+			else_if = {
+			limit = {
+			has_idea = QIN_idea_tongmenghui_3
+			}
+			swap_ideas = {
+				remove_idea = QIN_idea_tongmenghui_3
+				add_idea = QIN_idea_tongmenghui_4
+			}
+			}
+			else_if = {
+			limit = {
+			has_idea = QIN_idea_tongmenghui_4
+			}
+			swap_ideas = {
+				remove_idea = QIN_idea_tongmenghui_4
+				add_idea = QIN_idea_tongmenghui_5
+			}
+			}
+			else_if = {
+			limit = {
+			has_idea = QIN_idea_tongmenghui_5
+			}
+			remove_ideas = { QIN_idea_tongmenghui_5 }
+			}
 			
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 150
+			}
 		}	
 		ai_will_do = {
 			factor = 0
@@ -3902,7 +3959,7 @@ focus_tree = {
 		cost = 12
 		x = 3
 		y = 3
-		icon = GFX_focus_QIN_qing_unity
+		icon = GFX_focus_chi_people_defence
 		relative_position_id = QIN_reaffirm_the_qing_mandate
 		cancel_if_invalid = no
 		continue_if_invalid = no
@@ -5199,7 +5256,7 @@ focus_tree = {
 	focus = {
 		id = QIN_secret_tongmenghui_sabotage
 		cost = 10
-		x = 2
+		x = -1
 		y = 1
 		icon = GFX_goal_generic_secret_weapon
 		relative_position_id = QIN_locate_tongmenghui_leaders
@@ -5267,13 +5324,14 @@ focus_tree = {
 	focus = {
 		id = QIN_mislead_the_tongmenghui #Deception_Campaign
 		cost = 10
-		x = 3
-		y = 2
+		x = -3
+		y = 3
 		icon = GFX_goal_generic_intelligence_exchange
 		relative_position_id = QIN_locate_tongmenghui_leaders
 		available_if_capitulated = no
 		mutually_exclusive = { focus = QIN_split_the_tongmenghui }
 		prerequisite = {
+			focus = QIN_clean_the_armies
 			focus = QIN_secret_tongmenghui_sabotage
 		}
 		available = {
@@ -5302,14 +5360,15 @@ focus_tree = {
 	focus = {
 		id = QIN_split_the_tongmenghui
 		cost = 10
-		x = 5
-		y = 2
+		x = -1
+		y = 3
 		icon = GFX_focus_asian_committee
 		relative_position_id = QIN_locate_tongmenghui_leaders
 		available_if_capitulated = no
 		mutually_exclusive = { focus = QIN_mislead_the_tongmenghui }
 		prerequisite = {
 			focus = QIN_secret_tongmenghui_sabotage
+			focus = QIN_clean_the_armies
 		}
 		available = {
 			has_active_mission = QIN_xinhai_timer
@@ -5378,13 +5437,14 @@ focus_tree = {
 	focus = {
 		id = QIN_assasinate_sun_yat_sen
 		cost = 10
-		x = 2
-		y = 4
+		x = -1
+		y = 1
 		icon = GFX_focus_sun_yat_sen
-		relative_position_id = QIN_locate_tongmenghui_leaders
+		relative_position_id = QIN_split_the_tongmenghui
 		available_if_capitulated = no
 		prerequisite = {
-			focus = QIN_arrest_tongmenghui_leaders
+			focus = QIN_split_the_tongmenghui
+			focus = QIN_mislead_the_tongmenghui
 		}
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
@@ -5572,7 +5632,6 @@ focus_tree = {
 		prerequisite = {
 			focus = QIN_centralization_of_power
 			focus = QIN_regional_authority
-			focus = QIN_execute_tongmenghui_leaders
 		}
 		available = {
 			#NOT = { has_idea = QIN_idea_court_opposition }
@@ -5582,7 +5641,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			unlock_decision_tooltip = QIN_dec_imperial_propaganda
-			
+			custom_effect_tooltip = QIN_effect_propoganda_des
 			custom_effect_tooltip = line_description
 			custom_effect_tooltip = QIN_effect_court_5
 			modify_timed_idea = {

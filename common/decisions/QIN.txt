@@ -448,13 +448,20 @@ QIN_xinhai_revolution_category = {
 				has_idea = QIN_idea_low_legitimacy_2
 				has_idea = QIN_idea_low_legitimacy_3
 				has_idea = QIN_idea_low_legitimacy_4
+				has_idea = QIN_idea_political_corruption_3
+				has_idea = QIN_idea_tongmenghui
+				has_idea = QIN_idea_tongmenghui_2
+				has_idea = QIN_idea_tongmenghui_3
+				has_idea = QIN_idea_tongmenghui_4
+				has_idea = QIN_idea_tongmenghui_5
 			}
 		}
 		
 		visible = {
 			OR = {
-			has_completed_focus = QIN_the_4000_year_system
-			has_completed_focus = QIN_locate_tongmenghui_leaders
+			#has_completed_focus = QIN_the_4000_year_system
+			
+			#has_completed_focus = QIN_divide_and_conquer
 			}
 			OR = {
 				has_government = neutrality
@@ -462,11 +469,11 @@ QIN_xinhai_revolution_category = {
 			}
 		}
 		cost = 75
-		days_re_enable = 230
+		days_re_enable = 2-0
 		days_remove = 110
 		complete_effect = {
-		random_list = {
-		50 = {
+			random_list = {
+			50 = {
 			if = {
 				limit = {
 				has_idea = QIN_idea_low_legitimacy
@@ -525,9 +532,9 @@ QIN_xinhai_revolution_category = {
 					add_political_power = 25
 				}
 			}
-		}
-		50 = {
-		if = {
+			}
+			50 = {
+				if = {
 			limit = {
 			has_idea = QIN_idea_tongmenghui
 			}
@@ -588,15 +595,20 @@ QIN_xinhai_revolution_category = {
 					}
 				}
 				else = {
-					add_stability = 0.01
+					add_political_power = 25
 				}
 			}
 			}
+			}
+			custom_effect_tooltip = QIN_effect_imperial_prop
 		}
-		}
+		
 		
 		priority = 0
 	}
+	
+	
+	
 	QIN_reform_9 = { #Appeal to conservatives
 		icon = hol_attract_foreign_investors
 		allowed = {
@@ -613,7 +625,16 @@ QIN_xinhai_revolution_category = {
 			NOT = { has_government = democratic }
 		}
 		complete_effect = {
-			add_political_power = -50	
+			if = {
+				limit = {
+					NOT = { has_completed_focus = QIN_centralization_of_power }
+				}
+				add_political_power = -50	
+			
+			}
+			else = {
+				add_political_power = -25
+			}
 		
 			custom_effect_tooltip = QIN_effect_court_5
 			modify_timed_idea = {
@@ -757,13 +778,13 @@ QIN_xinhai_revolution_category = {
 				}
 				modify_timed_idea = {
 					idea = QIN_idea_court_opposition
-					days = 250
+					days = 300
 				}
 			}
 			else = {
 				add_timed_idea = {
 					idea = QIN_idea_court_opposition
-					days = 250
+					days = 300
 				}
 			}
 		}
@@ -1002,7 +1023,41 @@ QIN_xinhai_revolution_category = {
 		}
 		priority = 6
 	}
+	QIN_dec_attack_tongmenghui_cell	= { #Attack Tongmenghui Cell
+		icon = eng_blackshirt_march
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			NOT = { has_government = democratic }
+			QIN = { num_of_military_factories > 0 }
+			has_active_mission = QIN_xinhai_timer
+			has_completed_focus = QIN_divide_and_conquer
+		}
+		visible = {
+			has_government = neutrality
+			#has_completed_focus = QIN_divide_and_conquer
+		}
+		cost = 0
+		days_re_enable = 7
+		complete_effect = {
+				random_owned_state = {
+					limit = {
+						arms_factory > 0
+					}
+					remove_building = {
+						type = arms_factory
+						level = 1
+					}
+				}
 
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 200
+			}
+		}
+		priority = 8
+	}
 	QIN_reform_6 = { #Sell Imperial assets
 		icon = gre_investment_decisions
 		allowed = {
