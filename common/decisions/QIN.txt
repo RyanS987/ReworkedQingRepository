@@ -1058,6 +1058,38 @@ QIN_xinhai_revolution_category = {
 		}
 		priority = 8
 	}
+	QIN_dec_army_inspection	= { #Attack Tongmenghui Cell
+		icon = generic_military
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			NOT = { has_government = democratic }
+			has_equipment = {
+				infantry_equipment > 1499
+			}
+			has_active_mission = QIN_xinhai_timer
+			#has_completed_focus = QIN_clean_the_armies
+		}
+		visible = {
+			has_government = neutrality
+			#has_completed_focus = QIN_divide_and_conquer
+		}
+		cost = 0
+		days_re_enable = 100
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1500
+				producer = QIN
+			}
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 170
+			}
+		}
+		priority = 8
+	}
 	QIN_reform_6 = { #Sell Imperial assets
 		icon = gre_investment_decisions
 		allowed = {

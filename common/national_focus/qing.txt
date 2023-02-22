@@ -3267,6 +3267,12 @@ focus_tree = {
 					days = 200
 				}
 			}
+			
+			custom_effect_tooltip = QIN_effect_move_against_tongmenghui_warning 
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -100
+			}
 		}	
 		ai_will_do = {
 			factor = 0
@@ -3291,64 +3297,28 @@ focus_tree = {
 		}
 		available = {
 			NOT = { has_government = democratic }
-			has_equipment = {
-				infantry_equipment > 2999
-			}
 		}
 		bypass = {
 		}
 		completion_reward = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -3000
-				producer = QIN
+			unlock_decision_tooltip	= QIN_dec_army_inspection
+			custom_effect_tooltip = line_description
+			custom_effect_tooltip = QIN_effect_decision_repeatable
+			effect_tooltip = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -1500
+					producer = QIN
+				}
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = 170
+				}
 			}
-			if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui
-				add_idea = QIN_idea_tongmenghui_2
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_2
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui_2
-				add_idea = QIN_idea_tongmenghui_3
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_3
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui_3
-				add_idea = QIN_idea_tongmenghui_4
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_4
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui_4
-				add_idea = QIN_idea_tongmenghui_5
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_5
-			}
-			remove_ideas = { QIN_idea_tongmenghui_5 }
-			}
-			
+			custom_effect_tooltip = QIN_effect_move_against_tongmenghui_warning 
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 150
+				days = -100
 			}
 		}	
 		ai_will_do = {
@@ -3754,6 +3724,49 @@ focus_tree = {
 		completion_reward = {
 			add_stability = -0.02
 			custom_effect_tooltip = QIN_effect_regional_authority
+			
+		}	
+	}
+	focus = {
+		id = QIN_minzhu_trials #Tongmenghui Trial
+		cost = 10
+		x = 2
+		y = 0
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		relative_position_id = QIN_regional_authority
+		mutually_exclusive = { focus = QIN_centralization_of_power }
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		prerequisite = {
+			focus = QIN_imperial_integrity
+		}
+		available = {
+			OR = {
+				NOT = { has_global_flag = warlord_era }
+				has_global_flag = warlord_era_end
+			}
+			OR = {
+				has_stability > 0.25
+				NOT = { has_global_flag = QIN_flag_first_xinhai }
+			}
+			NOT = { has_government = democratic }
+		}
+		bypass = {
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 250
+			}
+			if = {
+			limit = { has_completed_focus = QIN_regional_authority }
+			add_stability = 0.15
+			}
+			custom_effect_tooltip = QIN_effect_minzhu_trials
 			
 		}	
 	}
@@ -5159,17 +5172,14 @@ focus_tree = {
 			}
 			remove_ideas = { QIN_idea_tongmenghui_5 }
 			}
+			#custom_effect_tooltip = line_description
+		
+		custom_effect_tooltip = QIN_effect_move_against_tongmenghui_warning 
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
 				days = -100
-			}
-			custom_effect_tooltip = line_description
-			custom_effect_tooltip = QIN_effect_court_5
-		modify_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = -80
-			}
-		}	
+			}	
+}			
 		ai_will_do = {
 			factor = 15
 		}
@@ -5237,15 +5247,19 @@ focus_tree = {
 			}
 			remove_ideas = { QIN_idea_tongmenghui_5 }
 			}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = -100
-			}
-			custom_effect_tooltip = line_description
+
 			custom_effect_tooltip = QIN_effect_court_5
 		modify_timed_idea = {
 				idea = QIN_idea_court_opposition
 				days = -90
+			}
+			
+		
+
+			custom_effect_tooltip = QIN_effect_move_against_tongmenghui_warning 
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -150
 			}
 			
 		}	
