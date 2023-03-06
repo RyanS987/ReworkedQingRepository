@@ -430,7 +430,7 @@ ideas = {
 				}
 			}
 			modifier = {
-				political_power_factor = 0.3
+				political_power_factor = 0.35
 			}
 		}
 		QIN_idea_tongmenghui_agreement = {
@@ -446,6 +446,43 @@ ideas = {
 				stability_factor = 0.05
 			}
 		}
+		QIN_idea_misplaced_purge = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = FRA_factory_strikes
+			modifier = {
+				democratic_drift = -0.01
+				industrial_capacity_factory = -0.1
+			}
+		}
+		QIN_idea_confidence_campaign = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = jap_intervene_in_china
+			modifier = {
+				stability_weekly = 0.001
+				political_power_factor = -0.2
+			}
+		}
+		QIN_idea_minzhu_trials = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = jap_intervene_in_china
+			modifier = {
+				stability_weekly = -0.001
+				political_power_factor = 0.2
+			}
+		}
+		
+		QIN_idea_warlord_collab = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = idea_chi_chinese_unity
+			modifier = {
+				stability_weekly = 0.001
+			}
+		}
+		
 		QIN_idea_tongmenghui = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1

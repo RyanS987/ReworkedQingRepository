@@ -89,75 +89,75 @@ country_event = {
 				inherit_technology = QIN
 				if = {
 					limit = { date < 1911.1.30 }
-					set_variable = { var = my_variable value = 1 }
+					set_variable = { var = CHI_xinhai_name_solid value = 1 }
 				}
 				else_if = {
 					limit = { date < 1912.2.18 }
-					set_variable = { var = my_variable value = 2 }
+					set_variable = { var = CHI_xinhai_name_solid value = 2 }
 				}
 				else_if = {
 					limit = { date < 1913.2.6 }
-					set_variable = { var = my_variable value = 3 }
+					set_variable = { var = CHI_xinhai_name_solid value = 3 }
 				}
 				else_if = {
 					limit = { date < 1914.1.26 }
-					set_variable = { var = my_variable value = 4 }
+					set_variable = { var = CHI_xinhai_name_solid value = 4 }
 				}
 				else_if = {
 					limit = { date < 1915.2.14 }
-					set_variable = { var = my_variable value = 5 }
+					set_variable = { var = CHI_xinhai_name_solid value = 5 }
 				}
 				else_if = {
 					limit = { date < 1916.2.3 }
-					set_variable = { var = my_variable value = 6 }
+					set_variable = { var = CHI_xinhai_name_solid value = 6 }
 				}
 				else_if = {
 					limit = { date < 1917.1.23 }
-					set_variable = { var = my_variable value = 7 }
+					set_variable = { var = CHI_xinhai_name_solid value = 7 }
 				}
 				else_if = {
 					limit = { date < 1918.2.11 }
-					set_variable = { var = my_variable value = 8 }
+					set_variable = { var = CHI_xinhai_name_solid value = 8 }
 				}
 				else_if = {
 					limit = { date < 1919.2.1 }
-					set_variable = { var = my_variable value = 9 }
+					set_variable = { var = CHI_xinhai_name_solid value = 9 }
 				}
 				else_if = {
 					limit = { date < 1920.2.20 }
-					set_variable = { var = my_variable value = 10 }
+					set_variable = { var = CHI_xinhai_name_solid value = 10 }
 				}
 				else_if = {
 					limit = { date < 1921.2.8 }
-					set_variable = { var = my_variable value = 11 }
+					set_variable = { var = CHI_xinhai_name_solid value = 11 }
 				}
 				else_if = {
 					limit = { date < 1922.1.28 }
-					set_variable = { var = my_variable value = 12 }
+					set_variable = { var = CHI_xinhai_name_solid value = 12 }
 				}
 				else_if = {
 					limit = { date < 1923.2.16 }
-					set_variable = { var = my_variable value = 13 }
+					set_variable = { var = CHI_xinhai_name_solid value = 13 }
 				}
 				else_if = {
 					limit = { date < 1924.2.5 }
-					set_variable = { var = my_variable value = 14 }
+					set_variable = { var = CHI_xinhai_name_solid value = 14 }
 				}
 				else_if = {
 					limit = { date < 1925.1.24 }
-					set_variable = { var = my_variable value = 15 }
+					set_variable = { var = CHI_xinhai_name_solid value = 15 }
 				}
 				else_if = {
 					limit = { date < 1926.2.13 }
-					set_variable = { var = my_variable value = 16 }
+					set_variable = { var = CHI_xinhai_name_solid value = 16 }
 				}
 				else_if = {
 					limit = { date < 1927.2.2 }
-					set_variable = { var = my_variable value = 17 }
+					set_variable = { var = CHI_xinhai_name_solid value = 17 }
 				}
 				else_if = {
 					limit = { date < 1928.1.23 }
-					set_variable = { var = my_variable value = 18 }
+					set_variable = { var = CHI_xinhai_name_solid value = 18 }
 				}
 				
 				set_temp_variable = { CHI_tempvar_rebellion_province = 5 }
@@ -329,6 +329,10 @@ country_event = {
 		}
 		hidden_effect = {
 			CHI = {
+				load_focus_tree = {
+					tree = china_focus
+					keep_completed = yes
+				}
 				country_event = {
 					days = 10
 					id = ww1_xinhai.3
@@ -372,7 +376,10 @@ country_event = {
 				else = {
 					load_oob = "PRC_1911_Wuchang"
 				}
+				if = {
+				limit = { QIN = { NOT = { has_completed_focus = QIN_execute_tongmenghui_leaders } } }
 				add_ideas = CHI_idea_xinhai_revolution
+				}
 			}
 			set_global_flag = QIN_chosen
 			add_popularity = {
@@ -403,6 +410,10 @@ country_event = {
 		# Support Chinese Revolution
 		name = ww1_xinhai.2.b
 		hidden_effect = {
+			load_focus_tree = {
+					tree = china_focus
+					keep_completed = yes
+				}
 			CHI = {
 				country_event = {
 					days = 10
@@ -489,14 +500,76 @@ country_event = {
 		hidden_effect = {
 			CHI = {
 				set_cosmetic_tag = CHI_revolution
-				transfer_state = 620
-				transfer_state = 605
-				transfer_state = 603
-				transfer_state = 602
-				transfer_state = 600
-				transfer_state = 595
-				transfer_state = 593
-				transfer_state = 592
+				if = {
+					limit = { QIN = { has_completed_focus = QIN_arrest_tongmenghui_leaders } }
+					random_list = {
+						50 = {
+							transfer_state = 620
+						}
+						50 = {
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 605
+						}
+						50 = {
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 603
+						}
+						50 = {
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 602
+						}
+						50 = {
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 600
+						}
+						50 = {
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 595
+						}
+						50 = {
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 593
+						}
+						50 = {
+						}
+					}
+					random_list = {
+						50 = {
+							transfer_state = 592
+						}
+						50 = {
+						}
+					}
+				}
+				else = {
+					transfer_state = 620
+					transfer_state = 605
+					transfer_state = 603
+					transfer_state = 602
+					transfer_state = 600
+					transfer_state = 595
+					transfer_state = 593
+					transfer_state = 592
+				}
+				
 				if = {
 					limit = {
 					SIK = {
@@ -515,7 +588,17 @@ country_event = {
 					ruling_party = democratic
 					elections_allowed = no
 				}
+				
 				load_oob = PRC_1911_uprising2
+				if = {
+					limit = { has_global_flag = QIN_hard_mode }
+					load_oob = PRC_1911_uprising2
+					load_oob = PRC_1911_uprising2
+					load_oob = PRC_1911_uprising2
+					load_oob = PRC_1911_uprising2
+					load_oob = PRC_1911_uprising2
+				}
+				
 				set_country_flag = second_uprising
 				QIN = {
 					set_country_flag = second_uprising

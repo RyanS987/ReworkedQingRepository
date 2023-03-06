@@ -752,7 +752,78 @@ QIN_xinhai_revolution_category = {
 		}
 		priority = 6
 	}
-    QIN_dec_end_isolation = { # End Isolation
+    QIN_dec_end_warlord = { #
+		icon = eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		fire_only_once = yes
+		available = {
+			has_idea = QIN_idea_confidence_campaign
+		}
+		visible = {
+			has_idea = QIN_idea_confidence_campaign
+		}
+		complete_effect = {
+			remove_ideas = QIN_idea_warlord_integration
+            
+			custom_effect_tooltip = QIN_effect_court_1
+			if = {
+				limit = {
+					QIN = { has_idea = QIN_idea_court_opposition }
+				}
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = 50
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = 50
+				}
+			}
+		}
+		priority = 17
+	}
+	
+	QIN_dec_end_minzhu = { #
+		icon = eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		fire_only_once = yes
+		available = {
+			has_idea = QIN_idea_minzhu_trials
+		}
+		visible = {
+			has_idea = QIN_idea_minzhu_trials
+		}
+		complete_effect = {
+			remove_ideas = QIN_idea_minzhu_trials
+            
+			custom_effect_tooltip = QIN_effect_court_1
+			if = {
+				limit = {
+					QIN = { has_idea = QIN_idea_court_opposition }
+				}
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = 50
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = 50
+				}
+			}
+		}
+		priority = 17
+	}
+	 QIN_dec_end_isolation = { # End Isolation
 		icon = generic_civil_support
 		allowed = {
 			original_tag = QIN
@@ -790,6 +861,7 @@ QIN_xinhai_revolution_category = {
 		}
 		priority = 17
 	}
+	
 	QIN_reform_3 = { #Poverty Relief
 		icon = generic_construction
 		allowed = {
@@ -1036,7 +1108,7 @@ QIN_xinhai_revolution_category = {
 		}
 		visible = {
 			has_government = neutrality
-			#has_completed_focus = QIN_divide_and_conquer
+			has_completed_focus = QIN_divide_and_conquer
 		}
 		cost = 0
 		days_re_enable = 7
@@ -1069,11 +1141,11 @@ QIN_xinhai_revolution_category = {
 				infantry_equipment > 1499
 			}
 			has_active_mission = QIN_xinhai_timer
-			#has_completed_focus = QIN_clean_the_armies
+			has_completed_focus = QIN_clean_the_armies
 		}
 		visible = {
 			has_government = neutrality
-			#has_completed_focus = QIN_divide_and_conquer
+			has_completed_focus = QIN_divide_and_conquer
 		}
 		cost = 0
 		days_re_enable = 100
@@ -1376,8 +1448,8 @@ QIN_beiyang_army_category = {
 		allowed = {
 			original_tag = QIN
 		} 
-		cost = 100
-		days_re_enable = 600
+		cost = 55
+		days_re_enable = 225
 		available = {
 			has_government = neutrality
 			has_idea = QIN_idea_beiyang_army

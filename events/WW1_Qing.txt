@@ -1,4 +1,178 @@
 ﻿add_namespace = ww1_qing
+country_event = { #
+	title = ww1_qing.242.t
+	desc = ww1_qing.242.d
+	id = ww1_qing.242
+	#is_triggered_only = no
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 200
+	}
+	#picture = GFX_report_event_generic_rally
+	trigger = {
+		original_tag = QIN
+		QIN = { has_government = neutrality }
+		QIN = { has_active_mission = QIN_xinhai_timer }
+		has_global_flag = QIN_flag_board_of_war_2
+	}
+	option = {
+		name = ww1_qing.242.a
+		ai_chance = { factor = 0 }
+
+		add_timed_idea = {
+			idea = QIN_idea_misplaced_purge
+			days = 200
+		}
+		
+		add_days_mission_timeout = {
+			mission = QIN_xinhai_timer
+			days = 20
+		}
+	}
+}
+country_event = { #Tongmenghui Plan Uncovered
+	title = ww1_qing.241.t
+	desc = ww1_qing.241.d
+	id = ww1_qing.241
+	#is_triggered_only = no
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 200
+	}
+	picture = GFX_report_event_chinese_soldiers
+	trigger = {
+		original_tag = QIN
+		QIN = { has_government = neutrality }
+		QIN = { has_active_mission = QIN_xinhai_timer }
+		has_global_flag = QIN_flag_board_of_war_1
+	}
+	option = {
+		name = ww1_qing.241.a
+		ai_chance = { factor = 0 }	
+		add_days_mission_timeout = {
+			mission = QIN_xinhai_timer
+			days = 150
+		}
+	}
+}
+country_event = { #Tongmenghui Cell in division discovered
+	title = ww1_qing.240.t
+	desc = ww1_qing.240.d
+	id = ww1_qing.240
+	#is_triggered_only = no
+	fire_only_once = yes
+	picture = GFX_report_event_chinese_soldiers
+	mean_time_to_happen = {
+		days = 900
+		modifier = {
+			factor = 0.3
+			has_global_flag = QIN_flag_board_of_war
+		}
+		modifier = {
+			factor = 0.9
+			has_completed_focus = QIN_massive_government_crackdown
+		}		
+		modifier = {
+			factor = 0.9
+			has_political_power > 100
+		}
+		modifier = {
+			factor = 1.2
+			has_stability > 0.6
+		}
+		modifier = {
+			factor = 1.2
+			democratic < 0.15
+		}
+		modifier = {
+			factor = 0.9
+			democratic > 0.4
+		}
+		modifier = {
+			factor = 0.83
+			democratic > 0.6
+		}
+	}
+	trigger = {
+		original_tag = QIN
+		QIN = { has_government = neutrality }
+		QIN = { has_active_mission = QIN_xinhai_timer }
+	}
+	option = {
+		name = ww1_qing.240.a
+		ai_chance = { factor = 0 }	
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -1000
+			producer = QIN
+		}
+		add_days_mission_timeout = {
+			mission = QIN_xinhai_timer
+			days = 100
+		}
+	}
+	option = {
+		name = ww1_qing.240.b
+		ai_chance = { factor = 0 }	
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -650
+			producer = QIN
+		}
+		add_days_mission_timeout = {
+			mission = QIN_xinhai_timer
+			days = 50
+		}
+		add_stability = 0.002
+	}
+	option = {
+		name = ww1_qing.240.c
+		ai_chance = { factor = 0 }
+		add_days_mission_timeout = {
+			mission = QIN_xinhai_timer
+			days = -35
+		}		
+	}
+}
+country_event = {
+	title = ww1_qing.239.t
+	desc = ww1_qing.239.d
+	id = ww1_qing.239
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+
+	picture = QIN_qing_imperial_cabinet_image
+	option = {
+		name = ww1_qing.239.a
+		ai_chance = { factor = 0 }
+		add_political_power = -50
+		
+		custom_effect_tooltip = QIN_effect_board_of_war
+		set_global_flag = QIN_flag_board_of_war
+		hidden_effect = {
+		random_list = {
+			50 = {
+				country_event = { id = ww1_qing.241 days = 360 }
+				set_global_flag = QIN_flag_board_of_war_1
+			}
+			50 = {
+				country_event = { id = ww1_qing.242 days = 360 }
+				set_global_flag = QIN_flag_board_of_war_2
+			}
+			15 = {
+			}
+		}
+		}
+		
+	}
+	option = {
+		name = ww1_qing.239.b
+		ai_chance = { factor = 100 }	
+	}
+}
 country_event = {
 	title = ww1_qing.238.t
 	desc = ww1_qing.238.d
@@ -34,6 +208,13 @@ country_event = {
 	option = {
 		name = ww1_qing.238.b
 		ai_chance = { factor = 1000 }	
+	}
+	option = {
+		name = ww1_qing.238.c
+		ai_chance = { factor = 1000 }
+		custom_effect_tooltip = QIN_effect_hard
+		set_global_flag = QIN_hard_mode
+		
 	}
 }
 country_event = {
@@ -1887,7 +2068,11 @@ country_event = {
 				mission = QIN_xinhai_timer
 				days = 365
 			}
+			
+		if = {
+		limit = {NOT = { has_global_flag = QIN_hard_mode }}
 		complete_national_focus = QIN_exploit_the_war
+		}
 	}
 }
 # Death of Yiquang
