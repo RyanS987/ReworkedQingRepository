@@ -905,6 +905,18 @@ country_event = {
 				add_state_core = 599
 				add_state_core = 594
 				add_state_core = 592
+				if = {
+					limit = { QIN = { has_completed_focus = QIN_consolidate_the_army } }
+					transfer_state = 596
+					transfer_state = 595
+					transfer_state = 598
+					transfer_state = 607
+					transfer_state = 622
+					transfer_state = 283
+					transfer_state = 755
+					transfer_state = 618
+				}
+				
 				drop_cosmetic_tag = yes
 				if = {
 					limit = { NOT = { QIN = { has_completed_focus = QIN_assasinate_sun_yat_sun } } }

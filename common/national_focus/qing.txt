@@ -16,7 +16,7 @@ focus_tree = {
 	#available_theorist
 	#available_designer
 	#available_industrial_concern
-	continuous_focus_position = { x = 20 y = 800 }
+	continuous_focus_position = { x = 20 y = 950 }
 ######### START OF QING REWORK ##########
 	focus = {
 		id = QIN_army_westernization
@@ -500,7 +500,7 @@ focus_tree = {
 		id = QIN_advisory_council
 		icon = GFX_focus_puyi_child
 		cost = 3
-		x = 24
+		x = 25
 		y = 0
 		cancel_if_invalid = no
 		continue_if_invalid = no
@@ -1148,14 +1148,18 @@ focus_tree = {
 		available_if_capitulated = no
 		prerequisite = {
 			focus = QIN_chinese_welfare
+			focus = QIN_anti_corruption_council
 		}
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
+			OR = {
 			QIN_kang_youwei = {
 				OR = {
 				is_political_advisor = yes
 				is_country_leader = yes
 				}
+			}
+			has_completed_focus = QIN_anti_corruption_council
 			}
 
 		}
@@ -2790,7 +2794,7 @@ focus_tree = {
 	focus = {
 		id = QIN_reform_and_recovery
 		cost = 10
-		x = -5
+		x = -11
 		y = 2
 		icon = GFX_focus_qing_imperial
 		relative_position_id = QIN_national_assembly
@@ -3151,6 +3155,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		mutually_exclusive = { focus = QIN_divide_and_conquer }
+		mutually_exclusive = { focus = QIN_third_option }
 		prerequisite = {
 			focus = QIN_tongmenghui_strategy
 		}
@@ -3196,6 +3201,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		mutually_exclusive = { focus = QIN_diminish_the_kuomintang }
+		mutually_exclusive = { focus = QIN_third_option }
 		prerequisite = {
 			focus = QIN_tongmenghui_strategy
 		}
@@ -3205,16 +3211,19 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 60
+			}
 			custom_effect_tooltip = QIN_effect_prevent_tongmenghui
 		}	
 		ai_will_do = {
 			factor = 0
 		}
 		search_filters = { 
-			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MINORITY
 		}
 	}
-	
 	focus = {
 		id = QIN_secure_the_minorities
 		cost = 8
@@ -3238,6 +3247,60 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						has_idea = QIN_idea_tongmenghui
+						has_idea = QIN_idea_tongmenghui_2
+						has_idea = QIN_idea_tongmenghui_3
+						has_idea = QIN_idea_tongmenghui_4
+						has_idea = QIN_idea_tongmenghui_5
+					}
+				}
+			
+					if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui
+						add_idea = QIN_idea_tongmenghui_2
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_2
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui_2
+						add_idea = QIN_idea_tongmenghui_3
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_3
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui_3
+						add_idea = QIN_idea_tongmenghui_4
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_4
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui_4
+						add_idea = QIN_idea_tongmenghui_5
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_5
+					}
+					remove_ideas = { QIN_idea_tongmenghui_5 }
+					}
+			}
 			custom_effect_tooltip = QIN_effect_minorities
 			set_global_flag = minority_rebellion_prevented
 		}	
@@ -3245,7 +3308,7 @@ focus_tree = {
 			factor = 0
 		}
 		search_filters = { 
-			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MINORITY
 		}
 	}
 	focus = {
@@ -3286,7 +3349,63 @@ focus_tree = {
 					mission = QIN_xinhai_timer
 					days = 200
 				}
+				
+				if = {
+				limit = {
+					OR = {
+						has_idea = QIN_idea_tongmenghui
+						has_idea = QIN_idea_tongmenghui_2
+						has_idea = QIN_idea_tongmenghui_3
+						has_idea = QIN_idea_tongmenghui_4
+						has_idea = QIN_idea_tongmenghui_5
+					}
+				}
+			
+					if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui
+						add_idea = QIN_idea_tongmenghui_2
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_2
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui_2
+						add_idea = QIN_idea_tongmenghui_3
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_3
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui_3
+						add_idea = QIN_idea_tongmenghui_4
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_4
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui_4
+						add_idea = QIN_idea_tongmenghui_5
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_5
+					}
+					remove_ideas = { QIN_idea_tongmenghui_5 }
+					}
+				}
 			}
+			
 			
 			custom_effect_tooltip = QIN_effect_move_against_tongmenghui_warning 
 			add_days_mission_timeout = {
@@ -3298,7 +3417,7 @@ focus_tree = {
 			factor = 0
 		}
 		search_filters = { 
-			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MINORITY
 		}
 	}
 	focus = {
@@ -3335,6 +3454,72 @@ focus_tree = {
 					mission = QIN_xinhai_timer
 					days = 170
 				}
+				if = {
+				limit = {
+					OR = {
+						has_idea = QIN_idea_tongmenghui
+						has_idea = QIN_idea_tongmenghui_2
+						has_idea = QIN_idea_tongmenghui_3
+						has_idea = QIN_idea_tongmenghui_4
+						has_idea = QIN_idea_tongmenghui_5
+					}
+				}
+			
+				random_list = {
+				66 = {
+					if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui
+						add_idea = QIN_idea_tongmenghui_2
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_2
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui_2
+						add_idea = QIN_idea_tongmenghui_3
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_3
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui_3
+						add_idea = QIN_idea_tongmenghui_4
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_4
+					}
+					swap_ideas = {
+						remove_idea = QIN_idea_tongmenghui_4
+						add_idea = QIN_idea_tongmenghui_5
+					}
+					}
+					else_if = {
+					limit = {
+					has_idea = QIN_idea_tongmenghui_5
+					}
+					remove_ideas = { QIN_idea_tongmenghui_5 }
+					}
+					else = {
+					}
+				}
+				33 = {
+					add_popularity = {
+						ideology = democratic
+						popularity = -0.05
+					}
+				}
+				}
+			}
 			}
 			custom_effect_tooltip = QIN_effect_move_against_tongmenghui_warning 
 			add_days_mission_timeout = {
@@ -3346,7 +3531,7 @@ focus_tree = {
 			factor = 0
 		}
 		search_filters = { 
-			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MINORITY
 		}
 	}
 	
@@ -3364,7 +3549,15 @@ focus_tree = {
 			focus = QIN_reaffirm_the_qing_mandate
 		}
 		available = {
-			has_government = neutrality
+			OR = {
+				has_government = neutrality
+				QIN_kang_youwei = {
+					OR = {
+						is_political_advisor = yes
+						is_country_leader = yes
+					}
+				}
+			}
 		}
 		bypass = {
 		}
@@ -3374,6 +3567,9 @@ focus_tree = {
 		}	
 		ai_will_do = {
 			factor = 15
+		}
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
 		}
 	}
 	focus = {
@@ -3390,7 +3586,15 @@ focus_tree = {
 			focus = QIN_prove_our_mandate
 		}
 		available = {
-			has_government = neutrality
+			OR = {
+				has_government = neutrality
+				QIN_kang_youwei = {
+					OR = {
+						is_political_advisor = yes
+						is_country_leader = yes
+					}
+				}
+			}
 		}
 		bypass = {
 		}
@@ -3459,7 +3663,7 @@ focus_tree = {
 		search_filters = { 
 			FOCUS_FILTER_STABILITY
 			FOCUS_FILTER_WAR_SUPPORT
-			#FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_POLITICAL
 		}
 	}
 	focus = {
@@ -3479,7 +3683,15 @@ focus_tree = {
 				NOT = { has_idea = QIN_idea_court_opposition }
 				fascism < 0.15
 			}
-			has_government = neutrality
+			OR = {
+				has_government = neutrality
+				QIN_kang_youwei = {
+					OR = {
+						is_political_advisor = yes
+						is_country_leader = yes
+					}
+				}
+			}
 		}
 		bypass = {
 		}
@@ -3617,7 +3829,15 @@ focus_tree = {
 					include_locked = yes
 				} 
 			}
-			has_government = neutrality
+			OR = {
+				has_government = neutrality
+				QIN_kang_youwei = {
+					OR = {
+						is_political_advisor = yes
+						is_country_leader = yes
+					}
+				}
+			}
 		}
 		bypass = {
 		}
@@ -3656,7 +3876,7 @@ focus_tree = {
 		}	
 	}
 	focus = {
-		id = QIN_centralization_of_power #Manchu_Centralization (This is not absolute monarchy, its taking power away from regional powers)
+		id = QIN_centralization_of_power # (This is not absolute monarchy, its taking power away from regional powers)
 		cost = 10
 		x = -1
 		y = 4
@@ -3679,7 +3899,15 @@ focus_tree = {
 				NOT = { has_idea = QIN_idea_court_opposition }
 				neutrality > 0.7
 			}
-			has_government = neutrality
+			OR = {
+				has_government = neutrality
+				QIN_kang_youwei = {
+					OR = {
+						is_political_advisor = yes
+						is_country_leader = yes
+					}
+				}
+			}
 		}
 		bypass = {
 		}
@@ -3697,7 +3925,7 @@ focus_tree = {
 			custom_effect_tooltip = QIN_effect_centralization
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = -150
+				days = -200
 			}
 			if = {
 			limit = { has_idea = QIN_idea_announce_reform }
@@ -3713,7 +3941,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_regional_authority #Maintain_Regional_authority
-		cost = 10
+		cost = 9
 		x = 2
 		y = 4
 		icon = GFX_focus_generic_self_management
@@ -3734,12 +3962,15 @@ focus_tree = {
 				has_global_flag = warlord_era_end
 			}
 			OR = {
-				has_stability > 0.5
+				has_stability > 0.45
 				NOT = { has_global_flag = QIN_flag_first_xinhai }
 			}
 			has_government = neutrality
 		}
 		bypass = {
+		}
+		search_filters = { 
+			FOCUS_FILTER_STABILITY
 		}
 		ai_will_do = {
 			factor = 0
@@ -3778,6 +4009,9 @@ focus_tree = {
 			add_ideas = QIN_idea_minzhu_trials
 			unlock_decision_tooltip = QIN_dec_end_minzhu
 		}	
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
+		}
 	}
 	focus = {
 		id = QIN_confidence_campaign #confidence campaign
@@ -3805,12 +4039,15 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = QIN_idea_confidence_campaign
 			unlock_decision_tooltip = QIN_dec_end_warlord
-		}	
+		}
+		search_filters = { 
+			FOCUS_FILTER_STABILITY
+		}		
 	}
 	
 	focus = {
 		id = QIN_warlord_appeasement
-		cost = 10
+		cost = 8
 		x = 2
 		y = 0
 		icon = GFX_goal_generic_major_alliance
@@ -3842,8 +4079,53 @@ focus_tree = {
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 1
 			}
-			
-		}	
+			if = {
+			limit = {
+			has_idea = QIN_idea_low_legitimacy
+			}
+			swap_ideas = {
+				remove_idea = QIN_idea_low_legitimacy
+				add_idea = QIN_idea_low_legitimacy_2
+			}
+			}
+			else_if = {
+			limit = {
+			has_idea = QIN_idea_low_legitimacy_2
+			}
+			swap_ideas = {
+				remove_idea = QIN_idea_low_legitimacy_2
+				add_idea = QIN_idea_low_legitimacy_3
+			}
+			}
+			else_if = {
+			limit = {
+			has_idea = QIN_idea_low_legitimacy_3
+			}
+			swap_ideas = {
+				remove_idea = QIN_idea_low_legitimacy_3
+				add_idea = QIN_idea_low_legitimacy_4
+			}
+			}
+			else_if = {
+			limit = {
+			has_idea = QIN_idea_low_legitimacy_4
+			}
+			swap_ideas = {
+				remove_idea = QIN_idea_low_legitimacy_4
+				add_idea = QIN_idea_low_legitimacy_5
+			}
+			}
+			else_if = {
+			limit = {
+			has_idea = QIN_idea_low_legitimacy_5
+			}
+			add_stability = 0.05
+			}
+		}
+		search_filters = { 
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_WAR_SUPPORT
+		}
 	}
 	focus = {
 		id = QIN_collaboration_against_revolution
@@ -3869,11 +4151,14 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = QIN_idea_warlord_collab
 		}	
+		search_filters = { 
+			FOCUS_FILTER_STABILITY
+		}
 	}
 	
 	focus = {
-		id = QIN_restore_confidence_in_the_government
-		cost = 12
+		id = QIN_restore_confidence_in_the_government #sincerity
+		cost = 9
 		x = -1
 		y = 1
 		relative_position_id = QIN_regional_authority
@@ -4031,7 +4316,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_imperial_bonds
-		cost = 10
+		cost = 8
 		x = 0
 		y = 1
 		icon = GFX_focus_generic_money
@@ -4070,7 +4355,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_imperial_integrity
-		cost = 12
+		cost = 10
 		x = 3
 		y = 3
 		icon = GFX_focus_chi_people_defence
@@ -4101,11 +4386,234 @@ focus_tree = {
 		}
 		search_filters = { 
 			FOCUS_FILTER_STABILITY
-			FOCUS_FILTER_WAR_SUPPORT
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_MINORITY
 		}
 	}
+	
+	focus = {
+		id = QIN_third_option
+		cost = 8
+		x = 11
+		y = 2
+		icon = GFX_focus_sun_tzu
+		relative_position_id = QIN_reaffirm_the_qing_mandate
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		mutually_exclusive = { focus = QIN_divide_and_conquer }
+		mutually_exclusive = { focus = QIN_diminish_the_kuomintang }
+		prerequisite = {
+			focus = QIN_tongmenghui_strategy
+		}
+		available = {
+			has_global_flag = QIN_hard_mode
+		}
+		bypass = {
+			
+		}
+		completion_reward = {
+			add_political_power = 25
+			custom_effect_tooltip = QIN_effect_third_option
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = QIN_ignite_the_flames
+		cost = 8
+		x = 3
+		y = 1
+		icon = GFX_focus_QIN_kuomintang_fire
+		relative_position_id = QIN_third_option
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		mutually_exclusive = { focus = QIN_divide_and_conquer }
+		mutually_exclusive = { focus = QIN_diminish_the_kuomintang }
+		prerequisite = {
+			focus = QIN_third_option
+		}
+		available = {
+			has_active_mission = QIN_xinhai_timer
+		}
+		bypass = {
+			
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -2000
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = QIN_on_our_terms
+		cost = 8
+		x = 3
+		y = 3
+		icon = GFX_focus_marmara_artillery
+		relative_position_id = QIN_third_option
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		mutually_exclusive = { focus = QIN_divide_and_conquer }
+		mutually_exclusive = { focus = QIN_diminish_the_kuomintang }
+		prerequisite = {
+			focus = QIN_ignite_the_flames
+		}
+		available = {
+			has_active_mission = QIN_xinhai_timer
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -2000
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = QIN_force_the_issue
+		cost = 8
+		x = 3
+		y = 4
+		icon = GFX_focus_tur_asien_korps
+		relative_position_id = QIN_third_option
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		mutually_exclusive = { focus = QIN_divide_and_conquer }
+		mutually_exclusive = { focus = QIN_diminish_the_kuomintang }
+		prerequisite = {
+			focus = QIN_on_our_terms
+		}
+		available = {
+			has_active_mission = QIN_xinhai_timer
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -2000
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = QIN_consolidate_the_army
+		cost = 8
+		x = 2
+		y = 2
+		icon = GFX_focus_secret_rearmament
+		relative_position_id = QIN_third_option
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		mutually_exclusive = { focus = QIN_divide_and_conquer }
+		mutually_exclusive = { focus = QIN_diminish_the_kuomintang }
+		prerequisite = {
+			focus = QIN_third_option
+		}
+		available = {
+		}
+		bypass = {
+			
+		}
+		completion_reward = {
+			custom_effect_tooltip = QIN_effect_consolidate_forces
+			add_ideas = QIN_idea_consolidated_forces
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = QIN_treaty_military_entry
+		cost = 8
+		x = 0
+		y = 2
+		icon = GFX_focus_RAJ_all_india_forward_bloc
+		relative_position_id = QIN_third_option
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		mutually_exclusive = { focus = QIN_divide_and_conquer }
+		mutually_exclusive = { focus = QIN_diminish_the_kuomintang }
+		prerequisite = {
+			focus = QIN_third_option
+		}
+		available = {
+		}
+		bypass = {
+			
+		}
+		completion_reward = {
+			RAJ = { country_event = ww1_qing.251 }
+			FRA = { country_event = ww1_qing.251 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = QIN_manuever_doctrine
+		cost = 8
+		x = 1
+		y = 3
+		icon = GFX_focus_generic_strike_at_democracy1
+		relative_position_id = QIN_third_option
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		mutually_exclusive = { focus = QIN_divide_and_conquer }
+		mutually_exclusive = { focus = QIN_diminish_the_kuomintang }
+		prerequisite = {
+			focus = QIN_consolidate_the_army
+			focus = QIN_treaty_military_entry
+		}
+		available = {
+		
+		}
+		bypass = {
+			
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.9
+				uses = 2
+				category = cat_mobile_warfare
+			}
+			add_ideas = QIN_idea_manuever_doctrine
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = {
+		}
+	}
+	
 	focus = {
 		id = QIN_first_qiongren_plan
 		cost = 10
@@ -4129,8 +4637,8 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
-			add_stability = 0.02
             unlock_decision_tooltip = QIN_reform_3
+			add_stability = 0.02
 			random_owned_controlled_state = {
 				limit = {
 					infrastructure < 5
@@ -4574,35 +5082,8 @@ focus_tree = {
 				}
 			}
 		}
-	}
-    focus = {
-		id = QIN_pave_way_for_industrialization
-		icon = GFX_focus_seven_year_plan
-		cost = 10
-        relative_position_id = QIN_boxer_treaty
-		prerequisite = {
-			focus = QIN_boxer_treaty
-		}
-		x = 0
-		y = 1
-		
-		available = {
-		}
-		bypass = {
-			OR = {
-                has_idea = war_economy
-                has_idea = tot_economic_mobilisation
-                has_idea = partial_economic_mobilisation
-            }
-		}
-		completion_reward = {
-			add_ideas = partial_economic_mobilisation
-		}
-		search_filters = {
+		search_filters = { 
 			FOCUS_FILTER_INDUSTRY
-		}
-		ai_will_do = {
-			factor = 1
 		}
 	}
     focus = {
@@ -5488,6 +5969,9 @@ focus_tree = {
 				is_historical_focus_on = no
 			  }
 		}
+		search_filters = { 
+			FOCUS_FILTER_MINORITY
+		}
 	}
 	focus = {
 		id = QIN_split_the_tongmenghui
@@ -5565,6 +6049,11 @@ focus_tree = {
 				is_historical_focus_on = no
 			  }
 		}
+		search_filters = { 
+			#FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_MINORITY
+		}
 	}
 	focus = {
 		id = QIN_assasinate_sun_yat_sen
@@ -5573,6 +6062,8 @@ focus_tree = {
 		y = 1
 		icon = GFX_focus_sun_yat_sen
 		relative_position_id = QIN_split_the_tongmenghui
+		cancel_if_invalid = no
+		continue_if_invalid = no
 		available_if_capitulated = no
 		prerequisite = {
 			focus = QIN_split_the_tongmenghui
@@ -5682,16 +6173,15 @@ focus_tree = {
 			focus = QIN_arrest_tongmenghui_leaders
 		}
 		available = {
-			NOT = { has_global_flag = xinhai_revolution
-			has_government = democratic
+			NOT = { 
+				has_government = democratic
 			}
 		}
 		bypass = {
 		}
 		completion_reward = {
-		effect_tooltip = {
-		remove_ideas = CHI_idea_xinhai_revolution
-		}
+		add_ideas = QIN_idea_infiltrated_tongmenghui
+		
 		custom_effect_tooltip = line_description
 		if = {
 			limit = {
@@ -5772,7 +6262,6 @@ focus_tree = {
 		}
 		available = {
 			#NOT = { has_idea = QIN_idea_court_opposition }
-			has_government = neutrality
 		}
 		bypass = {
 		}
@@ -5798,7 +6287,7 @@ focus_tree = {
 	focus = {
 		id = QIN_find_corrupt_officials
 		cost = 10
-		x = -16
+		x = -6
 		y = 1
 		icon = GFX_focus_generic_self_management
 		relative_position_id = QIN_national_assembly
@@ -5836,26 +6325,891 @@ focus_tree = {
 		}
 		}	
 		ai_will_do = {
-			factor = 0
+			factor = 10
 		}
 		search_filters = { 
 			#FOCUS_FILTER_INDUSTRY
-			#FOCUS_FILTER_STABILITY
-			FOCUS_FILTER_MINORITY
+			FOCUS_FILTER_STABILITY
+			#FOCUS_FILTER_MINORITY
 		}
 	}
 	focus = {
-		id = QIN_massive_government_crackdown
-		cost = 20
+		id = QIN_concurrently_exclusive
+		cost = 0
 		x = 0
 		y = 1
-		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		icon = GFX_focus_concurrently_exclusive
+		relative_position_id = QIN_find_corrupt_officials
+		available = {
+			has_global_flag = QIN_concurrently_exclusive_description
+		}
+		bypass = {
+		}
+		completion_reward = {
+			custom_effect_tooltip = QIN_effect_concurrently_exclusive2
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	focus = {
+		id = QIN_pardon_corruption #Accept Provincial Bribes
+		cost = 5
+		x = -2
+		y = 1
+		icon = GFX_focus_TUR_reform_ottoman_bank
 		relative_position_id = QIN_find_corrupt_officials
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = no
 		prerequisite = {
 			focus = QIN_find_corrupt_officials
+		}
+		available = {
+			NOT = { has_completed_focus = QIN_massive_government_crackdown }
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+			
+			if = {
+				limit = { has_completed_focus = QIN_appointment_by_merit }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_appointment_by_merit
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				remove_ideas = QIN_idea_merit_appointments
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -100
+				}
+				custom_effect_tooltip = QIN_effect_court_5
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = -75
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_crackdown_on_bribery 
+				}
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_crackdown_on_bribery
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = 50
+				add_stability = -0.1
+				custom_effect_tooltip = QIN_effect_court_5
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = -75
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_government_trials }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_government_trials
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = 50
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -150
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	focus = {
+		id = QIN_jumping_appeals
+		cost = 5
+		x = -2
+		y = 2
+		icon = GFX_focus_eagle
+		relative_position_id = QIN_find_corrupt_officials
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		prerequisite = {
+			focus = QIN_pardon_corruption
+		}
+		available = {
+			NOT = { has_completed_focus = QIN_massive_government_crackdown }
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_political_power = 200
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -100
+			}
+			custom_effect_tooltip = QIN_effect_court_5
+			modify_timed_idea = {
+				idea = QIN_idea_court_opposition
+				days = -50
+			}
+			
+			if = {
+				limit = { has_completed_focus = QIN_appointment_by_merit }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_appointment_by_merit
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				remove_ideas = QIN_idea_merit_appointments
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -100
+				}
+				custom_effect_tooltip = QIN_effect_court_5
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = -75
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_crackdown_on_bribery 
+				}
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_crackdown_on_bribery
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = 50
+				add_stability = -0.1
+				custom_effect_tooltip = QIN_effect_court_5
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = -75
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_government_trials }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_government_trials
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = 50
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -150
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	focus = {
+		id = QIN_paid_appointments
+		cost = 7
+		x = -2
+		y = 3
+		icon = GFX_focus_mex_privatisation
+		relative_position_id = QIN_find_corrupt_officials
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		prerequisite = {
+			focus = QIN_jumping_appeals
+		}
+		available = {
+			NOT = { has_completed_focus = QIN_massive_government_crackdown }
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_ideas = QIN_idea_paid_appointments
+			custom_effect_tooltip = QIN_effect_court_5
+			modify_timed_idea = {
+				idea = QIN_idea_court_opposition
+				days = -50
+			}
+			
+			if = {
+				limit = { has_completed_focus = QIN_appointment_by_merit }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_appointment_by_merit
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				remove_ideas = QIN_idea_merit_appointments
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -100
+				}
+				custom_effect_tooltip = QIN_effect_court_5
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = -75
+				}
+				
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_crackdown_on_bribery 
+				}
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_crackdown_on_bribery
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = 50
+				add_stability = -0.1
+				custom_effect_tooltip = QIN_effect_court_5
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = -75
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_government_trials }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_government_trials
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = 50
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -150
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	focus = {
+		id = QIN_efficient_government #Qing Bureaucracy
+		cost = 9
+		x = -1
+		y = 4
+		icon = GFX_focus_generic_self_management
+		relative_position_id = QIN_find_corrupt_officials
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		mutually_exclusive = { focus = QIN_massive_government_crackdown }
+		prerequisite = {
+			focus = QIN_paid_appointments
+		}
+		available = {
+			OR = {
+				has_government = neutrality
+				QIN_kang_youwei = {
+					OR = {
+						is_political_advisor = yes
+						is_country_leader = yes
+					}
+				}
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			if = {
+			limit = {
+			has_idea = QIN_idea_political_corruption
+			}
+			swap_ideas = {
+				remove_idea = QIN_idea_political_corruption
+				add_idea = QIN_idea_political_corruption_tool
+			}
+			}
+			else_if = {
+			limit = {
+			has_idea = QIN_idea_political_corruption_2
+			}
+			swap_ideas = {
+				remove_idea = QIN_idea_political_corruption_2
+				add_idea = QIN_idea_political_corruption_tool
+			}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	focus = {
+		id = QIN_control_the_board_of_punishment
+		cost = 8
+		x = -1
+		y = 1
+		icon = GFX_goal_generic_forceful_treaty
+		relative_position_id = QIN_efficient_government
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		prerequisite = {
+			focus = QIN_efficient_government
+		}
+		available = {
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_political_power = 120
+			swap_ideas = {
+				remove_idea = QIN_idea_political_corruption_tool
+				add_idea = QIN_idea_political_corruption_tool_2
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_POLITICAL
+		}
+	}
+	focus = {
+		id = QIN_factories_for_favors
+		cost = 10
+		x = -1
+		y = 1
+		icon = GFX_focus_generic_economic_profit
+		relative_position_id = QIN_control_the_board_of_punishment
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		prerequisite = {
+			focus = QIN_control_the_board_of_punishment
+		}
+		available = {
+			OR = {
+				has_completed_focus = QIN_reform_and_recovery
+				has_completed_focus = QIN_purchase_of_machines
+				has_completed_focus = QIN_mauser_contract
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_political_power = -100
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIN_british_manufacturer
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}	
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIN_german_manufacturer
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}	
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIN_reform_and_recovery
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}	
+			}
+			custom_effect_tooltip = QIN_effect_factories_for_favors
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_INDUSTRY
+		}
+	}
+	
+	focus = {
+		id = QIN_manchu_centralization
+		cost = 10
+		x = 0
+		y = 2
+		icon = GFX_focus_chi_qing_china
+		relative_position_id = QIN_control_the_board_of_punishment
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		prerequisite = {
+			focus = QIN_control_the_board_of_punishment
+		}
+		available = {
+			OR = {
+				has_government = neutrality
+				QIN_kang_youwei = {
+					OR = {
+						is_political_advisor = yes
+						is_country_leader = yes
+					}
+				}
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
+			}
+		
+			remove_ideas = QIN_idea_court_opposition
+			custom_effect_tooltip = QIN_effect_only_once
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = QIN_government_trials #Corruption is Treason
+		cost = 5
+		x = 2
+		y = 1
+		icon = GFX_focus_rom_royal_dictatorship
+		relative_position_id = QIN_find_corrupt_officials
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		prerequisite = {
+			focus = QIN_find_corrupt_officials
+		}
+		available = {
+			NOT = { has_completed_focus = QIN_efficient_government }
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_completed_focus = QIN_empower_the_empire_unity_party
+				has_completed_focus = QIN_expand_parliament
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 150
+			}
+			
+			if = {
+				limit = { has_completed_focus = QIN_paid_appointments }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_paid_appointments
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				remove_ideas = QIN_idea_paid_appointments
+				custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_jumping_appeals
+				}
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive1
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_jumping_appeals
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = -200
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = 100
+				}
+				custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_pardon_corruption }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive1
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_pardon_corruption
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = -200
+				add_stability = 0.05
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_MINORITY
+		}
+	}
+	focus = {
+		id = QIN_crackdown_on_bribery
+		cost = 5
+		x = 2
+		y = 2
+		icon = GFX_goal_demand_sudetenland
+		relative_position_id = QIN_find_corrupt_officials
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		prerequisite = {
+			focus = QIN_government_trials
+		}
+		available = {
+			NOT = { has_completed_focus = QIN_efficient_government }
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_completed_focus = QIN_empower_the_empire_unity_party
+				has_completed_focus = QIN_expand_parliament
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.1
+			custom_effect_tooltip = QIN_effect_court_2
+			if = {
+				limit = {
+					QIN = { has_idea = QIN_idea_court_opposition }
+				}
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = 75
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = 75
+				}
+			}
+			
+			if = {
+				limit = { has_completed_focus = QIN_paid_appointments }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_paid_appointments
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				remove_ideas = QIN_idea_paid_appointments
+				custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_jumping_appeals
+				}
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive1
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_jumping_appeals
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = -200
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = 100
+				}
+				custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_pardon_corruption }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive1
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_pardon_corruption
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = -200
+				add_stability = 0.05
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_STABILITY
+		}
+	}
+	focus = {
+		id = QIN_appointment_by_merit
+		cost = 7
+		x = 2
+		y = 3
+		icon = GFX_focus_army_is_ready
+		relative_position_id = QIN_find_corrupt_officials
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		prerequisite = {
+			focus = QIN_crackdown_on_bribery
+		}
+		available = {
+			NOT = { has_completed_focus = QIN_efficient_government }
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_completed_focus = QIN_empower_the_empire_unity_party
+				has_completed_focus = QIN_expand_parliament
+			}
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_ideas = QIN_idea_merit_appointments
+			custom_effect_tooltip = line_description
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 100
+			}
+			custom_effect_tooltip = QIN_effect_court_2
+			if = {
+				limit = {
+					QIN = { has_idea = QIN_idea_court_opposition }
+				}
+				modify_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = 75
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = QIN_idea_court_opposition
+					days = 75
+				}
+			}
+			
+			if = {
+				limit = { has_completed_focus = QIN_paid_appointments }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_paid_appointments
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				remove_ideas = QIN_idea_paid_appointments
+				custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_jumping_appeals
+				}
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive1
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_jumping_appeals
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = -200
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = 100
+				}
+				custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = QIN_pardon_corruption }
+				custom_effect_tooltip = QIN_effect_concurrently_exclusive1
+				custom_effect_tooltip = line_description
+				uncomplete_national_focus = {
+					focus = QIN_pardon_corruption
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+				
+				add_political_power = -200
+				add_stability = 0.05
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		search_filters = { 
+			FOCUS_FILTER_MINORITY
+		}
+	}
+	
+	focus = {
+		id = QIN_massive_government_crackdown
+		cost = 15
+		x = 1
+		y = 4
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		relative_position_id = QIN_find_corrupt_officials
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		mutually_exclusive = { focus = QIN_efficient_government }
+		prerequisite = {
+			focus = QIN_appointment_by_merit
 		}
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
@@ -5890,7 +7244,7 @@ focus_tree = {
 			
 			
 			
-		custom_effect_tooltip = QIN_effect_bribe_consequence_2
+		#custom_effect_tooltip = QIN_effect_bribe_consequence_2
 		}	
 		ai_will_do = {
 			factor = 0
@@ -5901,65 +7255,9 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = QIN_utilize_bribery #Solocit bribes
-		cost = 5
-		x = 2
-		y = 1
-		icon = GFX_goal_continuous_restrict_freedom
-		relative_position_id = QIN_find_corrupt_officials
-		cancel_if_invalid = no
-		continue_if_invalid = no
-		available_if_capitulated = no
-		prerequisite = {
-			focus = QIN_find_corrupt_officials
-		}
-		available = {
-			has_stability > 0.05
-			check_variable = { QIN_var_bribe > 0 }
-			NOT = { has_completed_focus =  QIN_massive_government_crackdown }
-		}
-		bypass = {
-		}
-		completion_reward = {
-			add_stability = QIN_var_bribe_stability
-				add_political_power = QIN_var_bribe
-				
-				custom_effect_tooltip = QIN_effect_court_5
-				modify_timed_idea = {
-					idea = QIN_idea_court_opposition
-					days = -40
-				}
-				
-
-			custom_effect_tooltip = line_description
-			add_to_variable = {
-				var = QIN_var_bribe
-				value = -15
-				tooltip = QIN_effect_bribe_consequence
-			}
-			add_to_variable = {
-				var = QIN_var_bribe_stability
-				value = -0.03
-			}
-			hidden_effect = {
-				uncomplete_national_focus = {
-				  focus = QIN_utilize_bribery
-				  uncomplete_children = no
-				  refund_political_power = no
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0
-		}
-		search_filters = { 
-			FOCUS_FILTER_POLITICAL
-		}
-	}
-	focus = {
 		id = QIN_anti_corruption_council
 		cost = 9
-		x = 1
+		x = 0
 		y = 1
 		icon = GFX_focus_generic_court
 		relative_position_id = QIN_massive_government_crackdown
@@ -5976,14 +7274,11 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
-			add_political_power = -65
+			add_political_power = -50
 			add_ideas = {
 				QIN_idea_anti_corruption_council
 			}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 15
-			}
+			
 			if = {
 			limit = {
 			has_idea = QIN_idea_low_legitimacy
@@ -6054,14 +7349,14 @@ focus_tree = {
 		}
 		search_filters = { 
 			#FOCUS_FILTER_INDUSTRY
-			#FOCUS_FILTER_STABILITY
-			FOCUS_FILTER_MINORITY
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_WAR_SUPPORT
 		}
 	}
 	focus = {
 		id = QIN_elections_for_the_corruption_council
 		cost = 15
-		x = 0
+		x = -1
 		y = 1
 		icon = GFX_goal_FRA_royal_prerogatives
 		relative_position_id = QIN_anti_corruption_council
@@ -6070,22 +7365,32 @@ focus_tree = {
 		available_if_capitulated = no
 		prerequisite = {
 			focus = QIN_anti_corruption_council
+			focus = QIN_efficient_government
 		}
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
 			NOT = { has_global_flag = xinhai_revolution }
+			has_global_flag = QIN_flag_judicial_reform_completed
 		}
 		bypass = {
 		}
 		completion_reward = {
-			swap_ideas = {
-			remove_idea = QIN_idea_anti_corruption_council
-			add_idea = QIN_idea_elected_anti_corruption_council
+			if = {
+				limit = { NOT = { has_variable = QIN_var_legal_reform } }
+				custom_effect_tooltip = QIN_effect_legal_reform_not_started
 			}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 15
+			else_if = {
+				limit = { check_variable = { QIN_var_legal_reform > 5 } }
+				add_ideas = QIN_idea_western_legal_code
 			}
+			else_if = {
+				limit = { check_variable = { QIN_var_legal_reform < 2 } }
+				add_ideas = QIN_idea_lijiao_confucian_legal_code
+			}
+			else = {
+				add_ideas = QIN_idea_reformed_confucian_legal_code
+			}
+			
 			if = {
 			limit = {
 			has_idea = QIN_idea_low_legitimacy
@@ -6131,6 +7436,7 @@ focus_tree = {
 				add_idea = QIN_idea_low_legitimacy_6
 			}
 			}
+			
 			custom_effect_tooltip = QIN_effect_court_2
 		if = {
 			limit = {
@@ -6160,7 +7466,7 @@ focus_tree = {
 	focus = {
 		id = QIN_state_level_anti_corruption
 		cost = 10
-		x = 0
+		x = 1
 		y = 1
 		icon = GFX_focus_stabilize_democracy
 		relative_position_id = QIN_elections_for_the_corruption_council
@@ -6168,7 +7474,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		prerequisite = {
-			focus = QIN_elections_for_the_corruption_council
+			focus = QIN_anti_corruption_council
 		}
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
@@ -6178,7 +7484,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			swap_ideas = {
-			remove_idea = QIN_idea_elected_anti_corruption_council
+			remove_idea = QIN_idea_anti_corruption_council
 			add_idea = QIN_idea_state_anti_corruption_council
 			}
 			add_days_mission_timeout = {
@@ -6252,7 +7558,7 @@ focus_tree = {
 			factor = 0
 		}
 		search_filters = { 
-			#FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_WAR_SUPPORT
 			FOCUS_FILTER_STABILITY
 			FOCUS_FILTER_MINORITY
 		}
@@ -6260,7 +7566,7 @@ focus_tree = {
 	focus = {
 		id = QIN_a_deal_with_the_west #Purchase Agreement
 		cost = 5
-		x = -7
+		x = -13
 		y = 6
 		icon = GFX_focus_focus_fra_maquis
 		relative_position_id = QIN_national_assembly
@@ -6324,15 +7630,14 @@ focus_tree = {
 		
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
-			OR = {
-			NOT = { has_global_flag = guangzhou_uprising }
-			QIN = { has_country_flag = xinhai_victory }
-			}
+			NOT = { has_global_flag = xinhai_revolution }
 			OR = {
 				NOT = { has_completed_focus = QIN_undermine_the_emperor }
 				has_global_flag = QIN_flag_decided_no_restrictions
 			}
+			has_global_flag = QIN_flag_judicial_reform_completed
 			OR = {
+			has_completed_focus = QIN_state_level_anti_corruption
 			has_completed_focus = QIN_imperial_propaganda
 			has_completed_focus = QIN_execute_tongmenghui_leaders
 			has_completed_focus = QIN_confucian_socialism
@@ -9733,13 +11038,9 @@ if = {
 			focus = QIN_finish_the_new_qing_reforms
 		}
 		completion_reward = {
-			add_stability = 0.05
-			add_war_support = 0.05
-			add_tech_bonus = {
-				name = industrial_bonus
-				bonus = 1
-				uses = 1
-				category = industry
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
 			}
 		}
 	}
@@ -9769,8 +11070,12 @@ if = {
 				province = 9843
 			}
 			}
-			add_stability = 0.05
 			add_war_support = 0.05
+			
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 150
+			}
 		}
 		search_filters = { 
 			FOCUS_FILTER_WAR_SUPPORT
@@ -9797,6 +11102,11 @@ if = {
 		completion_reward = {
 			custom_effect_tooltip = QIN_national_anthem
 			add_stability = 0.05
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 200
+			}
+			
 		}
 		search_filters = { 
 			FOCUS_FILTER_STABILITY
@@ -9828,6 +11138,7 @@ if = {
 		}
 		completion_reward = {
 			country_event = ww1_qing.219
+			custom_effect_tooltip = QIN_effect_boxer_treaty_individual
 		}
 		search_filters = { 
 			FOCUS_FILTER_STABILITY
@@ -10704,7 +12015,7 @@ if = {
 	focus = {
 		id = QIN_prepare_to_maintain_qing
 		cost = 5
-		x = 28
+		x = 23
 		y = 2
 		icon = GFX_focus_attack_china
 		relative_position_id = QIN_national_assembly
@@ -10734,7 +12045,7 @@ if = {
 			focus = QIN_prepare_to_maintain_qing
 		}
 		relative_position_id = QIN_prepare_to_maintain_qing
-		x = 6
+		x = 5
 		y = 1
 		available = {
 			has_global_flag = xinhai_revolution_ends
@@ -10763,7 +12074,7 @@ if = {
 	focus = {
 		id = QIN_militia_reorganization
 		icon = GFX_focus_generic_little_entente
-		cost = 5
+		cost = 4
 		prerequisite = {
 			focus = QIN_restore_the_nation
 		}
@@ -10792,7 +12103,7 @@ if = {
 	focus = {
 		id = QIN_economic_stabilization
 		icon = GFX_goal_generic_neutrality_focus
-		cost = 10
+		cost = 7
 		prerequisite = {
 			focus = QIN_restore_the_nation
 		}
@@ -10824,7 +12135,7 @@ if = {
 	focus = {
 		id = QIN_land_reform
 		icon = GFX_focus_generic_land_reclamation
-		cost = 10
+		cost = 7
 		prerequisite = {
 			focus = QIN_economic_stabilization
 		}
@@ -10884,7 +12195,7 @@ if = {
 	focus = {
 		id = QIN_recover_transport_system
 		icon = GFX_focus_generic_railroad
-		cost = 7
+		cost = 6
 		prerequisite = {
 			focus = QIN_militia_reorganization
 		}
@@ -10910,7 +12221,7 @@ if = {
 	focus = {
 		id = QIN_unite_provincial_command
 		icon = GFX_focus_generic_military_mission
-		cost = 10
+		cost = 8
 		prerequisite = {
 			focus = QIN_recover_transport_system
 		}
@@ -11251,9 +12562,9 @@ if = {
 		id = QIN_appease_the_colonialists
 		icon = GFX_focus_usa_reestablish_the_gold_standard
 		cost = 5
-		x = -7
-		y = 2
-		relative_position_id = QIN_national_assembly
+		x = -2
+		y = 0
+		relative_position_id = QIN_reform_and_recovery
 		mutually_exclusive = { focus = QIN_reform_and_recovery }
 		available = {
 			#OR = {
@@ -11783,6 +13094,49 @@ if = {
 			FOCUS_FILTER_INDUSTRY
 			FOCUS_FILTER_STABILITY
 			#FOCUS_FILTER_POLITICAL
+		}
+	}
+	focus = {
+		id = QIN_pave_way_for_industrialization
+		icon = GFX_focus_seven_year_plan
+		cost = 10
+        relative_position_id = QIN_boxer_treaty
+		prerequisite = {
+			focus = QIN_boxer_treaty
+		}
+		x = 0
+		y = 1
+		
+		available = {
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = QIN_idea_foreign_investments
+				days = 540
+			}
+			custom_effect_tooltip = line_description
+			if = {
+				limit = {
+					NOT = {
+						has_idea = war_economy
+					}
+					NOT = {
+						has_idea = tot_economic_mobilisation
+					}
+					NOT = {
+						has_idea = partial_economic_mobilisation
+					}
+				}
+				add_ideas = partial_economic_mobilisation
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 	focus = {

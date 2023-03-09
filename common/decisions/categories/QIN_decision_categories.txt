@@ -40,7 +40,7 @@ QIN_integrate_korea_category = {
 	}
 }
 QIN_beiyang_army_category = {
-	priority = 11
+	priority = 9
 	icon = military_operation
 	picture = GFX_decision_qin_beiyang_army
 	allowed = {

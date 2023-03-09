@@ -139,6 +139,40 @@ ideas = {
 				mobilization_laws_cost_factor = 1
 			}
 		}
+		QIN_idea_political_corruption_tool = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_disjointed_gov
+			modifier = {
+				political_power_factor = -0.35
+				surrender_limit = -0.05
+				
+				political_advisor_cost_factor = -0.25
+				economy_cost_factor = -0.25
+				mobilization_laws_cost_factor = -0.25
+				
+				production_factory_start_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.05
+				stability_factor = 0.07
+			}
+		}
+		QIN_idea_political_corruption_tool_2 = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_disjointed_gov
+			modifier = {
+				political_power_factor = -0.25
+				surrender_limit = -0.05
+				
+				political_advisor_cost_factor = -0.25
+				economy_cost_factor = -0.25
+				mobilization_laws_cost_factor = -0.25
+				
+				production_factory_start_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
 		QIN_idea_political_corruption_2 = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -154,14 +188,71 @@ ideas = {
 		QIN_idea_political_corruption_3 = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
+			#available = {
+				#NOT = { has_completed_focus = QIN_full_constitutional_monarchy }
+			#}
+			picture = generic_disjointed_gov
+			modifier = {
+				political_power_factor = -0.1
+			}
+		}
+		QIN_idea_foreign_investments = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			#available = {
+				#NOT = { has_completed_focus = QIN_full_constitutional_monarchy }
+			#}
+			picture = generic_economic_increase
+			modifier = {
+				consumer_goods_factor = -0.12
+			}
+		}
+		QIN_idea_western_legal_code = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
 			available = {
 				NOT = { has_completed_focus = QIN_full_constitutional_monarchy }
 			}
 			picture = generic_disjointed_gov
 			modifier = {
 				political_power_factor = -0.1
+				neutrality_drift = 0.03
+				democratic_drift = 0.01
+				stability_weekly = 0.001
+				war_support_weekly = 0.001
+				research_speed_factor = 0.1
+				improve_relations_maintain_cost_factor = -0.5
 			}
 		}
+		QIN_idea_reformed_confucian_legal_code = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			available = {
+				NOT = { has_completed_focus = QIN_full_constitutional_monarchy }
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				neutrality_drift = 0.03
+				democratic_drift = 0.01
+				stability_weekly = 0.001
+				research_speed_factor = 0.05
+			}
+		}
+		QIN_idea_lijiao_confucian_legal_code = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			available = {
+				NOT = { has_completed_focus = QIN_full_constitutional_monarchy }
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				political_power_factor = 0.1
+				neutrality_drift = 0.01
+				democratic_drift = 0.01
+				stability_factor = 0.05
+			}
+		}
+		
 		QIN_idea_small_constitutional_limitations = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -205,30 +296,26 @@ ideas = {
 				fascism_drift = -0.02
 			}
 		}
+		
 		QIN_idea_anti_corruption_council = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = YUG_federal_defense_council
 			modifier = {
-				political_power_factor = -0.02
-			}
-		}
-		QIN_idea_elected_anti_corruption_council = {
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			picture = YUG_federal_defense_council
-			modifier = {
 				political_power_factor = -0.05
+				stability_factor = 0.02
 			}
 		}
+		
 		QIN_idea_state_anti_corruption_council = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = YUG_federal_defense_council
 			modifier = {
-				political_power_factor = -0.1
+				stability_factor = 0.05
 			}
 		}
+		
 		QIN_idea_beiyang_army = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -431,6 +518,7 @@ ideas = {
 			}
 			modifier = {
 				political_power_factor = 0.35
+				party_popularity_stability_factor = 1
 			}
 		}
 		QIN_idea_tongmenghui_agreement = {
@@ -455,6 +543,77 @@ ideas = {
 				industrial_capacity_factory = -0.1
 			}
 		}
+		QIN_idea_infiltrated_tongmenghui = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_monarchist_uprising
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+			modifier = {
+				democratic_drift = -0.02
+			}
+		}
+		
+		QIN_idea_manuever_doctrine = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = FRA_scw_intervention_nationalists_focus
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.15
+				defense_bonus_against = -0.25
+				army_org_factor = -0.1
+				breakthrough_factor = 0.05
+				max_planning_factor = 0.1
+			}
+			modifier = {
+				army_speed_factor = 0.05
+			}
+		}
+		QIN_idea_consolidated_forces = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_intel_bonus
+			modifier = {
+				surrender_limit = 0.3
+				stability_factor = 0.05
+			}
+		}
+		
+		QIN_idea_paid_appointments = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_monarchist_uprising
+			modifier = {
+				political_power_gain = 0.65
+				army_org_factor = -0.1
+				experience_gain_army_factor = -0.1
+				command_power_gain_mult = -0.1
+				promote_cost_factor = 0.5
+			}
+		}
+		QIN_idea_merit_appointments = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_monarchist_uprising
+			modifier = {
+				political_power_gain = -0.65
+				political_advisor_cost_factor = 0.25
+				
+				army_org_factor = 0.05
+				experience_gain_army_factor = 0.15
+				command_power_gain_mult = 0.2
+				
+				army_leader_start_attack_level = 1
+				army_leader_start_defense_level = 1
+				army_leader_start_logistics_level = 1	
+				army_leader_start_planning_level = 1				
+			}
+		}
+		
 		QIN_idea_confidence_campaign = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -473,7 +632,6 @@ ideas = {
 				political_power_factor = 0.2
 			}
 		}
-		
 		QIN_idea_warlord_collab = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
