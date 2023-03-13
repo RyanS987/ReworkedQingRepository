@@ -163,7 +163,7 @@ QIN_constitution_category = {
 		icon = eng_trade_unions_support
 		allowed = {
 			original_tag = QIN
-		} 
+		}
 		available = {
 			#NOT = { has_idea = QIN_idea_court_opposition }
 			has_completed_focus = QIN_social_reform
@@ -340,7 +340,10 @@ QIN_constitution_category = {
 		available = {
 			has_global_flag = QIN_flag_judicial_reform_started
 		}
-		visible = { has_global_flag = QIN_flag_judicial_reform_started } 
+		visible = { 
+			has_global_flag = QIN_flag_judicial_reform_started 
+			has_variable = QIN_var_legal_reform
+		}
 		cost = 0
 		fire_only_once = yes
 		complete_effect = {
@@ -358,7 +361,10 @@ QIN_constitution_category = {
 		available = {
 			has_global_flag = QIN_flag_judicial_reform_started
 		}
-		visible = { has_global_flag = QIN_flag_judicial_reform_started }
+		visible = { 
+			has_global_flag = QIN_flag_judicial_reform_started 
+			has_variable = QIN_var_legal_reform
+		}
 		cost = 0
 		fire_only_once = yes
 		complete_effect = {
@@ -376,7 +382,10 @@ QIN_constitution_category = {
 		available = {
 			has_global_flag = QIN_flag_judicial_reform_started
 		}
-		visible = { has_global_flag = QIN_flag_judicial_reform_started } 
+		visible = { 
+			has_global_flag = QIN_flag_judicial_reform_started 
+			has_variable = QIN_var_legal_reform
+		} 
 		cost = 0
 		fire_only_once = yes
 		complete_effect = {
@@ -394,7 +403,10 @@ QIN_constitution_category = {
 		available = {
 			has_global_flag = QIN_flag_judicial_reform_started
 		}
-		visible = { has_global_flag = QIN_flag_judicial_reform_started }
+		visible = { 
+			has_global_flag = QIN_flag_judicial_reform_started 
+			has_variable = QIN_var_legal_reform
+		}
 		cost = 0
 		fire_only_once = yes
 		complete_effect = {
@@ -412,7 +424,10 @@ QIN_constitution_category = {
 		available = {
 			has_global_flag = QIN_flag_judicial_reform_started
 		}
-		visible = { has_global_flag = QIN_flag_judicial_reform_started }
+		visible = { 
+			has_global_flag = QIN_flag_judicial_reform_started 
+			has_variable = QIN_var_legal_reform
+		}
 		cost = 0
 		fire_only_once = yes
 		complete_effect = {
@@ -506,7 +521,7 @@ QIN_xinhai_revolution_category = {
 			}
 		}
 		priority = 100
-		days_mission_timeout = 342
+		days_mission_timeout = 242
 		fire_only_once = yes
 		is_good = no
 		timeout_effect = {
@@ -881,7 +896,7 @@ QIN_xinhai_revolution_category = {
 			has_idea = QIN_idea_confidence_campaign
 		}
 		complete_effect = {
-			remove_ideas = QIN_idea_warlord_integration
+			remove_ideas = QIN_idea_confidence_campaign
             
 			custom_effect_tooltip = QIN_effect_court_1
 			if = {
@@ -1328,7 +1343,7 @@ QIN_xinhai_revolution_category = {
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 170
+				days = 150
 			}
 			
 			if = {
@@ -1696,7 +1711,11 @@ QIN_beiyang_army_category = {
 			custom_effect_tooltip = QIN_influence_shikai_down
 			add_popularity = {
 				ideology = fascism
-				popularity = -0.1
+				popularity = -0.8
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.04
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
@@ -1710,24 +1729,24 @@ QIN_beiyang_army_category = {
 		allowed = {
 			original_tag = QIN
 		} 
-		days_re_enable = 400
+		days_re_enable = 197
 		available = {
-			has_completed_focus = QIN_anti_corruption_council
+			#has_completed_focus = QIN_anti_corruption_council
 			has_idea = QIN_idea_beiyang_army
 		}
 		complete_effect = {
 			custom_effect_tooltip = QIN_influence_shikai_down
 			add_popularity = {
 				ideology = fascism
-				popularity = -0.07
-			}
-			add_popularity = {
-				ideology = communism
-				popularity = 0.05
+				popularity = -0.1
 			}
 			add_popularity = {
 				ideology = democratic
-				popularity = 0.05
+				popularity = 0.07
+			}
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -40
 			}
 		}
 		priority = 6
@@ -1740,7 +1759,7 @@ QIN_beiyang_army_category = {
 		available = {
 			has_idea = QIN_idea_beiyang_army
 		}
-		cost = 100
+		cost = 75
 		fire_only_once = yes
 		complete_effect = {
 			custom_effect_tooltip = QIN_influence_shikai_down
@@ -1763,7 +1782,7 @@ QIN_beiyang_army_category = {
 			original_tag = QIN
 		} 
 		cost = 15
-		days_re_enable = 230
+		days_re_enable = 220
 		available = {
 			has_idea = QIN_idea_beiyang_army
 			NOT = { has_global_flag = QIN_flag_legality }
@@ -1783,7 +1802,7 @@ QIN_beiyang_army_category = {
 		allowed = {
 			original_tag = QIN
 		} 
-		cost = 35
+		cost = 0
 		days_re_enable = 325
 		available = {
 			has_government = neutrality
@@ -1791,9 +1810,10 @@ QIN_beiyang_army_category = {
 		}
 		complete_effect = {
 			custom_effect_tooltip = QIN_influence_shikai_up
+			add_political_power = -35
 			add_popularity = {
 				ideology = fascism
-				popularity = 0.10
+				popularity = 0.05
 			}
 			add_popularity = {
 				ideology = neutrality
@@ -1810,7 +1830,7 @@ QIN_beiyang_army_category = {
 		cost = 0
 		days_re_enable = 365
 		available = {
-			QIN_yuan_shikai = { is_unit_leader = yes }
+			QIN_yuan_shikai = { is_leading_army_group = yes }
 			has_idea = QIN_idea_beiyang_army
 		}
 		complete_effect = {
@@ -2105,6 +2125,7 @@ QIN_pay_indemnities_category = {
 				}
 			}
 		}
+		visible = { always = no }
 		complete_effect = {
 			if = {
 				limit = {

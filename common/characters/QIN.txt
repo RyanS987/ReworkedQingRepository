@@ -14,6 +14,24 @@ characters={
 			traits  = {
 				old_figurehead
 			}
+			on_remove = {
+                custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+            }
 			ai_will_do  = {
 				factor  = 5.000
 			}
@@ -43,7 +61,7 @@ characters={
 				has_completed_focus = QIN_invite_reformers	
 			}
 			traits  = {
-				financial_expert 
+				financial_expert_kang_youwei
 			}
 			ai_will_do  = {
 				factor  = 2.000
@@ -93,22 +111,198 @@ characters={
 			allowed  = {
 				is_china_or_warlord = yes
 			}
+			cost = 0
 			available = {
 				has_government = neutrality
 			}	
 			traits  = {
-				staunch_monarchist
+				staunch_royalist
 			}
+			on_remove = {
+                custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+            }
 			ai_will_do  = {
 				factor  = 0
 			}
 		}
 		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_asia_3"
+			civilian={
+				small="gfx/interface/ideas/QIN/idea_QIN_shanqi.png"
 			}
 		}
 	}
+	QIN_sheng_xuanhuai={
+		name="QIN_sheng_xuanhuai"
+		advisor={
+			slot = political_advisor
+			idea_token = QIN_sheng_xuanhuai
+			allowed  = {
+				is_china_or_warlord = yes
+			}
+			cost = 0
+			available = {
+				has_government = neutrality
+			}	
+			traits  = {
+				captain_of_industry
+			}
+			on_remove = {
+                add_political_power = -25
+            }
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/QIN/idea_QIN_sheng_xuanhuai.png"
+			}
+		}
+	}
+	QIN_shen_jiaben={
+		name="QIN_shen_jiaben"
+		advisor={
+			slot = political_advisor
+			idea_token = QIN_shen_jiaben
+			allowed  = {
+				is_china_or_warlord = yes
+			}
+			cost = 0
+			available = {
+				date < 1913.6.13
+			}	
+			traits  = {
+				judicial_reformer
+			}
+			on_remove = {
+                add_political_power = -25
+            }
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/QIN/idea_QIN_shen_jiaben.png"
+			}
+		}
+	}
+	QIN_yan_xiu={
+		name="QIN_yan_xiu"
+		advisor={
+			slot = political_advisor
+			idea_token = QIN_yan_xiu
+			allowed  = {
+				is_china_or_warlord = yes
+			}
+			cost = 0
+			available = {
+			}	
+			traits  = {
+				education_reformer
+			}
+			on_remove = {
+                add_political_power = -25
+            }
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/QIN/idea_QIN_yan_xiu.png"
+			}
+		}
+	}
+	QIN_zaizhen={
+		name="QIN_zaizhen"
+		advisor={
+			slot = political_advisor
+			idea_token = QIN_yan_xiu
+			allowed  = {
+				is_china_or_warlord = yes
+			}
+			cost = 0
+			available = {
+			}	
+			traits  = {
+				consultant_minister
+			}
+			on_remove = {
+                custom_effect_tooltip = QIN_effect_court_2
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 75
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 75
+					}
+				}
+            }
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/QIN/idea_QIN_zaizhen.png"
+			}
+		}
+	}
+	QIN_zhang_jian={
+		name="QIN_zhang_jian"
+		advisor={
+			slot = political_advisor
+			idea_token = QIN_zhang_jian
+			allowed  = {
+				is_china_or_warlord = yes
+			}
+			cost = 0
+			available = {
+				OR = {
+					has_completed_focus = QIN_education_reform
+					has_completed_focus = QIN_social_reform
+				}
+			}	
+			traits  = {
+				economist
+			}
+			on_remove = {
+                add_political_power = -50
+            }
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/QIN/idea_QIN_zhang_jian.png"
+			}
+		}
+	}
+	
 	QIN_sa_zhenbing={
 		name="QIN_sa_zhenbing"
 		advisor={
@@ -222,6 +416,24 @@ characters={
 			traits  = {
 				army_chief_morale_1 
 			}
+			on_remove = {
+                custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+            }
 			ai_will_do  = {
 				factor  = 1
 			}
@@ -668,6 +880,7 @@ characters={
 			allowed  = {
 				is_china_or_warlord = yes
 			}
+			cost = 0
 			available = {
 				NOT = {
 					has_country_leader = {
@@ -676,21 +889,82 @@ characters={
 				}	
 			}	
 			traits  = {
-				democratic_reformer 
+				minister_of_constitutional_law
 			}
 			do_effect  = {
 				not  = {
 					has_government  = democratic 
 				}
 			}
+			on_remove = {
+                custom_effect_tooltip = QIN_effect_court_0
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 20
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 20
+					}
+				}
+            }
 			ai_will_do  = {
 				factor  = 0
 			}
 		}
 		name="QIN_zaize"
 		portraits={
+			civilian={
+				small="gfx/interface/ideas/QIN/idea_QIN_zaize.png"
+			}
+		}
+	}
+	QIN_natong={
+		advisor={
+			slot = political_advisor
+			idea_token = QIN_natong
+			allowed  = {
+				is_china_or_warlord = yes
+			}
+			cost = 0
+			available = {
+				has_government = neutrality
+			}	
+			traits  = {
+				ideological_crusader 
+			}
+			on_remove = {
+                custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+            }
+			ai_will_do  = {
+					factor  = 1
+			}
+		}
+		name="QIN_natong"
+		portraits={
 			army={
-				small="GFX_idea_generic_political_advisor_asia_2"
+				small="GFX_idea_generic_political_advisor_asia_3"
 			}
 		}
 	}
@@ -701,9 +975,13 @@ characters={
 			allowed  = {
 				is_china_or_warlord = yes
 			}
+			cost = 0
 			traits  = {
 				smooth_talking_charmer 
 			}
+			on_remove = {
+                add_political_power = -25
+            }
 			ai_will_do  = {
 				factor  = 1
 			}
@@ -750,30 +1028,6 @@ characters={
 		}
 	}
 	
-	QIN_natong={
-		advisor={
-			slot = political_advisor
-			idea_token = QIN_natong
-			allowed  = {
-				is_china_or_warlord = yes
-			}
-			available = {
-				has_government = neutrality
-			}	
-			traits  = {
-				ideological_crusader 
-			}
-			ai_will_do  = {
-					factor  = 1
-			}
-		}
-		name="QIN_natong"
-		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_asia_3"
-			}
-		}
-	}
 	QIN_wuzhen={
 		advisor={
 			slot = high_command
@@ -832,6 +1086,24 @@ characters={
 				ai_will_do  = {
 					factor  = 1
 				}
+				on_remove = {
+                custom_effect_tooltip = QIN_effect_court_1
+				if = {
+					limit = {
+						QIN = { has_idea = QIN_idea_court_opposition }
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = 50
+					}
+				}
+            }
 		}
 		name="QIN_zaixun"
 		portraits={

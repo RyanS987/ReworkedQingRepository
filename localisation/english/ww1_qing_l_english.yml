@@ -193,8 +193,8 @@
  QIN_social_reform_desc:0 "Despite our modernization efforts, our country is considered a backwater and barbaric by many other powers. It is time to take a look at the many controversial traditions our country holds, although even simply considering the removal of these will cause much anger in the Manchu court."
  QIN_finalize_the_constitution:0 "Finalize the Constitution"
  QIN_finalize_the_constitution_desc:0 "In many ways, this constitution is not fully satisfying for any party. However, it has several compromises, and gives the people a voice while upholding the sacred dignity of the Emperor!"
- QIN_undermine_the_emperor:0 "Undermine the Emperor"
- QIN_undermine_the_emperor_desc:0 "While all our reforms have brought great changes to society, one problem remains. The Emperor, or mainly his regent and his advisors, continue to slow, block, and attack reforms at every stage. Many of the reforms they suggest simply centralize Manchu power. This question must of how much power the Emperor can hold over Parliament must be settled for sure."
+ QIN_undermine_the_emperor:0 "The Emperor's Power?"
+ QIN_undermine_the_emperor_desc:0 "While all our reforms have brought great changes to society, one problem remains. The Emperor, or mainly his regent and his advisors, continue to be the final check on all decisions. This question must of how much power the Emperor can hold over Parliament must be settled for sure."
  QIN_betterment_through_technology:0 "Betterment through Technology"
  QIN_betterment_through_technology_desc:0 "The only way to reform society is to embrace new technologies to catalyze that change."
  QIN_equality_for_women:0 "Expand Freedoms to Women"
@@ -608,7 +608,7 @@
  QIN_effect_var_legal_reform_down:0 "§RThis will make our legal code less reformed§W"
  QIN_effect_var_legal_reform_up:0 "§GThis will make our legal code more reformed§W"
  QIN_effect_legal_reform_not_started:0 "The effects are not clear because legal reform has not started yet"
- QIN_effect_var_legal_reform:0 "Our decisions in these edicts an upcoming legal reform edicts will determine the legal code contained within the new constitution. The national spirit representing this will be implemented when completing the focus '§YImplement Judicial Reform§W'"
+ QIN_effect_var_legal_reform:0 "Our decisions in these edicts an upcoming legal reform edicts will determine the legal code contained within the new constitution. The national spirit representing this will be implemented when completing the focus '§YImplement Judicial Reform§W'. \n\n§RIt is recommended we take these slowly, as the amount of court opposition that these decisions could cause could build up§W"
  QIN_effect_principle_of_legality:0 "We will no longer be able to decision '§YPardon Recent Beiyang Crimes'§W"
  QIN_effect_concurrently_exclusive2:0 "§CThe branches are concurrently exclusive (click for description)§W"
  QIN_effect_concurrently_exclusive1:0 "\n§YConcurrently exclusive§W with the '§CAccept Provincial Bribes§W' branch, having the following effects:§W"
@@ -1621,10 +1621,20 @@
  #music
  qing_theme:0 "Cup of Solid Gold"
  #traits
+ minister_of_constitutional_law:0 "Minister of Constitutional Law"
+ staunch_royalist:0 "Staunch Royalist"
+ financial_expert_kang_youwei:0 "Financial Modernizer"
+ consultant_minister:0 "Consultant Minister"
+ judicial_reformer:0 "Judicial Reformer"
  han_cabinet:0 "Han Cabinet"
  qing_cabinet:0 "Manchu Cabinet"
  QIN_prince_cabinet:0 "'Princes' Cabinet"
  utopian_modernizer:0 "Utopian Modernizer"
+ #Characters
+ QIN_sheng_xuanhuai:0 "Sheng Xuanhuai"
+ QIN_shen_jiaben:0 "Shen Jiaben"
+ QIN_zaizhen:0 "Aisin-Gioro Zaizhen"
+ QIN_yan_xiu:0 "Yan Xiu"
  #scriptedloc
  xinhai_loc_1:0 "Gengxu" # 1910
  xinhai_loc_2:0 "Xinhai" # 1911
