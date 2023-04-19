@@ -853,6 +853,9 @@
  QIN_diplomatic_effort:0 "Diplomatic Effort"
  QIN_korean_qing_friendship:0 "Major Sino-Korean Diplomatic Effort"
  #events
+ ww1_qing.253.t: "Tsinghua Fund"
+ ww1_qing.253.d: "In 1900, the United States were given a share of the Boxer Indemnities. Believing it to be too much, they offered to re-invest this into our country. Many plans were proposed, such as Yuan Shikai's infrastructure plan, but in the end, it was agreed that the indemnity would be reduced by $10.8 million on the condition it was used to setup a western style university. This university would be located on the site of the former imperial Tsinghua Gardens to form the new Tsinghua College, staffed by several prominent US and Chinese scholars such as Liang Qichao. \n\nThe agreement was approved in 1909 by Theodore Roosevelt and the US Congress and is now ready to be implemented."
+ 
  ww1_qing.250.t:0 "National Assembly convenes"
  ww1_qing.250.d:0 "Now the end of 1910, the National Assembly has convened. Our decision to delay it for so long, however, has convinced many that we are not sincere in our reform."
  ww1_qing.250.a:0 "Oh well."

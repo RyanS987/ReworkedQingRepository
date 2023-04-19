@@ -58,8 +58,8 @@ focus_tree = {
 		id = QIN_recovery_of_naval_infrastructure
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 8
-		x = 55
-		y = 12
+		x = 62
+		y = 0
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
 			any_owned_state = { is_coastal = yes }
@@ -2125,6 +2125,108 @@ focus_tree = {
 			factor = 0
 		}
 	}
+	
+	focus = {
+		id = QIN_reorganisation_loans
+		cost = 9
+		x = 10
+		y = 7
+		icon = GFX_TUR_ittihadists_destroyed
+		relative_position_id = QIN_national_assembly
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		prerequisite = {
+		}
+		available = {
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			
+			
+		}
+		#search_filters = { FOCUS_FILTER_POLITICAL }	
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	focus = {
+		id = QIN_support_yuans_reforms
+		cost = 9
+		x = 8
+		y = 7
+		icon = GFX_TUR_ittihadists_destroyed
+		relative_position_id = QIN_national_assembly
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		prerequisite = {
+		}
+		available = {
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			
+			
+		}
+		#search_filters = { FOCUS_FILTER_POLITICAL }	
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	focus = {
+		id = QIN_military_plot
+		cost = 9
+		x = 9
+		y = 8
+		icon = GFX_TUR_ittihadists_destroyed
+		relative_position_id = QIN_national_assembly
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		prerequisite = {
+			focus = QIN_undermine_the_emperor
+		}
+		prerequisite = {
+			focus = QIN_support_yuans_reforms
+		}
+		prerequisite = {
+			focus = QIN_reorganisation_loans
+		}
+		available = {
+		}
+		bypass = {
+		}
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			
+			
+		}
+		#search_filters = { FOCUS_FILTER_POLITICAL }	
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
 	focus = {
 		id = QIN_institutional_democratization
 		cost = 9
@@ -2238,7 +2340,7 @@ focus_tree = {
 	focus = {
 		id = QIN_full_constitutional_monarchy
 		cost = 9
-		x = 14
+		x = 7
 		y = 9
 		icon = GFX_focus_destroy_parliament
 		relative_position_id = QIN_national_assembly
@@ -2353,10 +2455,10 @@ focus_tree = {
 	focus = {
 		id = QIN_invite_tongmenghui_leaders
 		cost = 5
-		x = 15
-		y = 10
+		x = 1
+		y = 1
 		icon = GFX_focus_chi_kuomintang
-		relative_position_id = QIN_national_assembly
+		relative_position_id = QIN_full_constitutional_monarchy
 		available_if_capitulated = no
 		prerequisite = {
 			focus = QIN_full_constitutional_monarchy
@@ -2385,10 +2487,10 @@ focus_tree = {
 		id = QIN_establish_democratic_leadership
 		
 		cost = 3
-		x = 2
-		y = 0
+		x = 3
+		y = 1
 		icon = GFX_focus_sun_yat_sen
-		relative_position_id = QIN_invite_tongmenghui_leaders
+		relative_position_id = QIN_full_constitutional_monarchy
 		available_if_capitulated = no
 		prerequisite = {
 			focus = QIN_full_constitutional_monarchy
@@ -4557,6 +4659,8 @@ focus_tree = {
 				mission = QIN_xinhai_timer
 				days = -2000
 			}
+			add_political_power = 200
+			add_stability = 0.05
 		}
 		ai_will_do = {
 			factor = 0
@@ -4588,6 +4692,8 @@ focus_tree = {
 				mission = QIN_xinhai_timer
 				days = -2000
 			}
+			add_political_power = 200
+			add_stability = 0.05
 		}
 		ai_will_do = {
 			factor = 0
@@ -4619,6 +4725,8 @@ focus_tree = {
 				mission = QIN_xinhai_timer
 				days = -2000
 			}
+			add_political_power = 200
+			add_stability = 0.05
 		}
 		ai_will_do = {
 			factor = 0
@@ -5745,10 +5853,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			592 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -5757,6 +5865,14 @@ focus_tree = {
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
+					instant_build = yes
+				}
+			}
+			599 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
 					instant_build = yes
 				}
 			}
@@ -6408,7 +6524,10 @@ focus_tree = {
 			focus = QIN_national_assembly
 		}
 		available = {
-			#NOT = { has_idea = QIN_idea_court_opposition }
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				NOT = { has_global_flag = QIN_hard_mode }
+			}
 			#NOT = { has_global_flag = xinhai_revolution }
 		}
 		bypass = {
@@ -8447,20 +8566,26 @@ focus_tree = {
 	focus = {
 		id = QIN_exploit_the_war
 		cost = 1
-		x = 8
-		y = 1
+		x = 50
+		y = 10
 		icon = GFX_focus_gasmask
-		relative_position_id = QIN_the_art_of_war
+		#relative_position_id = QIN_the_art_of_war
 		#cancel_if_invalid = no
 		#continue_if_invalid = no
 		available_if_capitulated = no
 		prerequisite = {
-			focus = QIN_the_art_of_war
+			#focus = QIN_the_art_of_war
 		}
 		search_filters = { 
 			FOCUS_FILTER_WAR_SUPPORT
 		}
 		available = {
+			OR = {
+				has_global_flag = qing_reformed
+				has_government = democratic
+				has_completed_focus = QIN_finish_the_new_qing_reforms
+				NOT = { has_global_flag = QIN_hard_mode }
+			}
 			GER = {
 				OR = {
 				has_war_with = ENG
@@ -8473,6 +8598,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_war_support = 0.1
+			set_rule = {
+				can_send_volunteers = yes
+			}
 		}			
 		ai_will_do = {
 			factor = 0
@@ -10469,7 +10597,7 @@ focus_tree = {
 	focus = {
 		id = QIN_eliminate_the_beiyang_army
 		cost = 1
-		x = 9
+		x = 2
 		y = 1
 		icon = GFX_goal_generic_major_war
 		relative_position_id = QIN_finish_the_new_qing_reforms

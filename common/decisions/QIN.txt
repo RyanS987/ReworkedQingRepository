@@ -1586,12 +1586,15 @@ QIN_beiyang_army_category = {
 			original_tag = QIN
 		} 
 		cost = 0
-		days_re_enable = 10
+		days_re_enable = 70
 		available = {
-			QIN_yuan_shikai = { is_leading_army_group = yes }
+			OR = {
+				QIN_yuan_shikai = { is_leading_army_group = yes }
+				fascism > 0.3
+			}
 			608 = { is_controlled_by = QIN }
 			has_equipment = {
-				infantry_equipment > 500
+				infantry_equipment > -10000
 			}
 			has_idea = QIN_idea_beiyang_army
 		}
@@ -1600,11 +1603,11 @@ QIN_beiyang_army_category = {
 			custom_effect_tooltip = QIN_influence_shikai_up
 			add_popularity = {
 				ideology = fascism
-				popularity = 0.03
+				popularity = 0.05
 			}
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
-				amount = -500
+				amount = -450
 			}
 		}
 		remove_effect = {
@@ -1711,7 +1714,7 @@ QIN_beiyang_army_category = {
 			custom_effect_tooltip = QIN_influence_shikai_down
 			add_popularity = {
 				ideology = fascism
-				popularity = -0.8
+				popularity = -0.08
 			}
 			add_popularity = {
 				ideology = neutrality
