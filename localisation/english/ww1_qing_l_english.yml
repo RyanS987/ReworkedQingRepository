@@ -1,6 +1,10 @@
 ﻿l_english:
 #qing rework
 #focus
+ QIN_support_yuans_reforms:0 "Support Yuan's Reforms"
+ QIN_support_yuans_reforms_desc:0 "Yuan Shikai helped introduce major reforms to our system as an advisor to Cixi before he was exiled to Manchuria. Perhaps there was wisdom in these?"
+ QIN_appoint_yuan_shikai:0 "Appoint Yuan Shikai"
+ QIN_appoint_yuan_shikai_desc:0 "The Qing has always kept military commanders away from politics, but in the modern era of imperialism and revolution, perhaps appointing Yuan Shikai as the leader of the Imperial Cabinet is the only way?"
  QIN_force_the_issue:0 "Force the Issue"
  QIN_force_the_issue_desc:0 "We cannot let the Tongmenghui suprise us. We will ignite the revolution now when we are prepared!"
  QIN_on_our_terms:0 "On our own terms"
@@ -185,7 +189,7 @@
  QIN_expand_parliament_desc:0 "After many years of work, it is time we fulfill our promises and establish a parliament."
  QIN_chinese_welfare:0 "Elderly Welfare"
  QIN_chinese_welfare_desc:0 "Kang believes that one of our top priorities is to provide retirement homes for the elderly"
- QIN_appoint_kang_youwei:0 "Appoint Kang Youwei"
+ QIN_appoint_kang_youwei:0 "Approach Kang Youwei"
  QIN_appoint_kang_youwei_desc:0 "Radical change is needed, and only Kang Youwei, leader of the failed 100 Days Reform in 1898, can bring us this change. We need to appoint him as our top advisor in order to guide reform."
  QIN_empower_the_empire_unity_party:0 "Empower the Empire Reform Association"
  QIN_empower_the_empire_unity_party_desc:0 "In order to help pass Kang Youwei's reforms, we should empower his Empire Unity Party by appointing many officials from his party."
@@ -602,6 +606,8 @@
  QIN_constitution_category:0 "The Qing Constitution"
  QIN_constitution_category_desc:0 "It has become clear that, without a constitution, our nation is doomed to collapse. Our 1908 outline has outlined the plan to have a constitution completed by 1916, but whether this is accomplished is up to our decisions. \n\n§YEach edict will trigger an event which only times out after 100 days. \n"
 #custom effects
+ QIN_effect_foreign_aid:0 "Completing the focus §YApproach the Germans§W or §YInvite British Manufacturers§W, or being in their faction, will guarantee equipment from the corresponding party."
+ QIN_effect_beiyang_support_artillery:0 "Adds §YSupport Artillery§W to template §YBeiyang New Army§W"
  QIN_effect_third_option:0 "§RThis is an extremely niche strategy and is NOT RECOMMENDED unless you know what you are doing!§W"
  QIN_effect_consolidate_forces:0 "We will recieve the following national spirit, but §Rway more states will fall to the revolutionaries during a revolution§W"
  QIN_WIP:0 "§RWork in Progress§W"
@@ -740,6 +746,7 @@
  QIN_flag_judicial_reform_completed:0 "All 5 Judicial Reform decisions has been considered."
  QIN_flag_legality:0 "Chose to uphold the Principle of Legality"
 #ideas
+ QIN_idea_anti_qing_militias:0 "Anti-Qing Militias"
  QIN_idea_consolidated_forces:0 "Consolidated Forces"
  QIN_idea_manuever_doctrine:0 "Run down the Revolution"
  QIN_idea_foreign_investments:0 "Foreign Investments"

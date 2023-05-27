@@ -557,6 +557,20 @@ ideas = {
 			}
 		}
 		
+		QIN_idea_anti_qing_militias = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = FRA_scw_intervention_republicans_focus
+			targeted_modifier = {
+				tag = QIN
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+			modifier = {
+				war_support_factor = 0.1
+			}
+		}
+		
 		QIN_idea_manuever_doctrine = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
