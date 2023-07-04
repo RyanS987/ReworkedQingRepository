@@ -1,5 +1,25 @@
 ﻿add_namespace = ww1_qing
 country_event = {
+	title = ww1_qing.254.t
+	desc = ww1_qing.254.d
+	id = ww1_qing.254
+	is_triggered_only = no
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		original_tag = QIN
+		date > 1912.8.20
+	}
+	option = {
+		name = "Alright"
+		ai_chance = { factor = 100 }
+		unlock_decision_tooltip = QIN_dec_banking_decision
+		set_global_flag = QIN_flag_banking_0
+	}
+}
+country_event = {
 	title = ww1_qing.253.t
 	desc = ww1_qing.253.d
 	id = ww1_qing.253
@@ -763,9 +783,6 @@ country_event = {
 	id = ww1_qing.239
 	is_triggered_only = yes
 	fire_only_once = yes
-	mean_time_to_happen = {
-		days = 3
-	}
 
 	picture = QIN_qing_imperial_cabinet_image
 	option = {
@@ -865,9 +882,6 @@ country_event = {
 	title = ww1_qing.236.t
 	desc = ww1_qing.236.d
 	id = ww1_qing.236
-	mean_time_to_happen = {
-		days = 2
-	}
 	fire_only_once = yes
 	is_triggered_only = yes
 	option = {
@@ -4747,7 +4761,7 @@ country_event = {
 		JAP = {
 			country_event = { id = ww1_qing.167 days = 0 }
 		}
-		remove_from_faction = JAP
+		faction_leader = { remove_from_faction = JAP }
 	}
 	option = {
 		name = "We choose Japan"
@@ -4825,7 +4839,7 @@ country_event = {
 		QIN = {
 			country_event = { id = ww1_qing.166 days = 0 }
 		}
-		remove_from_faction = QIN
+		faction_leader = { remove_from_faction = QIN }
 	}
 }
 country_event = {
@@ -4842,7 +4856,7 @@ is_triggered_only = yes
 		QIN = {
 			country_event = { id = ww1_qing.165 days = 0 }
 		}
-		FRA = { remove_from_faction = JAP }
+		faction_leader = { remove_from_faction = JAP }
 	}
 	option = {
 		name = "We choose Japan"
@@ -4920,7 +4934,7 @@ is_triggered_only = yes
 		QIN = {
 			country_event = { id = ww1_qing.166 days = 0 }
 		}
-		FRA = { remove_from_faction = QIN }
+		faction_leader = { remove_from_faction = QIN }
 	}
 	option = {
 		name = "Tell France it's their problem"
@@ -7885,29 +7899,9 @@ country_event = {
 		add_stability = 0.1
 		add_days_mission_timeout = {
 			mission = QIN_xinhai_timer
-			days = 255
+			days = 150
 		}
-		hidden_effect = {
-		if = {
-			limit = {
-				has_global_flag = korea_fight
-			}
-			
-			JAP = {
-			end_puppet = KOR
-			KOR = {
-				declare_war_on = {
-					target = JAP
-					type = annex_everything
-				}
-			}
-			QIN = {
-				add_to_faction = KOR
-			}
-			country_event = { id = ww1_qing.60 days = 0 }
-			}
-		}
-		}
+		
 	}
 	option = {
 		name = ww1_qing.50.b
@@ -8439,6 +8433,612 @@ country_event = {
 	}
 }
 country_event = {
+	id = ww1_qing.257
+	hidden = yes
+	title = ww1_korea.20.t
+	desc = ww1_korea.20.d
+	picture = GFX_report_event_generic_military_parade
+	is_triggered_only = yes
+	option = {
+		name = ww1_korea.20.a
+		ai_chance = {
+			factor = 100
+		}
+		JAP = {
+			end_puppet = KOR
+			declare_war_on = KOR
+		}
+		KOR = {
+			QIN = {
+				add_named_threat = {
+					threat = 5
+					name = ww1_korea.20.t
+				}
+			}
+			set_capital = { state = 799 }
+			white_peace = QIN
+		}
+		KOR = {
+			give_military_access = QIN
+		}
+		start_civil_war = {
+			ideology = fascism
+			size = 0
+			states = {
+				525
+				796
+				797
+				800
+				801
+				802
+			}
+			keep_unit_leaders_trigger = {
+				NOT = {
+					has_trait = JAP_samurai_lineage
+				}
+			}
+			keep_political_party_members = yes
+		}
+		random_other_country = {
+			limit = {
+				original_tag = KOR
+				has_government = fascism
+			}
+			set_country_flag = civil_war_japanese_korea
+		}
+		
+		set_party_name = {
+			ideology = democratic
+			long_name = KOR_provisional_government_long
+			name = KOR_provisional_government
+		}
+		set_party_name = {
+			ideology = neutrality
+			long_name = KOR_fascism_party_long
+			name = KOR_fascism_party
+		}
+		set_party_name = {
+			ideology = fascism
+			long_name = KOR_fascism_party_long
+			name = KOR_fascism_party
+		}
+		KOR_hong_beomdo = {
+			promote_character = stratocracy
+			promote_character = authoritarian_democracy
+		}	
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.7
+		}
+		set_war_support = 0.8
+		set_stability = 0.9
+		division_template = {
+			name = "Dongnipgun"
+			regiments = {
+				infantry = {
+					x = 0
+					y = 0
+				}
+				infantry = {
+					x = 1
+					y = 0
+				}
+				infantry = {
+					x = 0
+					y = 1
+				}
+				infantry = {
+					x = 1
+					y = 1
+				}
+			}
+		}
+		division_template = {
+			name = "Uibyeong"
+			regiments = {
+				militia = {
+					x = 0
+					y = 0
+				}
+				militia = {
+					x = 0
+					y = 1
+				}
+			}
+		}
+		set_division_template_lock = {
+			division_template = "Dongnipgun"
+			is_locked = no
+		}
+		set_division_template_lock = {
+			division_template = "Uibyeong"
+			is_locked = yes
+		}
+		799 = {
+			create_unit = {
+				division = "name = \"1. Dongnipgun\" division_template = \"Dongnipgun\" start_experience_factor = 1.0"
+				owner = KOR
+			}
+			create_unit = {
+				division = "name = \"2. Dongnipgun\" division_template = \"Dongnipgun\" start_experience_factor = 1.0"
+				owner = KOR
+			}
+			create_unit = {
+				division = "name = \"3. Dongnipgun\" division_template = \"Dongnipgun\" start_experience_factor = 1.0"
+				owner = KOR
+			}
+		}
+		527 = {
+			create_unit = {
+				division = "name = \"4. Dongnipgun\" division_template = \"Dongnipgun\" start_experience_factor = 1.0"
+				owner = KOR
+			}
+			create_unit = {
+				division = "name = \"5. Dongnipgun\" division_template = \"Dongnipgun\" start_experience_factor = 1.0"
+				owner = KOR
+			}
+			create_unit = {
+				division = "name = \"6. Dongnipgun\" division_template = \"Dongnipgun\" start_experience_factor = 1.0"
+				owner = KOR
+			}
+		}
+		drop_cosmetic_tag = yes
+		set_cosmetic_tag = KOR_independence_army
+		set_country_flag = QIN_flag_korean_independence
+		JAP = {
+			country_event = ww1_korea.21
+		}
+	}
+}
+country_event = {
+	id = ww1_qing.256
+	hidden = yes
+	is_triggered_only = yes
+	picture = GFX_report_event_japan_army_mountainside
+	immediate = {
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = KOR
+					has_country_flag = civil_war_japanese_korea
+				}
+				create_country_leader={
+					name = "KOR_JAP_governor_general_name"
+					picture = "gfx/leaders/KOR/KOR_JAP_governor_general.png"
+					ideology = stratocracy
+				}
+				JAP = {
+					declare_war_on = KOR
+				}
+				QIN = {
+					declare_war_on = PREV
+				}
+				JAP = {
+					puppet = PREV
+					if = {
+						limit = {
+							has_dlc = "Together for Victory"
+						}
+						set_autonomy = {
+							target = PREV
+							autonomy_state = autonomy_colony
+						}
+					}
+				}
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 1
+				}
+				set_cosmetic_tag = KOR_JAP_governor_general
+				set_party_name = {
+					ideology = fascism
+					long_name = KOR_governorship_party
+					name = KOR_governorship_party
+				}
+				set_party_name = {
+					ideology = neutrality
+					long_name = KOR_governorship_party
+					name = KOR_governorship_party
+				}
+				set_party_name = {
+					ideology = democratic
+					long_name = KOR_governorship_party
+					name = KOR_governorship_party
+				}
+				525 = {
+					remove_core_of = PREV
+				}
+				527 = {
+					remove_core_of = PREV
+				}
+				796 = {
+					remove_core_of = PREV
+				}
+				797 = {
+					remove_core_of = PREV
+				}
+				799 = {
+					remove_core_of = PREV
+				}
+				800 = {
+					remove_core_of = PREV
+				}
+				801 = {
+					remove_core_of = PREV
+				}
+				802 = {
+					remove_core_of = PREV
+				}
+				set_war_support = 0.8
+				set_stability = 0.9
+				division_template = {
+					name = "Infantry Division"
+					regiments = {
+						infantry = {
+							x = 0
+							y = 0
+						}
+						infantry = {
+							x = 0
+							y = 1
+						}
+						infantry = {
+							x = 0
+							y = 2
+						}
+						infantry = {
+							x = 1
+							y = 0
+						}
+						infantry = {
+							x = 1
+							y = 1
+						}
+						infantry = {
+							x = 1
+							y = 2
+						}
+					}
+					support = {
+						engineer = {
+							x = 0
+							y = 0
+						}
+					}
+				}
+				802 = {
+					create_unit = {
+						division = "name = \"19. Shidan\" division_template = \"Infantry Division\" start_experience_factor = 0.7"
+						owner = PREV
+					}
+					create_unit = {
+						division = "name = \"20. Shidan\" division_template = \"Infantry Division\" start_experience_factor = 0.7"
+						owner = PREV
+					}
+					create_unit = {
+						division = "name = \"21. Shidan\" division_template = \"Infantry Division\" start_experience_factor = 0.7"
+						owner = PREV
+					}
+					create_unit = {
+						division = "name = \"22. Shidan\" division_template = \"Infantry Division\" start_experience_factor = 0.7"
+						owner = PREV
+					}
+				}
+				800 = {
+					create_unit = {
+						division = "name = \"14. Shidan\" division_template = \"Infantry Division\" start_experience_factor = 0.7"
+						owner = PREV
+					}
+					create_unit = {
+						division = "name = \"23. Shidan\" division_template = \"Infantry Division\" start_experience_factor = 0.7"
+						owner = PREV
+					}
+				}
+				declare_war_on = {
+					target = KOR
+					type = civil_war
+				}
+				if = {
+					limit = {
+						has_idea = KOR_idea_army_tradition
+					}
+					remove_ideas = KOR_idea_army_tradition
+				}
+			}
+		}
+	}
+}
+
+# Second Sino-Japanese War
+news_event = {
+	id = ww1_qing.258
+	title = ww1_qing.258.t
+	desc = ww1_qing.258.d
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		JAP = {
+			has_war_with = QIN
+		}
+	}
+	picture = news_event_048
+	option = {
+		name = ww1_qing.258.a
+		trigger = {
+			TAG = QIN
+		}
+	}
+	option = {
+		name = ww1_qing.258.b
+		trigger = {
+			TAG = JAP
+		}
+	}
+	option = {
+		name = ww1_qing.258.c
+		trigger = {
+			NOT = {
+				TAG = KOR
+				TAG = JAP
+				TAG = QIN
+			}
+		}
+	}
+}
+
+country_event = {
+	title = ww1_qing.263.t
+	desc = ww1_qing.263.d
+	id = ww1_qing.263
+
+	is_triggered_only = yes
+	option = {
+		name = ww1_qing.263.a
+		ai_chance = { factor = 0 }
+		add_war_support = 0.05
+	}
+}
+country_event = {
+	title = ww1_qing.262.t
+	desc = ww1_qing.262.d
+	id = ww1_qing.262
+	picture = GFX_event_chinese_japanese_handshake
+	is_triggered_only = yes
+	option = {
+		name = ww1_qing.262.a
+		ai_chance = { factor = 0 }
+		every_state = {
+			limit = {
+				AND = {
+					is_owned_by = JAP
+					is_core_of = QIN
+				}
+			}
+			transfer_state_to = QIN
+		}
+		
+		if = {
+			limit = {
+				KOR = { 
+					exists = yes 
+					has_war_with = JAP
+				}
+			}
+			every_state = {
+				limit = {
+					is_core_of = KOR
+					owner = {
+						has_war_with = QIN
+					}
+				}
+				transfer_state_to = KOR
+			}
+			KOR = { set_capital = { state = 800 } }
+		}
+		else = {
+			every_state = {
+				limit = {
+					is_core_of = KOR
+					owner = {
+						has_war_with = QIN
+					}
+				}
+				transfer_state_to = QIN
+			}
+		}
+		
+		if = {
+			limit = {
+				409 = {
+					is_owned_by = QIN
+				}
+			}
+			if = {
+				limit = {
+					655 = {
+						is_owned_by = JAP
+					}
+				}
+				655 = { transfer_state_to = QIN }
+			}
+			if = {
+				limit = {
+					537 = {
+						is_owned_by = JAP
+					}
+				}
+				537 = { transfer_state_to = QIN }
+			}
+		}
+		QIN = { white_peace = JAP }
+		if = {
+			limit = {
+				KOR = {
+					has_war_with = JAP
+				}
+			}
+			KOR = { white_peace = JAP }
+		}
+	}
+	option = {
+		name = ww1_qing.262.b
+		ai_chance = { factor = 0 }
+		JAP = { add_war_support = 0.15 }
+	}
+}
+country_event = {
+	title = ww1_qing.260.t
+	desc = ww1_qing.261.d
+	id = ww1_qing.261
+
+	is_triggered_only = yes
+	option = {
+		name = ww1_qing.260.a
+		ai_chance = { factor = 0 }
+		JAP = { add_war_support = -0.2 }
+	}
+}
+country_event = {
+	title = ww1_qing.260.t
+	desc = ww1_qing.260.d
+	id = ww1_qing.260
+
+	is_triggered_only = yes
+	option = {
+		name = ww1_qing.260.a
+		ai_chance = { factor = 0 }
+		JAP = { add_war_support = -0.1 }
+	}
+}
+country_event = {
+	title = ww1_qing.27.t
+	desc = ww1_qing.27.d
+	id = ww1_qing.27
+
+	is_triggered_only = yes
+	option = {
+		name = ww1_qing.27.a
+		ai_chance = { factor = 0 }
+		QIN = {
+			transfer_state = 746
+			country_event = { id = ww1_qing.29 days = 0 }
+		}
+	}
+	option = {
+		name = ww1_qing.27.b
+		ai_chance = { factor = 10 }
+		QIN = {
+		country_event = { id = ww1_qing.28 days = 0 }
+		}
+	}
+}
+
+#Second Sino-Japanese war peace
+country_event = {
+	title = ww1_qing.259.t
+	desc = ww1_qing.259.d
+	id = ww1_qing.259
+	
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		OR = {
+			AND = {
+				all_state = {
+					limit = {
+						is_core_of = KOR
+						owner = {
+							OR = {
+								has_war_with = QIN
+								has_war_with = JAP
+							}
+						}
+					}
+					controller = {
+						has_war_with = JAP
+					}
+				}
+				any_state = {
+					limit = {
+						is_core_of = KOR
+					}
+					owner = {
+						has_war_with = QIN
+					}
+				}
+			}
+			524 = {
+				is_owned_by = JAP
+				is_fully_controlled_by = QIN
+			}
+			any_state = {
+				limit = {
+					is_owned_by = JAP
+					region = 154
+				}
+				is_controlled_by = QIN
+			}
+		}
+		JAP = {
+			has_war_with = QIN
+		}
+	}
+	option = {
+		name = ww1_qing.259.a
+		ai_chance = { factor = 100 }
+		QIN = {
+			country_event = { id = ww1_qing.262 days = 0 }
+		}
+	}
+	option = {
+		name = ww1_qing.259.b
+		ai_chance = { factor = 0 }
+		if = {
+			limit = {
+				JAP = {
+					is_in_faction = yes
+					is_faction_leader = no
+				}
+			}
+			QIN = {
+				country_event = { id = ww1_qing.260 days = 0 }
+			}
+		}
+		else = {
+			QIN = {
+				country_event = { id = ww1_qing.261 days = 0 }
+			}
+		}
+	}
+}
+country_event = {
+	title = ww1_qing.255.t
+	desc = ww1_qing.255.d
+	id = ww1_qing.255
+	fire_only_once = yes
+	hidden = yes
+	trigger = {
+		has_global_flag = korea_fight
+		KOR = { is_subject_of = JAP }
+		QIN = { has_war_with = JAP }
+	}
+	immediate = {
+		name = ww1_qing.255.a
+		ai_chance = { factor = 10 }
+		KOR = {
+			country_event = { id = ww1_qing.257 days = 0 }
+		}
+	}
+}
+country_event = {
 	title = ww1_qing.27.t
 	desc = ww1_qing.27.d
 	id = ww1_qing.27
@@ -8504,6 +9104,10 @@ country_event = {
 		name = ww1_qing.23.a
 		ai_chance = { factor = 10 }
 		set_global_flag = korea_fight
+		every_state = {
+			limit = { is_core_of = KOR }
+			remove_claim_by = QIN
+		}
 	}
 }
 country_event = {
@@ -8721,8 +9325,8 @@ country_event = {
 	}
 }
 country_event = {
-	title = ww1_qing.7.t
-	desc = ww1_qing.7.d
+	title = ww1_qing.7.h
+	desc = ww1_qing.7.j
 	id = ww1_qing.7
 
 	fire_only_once = yes
@@ -8730,7 +9334,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = ww1_qing.7.a
+		name = ww1_qing.7.e
 		ai_chance = { factor = 99 }
 		add_days_mission_timeout = {
 			mission = QIN_xinhai_timer
@@ -8738,7 +9342,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = ww1_qing.7.b
+		name = ww1_qing.7.f
 		ai_chance = { factor = 1 }
 		add_days_mission_timeout = {
 			mission = QIN_xinhai_timer
@@ -8747,7 +9351,7 @@ country_event = {
 		add_political_power = 125
 	}
 	option = {
-		name = ww1_qing.7.c
+		name = ww1_qing.7.g
 		ai_chance = { factor = 0 }
 		add_political_power = 250
 		add_days_mission_timeout = {
@@ -8757,8 +9361,8 @@ country_event = {
 	}
 }
 country_event = {
-	title = ww1_qing.6.t #Advisory Council
-	desc = ww1_qing.6.d
+	title = ww1_qing.6.h #Advisory Council
+	desc = ww1_qing.6.g
 	id = ww1_qing.6
 	picture = QIN_qing_advisory_council_image
 	fire_only_once = yes
@@ -8766,7 +9370,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = ww1_qing.6.a
+		name = ww1_qing.6.e
 		ai_chance = { factor = 0 }
 		add_days_mission_timeout = {
 			mission = QIN_xinhai_timer
@@ -8777,7 +9381,7 @@ country_event = {
 		unlock_decision_tooltip = QIN_dec_emergency_reform
 	}
 	option = {
-		name = ww1_qing.6.b
+		name = ww1_qing.6.f
 		ai_chance = { factor = 100 }
 		retire_country_leader = yes
 		promote_character = QIN_yikuang

@@ -1435,5 +1435,97 @@ ideas = {
 				consumer_goods_factor = 0.15
 			}
 		}
+		QIN_idea_xinhai_revolution = {
+			name = CHI_idea_xinhai_revolution
+			removal_cost = -1
+			picture = chi_war_of_resistance3
+			allowed = {
+				original_tag = QIN
+			}
+			allowed_civil_war = { always = no }
+			available = {
+				OR = {
+					has_war_with = CHI
+					AND = {
+						country_exists = CHI
+						has_global_flag = xinhai_revolution
+					}
+				}
+			}
+			modifier = {
+				army_org_factor = -0.30
+				army_speed_factor = -0.30
+			}
+		}
+		QIN_abdicated_qing_imperial_family = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
+			picture = man_low_legitimacy
+			available = {
+				controls_state = 608
+				is_qing_monarchy = no
+				has_global_flag = abdicated_qing_imperial_family_allowed
+				NOT = { has_global_flag = abdicated_qing_imperial_family_banned }
+			}
+			allowed_civil_war = { controls_state = 608 }
+			modifier = {
+				stability_factor = 0.05
+			}
+		}
+		QIN_abdicated_qing_imperial_family2 = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
+			picture = generic_monarchist_uprising
+			available = {
+				controls_state = 608
+			}
+			allowed_civil_war = { controls_state = 608 }
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+		
+		QIN_idea_taching_bank = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
+			picture = generic_pp_unity_bonus
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				research_speed_factor = 0.1
+			}
+		}
+		QIN_idea_bank_of_china = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
+			picture = generic_pp_unity_bonus
+			modifier = {
+				political_power_gain = -0.3
+				production_speed_buildings_factor = 0.25
+				research_speed_factor = 0.25
+			}
+		}
+		QIN_idea_provincial_model = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
+			picture = generic_pp_unity_bonus
+			modifier = {
+				political_power_gain = 0.25
+				research_speed_factor = 0.15
+			}
+		}
+		QIN_idea_modern_traditions = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
+			picture = generic_flexible_foreign_policy2
+			modifier = {
+				research_speed_factor = 0.18
+			}
+		}
 	}
 }

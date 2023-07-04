@@ -118,6 +118,22 @@ QIN_constitution_category = {
 		}
 		priority = 7
 	}
+	QIN_dec_banking_decision = {
+		icon = eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		visible = { has_global_flag = QIN_flag_banking_0 } 
+		cost = 20
+		fire_only_once = yes
+		complete_effect = {
+			add_stability = 0.05
+			set_global_flag = QIN_flag_banking
+			custom_effect_tooltip = QIN_effect_banking
+			mark_focus_tree_layout_dirty = yes
+		}
+		priority = 7
+	}
 	
 	QIN_edict_queue = { #Status of the Queue
 		icon = eng_trade_unions_support
@@ -536,7 +552,7 @@ QIN_xinhai_revolution_category = {
 					integer = yes
 				}
 			}
-			country_event = ww1_xinhai.2
+			country_event = ww1_qingrev.2
 			custom_effect_tooltip = QIN_effect_revolution_location
 		}
 	}
@@ -749,7 +765,23 @@ QIN_xinhai_revolution_category = {
 		available = {
 			QIN = { has_idea = QIN_idea_court_opposition }
 			NOT = { has_government = democratic }
-			has_political_power > -275
+			OR = {
+				AND = {
+					has_global_flag = QIN_easy_mode
+					has_political_power > -200
+				}
+				AND = {
+					has_global_flag = QIN_hard_mode
+					has_political_power > -75
+				}
+				AND = {
+					NOT = {
+						has_global_flag = QIN_easy_mode
+						has_global_flag = QIN_hard_mode
+					}
+					has_political_power > -150
+				}
+			}
 		}
 		visible = {
 			NOT = { has_government = democratic }
@@ -775,7 +807,7 @@ QIN_xinhai_revolution_category = {
 			custom_effect_tooltip = QIN_effect_appease_conservatives_warning
             if = {
                 limit = {
-                    has_political_power < -200
+                    has_political_power < -120
                 }
                 add_stability = -0.004
             }
@@ -1343,7 +1375,7 @@ QIN_xinhai_revolution_category = {
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 150
+				days = 120
 			}
 			
 			if = {
@@ -1806,7 +1838,7 @@ QIN_beiyang_army_category = {
 			original_tag = QIN
 		} 
 		cost = 0
-		days_re_enable = 325
+		days_re_enable = 365
 		available = {
 			has_government = neutrality
 			has_idea = QIN_idea_beiyang_army
@@ -1831,7 +1863,7 @@ QIN_beiyang_army_category = {
 			original_tag = QIN
 		} 
 		cost = 0
-		days_re_enable = 365
+		days_re_enable = 435
 		available = {
 			QIN_yuan_shikai = { is_leading_army_group = yes }
 			has_idea = QIN_idea_beiyang_army

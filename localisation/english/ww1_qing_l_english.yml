@@ -1,6 +1,30 @@
 ﻿l_english:
 #qing rework
 #focus
+ QIN_redirect_agricultural_funding:0 "Redirect Agricultural Funding"
+ QIN_redirect_agricultural_funding_desc:0 "As a part of our reforms, we have began funding the more rural parts of our country. They won't notice if we take some of this for the military, right?"
+ QIN_imperial_navy:0 "Imperial Chinese Navy"
+ QIN_imperial_navy_desc:0 "After the navy's humiliation during the Second Sino-Japanese War, it is time to fund the restoration of a new navy that will never be humiliated again"
+ QIN_democratic_compromise:0 "Democratic Compromise"
+ QIN_democratic_compromise_desc:0 "In return for a guaranteed budget, the Emperor's role in the government will become exclusively ceremonial. Now, we can finally fulfill the will of the people!"
+ QIN_constitutional_revision:0 "Constitutional Revision"
+ QIN_constitutional_revision_desc:0 "Parliament must be allowed to govern without the constant meddling of the emperor!"
+ QIN_freedom_of_speech:0 "Freedom of Press"
+ QIN_freedom_of_speech_desc:0 "We cannot possibly allow the continuation of such oppression!"
+ QIN_modern_traditions:0 "Reformation of Qing Tradition"
+ QIN_modern_traditions_desc:0 "While the traditions must be upheld, perhaps there are ways to reform around them?"
+ QIN_continue_the_reforms:0 "Continue the Reforms"
+ QIN_continue_the_reforms_desc:0 "We have gone so far to reach a stable nation, why should we stop now?"
+ QIN_expand_the_taching_bank:0 "Expand the Ta-ching Bank"
+ QIN_expand_the_taching_bank_desc:0 "The Ta-ching Bank is our first attempt at a centralized bank. Founded in 1905, it has so far only been implemented in Beijing, Shandong, and Shanghai. If we wish to reform, we cannot hope to miss this!"
+ QIN_bank_of_china:0 "Bank of China"
+ QIN_bank_of_china_desc:0 "It is time to centralized the Ta-ching bank and form a real national central bank!"
+ QIN_decentralize_the_bank:0 "Provincial Model"
+ QIN_decentralize_the_bank_desc:0 "For our own sake, its best not to mess with the province's money"
+ QIN_imperial_arsenal:0 "Imperial Arsenal"
+ QIN_imperial_arsenal_desc:0 "The imperial family has supported our efforts to revolutionize our nation's heavy industry for the sake of the nation, and are willing to put in some of their wealth for this effort."
+ QIN_seize_factories:0 "Seize Nandong Factories"
+ QIN_seize_factories_desc:0 "Our southern investments have opened up a new oppurtunity for us to utilize our newfound authority, and weaken the power of the southern warlords."
  QIN_support_yuans_reforms:0 "Support Yuan's Reforms"
  QIN_support_yuans_reforms_desc:0 "Yuan Shikai helped introduce major reforms to our system as an advisor to Cixi before he was exiled to Manchuria. Perhaps there was wisdom in these?"
  QIN_appoint_yuan_shikai:0 "Appoint Yuan Shikai"
@@ -497,6 +521,12 @@
  QIN_state_university:0 "Peking University"
  QIN_state_university_desc:0 "If we have enough money, we can afford to revive higher education."
 #decisions
+ 
+ QIN_idea_taching_bank:0 "Ta-ching Government Bank"
+ QIN_idea_taching_bank_desc:0 "The Ta-ching Government Bank, founded in 1905, is the first central bank of China and also acts as a commercial bank to finance projects. Originally, the Bank opened in only a few regions of northern China and Shanghai, but now it is more widespread."
+ QIN_idea_bank_of_china:0 "Centralized Bank of China"
+ QIN_idea_bank_of_china:0 "QIN_idea_provincial_model"
+
  QIN_sell_aruna_mountains:0 "Sell Aruna Mountains"
  QIN_sell_aruna_mountains_desc:0 "We will offer to sell the Aruna Mountains to the British for around 125 PP"
  QIN_powerless_timer:0 "Reform Window"
@@ -505,6 +535,7 @@
  QIN_dec_offer_shikai_leadership:0 "Offer Shikai the Presidency"
  QIN_dec_offer_shikai_leadership:0 "We will offer Yuan Shikai the presidency in the new republic, in return for their support of our newly formed democracy."
  
+ QIN_dec_banking_decision:0 "Begin 1911 Dragon Note Circulation"
  QIN_dec_pass_copyright_law:0 "Pass the Great Qing Copyright Code"
  QIN_dec_pass_copyright_law_desc:0 "This will be the first copyright law in our empire, to ensure the protection of innovation that will lead us into the future!"
  QIN_edict_legality:0 "Edict on Legality"
@@ -716,11 +747,13 @@
  QIN_korea_will_help:0 "If war breaks out, Korea will switch to our side if they agreed to our liberation offer"
  QIN_korea_independence:0 "We will offer Korea to become free from Japan"
  line_description:0 "  "
+ QIN_effect_banking:0 "This will reveal a small hidden branch in our focus tree!"
  QIN_prepare_revolution:0 "This branch deals with strengthening our capability to fight revolutions, and, if it happens, dealing with the consequences of revolution"
  QIN_beg_japanese:0 "They will likely have heavy demands!"
  QIN_qing_reformed_effect:0 "After we complete this focus, Republican Revolutions will be prevented"
  QIN_korean_compromise_description:0 "We will offer Japan Outer Dalian in return that they do not annex Korea. It is important to note that they may ask for more territory, and that Korea will still remain Japan's puppet."
 #global flags
+ QIN_flag_conservative_coup:0 "The court has beened provoked by recent reforms and is sufficiently powerful to coup the government"
  QIN_concurrently_exclusive_description:0 "This is for descriptive purposes"
  QIN_hard_mode:0 "§RImpossible Mode§!"
  QIN_easy_mode:0 "§GEasy Mode§!"
@@ -746,6 +779,8 @@
  QIN_flag_judicial_reform_completed:0 "All 5 Judicial Reform decisions has been considered."
  QIN_flag_legality:0 "Chose to uphold the Principle of Legality"
 #ideas
+ QIN_abdicated_qing_imperial_family2:0 "Imperial Fund"
+ QIN_idea_modern_traditions:0 "Modernized Traditions"
  QIN_idea_anti_qing_militias:0 "Anti-Qing Militias"
  QIN_idea_consolidated_forces:0 "Consolidated Forces"
  QIN_idea_manuever_doctrine:0 "Run down the Revolution"
@@ -860,6 +895,10 @@
  QIN_diplomatic_effort:0 "Diplomatic Effort"
  QIN_korean_qing_friendship:0 "Major Sino-Korean Diplomatic Effort"
  #events
+ 
+ ww1_qing.254.t:0 "Paper Money Circulation"
+ ww1_qing.254.d:0 "In 1910, we standardized the paper money in China, using the Great Qing Government Bank we founded in 1905. Being the first centralized Chinese bank, the situation has been chaotic for years, but after much observation of foreign designs, we have printed enough money for circulation of the new legal tender."
+
  ww1_qing.253.t: "Tsinghua Fund"
  ww1_qing.253.d: "In 1900, the United States were given a share of the Boxer Indemnities. Believing it to be too much, they offered to re-invest this into our country. Many plans were proposed, such as Yuan Shikai's infrastructure plan, but in the end, it was agreed that the indemnity would be reduced by $10.8 million on the condition it was used to setup a western style university. This university would be located on the site of the former imperial Tsinghua Gardens to form the new Tsinghua College, staffed by several prominent US and Chinese scholars such as Liang Qichao. \n\nThe agreement was approved in 1909 by Theodore Roosevelt and the US Congress and is now ready to be implemented."
  
@@ -1540,6 +1579,27 @@
  ww1_qing.52.a:0 "Oh, so we're imperialistic?"
  ww1_qing.52.b:0 "We don't really need it anyway"
  
+ ww1_qing.263.t:0 "[QIN.GetName] refuses our peace offer!"
+ ww1_qing.263.d:0 "The [QIN.GetName] blatently refused our peace offer, saying that they will not negotiate with 'imperialists'. Anyway, the war will not end for now."
+ ww1_qing.263.a:0 "Fine then"
+ 
+ ww1_qing.262.t:0 "Japan offers terms"
+ ww1_qing.262.d:0 "Our victories against the Japanese has convinced them that there is no longer any way or reason to continue the war. They have offered to surrender rightful Chinese territories as well as the territories of our allies in return for peace."
+ ww1_qing.262.a:0 "This can be agreed upon"
+ ww1_qing.262.b:0 "No peace for imperialists!"
+ 
+ ww1_qing.261.d:0 "After much attempts at a diplomatic resolution, and despite our gains, Japan has refused to consider any of the demands we made. It is likely their involvment in a major alliance has convinced them to refuse a peaceful settlement."
+ ww1_qing.260.t:0 "Japenese refuse to negotiate"
+ ww1_qing.260.d:0 "After much attempts at a diplomatic resolution, and despite our gains, Japan has refused to consider any of the demands we made."
+ ww1_qing.260.a:0 "Fine then"
+ 
+ 
+ ww1_qing.258.t:0 "Second Sino-Japanese War"
+ ww1_qing.258.d:0 "Once again, [JAP.GetName] and the [QIN.GetName] have found themselves at war again! Tensions have boiled over after refusal of Chinese demands for the return of certain territories lost during the First Sino-Japanese War 20 years earlier. Already, [QIN.GetName] has already begun the invasion of Korea, calling it a 'liberation against the Japanese oppressors'."
+ ww1_qing.258.a:0 "We will not repeat the mistakes of the first!"
+ ww1_qing.258.b:0 "We'll crush them again!"
+ ww1_qing.258.c:0 "Oh my!"
+ 
  ww1_qing.28.t:0 "Britain refuses to hand over Weihaiwei!"
  ww1_qing.28.d:0 "They called our demands unmeetable"
  ww1_qing.28.a:0 "Enough, make it clear the only other option is war!"
@@ -1563,7 +1623,7 @@
  ww1_qing.24.a:0 "Damnit!"
  
  ww1_qing.23.t:0 "Korea willing to cooperate in fight for freedom"
- ww1_qing.23.d:0 "Our envoy has returned from the 'trade agreement' trip with good news. Korea has agreed to our deal and is already plotting their plan to overthrow the Japanese"
+ ww1_qing.23.d:0 "Our envoy has returned from the 'trade agreement' trip with good news. Korea has agreed to our deal and is already plotting their plan to overthrow the Japanese. \n\n§RIt may take up to two weeks after the war begins for Korea to switch sides!§!"
  ww1_qing.23.a:0 "Great"
  
  ww1_qing.22.t:0 "[QIN.GetName] offers a chance at freedom from Japan"
@@ -1618,16 +1678,16 @@
  ww1_qing.9.c:0 "Fuhsien is good enough"
  ww1_qing.9.e:0 "We have other plans, sorry"
  
- ww1_qing.7.t:0 "The National Assembly"
- ww1_qing.7.d:0 "The 1910 National Assembly is the first assembling of the PCA, and consists of 98 elected representatives and 100 appointed by the emperor. Despite this, most members of the assembly, elected or appointed, are reform minded. Many components of this assembly are unprecedented, such as the average age of representatives being under 45, and the ability of the PCA to impeach high ranking officials for corruption, even including those within the Emperor's Grand Council."
- ww1_qing.7.a:0 "We look forward to ther advice for a better and reformed China!"
- ww1_qing.7.b:0 "Just make sure we can still veto them"
- ww1_qing.7.c:0 "Make sure that whatever power they have is limited to their building"
+ ww1_qing.7.h:0 "The National Assembly"
+ ww1_qing.7.j:0 "The 1910 National Assembly is the first assembling of the PCA, and consists of 98 elected representatives and 100 appointed by the emperor. Despite this, most members of the assembly, elected or appointed, are reform minded. Many components of this assembly are unprecedented, such as the average age of representatives being under 45, and the ability of the PCA to impeach high ranking officials for corruption, even including those within the Emperor's Grand Council."
+ ww1_qing.7.e:0 "We look forward to ther advice for a better and reformed China!"
+ ww1_qing.7.f:0 "Just make sure we can still veto them"
+ ww1_qing.7.g:0 "Make sure that whatever power they have is limited to their building"
  
- ww1_qing.6.t:0 "The Advisory Council"
- ww1_qing.6.d:0 "In 1906, we began the process of implementing a consitution. Because conditions were not suitable for the constitution yet, we began a process of 'Preparative Constitutionalism'. As such, we plan form an advisory council that will act as a 'Political Consultive Assembly (PCA)'. The elections occured in 1909, and the PCA will begin in October 1910. Still, all actions are subject to veto by the Emperor alone"
- ww1_qing.6.a:0 "Great! We should be proactive in adopting reform!"
- ww1_qing.6.b:0 "Along as we adopt reform only as a neccessary concession..."
+ ww1_qing.6.h:0 "The Advisory Council"
+ ww1_qing.6.g:0 "In 1906, we began the process of implementing a consitution. Because conditions were not suitable for the constitution yet, we began a process of 'Preparative Constitutionalism'. As such, we plan form an advisory council that will act as a 'Political Consultive Assembly (PCA)'. The elections occured in 1909, and the PCA will begin in October 1910. Still, all actions are subject to veto by the Emperor alone"
+ ww1_qing.6.e:0 "Great! We should be proactive in adopting reform!"
+ ww1_qing.6.f:0 "Along as we adopt reform only as a neccessary concession..."
  #music
  qing_theme:0 "Cup of Solid Gold"
  #traits

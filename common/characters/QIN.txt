@@ -15,6 +15,7 @@ characters={
 				old_figurehead
 			}
 			on_remove = {
+				QIN = {
                 custom_effect_tooltip = QIN_effect_court_1
 				if = {
 					limit = {
@@ -30,6 +31,7 @@ characters={
 						idea = QIN_idea_court_opposition
 						days = 50
 					}
+				}
 				}
             }
 			ai_will_do  = {
@@ -119,6 +121,7 @@ characters={
 				staunch_royalist
 			}
 			on_remove = {
+			QIN = {
                 custom_effect_tooltip = QIN_effect_court_1
 				if = {
 					limit = {
@@ -134,6 +137,7 @@ characters={
 						idea = QIN_idea_court_opposition
 						days = 50
 					}
+				}
 				}
             }
 			ai_will_do  = {
@@ -162,7 +166,9 @@ characters={
 				captain_of_industry
 			}
 			on_remove = {
+			QIN = {
                 add_political_power = -25
+				}
             }
 			ai_will_do  = {
 				factor  = 0
@@ -190,7 +196,9 @@ characters={
 				judicial_reformer
 			}
 			on_remove = {
+			QIN = {
                 add_political_power = -25
+				}
             }
 			ai_will_do  = {
 				factor  = 0
@@ -217,7 +225,9 @@ characters={
 				education_reformer
 			}
 			on_remove = {
+			QIN = {
                 add_political_power = -25
+				}
             }
 			ai_will_do  = {
 				factor  = 0
@@ -244,6 +254,7 @@ characters={
 				consultant_minister
 			}
 			on_remove = {
+			QIN = {
                 custom_effect_tooltip = QIN_effect_court_2
 				if = {
 					limit = {
@@ -259,6 +270,7 @@ characters={
 						idea = QIN_idea_court_opposition
 						days = 75
 					}
+				}
 				}
             }
 			ai_will_do  = {
@@ -290,7 +302,9 @@ characters={
 				economist
 			}
 			on_remove = {
+			QIN = {
                 add_political_power = -50
+				}
             }
 			ai_will_do  = {
 				factor  = 0
@@ -417,6 +431,7 @@ characters={
 				army_chief_morale_1 
 			}
 			on_remove = {
+			QIN = {
                 custom_effect_tooltip = QIN_effect_court_1
 				if = {
 					limit = {
@@ -432,6 +447,7 @@ characters={
 						idea = QIN_idea_court_opposition
 						days = 50
 					}
+				}
 				}
             }
 			ai_will_do  = {
@@ -897,6 +913,7 @@ characters={
 				}
 			}
 			on_remove = {
+			QIN = {
                 custom_effect_tooltip = QIN_effect_court_0
 				if = {
 					limit = {
@@ -912,6 +929,7 @@ characters={
 						idea = QIN_idea_court_opposition
 						days = 20
 					}
+				}
 				}
             }
 			ai_will_do  = {
@@ -940,6 +958,7 @@ characters={
 				ideological_crusader 
 			}
 			on_remove = {
+			QIN = {
                 custom_effect_tooltip = QIN_effect_court_1
 				if = {
 					limit = {
@@ -955,6 +974,7 @@ characters={
 						idea = QIN_idea_court_opposition
 						days = 50
 					}
+				}
 				}
             }
 			ai_will_do  = {
@@ -980,7 +1000,9 @@ characters={
 				smooth_talking_charmer 
 			}
 			on_remove = {
+			QIN = {
                 add_political_power = -25
+				}
             }
 			ai_will_do  = {
 				factor  = 1
@@ -1087,6 +1109,7 @@ characters={
 					factor  = 1
 				}
 				on_remove = {
+				QIN = {
                 custom_effect_tooltip = QIN_effect_court_1
 				if = {
 					limit = {
@@ -1104,6 +1127,7 @@ characters={
 					}
 				}
             }
+			}
 		}
 		name="QIN_zaixun"
 		portraits={
@@ -1258,6 +1282,101 @@ characters={
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 2
+		}
+	}
+	QIN_xu_shichang = {
+		name = CHI_xu_shichang
+		portraits = {
+			civilian = {
+				small = "GFX_idea_CHI_xu_shichang_advisor"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = QIN_xu_shichang
+			allowed  = {
+				is_china_or_warlord = yes
+			}
+			cost  = 200
+			available = {
+				is_country_leader = no
+			}	
+			traits  = {
+				armaments_organizer
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+	}
+	QIN_baoding_military_academy = {
+		name = "QIN_baoding_military_academy"
+		portraits = {
+			army = {
+				small = "GFX_idea_generic_manpower_bonus"
+			}
+		}
+		advisor = {
+			slot = theorist
+			idea_token = CHI_baoding_military_academy
+			allowed = {
+				original_tag = QIN
+			}
+			ledger = army
+			available = {
+				608 = { is_owned_and_controlled_by = ROOT }
+			}
+			cost = 100
+			traits = {
+				military_theorist
+			}
+		}
+	}
+	QIN_yunnan_military_academy = {
+		name = "yunnan_military_academy"
+		portraits = {
+			army = {
+				small = "GFX_idea_generic_manpower_bonus"
+			}
+		}
+		advisor = {
+			slot = theorist
+			idea_token = QIN_yunnan_military_academy
+			allowed = {
+				original_tag = QIN
+			}
+			ledger = army
+			available = {
+				325 = { is_owned_and_controlled_by = ROOT }
+			}
+			cost = 100
+			traits = {
+				military_theorist
+			}
+		}
+	}
+	QIN_yunnan_aviation_academy = {
+		name = "yunnan_aviation_academy"
+		portraits = {
+			army = {
+				small = "GFX_idea_air_support_focus"
+			}
+		}
+		advisor = {
+			slot = theorist
+			idea_token = QIN_yunnan_aviation_academy
+			allowed = {
+				original_tag = QIN
+			}
+			ledger = army
+			available = {
+				has_country_flag = chinese_air_force
+				325 = { is_owned_and_controlled_by = ROOT }
+			}
+			cost = 100
+			traits = {
+				air_warfare_theorist
+			}
 		}
 	}
 }

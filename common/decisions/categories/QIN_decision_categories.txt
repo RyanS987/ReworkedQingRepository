@@ -53,6 +53,7 @@ QIN_beiyang_army_category = {
 		}
 	}
 }
+
 QIN_pay_indemnities_category = {
 	priority = 8
 	icon = political_operation
@@ -68,7 +69,7 @@ QIN_pay_indemnities_category = {
 			QIN = { has_idea = QIN_idea_payments_of_indemnities_british }
 			QIN = { has_idea = QIN_idea_payments_of_indemnities_russian }
 			QIN = { has_idea = QIN_idea_payments_of_indemnities_italian }
-			QIN = { has_idea = QIN_idea_payments_of_indemnities_japanese }
+			QIN = { has_idea = QIN_idea_payments_of_indemnities_japan }
 			QIN = { has_idea = QIN_idea_payments_of_indemnities_german }
 			QIN = { has_idea = QIN_idea_payments_of_indemnities_usa }
 		}
