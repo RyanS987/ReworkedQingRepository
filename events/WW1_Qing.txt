@@ -3476,8 +3476,7 @@ country_event = {
 				idea = QIN_idea_court_opposition
 				days = 50
 			}
-		}
-		
+		}	
 	}
 	option = {
 		name = "The Grand Council has shown itself incapable assisting the Emperor. Disband it!"
@@ -3488,6 +3487,36 @@ country_event = {
 			days = 75
 		}
 		activate_decision = QIN_dec_disband_grand_council
+	}
+	option = {
+		name = "Tell them we'll think about it"
+		ai_chance = { factor = 0 }	
+		trigger = {
+			NOT = {
+				has_global_flag = QIN_flag_waited_3
+			}
+		}
+		add_political_power = -50
+		if = {
+			limit = {
+				has_global_flag = QIN_flag_waited_2
+			}
+			add_stability = -0.1
+			set_global_flag = QIN_flag_waited_3
+		}
+		if = {
+			limit = {
+				has_global_flag = QIN_flag_waited_1
+			}
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -150
+			}
+			set_global_flag = QIN_flag_waited_2
+		}
+		set_global_flag = QIN_flag_waited_1
+		QIN = { country_event = { id = ww1_qing.196 days = 180 } }
+		custom_effect_tooltip = QIN_effect_delay_decision
 	}
 }
 country_event = {
@@ -8446,6 +8475,7 @@ country_event = {
 		}
 		JAP = {
 			end_puppet = KOR
+			KOR = { leave_faction = yes }
 			declare_war_on = KOR
 		}
 		KOR = {

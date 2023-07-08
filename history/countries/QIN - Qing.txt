@@ -8,6 +8,9 @@ set_stability = 0.47
 set_war_support = 0.19
 set_convoys = 64
 
+set_global_flag = QIN_flag_recent_edict
+set_global_flag = QIN_flag_recent_jud_edict
+
 give_military_access = RUS #Chinese Eastern Railway 
 give_military_access = JAP #South Manchuria Railway
 give_military_access = GER #Qingdao–Jinan Railway

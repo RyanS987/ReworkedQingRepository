@@ -529,7 +529,7 @@ focus_tree = {
 	focus = {
 		id = QIN_national_assembly
 		icon = GFX_focus_national_assembly
-		cost = 6
+		cost = 5
 		x = 0
 		y = 1
 		relative_position_id = QIN_advisory_council
@@ -682,7 +682,7 @@ focus_tree = {
 			custom_effect_tooltip = line_description
 			add_timed_idea = {
 				idea = QIN_idea_announce_reform
-				days = 1460
+				days = 900
 			}
 			custom_effect_tooltip = QIN_effect_block_reform_warning
 			
@@ -715,7 +715,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_ban_revolutionaries_from_parliament
-		cost = 5
+		cost = 4
 		x = 3
 		y = 3
 		icon = GFX_goal_generic_political_pressure
@@ -811,7 +811,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_education_reform
-		cost = 5
+		cost = 4
 		x = 1
 		y = 3
 		icon = GFX_focus_generic_military_academy
@@ -846,7 +846,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_reform_the_civil_service_exam
-		cost = 9
+		cost = 8
 		x = 3
 		y = 4
 		icon = GFX_focus_tur_socialist_education
@@ -870,9 +870,9 @@ focus_tree = {
 		add_political_power = -40
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 220
+				days = 200
 			}
-			add_stability = 0.2
+			add_stability = 0.15
 		}
 		search_filters = { 
 			FOCUS_FILTER_STABILITY
@@ -885,7 +885,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_expand_western_institutions
-		cost = 9
+		cost = 8
 		x = 0
 		y = 4
 		icon = GFX_focus_research2
@@ -917,7 +917,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_social_reform
-		cost = 5
+		cost = 4
 		x = -1
 		y = 3
 		icon = GFX_focus_TUR_stabilization_in_peace
@@ -1090,7 +1090,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_chinese_welfare
-		cost = 7
+		cost = 6
 		x = -3
 		y = 6
 		icon = GFX_focus_SOV_breadbasket_of_the_union
@@ -3219,7 +3219,7 @@ focus_tree = {
 		icon = GFX_focus_qing_imperial
 		relative_position_id = QIN_national_assembly
 		cancel_if_invalid = no
-		continue_if_invalid = no
+		continue_if_invalid = yes
 		available_if_capitulated = no
 		mutually_exclusive = { focus = QIN_appease_the_colonialists }
 		prerequisite = {
@@ -5158,7 +5158,7 @@ focus_tree = {
 	
 	focus = {
 		id = QIN_first_qiongren_plan
-		cost = 9
+		cost = 6
 		x = 1
 		y = 1
 		icon = GFX_focus_train_railroads
@@ -5314,7 +5314,7 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_secound_qiongren_plan
-		cost = 10
+		cost = 8
 		x = 1
 		y = 2
 		icon = GFX_focus_SOV_organize_wreckers
@@ -7539,7 +7539,7 @@ focus_tree = {
 	
 	focus = {
 		id = QIN_manchu_centralization
-		cost = 10
+		cost = 9
 		x = 0
 		y = 2
 		icon = GFX_focus_chi_qing_china
@@ -8149,18 +8149,18 @@ focus_tree = {
 	}
 	focus = {
 		id = QIN_elections_for_the_corruption_council
-		cost = 20
-		x = -1
+		cost = 11
+		x = 4
 		y = 1
 		icon = GFX_goal_FRA_royal_prerogatives
-		relative_position_id = QIN_anti_corruption_council
+		relative_position_id = QIN_find_corrupt_officials
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = no
 		prerequisite = {
-			focus = QIN_anti_corruption_council
-			focus = QIN_efficient_government
+			focus = QIN_national_assembly
 		}
+		
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
 			NOT = { has_global_flag = xinhai_revolution }
@@ -8260,10 +8260,10 @@ focus_tree = {
 	focus = {
 		id = QIN_state_level_anti_corruption
 		cost = 10
-		x = 1
-		y = 1
+		x = 0
+		y = 2
 		icon = GFX_focus_stabilize_democracy
-		relative_position_id = QIN_elections_for_the_corruption_council
+		relative_position_id = QIN_anti_corruption_council
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -8450,21 +8450,16 @@ focus_tree = {
 				has_global_flag = QIN_flag_decided_no_restrictions
 			}
 			has_global_flag = QIN_flag_judicial_reform_completed
-			OR = {
-			has_completed_focus = QIN_state_level_anti_corruption
-			has_completed_focus = QIN_imperial_propaganda
-			has_completed_focus = QIN_execute_tongmenghui_leaders
-			has_completed_focus = QIN_confucian_socialism
-			}
 		}
 		bypass = {
 		}
 		completion_reward = {
 			#custom_effect_tooltip = QIN_qing_reformed_effect
 			#set_global_flag = qing_reformed
+			add_political_power = 150
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 900
+				days = 365
 			}
 		}			
 		ai_will_do = {
@@ -13136,8 +13131,6 @@ if = {
 		available_if_capitulated = no
 		prerequisite = {
 			focus = QIN_reaffirm_the_qing_mandate
-		}
-		prerequisite = {
 			focus = QIN_army_westernization
 		}
 		available = {

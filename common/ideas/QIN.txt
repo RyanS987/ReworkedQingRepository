@@ -132,8 +132,8 @@ ideas = {
 			removal_cost = -1
 			picture = generic_disjointed_gov
 			modifier = {
-				political_power_factor = -0.5
-				surrender_limit = -0.25
+				political_power_factor = -0.35
+				surrender_limit = -0.1
 				political_advisor_cost_factor = 1
 				economy_cost_factor = 1
 				mobilization_laws_cost_factor = 1
@@ -144,7 +144,7 @@ ideas = {
 			removal_cost = -1
 			picture = generic_disjointed_gov
 			modifier = {
-				political_power_factor = -0.35
+				political_power_factor = -0.2
 				surrender_limit = -0.05
 				
 				political_advisor_cost_factor = -0.25
@@ -161,7 +161,7 @@ ideas = {
 			removal_cost = -1
 			picture = generic_disjointed_gov
 			modifier = {
-				political_power_factor = -0.25
+				political_power_factor = -0.1
 				surrender_limit = -0.05
 				
 				political_advisor_cost_factor = -0.25
@@ -178,8 +178,7 @@ ideas = {
 			removal_cost = -1
 			picture = generic_disjointed_gov
 			modifier = {
-				political_power_factor = -0.4
-				surrender_limit = -0.2
+				political_power_factor = -0.25
 				political_advisor_cost_factor = 0.5
 				economy_cost_factor = 0.5
 				mobilization_laws_cost_factor = 0.5
@@ -193,7 +192,7 @@ ideas = {
 			#}
 			picture = generic_disjointed_gov
 			modifier = {
-				political_power_factor = -0.1
+				political_power_factor = -0.05
 			}
 		}
 		QIN_idea_foreign_investments = {
@@ -283,7 +282,7 @@ ideas = {
 			picture = chi_forced_conscription
 			modifier = {
 				stability_factor = -0.1
-				stability_weekly = 0.002
+				stability_weekly = 0.001
 				fascism_drift = -0.03
 			}
 		}
@@ -315,7 +314,14 @@ ideas = {
 				stability_factor = 0.05
 			}
 		}
-		
+		QIN_idea_beiyang_deal = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_manpower_bonus
+			modifier = {
+				surrender_limit = -0.5
+			}
+		}
 		QIN_idea_beiyang_army = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -985,6 +991,9 @@ ideas = {
 			removal_cost = -1
 		}
 		QIN_idea_payments_of_indemnities = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = usa_great_depression_2
@@ -998,6 +1007,9 @@ ideas = {
 			}
 		}
 		QIN_idea_payments_of_indemnities_2 = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = usa_great_depression_2
@@ -1011,6 +1023,9 @@ ideas = {
 			}
 		}
 		QIN_idea_payments_of_indemnities_3 = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = usa_great_depression_2
@@ -1024,6 +1039,9 @@ ideas = {
 			}
 		}
 		QIN_idea_payments_of_indemnities_4 = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = usa_great_depression
@@ -1037,6 +1055,9 @@ ideas = {
 			}
 		}
 		QIN_idea_payments_of_indemnities_5 = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = usa_great_depression
@@ -1050,6 +1071,9 @@ ideas = {
 			}
 		}
 		QIN_idea_payments_of_indemnities_6 = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = great_depression
@@ -1066,12 +1090,12 @@ ideas = {
 			removal_cost = -1
 			picture = QIN_russian_payment
 			modifier = {
-				consumer_goods_factor = 0.16
-				research_speed_factor = -0.16
-				industrial_capacity_factory = -0.16
-				production_speed_industrial_complex_factor = -0.08
-				production_speed_arms_factory_factor = -0.08				
-				production_speed_dockyard_factor = -0.08
+				consumer_goods_factor = 0.10
+				research_speed_factor = -0.04
+				industrial_capacity_factory = -0.04
+				production_speed_industrial_complex_factor = -0.07
+				production_speed_arms_factory_factor = -0.07				
+				production_speed_dockyard_factor = -0.07
 				production_speed_infrastructure_factor = -0.03
 			}
 		}
@@ -1080,9 +1104,9 @@ ideas = {
 			removal_cost = -1
 			picture = QIN_german_payment
 			modifier = {
-				consumer_goods_factor = 0.11
-				research_speed_factor = -0.11
-				industrial_capacity_factory = -0.11
+				consumer_goods_factor = 0.07
+				research_speed_factor = -0.03
+				industrial_capacity_factory = -0.03
 				production_speed_industrial_complex_factor = -0.05
 				production_speed_arms_factory_factor = -0.05				
 				production_speed_dockyard_factor = -0.05
@@ -1094,9 +1118,9 @@ ideas = {
 			removal_cost = -1
 			picture = QIN_french_payment
 			modifier = {
-				consumer_goods_factor = 0.08
-				research_speed_factor = -0.08
-				industrial_capacity_factory = -0.08
+				consumer_goods_factor = 0.05
+				research_speed_factor = -0.02
+				industrial_capacity_factory = -0.02
 				production_speed_industrial_complex_factor = -0.04
 				production_speed_arms_factory_factor = -0.04
 				production_speed_dockyard_factor = -0.04
@@ -1108,9 +1132,9 @@ ideas = {
 			removal_cost = -1
 			picture = QIN_british_payment
 			modifier = {
-				consumer_goods_factor = 0.06
-				research_speed_factor = -0.06
-				industrial_capacity_factory = -0.06
+				consumer_goods_factor = 0.04
+				research_speed_factor = -0.02
+				industrial_capacity_factory = -0.02
 				production_speed_industrial_complex_factor = -0.04
 				production_speed_arms_factory_factor = -0.04
 				production_speed_dockyard_factor = -0.04
@@ -1124,8 +1148,8 @@ ideas = {
 			picture = QIN_italian_payment
 			modifier = {
 				consumer_goods_factor = 0.03
-				research_speed_factor = -0.03
-				industrial_capacity_factory = -0.03
+				research_speed_factor = -0.01
+				industrial_capacity_factory = -0.01
 				production_speed_industrial_complex_factor = -0.01
 				production_speed_arms_factory_factor = -0.01
 				production_speed_dockyard_factor = -0.02
@@ -1138,8 +1162,8 @@ ideas = {
 			picture = QIN_japan_payment
 			modifier = {
 				consumer_goods_factor = 0.03
-				research_speed_factor = -0.03
-				industrial_capacity_factory = -0.03
+				research_speed_factor = -0.01
+				industrial_capacity_factory = -0.01
 				production_speed_industrial_complex_factor = -0.01
 				production_speed_arms_factory_factor = -0.02
 				production_speed_dockyard_factor = -0.01
@@ -1152,8 +1176,8 @@ ideas = {
 			picture = QIN_usa_payment
 			modifier = {
 				consumer_goods_factor = 0.03
-				research_speed_factor = -0.03
-				industrial_capacity_factory = -0.03
+				research_speed_factor = -0.01
+				industrial_capacity_factory = -0.01
 				production_speed_industrial_complex_factor = -0.02
 				production_speed_arms_factory_factor = -0.01
 				production_speed_dockyard_factor = -0.01
