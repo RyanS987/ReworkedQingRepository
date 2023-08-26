@@ -1,0 +1,515 @@
+
+music_station = "base_music"
+
+music = {
+	song = "maintheme"
+	chance = {
+		modifier = {
+			factor = 0.5
+		}	
+		modifier = {
+			factor = 3
+			has_war = yes
+			tag = AUH
+		}
+	}
+}
+music = {
+	song = "main_theme_allies"
+	chance = {
+		modifier = {
+			factor = 0.5
+		}		
+	}
+}
+
+
+# PEACE SONGS ##################
+music = {
+	song = "general_peace_1"
+	
+	chance = {
+		modifier = {
+			factor = 1
+
+			has_war = no
+		}		
+	}	
+}
+
+music = {
+	song = "general_peace_2"
+	
+	chance = {
+		modifier = {
+			factor = 1
+
+			has_war = no
+		}		
+	}	
+}
+
+music = {
+	song = "general_peace_3"
+	
+	chance = {
+		modifier = {
+			factor = 1
+
+			has_war = no
+		}		
+	}
+}
+
+music = {
+	song = "allies_peace_1"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = no
+			has_government = democratic
+		}		
+	}	
+}
+
+music = {
+	song = "allies_peace_2"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = no
+			has_government = democratic
+		}		
+	}	
+}
+
+music = {
+	song = "axis_peace_1"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = no
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}		
+	}	
+}
+
+music = {
+	song = "axis_peace_2"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = no
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}		
+	}	
+}
+
+# WAR SONGS ####################
+
+music = {
+	song = "general_war_1"
+	
+	chance = {
+		modifier = {
+			factor = 1
+
+			has_war = yes
+		}		
+	}	
+}
+
+music = {
+	song = "general_war_2"
+	
+	chance = {
+		modifier = {
+			factor = 1
+
+			has_war = yes
+		}		
+	}	
+}
+
+music = {
+	song = "axis_war_1"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = yes
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}		
+	}	
+}
+
+music = {
+	song = "axis_war_2"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = yes
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}		
+	}	
+}
+
+music = {
+	song = "axis_war_3"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = yes
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}		
+	}	
+}
+
+music = {
+	song = "axis_war_4"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = yes
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}		
+	}	
+}
+
+music = {
+	song = "allies_war_1"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = yes
+			has_government = democratic
+		}		
+	}	
+}
+
+music = {
+	song = "allies_war_2"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = yes
+			has_government = democratic
+		}		
+	}	
+}
+
+music = {
+	song = "comintern_peace_1"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = no
+			has_government = communism
+		}		
+	}	
+}
+
+music = {
+	song = "comintern_peace_2"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = no
+			has_government = communism
+		}		
+	}	
+}
+
+music = {
+	song = "comintern_peace_3"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = no
+			has_government = communism
+		}		
+	}	
+}
+
+
+music = {
+	song = "comintern_war_1"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = yes
+			has_government = communism
+		}		
+	}	
+}
+
+music = {
+	song = "comintern_war_2"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = yes
+			has_government = communism
+		}		
+	}	
+}
+
+music = {
+	song = "comintern_war_3"
+	
+	chance = {
+		modifier = {
+			factor = 2
+
+			has_war = yes
+			has_government = communism
+		}	
+	}	
+}
+
+#The Great War
+music = {
+	song = "ottoman_theme"
+	chance = {
+		modifier = {
+			factor = 2
+			tag = TUR
+		}	
+	}	
+}
+music = {
+	song = "russian_empire_theme"
+	chance = {
+		modifier = {
+			factor = 2
+			tag = RUS
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				tag = BUL
+				tag = SER
+				tag = MNT
+			}	
+		}
+		modifier = {
+			add = 2
+			OR = {
+				tag = BUL
+				tag = SER
+				tag = MNT
+			}
+			has_war_with = TUR
+		}
+	}	
+}
+music = {
+	song = "british_theme"
+	chance = {
+		modifier = {
+			factor = 2		
+			tag = ENG
+		}	
+	}	
+}
+music = {
+	song = "italian_theme"
+	chance = {
+		modifier = {
+			factor = 1	
+			has_war = yes
+		}
+		modifier = {
+			factor = 2
+			has_war = yes
+			tag = ITA
+		}
+	}	
+}
+music = {
+	song = "red_baron"
+	chance = {
+		modifier = {
+			factor = 1		
+			has_war = yes
+		}	
+	}
+}
+music = {
+	song = "flanders_field"
+	chance = {
+		modifier = {
+			factor = 0.5
+			has_war = no
+			date > 1917.1.1
+		}
+		modifier = {
+			factor = 0
+			date < 1914.1.1
+		}	
+	}
+}
+music = {
+	song = "battle_of_marne"
+	chance = {
+		modifier = {
+			factor = 1		
+			has_war = yes
+		}	
+	}
+}
+music = {
+	song = "motherland"
+	chance = {
+		modifier = {
+			factor = 0.5
+			has_war = yes
+			NOT = { tag = RUS }
+		}
+		modifier = {
+			factor = 0
+			has_war = no
+			NOT = { tag = RUS }
+		}
+		modifier = {
+			factor = 0.5
+			tag = RUS
+		}
+	}
+}
+music = {
+	song = "symphony_funebre_et_triomphale"
+	chance = {
+		modifier = {
+			factor = 0.5
+		}	
+		modifier = {
+			factor = 3
+			has_war = yes
+			tag = FRA
+		}		
+	}
+}
+music = {
+	song = "qing_theme"
+	chance = {
+		modifier = {
+			factor = 3
+			tag = QIN
+			has_completed_focus = QIN_set_the_national_anthem
+		}
+		modifier = {
+			factor = 0
+			tag = QIN
+			NOT = { has_completed_focus = QIN_set_the_national_anthem }
+		}
+	}
+}
+music = {
+	song = "beiyang_fleet_anthem"
+	chance = {
+		modifier = {
+			factor = 0
+			tag = QIN
+			NOT = { has_global_flag = QIN_flag_provincial_unity }
+		}
+	}
+}
+music = {
+	song = "pu_tian_yue"
+	chance = {
+		modifier = {
+			factor = 0
+			tag = QIN
+			has_stability < 0.4
+		}
+		modifier = {
+			factor = 3
+			tag = QIN
+			has_stability > 0.4
+		}
+	}
+}
+music = {
+	song = "tunelihongzhang"
+	chance = {
+		modifier = {
+			factor = 0.5
+		}	
+		modifier = {
+			factor = 3
+			tag = QIN
+			date < 1914.1.1
+		}
+		modifier = {
+			factor = 1.5
+			tag = QIN
+			date > 1914.1.1
+		}
+	}
+}
+music = {
+	song = "mahler_symphony_5"
+	chance = {	
+		modifier = {
+			factor = 3
+			has_war = yes
+			tag = AUH
+		}		
+	}
+}
+music = {
+	song = "its_a_long_way_to_mukumbura"
+	chance = {
+		modifier = {
+			factor = 0
+		}
+	}
+}

@@ -1,0 +1,1750 @@
+add_namespace = ww1_xinhai
+
+# GUANGZHOU UPRISING
+#######################
+country_event = {
+	title = ww1_xinhai.1.t
+	desc = ww1_xinhai.1.d
+	picture = GFX_report_event_chinese_army_training
+	id = ww1_xinhai.1
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_xinhai.1.a
+		ai_chance = {
+			factor = 100
+		}
+		set_global_flag = guangzhou_uprising
+		activate_mission_tooltip = CHI_xinhai_revolution_mission
+		hidden_effect = {
+			country_event = {
+				id = ww1_qing.10
+				days = 17
+			}
+		}
+	}
+}
+
+# XINHAI REVOLUTION STARTS
+#############################
+country_event = {
+	title = ww1_xinhai.2.t
+	desc = ww1_xinhai.2.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	id = ww1_xinhai.2
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			every_unit_leader = {
+				limit = {
+					has_id = 73047
+				}
+				set_nationality = CHI
+			}
+			set_global_flag = kis_xinhairenews
+			
+			CHI = {
+				inherit_technology = QIN
+				set_xinhai_name = yes
+				set_cosmetic_tag = CHI_revolution
+				
+				set_temp_variable = { CHI_tempvar_rebellion_province = 5 }
+				if = {
+					limit = { has_global_flag = QIN_flag_first_xinhai }
+					set_temp_variable_to_random = {
+						var = CHI_tempvar_rebellion_province
+						min = 1
+						max = 6
+						integer = yes
+					}
+				}
+				set_variable = { CHI_rebellion_province = CHI_tempvar_rebellion_province }
+				if = {
+					limit = {
+						check_variable = {
+							var = CHI_tempvar_rebellion_province
+							value = 1
+							compare = less_than_or_equals
+						}
+					}
+					transfer_state = 605
+					set_cosmetic_tag = CHI_neutrality_sichuan
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							var = CHI_tempvar_rebellion_province
+							value = 2
+							compare = less_than_or_equals
+						}
+					}
+					set_cosmetic_tag = CHI_neutrality_guangxi
+					transfer_state = 599
+					transfer_state = 594
+					transfer_state = 591
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							var = CHI_tempvar_rebellion_province
+							value = 3
+							compare = less_than_or_equals
+						}
+					}
+					set_cosmetic_tag = CHI_neutrality_kunming
+					transfer_state = 325
+					transfer_state = 603
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							var = CHI_tempvar_rebellion_province
+							value = 4
+							compare = less_than_or_equals
+						}
+					}
+					set_cosmetic_tag = CHI_neutrality_jiangxi
+					transfer_state = 600
+					transfer_state = 602
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							var = CHI_tempvar_rebellion_province
+							value = 5
+							compare = less_than_or_equals
+						}
+					}
+					set_cosmetic_tag = CHI_neutrality_hubei
+					set_state_owner = 620
+					set_province_controller = 4619
+					set_province_controller = 7167
+					set_province_controller = 12467
+				}
+				else = {
+					set_cosmetic_tag = CHI_neutrality_hubei
+					transfer_state = 620
+				}
+				
+				every_state = {
+					limit = {
+						is_core_of = QIN
+						NOT = {
+							is_core_of = TAN
+							is_core_of = TIB
+							state = 330
+						}
+					}
+					add_core_of = CHI
+				}
+				every_state = {
+					limit = {
+						is_claimed_by = QIN
+					}
+					add_claim_by = CHI
+				}
+				
+				if = {
+					limit = { NOT = { has_global_flag = QIN_flag_first_xinhai } }
+					add_named_threat = {
+						threat = 5
+						name = ww1_xinhai.2.t
+					}
+					set_global_flag = QIN_flag_first_xinhai
+					#set_cosmetic_tag = CHI_revolution
+				}
+				
+				if = {
+					limit = {
+						SIK = { exists = yes }
+					}
+					set_global_flag = triple_revolution_ends
+					SIK = {
+						dismantle_faction = yes
+					}
+					CHI = {
+						annex_country = {
+							target = SIK
+							transfer_troops = yes
+						}
+					}
+				}
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+					long_name = CHI_hubei_party
+					name = CHI_hubei_party
+				}
+				set_popularities = {
+					fascism = 5
+					communism = 0
+					democratic = 36
+					neutrality = 59
+				}
+				promote_character = CHI_li_yuanhong
+				add_timed_idea = {
+					idea = QIN_idea_revolutionary_fervor
+					days = 30
+				}
+				
+				
+				load_focus_tree = {
+					tree = china_focus
+					keep_completed = yes
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_idea = QIN_idea_purchase_restriction
+						}
+					}
+					add_ideas = QIN_idea_purchase_restriction
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_idea = QIN_idea_boxer_protocol
+						}
+					}
+					add_ideas = QIN_idea_boxer_protocol_1
+				}
+				#add_ideas = QIN_idea_payments_of_indemnities
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_nation_recovery
+						}
+					}
+					unlock_national_focus = CHI_nation_recovery
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_restore_military_production
+						}
+					}
+					unlock_national_focus = CHI_restore_military_production
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_pave_way_for_industrialization
+						}
+					}
+					unlock_national_focus = CHI_pave_way_for_industrialization
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_nanjing_arsenal
+						}
+					}
+					unlock_national_focus = CHI_nanjing_arsenal
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_beijing_arsenal
+						}
+					}
+					unlock_national_focus = CHI_beijing_arsenal
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_village_mechanization
+						}
+					}
+					unlock_national_focus = CHI_village_mechanization
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_south_provinces
+						}
+					}
+					unlock_national_focus = CHI_south_provinces
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_north_provinces
+						}
+					}
+					unlock_national_focus = CHI_north_provinces
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_central_provinces
+						}
+					}
+					unlock_national_focus = CHI_central_provinces
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_manchu_factories
+						}
+					}
+					unlock_national_focus = CHI_manchu_factories
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_south_factories
+						}
+					}
+					unlock_national_focus = CHI_south_factories
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_central_factories
+						}
+					}
+					unlock_national_focus = CHI_central_factories
+				}
+				if = {
+					limit = {
+						QIN = {
+							has_completed_focus = CHI_fight_against_famine
+						}
+					}
+					unlock_national_focus = CHI_fight_against_famine
+				}
+			}
+			QIN = {
+				remove_ideas = QIN_idea_tongmenghui
+				if = {
+					limit = { has_completed_focus = QIN_restore_the_nation }
+					uncomplete_national_focus = {
+						focus = QIN_restore_the_nation
+						uncomplete_children = yes
+						refund_political_power = no
+					}
+				}
+				add_timed_idea = {
+					idea = QIN_idea_xinhai_revolution
+					days = 125
+				}
+				
+				if = {
+					limit = {
+						has_idea = QIN_idea_beiyang_army
+						has_global_flag = QIN_flag_beiyang_army_deployed
+					}
+					country_event = {
+						id = ww1_qing.396 #Deployed Beiyang refuses to follow orders
+						days = 1
+						random_hours = 5
+					}
+				}
+				if = {
+					limit = {
+						has_idea = QIN_idea_beiyang_army
+					}
+					country_event = {
+						id = ww1_qing.395 #Invite Shikai? Event
+						days = 3
+						random_hours = 24
+					}
+				}
+				country_event = {
+					id = ww1_qing.394 #Navy Defects
+					days = 30
+					random_days = 20
+					random_hours = 10
+				}
+			}
+			
+
+			CHI = {
+				declare_war_on = {
+					target = QIN
+					type = civil_war
+				}
+				add_civil_war_target = QIN
+				if = {
+					limit = {
+						owns_state = 605
+					}
+					load_oob = "PRC_1911_Chongqing"
+				}
+				else_if = {
+					limit = { 
+						owns_state = 599
+					}
+					load_oob = "PRC_1911_Guangdong"
+				}
+				else_if = {
+					limit = { 
+						owns_state = 325
+					}
+					load_oob = "PRC_1911_Yunnan"
+				}
+				else_if = {
+					limit = { 
+						owns_state = 602
+					}
+					load_oob = "PRC_1911_Jiangxi"
+				}
+				else_if = { #Hubei
+					limit = { 
+						owns_state = 620
+					}
+					load_oob = "PRC_1911_Wuchang"
+				}
+				else = {
+					load_oob = "PRC_1911_Wuchang"
+				}
+				
+				if = {
+					limit = { 
+						QIN = { 
+							NOT = { 
+								has_completed_focus = QIN_execute_tongmenghui_leaders 
+							}
+						}
+					}
+					add_ideas = CHI_idea_xinhai_revolution
+					
+				}
+			}
+			
+			add_popularity = {
+				ideology = democratic
+				popularity = -1.0
+			}
+			#set_global_flag = QIN_next_uprising
+			clr_global_flag = wuchang_uprising
+			
+			CHI = {
+				if = {
+					limit = {
+						620 = {
+							infrastructure < 5
+						}
+						QIN = { has_variable = var_hunan_rebel }
+					}
+					country_event = {
+						id = ww1_xinhai.15 #Jingzhou
+						days = 3
+						random_days = 2
+						random_hours = 5
+					}
+				}
+				if = {
+					limit = {
+						602 = {
+							infrastructure < 5
+						}
+						QIN = { has_variable = var_hunan_rebel }
+					}
+					country_event = {
+						id = ww1_xinhai.12 #Hunan
+						days = 5
+						random_days = 2
+						random_hours = 5
+					}
+				}
+				if = {
+					limit = {
+						890 = {
+							infrastructure < 5
+						}
+						622 = {
+							infrastructure < 5
+						}
+						QIN = { has_variable = var_shaanxi_rebel }
+					}
+					country_event = {
+						id = ww1_xinhai.13 #Shaanxi
+						days = 5
+						random_days = 2
+						random_hours = 5
+					}
+				}
+				if = {
+					limit = {
+						600 = {
+							infrastructure < 5
+						}
+						QIN = { has_variable = var_jiangsu_rebel }
+					}
+					country_event = {
+						id = ww1_xinhai.14 #Jiangxi
+						days = 8
+						random_days = 2
+						random_hours = 5
+					}
+				}
+				if = {
+					limit = {
+						615 = {
+							infrastructure < 5
+						}
+					}
+					country_event = {
+						id = ww1_xinhai.16 #Shanxi
+						days = 10
+						random_days = 2
+						random_hours = 5
+					}
+				}
+				country_event = {
+					id = ww1_xinhai.17 #Shanghai --- SETS COSMETIC FLAG
+					days = 12
+					random_days = 3
+					random_hours = 5
+				}
+				if = {
+					limit = {
+						325 = {
+							infrastructure < 5
+						}
+						QIN = { has_variable = var_yunnan_rebel }
+					}
+					country_event = {
+						id = ww1_xinhai.18 #Yunnan/Guizhou
+						days = 10
+						random_days = 5
+						random_hours = 5
+					}
+				}
+				if = {
+					limit = {
+						569 = {
+							infrastructure < 5
+						}
+						QIN = { has_variable = var_zhejiang_rebel }
+					}
+					country_event = {
+						id = ww1_xinhai.19 #Zhejiang
+						days = 20
+						random_days = 6
+						random_hours = 5
+					}
+				}
+				if = {
+					limit = {
+						599 = {
+							infrastructure < 5
+						}
+						593 = {
+							infrastructure < 5
+						}
+						QIN = { has_variable = var_guangxi_rebel }
+					}
+					country_event = {
+						id = ww1_xinhai.20 #Guangxi
+						days = 15
+						random_days = 5
+						random_hours = 5
+					}
+				}
+				if = {
+					limit = {
+						605 = {
+							infrastructure < 5
+						}
+						QIN = { has_variable = var_sichuan_rebel }
+					}
+					country_event = {
+						id = ww1_xinhai.21 #Sichuan
+						days = 40
+						random_days = 15
+						random_hours = 7
+					}
+				}
+				if = {
+					limit = {
+						597 = {
+							infrastructure < 5
+						}
+						QIN = { has_variable = var_shandong_rebel }
+					}
+					country_event = {
+						id = ww1_xinhai.22 #Shandong
+						days = 30
+						random_days = 10
+						random_hours = 9
+					}
+				}
+			}
+		}
+	}
+	option = {
+		# Support Qing
+		name = ww1_xinhai.2.a
+		custom_effect_tooltip = qing_chosen
+		set_global_flag = QIN_chosen
+		unlock_decision_tooltip = QIN_invite_shikai
+		ai_chance = {
+			factor = 100
+		}
+	}
+	option = {
+		# Support Chinese Revolution
+		name = ww1_xinhai.2.b
+		set_global_flag = CHI_chosen
+			
+		CHI = {
+			change_tag_from = QIN
+		}
+		
+		custom_effect_tooltip = roc_chosen
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+#Changsha Uprising
+country_event = {
+	id = ww1_xinhai.12
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = QIN_arrest_tongmenghui_leaders
+				}
+			}
+			load_oob = PRC_1911_Wuchang
+		}
+		set_state_owner = 602
+		load_oob = PRC_1911_uprising2_hunan
+		load_oob = PRC_1911_uprising2_hunan_minbing
+	}
+}
+#Shaan-gan Uprising
+country_event = {
+	id = ww1_xinhai.13
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		set_province_controller = 7208
+		set_province_controller = 5007
+		set_province_controller = 7418
+		set_province_controller = 5092
+		set_province_controller = 8049
+		transfer_state = 890
+		set_state_owner = 622
+		
+		load_oob = PRC_1911_uprising2_shaanxi
+		load_oob = PRC_1911_uprising2_shaanxi_minbing
+		QIN = { load_oob = PRC_1911_uprising2_shaanxi_qing }
+	}
+}
+#Jiangxi Uprising
+country_event = {
+	id = ww1_xinhai.14
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		set_province_controller = 11988
+		set_province_controller = 10114
+		set_province_controller = 1628
+		set_province_controller = 7653
+		set_province_controller = 10501
+		set_province_controller = 3992
+		set_province_controller = 4083
+		set_state_owner = 600
+		set_state_owner = 606
+		
+		load_oob = PRC_1911_uprising2_nanchang
+		load_oob = PRC_1911_uprising2_nanchang_minbing
+	}
+}
+#Jingzhou Uprising
+country_event = {
+	id = ww1_xinhai.15
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		load_oob = PRC_1911_jingzhou
+	}
+}
+#Shanxi Uprising
+country_event = {
+	id = ww1_xinhai.16
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		set_state_owner = 615
+		set_province_controller = 1519
+		set_province_controller = 4174
+		load_oob = PRC_1911_uprising2_shanxi
+	}
+}
+#Shanghai Uprising
+country_event = {
+	id = ww1_xinhai.17
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		set_state_owner = 613
+		load_oob = PRC_1911_uprising2_shanghai
+		load_oob = PRC_1911_uprising2_shanghai_minbing
+		
+		set_global_flag = QIN_third_uprising
+		set_global_flag = QIN_first_second_up
+		promote_character = CHI_huang_xing
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = no
+		}
+		drop_cosmetic_tag = yes
+		set_cosmetic_tag = CHI_revolution
+		set_country_flag = second_uprising
+		
+		QIN = {
+			set_country_flag = second_uprising
+			QIN_chen_bingkun = {
+				set_nationality = CHI
+			}
+			QIN_random_prov_down = yes
+			QIN_random_prov_down = yes
+		}
+	}
+}
+#Kunming Uprising
+country_event = {
+	id = ww1_xinhai.18
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		set_state_owner = 625
+		set_state_owner = 603
+		load_oob = PRC_1911_uprising2_yunnan
+		load_oob = PRC_1911_uprising2_yunnan_minbing
+	}
+}
+#Zhejiang Uprising
+country_event = {
+	id = ww1_xinhai.19
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		transfer_state = 596
+		set_state_owner = 595
+		load_oob = PRC_1911_uprising2_zhejiang
+		load_oob = PRC_1911_uprising2_zhejiang_minbing
+	}
+}
+#Guangzhou Uprising
+country_event = {
+	id = ww1_xinhai.20
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		set_state_owner = 599
+		set_state_owner = 593
+		set_state_owner = 594
+		transfer_state = 591
+		set_province_controller = 1202
+		set_province_controller = 1047
+		set_province_controller = 12095
+		set_province_controller = 11941
+		set_province_controller = 7152
+		set_province_controller = 11938
+		load_oob = PRC_1911_uprising2_guangzhou
+		load_oob = PRC_1911_uprising2_guangzhou_minbing
+	}
+}
+#Sichuan Uprising
+country_event = {
+	id = ww1_xinhai.21
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		set_state_owner = 605
+		load_oob = PRC_1911_uprising2_sichuan
+		load_oob = PRC_1911_uprising2_sichuan_minbing
+	}
+}
+#Shandong Uprising
+country_event = {
+	id = ww1_xinhai.22
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = xinhai_revolution_ends }
+		CHI = {
+			exists = yes
+		}
+	}
+	
+	immediate = {
+		set_state_owner = 597
+		set_province_controller = 1069
+		set_province_controller = 12045
+		set_province_controller = 10072
+		set_province_controller = 4037
+		set_province_controller = 10102
+		set_province_controller = 1084
+		set_province_controller = 7189
+		load_oob = PRC_1911_uprising2_shandong
+		load_oob = PRC_1911_uprising2_shandong_minbing
+	}
+}
+
+#SECOND UPRISING
+country_event = {
+	id = ww1_xinhai.3
+	title = ww1_xinhai.3.t
+	desc = ww1_xinhai.3.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CHI
+		has_global_flag = {
+			flag = QIN_next_uprising
+			days > 10
+		}
+		CHI = { exists = yes }
+	}
+	
+	immediate = {
+		clr_global_flag = QIN_next_uprising
+		if = {
+			limit = { CHI = { exists = yes } }
+			hidden_effect = {
+				set_global_flag = QIN_third_uprising
+				set_global_flag = QIN_first_second_up
+				CHI = {
+					every_state = {
+						limit = {
+							
+							is_owned_by = QIN
+							infrastructure < 5
+							OR = {
+								# Hubei
+								state = 620
+								# Guangxi
+								state = 599
+								# Guangdong
+								state = 326
+								state = 591
+								state = 592
+								state = 593
+								state = 594
+								state = 728
+								state = 729
+								state = 892
+								# Shanxi
+								#state = 615
+								# Fuzhen
+								state = 595
+								# Sichuan
+								state = 605
+								# Shandong
+								state = 597
+								state = 872
+								# Shanghai
+								state = 613
+								# Zhejiang
+								state = 596
+							}
+						}
+						if = {
+							limit = { QIN = { has_completed_focus = QIN_arrest_tongmenghui_leaders } }
+							random_list = {
+								50 = {
+									set_state_owner_to = PREV
+									random_list = {
+										25 = {
+											set_state_controller_to = CHI
+										}
+										25 = {
+										}
+									}
+								}
+								50 = {
+									set_state_owner_to = PREV
+								}
+							}
+						}
+						else = {
+							random_list = {
+								85 = {
+									set_state_owner_to = PREV
+									random_list = {
+										30 = {
+											set_state_controller_to = CHI
+										}
+										25 = {
+										}
+									}
+								}
+								15 = {
+									set_state_owner_to = PREV
+								}
+							}
+						}
+						if = {
+							limit = {
+								OR = {
+									#state = 598
+									region = 165
+									state = 613
+									#state = 605
+								}
+							}
+							transfer_state_to = CHI
+						}
+					}
+					if = {
+						limit = {
+							620 = {
+								is_owned_by = CHI
+							}
+						}
+						load_oob = PRC_1911_Wuchang
+					}
+					promote_character = CHI_huang_xing
+					set_politics = {
+						ruling_party = democratic
+						elections_allowed = no
+					}
+					load_oob = PRC_1911_uprising2
+					
+					drop_cosmetic_tag = yes
+					set_cosmetic_tag = CHI_revolution
+					
+					set_country_flag = second_uprising
+					QIN = {
+						set_country_flag = second_uprising
+						QIN_chen_bingkun = {
+							set_nationality = CHI
+						}
+						QIN_random_prov_down = yes
+						QIN_random_prov_down = yes
+						#transfer_units_fraction = {
+						#	target = CHI
+						#	size = 0.10
+						#	keep_unit_leaders_trigger = { always = yes }
+						#}
+					}
+					#country_event = {
+					#	days = 40
+					#	id = ww1_xinhai.5
+					#}
+				}
+			}
+		}
+	}
+	option = {
+		name = ww1_xinhai.3.a
+	}
+}
+
+#SHIKAI ASKS EMPEROR TO ABDICATE
+####################################
+country_event = {
+	id = ww1_xinhai.4
+	title = ww1_xinhai.4.t
+	desc = ww1_xinhai.4.d
+	picture = GFX_report_event_chi_yuan_cabinet
+	trigger = {
+		tag = QIN
+		has_war_with = CHI
+		has_global_flag = xinhai_revolution
+		NOT = {
+			has_global_flag = xinhai_revolution_ends
+		}
+		OR = {
+			has_global_flag = QIN_flag_beiyang_defection
+			AND = {
+				surrender_progress > 0.4
+				CHI = { has_country_flag = third_uprising }
+			}
+			AND = {
+				casualties > 250000
+				CHI = { surrender_progress < 0.1 }
+			}
+		}
+		has_country_leader = {
+			character = QIN_yuan_shikai
+			ruling_only = yes
+		}
+		has_government = neutrality
+		has_country_flag = third_uprising
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 0
+	}
+	option = {
+		name = ww1_xinhai.4.a
+		ai_chance = { factor = 100 }
+		
+		remove_ideas = QIN_idea_xuantong_young
+		
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+		}
+		custom_effect_tooltip = ww1_xinhai.4.a.tt
+		hidden_effect = {
+			CHI = { country_event = ww1_xinhai.10 }
+		}
+	}
+	option = {
+		name = ww1_xinhai.4.b
+		ai_chance = { factor = 0 }
+		trigger = { has_government = neutrality }
+		add_war_support = -0.15
+		add_stability = -0.15
+		add_political_power = -200
+		
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.2
+		}
+		clr_global_flag = QIN_flag_beiyang_army_deployed
+		delete_unit_template_and_units = {
+			division_template = "Beiyang New Army"
+			disband = no
+		}
+		set_global_flag = QIN_flag_kick_out_shikai
+		custom_effect_tooltip = QIN_effect_cancel_invite_shikai
+		
+		if = {
+			limit = {
+				has_country_leader = {
+					character = QIN_yuan_shikai
+					ruling_only = yes
+				}
+			}
+			set_global_flag = QIN_flag_need_new_regent
+
+			country_event = { id = ww1_qing.291 hours = 3 }
+		}
+		
+		if = {
+			limit = { has_idea = QIN_idea_yuan_shikai_foot_injury }
+			remove_ideas = QIN_idea_yuan_shikai_foot_injury
+
+		}
+		else_if = {
+			limit = { has_idea = QIN_idea_yuan_shikai_foot_injury_2 }
+			remove_ideas = QIN_idea_yuan_shikai_foot_injury_2
+
+		}
+		else_if = {
+			limit = { has_idea = QIN_idea_yuan_shikai_foot_injury_3 }
+			remove_ideas = QIN_idea_yuan_shikai_foot_injury_3
+		}
+		set_party_name = {
+			ideology = neutrality
+			long_name = QIN_neutrality_cabinet_party
+			name = QIN_neutrality_cabinet_party
+		}
+		remove_ideas = QIN_idea_beiyang_army
+		transfer_units_fraction = {
+			target = CHI
+			size = 0.4
+			keep_unit_leaders_trigger = { always = yes }
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+#THIRD UPRISING
+country_event = {
+	id = ww1_xinhai.5
+	title = ww1_xinhai.5.t
+	desc = ww1_xinhai.5.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CHI
+		has_global_flag = {
+			flag = QIN_third_uprising
+			days > 30
+		}
+		CHI = { exists = yes }
+	}
+	immediate = {
+		clr_global_flag = QIN_third_uprising
+		#QIN = { remove_ideas =  QIN_idea_xinhai_revolution }
+		if = {
+			limit = {
+				CHI = { exists = yes } 
+			}
+			hidden_effect = {
+				set_state_owner = 598
+				every_state = {
+					limit = {
+						is_owned_by = QIN
+						is_controlled_by = CHI
+						OR = {
+							region = 15
+							region = 144
+							region = 164
+							region = 165
+						}
+					}
+					set_state_owner_to = CHI
+				}
+				every_state = {
+					limit = {
+						is_owned_by = QIN
+						infrastructure < 5
+						OR = {
+							state = 325
+							state = 603
+							region = 165
+						}
+					}
+					if = {
+						limit = { QIN = { has_completed_focus = QIN_arrest_tongmenghui_leaders } }
+						random_list = {
+							50 = {
+								transfer_state_to = CHI
+							}
+							50 = {
+							}
+						}
+					}
+					else = {
+						transfer_state_to = CHI
+					}
+				}
+				if = {
+					limit = {
+						QIN = { has_completed_focus = QIN_consolidate_the_army }
+					}
+					every_state = {
+						limit = {
+							is_owned_by = QIN
+							infrastructure < 5
+							OR = {
+								region = 200
+								region = 145
+							}
+						}
+						if = {
+							limit = { QIN = { has_completed_focus = QIN_arrest_tongmenghui_leaders } }
+							random_list = {
+								50 = {
+									transfer_state_to = CHI
+								}
+								50 = {
+								}
+							}
+						}
+						else = {
+							transfer_state_to = CHI
+						}
+					}
+				}
+				CHI = {
+					drop_cosmetic_tag = yes
+					CHI_sun_yatsen = {
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								ideology = socialism
+								traits = {
+									father_of_the_republic
+								}
+							}
+						}
+					}
+					if = {
+						limit = { NOT = { has_completed_focus = QIN_secret_tongmenghui_sabotage } }
+						load_oob = PRC_1911_uprising3
+					}
+					# if = {
+					# 	limit = { NOT = { has_global_flag = QIN_easy_mode } }
+						# load_oob = PRC_1911_uprising5
+					# }
+					set_country_flag = third_uprising
+				}
+				QIN = {
+					set_country_flag = third_uprising
+					QIN_random_prov_down = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = ww1_xinhai.5.a
+	}
+}
+
+#YUAN IS PRESIDENT OF CHINA
+country_event = {
+	title = ww1_xinhai.6.t
+	desc = ww1_xinhai.6.d
+	picture = GFX_report_event_chi_yuan_cabinet
+	id = ww1_xinhai.6
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_xinhai.6.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#SUN IS PRESIDENT OF CHINA
+country_event = {
+	title = ww1_xinhai.7.t
+	desc = ww1_xinhai.7.d
+	picture = GFX_report_event_chinese_officers
+	id = ww1_xinhai.7
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_xinhai.7.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# Mongolian Independence
+country_event = {
+	id = ww1_xinhai.8
+	title = ww1_xinhai.8.t
+	desc = ww1_xinhai.8.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	trigger = {
+		tag = QIN
+		NOT = { country_exists = MON }
+		QIN = { owns_state = 330 }
+		CHI = { exists = yes }
+		has_global_flag = xinhai_revolution
+		330 = {
+			NOT = { is_core_of = QIN }
+		}
+		date < 1914.1.1
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ww1_xinhai.8.a
+		if = {
+			limit = {
+				has_subject = MON
+			}
+			end_puppet = MON
+		}
+		if = {
+			limit = {
+				has_subject = TAN
+			}
+			end_puppet = TAN
+		}
+		TAN = {
+			transfer_state = 329
+		}
+		hidden_effect = {
+			MON = {
+				transfer_state = 330
+				load_oob = "MON_army"
+			}
+		}
+		if = {
+			limit = {
+				is_china_or_warlord = yes
+			}
+			add_state_claim = 329
+			add_state_claim = 330
+			if = {
+				limit = {
+					tag = QIN
+				}
+				declare_war_on = {
+					target = MON
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = TAN
+					type = annex_everything
+				}
+			}
+		}
+	}
+	option = {
+		name = ww1_xinhai.8.b
+		trigger = { is_ai = no }
+		if = {
+			limit = {
+				has_subject = MON
+			}
+			end_puppet = MON
+		}
+		if = {
+			limit = {
+				has_subject = TAN
+			}
+			end_puppet = TAN
+		}
+		TAN = {
+			transfer_state = 329
+		}
+		if = {
+			limit = {
+				is_china_or_warlord = yes
+			}
+			add_state_claim = 329
+			add_state_claim = 330
+			if = {
+				limit = {
+					tag = QIN
+				}
+				declare_war_on = {
+					target = MON
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = TAN
+					type = annex_everything
+				}
+			}
+		}
+		MON = {
+			transfer_state = 330
+			load_oob = "MON_army"
+			change_tag_from = ROOT
+		}
+	}
+}
+
+# Tibetian Independence
+country_event = {
+	id = ww1_xinhai.9
+	title = ww1_xinhai.9.t
+	desc = ww1_xinhai.9.d
+	picture = GFX_report_event_chinese_soldiers_mountain
+	trigger = {
+		tag = CHI
+		NOT = { country_exists = TIB }
+		CHI = { owns_state = 322 }
+		has_global_flag = {
+			flag = xinhai_revolution_ends
+			days > 365
+		}
+		322 = {
+			NOT = { is_core_of = CHI }
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 5 }
+	option = {
+		name = ww1_xinhai.9.a
+		if = {
+			limit = {
+				has_subject = TIB
+			}
+			end_puppet = TIB
+		}
+		TIB = {
+			transfer_state = 322
+			transfer_state = 434
+			load_oob = "TIB_army"
+		}
+		if = {
+			limit = {
+				is_china_or_warlord = yes
+			}
+			add_state_claim = 322
+			add_state_claim = 434
+		}
+	}
+	option = {
+		name = ww1_xinhai.9.b
+		trigger = { is_ai = no }
+		if = {
+			limit = {
+				has_subject = TIB
+			}
+			end_puppet = TIB
+		}
+		if = {
+			limit = {
+				is_china_or_warlord = yes
+			}
+			add_state_claim = 322
+			add_state_claim = 434
+		}
+		TIB = {
+			transfer_state = 322
+			load_oob = "TIB_army"
+			change_tag_from = ROOT
+		}
+	}
+}
+
+# Yuan Shikai puts a deal over presidency
+country_event = {
+	id = ww1_xinhai.10
+	title = ww1_xinhai.10.t
+	desc = ww1_xinhai.10.d
+	picture = GFX_report_event_chi_yuan_cabinet
+	is_triggered_only = yes
+	option = {
+		name = ww1_xinhai.10.a
+		modifier = {
+			factor = 5
+		}
+		effect_tooltip = {
+			release = MON
+			release = TAN
+			release = TIB
+			annex_country = {
+				target = FROM
+				transfer_troops = yes
+			}
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			CHI_yuan_shikai = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						ideology = authoritarian_democracy
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			QIN = {
+				delete_unit_template_and_units = {
+					division_template = "Beiyang New Army"
+					disband = no
+				}
+				delete_unit_template_and_units = {
+					division_template = "Feng Guozhang Army"
+					disband = no
+				}
+				#Yuan's Beiyang Army was absorbed into the Republic.
+				transfer_units_fraction = {
+					target = CHI
+					size = 1
+					stockpile_ratio = 1
+					army_ratio = 1
+					navy_ratio = 1
+					air_ratio = 1
+				}
+				every_unit_leader = {
+					set_nationality = CHI
+				}
+				QIN_zhao_bingjun = {
+					set_nationality = CHI
+				}
+				QIN_wang_shizhen = {
+					set_nationality = CHI
+				}
+				transfer_navy = {
+					target = CHI
+				}
+			}
+			every_country = {
+				limit = {
+					has_war_with = QIN
+				}
+				every_country = {
+					limit = {
+						OR = {
+							is_in_faction_with = QIN
+							is_subject_of = QIN
+						}
+					}
+					white_peace = PREV
+				}
+			}
+			CHI = {
+				delete_unit_template_and_units = {
+					division_template = "Beiyang New Army"
+					disband = no
+				}
+				delete_unit_template_and_units = {
+					division_template = "Feng Guozhang Army"
+					disband = no
+				}
+				annex_country = {
+					target = QIN
+					transfer_troops = yes
+				}
+				add_timed_idea = {
+					idea = CHI_idea_xinhai_revolution_ends
+					days = 360
+				}
+				add_ideas = CHI_idea_inflation5
+				add_ideas = CHI_idea_army_corruption3
+				set_country_flag = xinhai_victory
+				CHI_yuan_shikai = {
+					if = {
+						limit = { has_ideology = oligarchism }
+						promote_character = oligarchism
+					}
+					else = {
+						add_country_leader_role = {
+							country_leader = {
+								ideology = oligarchism
+							}
+							promote_leader = yes
+						}
+					}
+					if = {
+						limit = { has_ideology = stratocracy }
+						promote_character = stratocracy
+					}
+					else = {
+						add_country_leader_role = {
+							country_leader = {
+								ideology = stratocracy
+							}
+							promote_leader = yes
+						}
+					}
+					if = {
+						limit = { has_ideology = authoritarian_democracy }
+						promote_character = authoritarian_democracy
+					}
+					else = {
+						add_country_leader_role = {
+							country_leader = {
+								ideology = authoritarian_democracy
+							}
+							promote_leader = yes
+						}
+					}
+				}
+				set_party_name = {
+					ideology = neutrality
+					long_name = CHI_fascism_party
+					name = CHI_fascism_party
+				}
+				hidden_effect = {
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = no
+					}
+					set_capital = {
+						state = 608
+					}
+				}
+			}
+			news_event = {
+				id = kis_news.119
+			}
+			set_global_flag = xinhai_revolution_ends
+			every_state = {
+				limit = {
+					is_core_of = QIN
+				}
+				remove_core_of = QIN
+			}
+			every_state = {
+				limit = {
+					is_claimed_by = QIN
+				}
+				add_claim_by = CHI
+				remove_claim_by = QIN
+			}
+			give_military_access = JAP #South Manchuria Railway
+			give_military_access = GER #Qingdao-Jinan Railway
+			diplomatic_relation = {
+				country = CER
+				relation = military_access
+				active = yes
+			}
+			diplomatic_relation = {
+				country = CER
+				relation = guarantee
+				active = yes
+			}
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = MON
+						is_owned_by = TIB
+					}
+					NOT = {
+						state = 322
+						state = 329
+						state = 330
+						state = 434
+					}
+				}
+				transfer_state_to = PREV
+			}
+			if = {
+				limit = {
+					MON = {
+						OR = {
+							exists = no
+							is_subject_of = QIN
+						}
+					}
+				}
+				QIN = {
+					end_puppet = MON
+				}
+				MON = {
+					transfer_state = 330
+					load_oob = "MON_army"
+				}
+			}
+			if = {
+				limit = {
+					TAN = {
+						OR = {
+							exists = no
+							is_subject_of = QIN
+						}
+					}
+				}
+				QIN = {
+					end_puppet = TAN
+				}
+				TAN = {
+					transfer_state = 329
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = tibet_released
+					}
+				}
+				set_country_flag = tibet_released
+				CHI = {
+					release = TIB
+				}
+				TIB = {
+					load_oob = "TIB_army"
+				}
+			}
+			delete_unit_template_and_units = {
+				division_template = "Minbing"
+				disband = no
+			}
+		}
+		change_tag_from = FROM
+	}
+	option = {
+		name = ww1_xinhai.10.b
+		ai_chance = { 
+			factor = 0 
+			modifier = {
+				add = 5
+				is_historical_focus_on = no
+			}
+		}
+		set_country_flag = rejected_yuan
+		add_political_power = -75
+		FROM = {
+			country_event = ww1_xinhai.11
+		}
+	}
+}
+
+# Republicans reject Yuan's deal
+country_event = {
+	id = ww1_xinhai.11
+	title = ww1_xinhai.11.t
+	desc = ww1_xinhai.11.d
+	picture = GFX_report_event_chinese_soldiers_mountain
+	is_triggered_only = yes
+	option = {
+		name = ww1_xinhai.11.a
+		# congrats! you've become the empire without emperor!
+		# and the contents end here
+		add_political_power = -75
+	}
+}

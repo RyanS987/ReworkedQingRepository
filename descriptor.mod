@@ -9,6 +9,6 @@ tags={
 	"National Focuses"
 	"Map"
 }
-name="*Reworked Qing Repository"
+name="*Reworked Qing (Great War Redux Submod) v2.0"
 supported_version="1.12.*"
-remote_file_id="2711121193"
+remote_file_id="2728466193"

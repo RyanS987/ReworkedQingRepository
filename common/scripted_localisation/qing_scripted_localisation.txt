@@ -58,8 +58,8 @@ defined_text = {
 	name = GetXinhaiUprisingName
 	text = {
 		trigger = {
-			OR = {
-				AND = {
+				OR = {
+				AND = {	
 					date < 1911.1.30
 					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
@@ -74,10 +74,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1912.2.18
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1912.2.18
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -90,10 +90,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1913.2.6
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1913.2.6
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -106,10 +106,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1914.1.26
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1914.1.26
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -122,10 +122,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1915.2.14
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1915.2.14
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -138,10 +138,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1916.2.3
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1916.2.3
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -154,10 +154,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1917.1.23
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1917.1.23
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -170,10 +170,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1918.2.11
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1918.2.11
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -186,10 +186,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1919.2.1
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1919.2.1
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -202,10 +202,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1920.2.20
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1920.2.20
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -218,10 +218,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1921.2.8
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1921.2.8
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -234,10 +234,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1922.1.28
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1922.1.28
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -250,10 +250,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1923.2.16
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1923.2.16
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -266,10 +266,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1924.2.5
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1924.2.5
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -282,10 +282,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1925.1.24
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1925.1.24
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -298,10 +298,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1926.2.13
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1926.2.13
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -314,10 +314,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1927.2.2
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1927.2.2
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -330,10 +330,10 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-		OR = {
+			OR = {
 				AND = {
-			date < 1928.1.23
-			NOT = { has_variable = CHI_xinhai_name_solid }
+					date < 1928.1.23
+					NOT = { has_variable = CHI_xinhai_name_solid }
 				}
 				check_variable = {
 					var = CHI_xinhai_name_solid
@@ -345,6 +345,457 @@ defined_text = {
 		localization_key = xinhai_loc_18
 	}
 	text = {
+		trigger = {
+			OR = {
+				AND = {
+					date < 1929.2.10
+					NOT = { has_variable = CHI_xinhai_name_solid }
+				}
+				check_variable = {
+					var = CHI_xinhai_name_solid
+					value = 19
+					compare = equals
+				}
+			}
+		}
 		localization_key = xinhai_loc_19
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					date < 1930.1.30
+					NOT = { has_variable = CHI_xinhai_name_solid }
+				}
+				check_variable = {
+					var = CHI_xinhai_name_solid
+					value = 20
+					compare = equals
+				}
+			}
+		}
+		localization_key = xinhai_loc_20
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					date < 1931.2.27
+					NOT = { has_variable = CHI_xinhai_name_solid }
+				}
+				check_variable = {
+					var = CHI_xinhai_name_solid
+					value = 21
+					compare = equals
+				}
+			}
+		}
+		localization_key = xinhai_loc_21
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					date < 1932.2.26
+					NOT = { has_variable = CHI_xinhai_name_solid }
+				}
+				check_variable = {
+					var = CHI_xinhai_name_solid
+					value = 22
+					compare = equals
+				}
+			}
+		}
+		localization_key = xinhai_loc_22
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					date < 1933.1.26
+					NOT = { has_variable = CHI_xinhai_name_solid }
+				}
+				check_variable = {
+					var = CHI_xinhai_name_solid
+					value = 23
+					compare = equals
+				}
+			}
+		}
+		localization_key = xinhai_loc_23
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					date < 1934.2.14
+					NOT = { has_variable = CHI_xinhai_name_solid }
+				}
+				check_variable = {
+					var = CHI_xinhai_name_solid
+					value = 24
+					compare = equals
+				}
+			}
+		}
+		localization_key = xinhai_loc_24
+	}
+	text = {
+		localization_key = xinhai_loc_25
+	}
+}
+defined_text = {
+	name = GetArsenalName
+	text = {
+		trigger = {
+			NOT = { has_government = democratic }
+		}
+		localization_key = QIN_qing_arsenal_loc
+	}
+	text = {
+		localization_key = QIN_republic_arsenal_loc
+	}
+}
+defined_text = {
+	name = GetArsenalNameDesc
+	text = {
+		trigger = {
+			NOT = { has_government = democratic }
+		}
+		localization_key = QIN_qing_arsenal_locdesc
+	}
+	text = {
+		localization_key = QIN_republic_arsenal_locdesc
+	}
+}
+defined_text = {
+	name = court_opp_tt
+	text = {
+		trigger = {
+			NOT = { has_idea = QIN_idea_court_opposition }
+		}
+		localization_key = QIN_tt_no_court_opp
+	}
+	text = {
+		trigger = {
+			has_idea = QIN_idea_court_opposition
+		}
+		localization_key = QIN_tt_has_court_opp
+	}
+}
+defined_text = {
+	name = henan_icon_loc1
+	text = {
+		localization_key = QIN_henan_icon_loc
+	}
+}
+defined_text = {
+	name = shaanxi_icon_loc1
+	text = {
+		localization_key = QIN_shaanxi_icon_loc
+	}
+}
+defined_text = {
+	name = jiangsu_icon_loc1
+	text = {
+		localization_key = QIN_jiangsu_icon_loc
+	}
+}
+defined_text = {
+	name = zhejiang_icon_loc1
+	text = {
+		localization_key = QIN_zhejiang_icon_loc
+	}
+}
+defined_text = {
+	name = hunan_icon_loc1
+	text = {
+		localization_key = QIN_hunan_icon_loc
+	}
+}
+defined_text = {
+	name = yunnan_icon_loc1
+	text = {
+		localization_key = QIN_yunnan_icon_loc
+	}
+}
+
+defined_text = {
+	name = sichuan_icon_loc1
+	text = {
+		localization_key = QIN_sichuan_icon_loc
+	}
+}
+defined_text = {
+	name = guangxi_icon_loc1
+	text = {
+		localization_key = QIN_guangxi_icon_loc
+	}
+}
+defined_text = {
+	name = shandong_icon_loc1
+	text = {
+		localization_key = QIN_shandong_icon_loc
+	}
+}
+defined_text = {
+	name = henan_loyalty_loc
+	text = {
+		trigger = {
+			check_variable = { var_henan_rebel = 1 }
+		}
+		localization_key = QIN_very_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_henan_rebel = 2 }
+		}
+		localization_key = QIN_kinda_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_henan_rebel = 3 }
+		}
+		localization_key = QIN_kinda_disloyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_henan_rebel = 4 }
+		}
+		localization_key = QIN_very_disloyal_loc
+	}
+}
+defined_text = {
+	name = guangxi_loyalty_loc
+	text = {
+		trigger = {
+			check_variable = { var_guangxi_rebel = 1 }
+		}
+		localization_key = QIN_very_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_guangxi_rebel = 2 }
+		}
+		localization_key = QIN_kinda_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_guangxi_rebel = 3 }
+		}
+		localization_key = QIN_kinda_disloyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_guangxi_rebel = 4 }
+		}
+		localization_key = QIN_very_disloyal_loc
+	}
+}
+defined_text = {
+	name = jiangsu_loyalty_loc
+	text = {
+		trigger = {
+			check_variable = { var_jiangsu_rebel = 1 }
+		}
+		localization_key = QIN_very_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_jiangsu_rebel = 2 }
+		}
+		localization_key = QIN_kinda_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_jiangsu_rebel = 3 }
+		}
+		localization_key = QIN_kinda_disloyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_jiangsu_rebel = 4 }
+		}
+		localization_key = QIN_very_disloyal_loc
+	}
+}
+defined_text = {
+	name = shandong_loyalty_loc
+	text = {
+		trigger = {
+			check_variable = { var_shandong_rebel = 1 }
+		}
+		localization_key = QIN_very_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_shandong_rebel = 2 }
+		}
+		localization_key = QIN_kinda_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_shandong_rebel = 3 }
+		}
+		localization_key = QIN_kinda_disloyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_shandong_rebel = 4 }
+		}
+		localization_key = QIN_very_disloyal_loc
+	}
+}
+defined_text = {
+	name = zhejiang_loyalty_loc
+	text = {
+		trigger = {
+			check_variable = { var_zhejiang_rebel = 1 }
+		}
+		localization_key = QIN_very_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_zhejiang_rebel = 2 }
+		}
+		localization_key = QIN_kinda_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_zhejiang_rebel = 3 }
+		}
+		localization_key = QIN_kinda_disloyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_zhejiang_rebel = 4 }
+		}
+		localization_key = QIN_very_disloyal_loc
+	}
+}
+defined_text = {
+	name = sichuan_loyalty_loc
+	text = {
+		trigger = {
+			check_variable = { var_sichuan_rebel = 1 }
+		}
+		localization_key = QIN_very_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_sichuan_rebel = 2 }
+		}
+		localization_key = QIN_kinda_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_sichuan_rebel = 3 }
+		}
+		localization_key = QIN_kinda_disloyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_sichuan_rebel = 4 }
+		}
+		localization_key = QIN_very_disloyal_loc
+	}
+}
+defined_text = {
+	name = hunan_loyalty_loc
+	text = {
+		trigger = {
+			check_variable = { var_hunan_rebel = 1 }
+		}
+		localization_key = QIN_very_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_hunan_rebel = 2 }
+		}
+		localization_key = QIN_kinda_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_hunan_rebel = 3 }
+		}
+		localization_key = QIN_kinda_disloyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_hunan_rebel = 4 }
+		}
+		localization_key = QIN_very_disloyal_loc
+	}
+}
+defined_text = {
+	name = yunnan_loyalty_loc
+	text = {
+		trigger = {
+			check_variable = { var_yunnan_rebel = 1 }
+		}
+		localization_key = QIN_very_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_yunnan_rebel = 2 }
+		}
+		localization_key = QIN_kinda_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_yunnan_rebel = 3 }
+		}
+		localization_key = QIN_kinda_disloyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_yunnan_rebel = 4 }
+		}
+		localization_key = QIN_very_disloyal_loc
+	}
+}
+defined_text = {
+	name = shaanxi_loyalty_loc
+	text = {
+		trigger = {
+			check_variable = { var_shaanxi_rebel = 1 }
+		}
+		localization_key = QIN_very_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_shaanxi_rebel = 2 }
+		}
+		localization_key = QIN_kinda_loyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_shaanxi_rebel = 3 }
+		}
+		localization_key = QIN_kinda_disloyal_loc
+	}
+	text = {
+		trigger = {
+			check_variable = { var_shaanxi_rebel = 4 }
+		}
+		localization_key = QIN_very_disloyal_loc
+	}
+}
+defined_text = {
+	name = GetChinaAdministrationDesc
+	text = {
+		trigger = {
+			has_global_flag = QIN_yuan_shikai_government
+		}
+		localization_key = QIN_admin_descript_1
+	}
+	text = {
+		trigger = {
+			has_global_flag = QIN_civil_war_constitutionalists
+		}
+		localization_key = QIN_admin_descript_2
+	}
+	text = {
+		localization_key = QIN_admin_descript_3
 	}
 }

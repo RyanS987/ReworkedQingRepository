@@ -1,6 +1,753 @@
+QIN_puyi_education_category = {
+	QIN_puyi_age_mission = {
+		allowed = {
+			original_tag = QIN
+		} 
+		activation = {
+			has_global_flag = QIN_flag_puyi_education
+		}
+		available = {
+			has_completed_focus = QIN_full_constitutional_monarchy
+			
+		}
+		fire_only_once = yes
+		icon = GFX_decision_generic_monarchy
+		is_good = yes
+		days_mission_timeout = 3650
+		timeout_effect = {
+			custom_effect_tooltip = line_description
+			custom_effect_tooltip = QIN_effect_puyi_of_age_warning
+			custom_effect_tooltip = line_description
+			set_global_flag = QIN_flag_puyi_of_age
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = QIN_idea_xuantong_young
+					add_idea = QIN_idea_xuantong
+				}
+			}
+			
+			if = {
+				limit = {
+					has_government = communism
+					NOT = { has_global_flag = QIN_yuan_shikai_government }
+				}
+				QIN_xuantong = {
+					set_portraits = {
+						civilian = { large = "gfx/leaders/QIN/QIN_xuantong_military.png" }
+					}
+				}
+				add_country_leader_role = {
+					character = QIN_xuantong
+					promote_leader = yes
+					country_leader = {
+						ideology = religious_communism
+						expire = "1968.1.1.1"
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = democratic
+					NOT = { has_global_flag = QIN_yuan_shikai_government }
+				}
+				QIN_xuantong = {
+					set_portraits = {
+						civilian = { large = "gfx/leaders/QIN/QIN_xuantong_military.png" }
+					}
+				}
+				QIN_xuantong = {
+					promote_character = yes
+				}
+				#promote_character = QIN_xuantong
+			}
+			else_if = {
+				limit = {
+					NOT = { has_global_flag = QIN_yuan_shikai_government }
+				}
+				QIN_xuantong= {
+					set_portraits = {
+						civilian = { large = "gfx/leaders/QIN/QIN_xuantong_military.png" }
+					}
+					promote_character = yes
+				}
+				#promote_character = QIN_xuantong
+			}
+			
+			if = {
+				limit = {
+					QIN_xuantong = {
+						has_trait = QIN_underage
+					}
+				}
+				QIN_xuantong = {
+					remove_trait = {
+						trait = QIN_underage
+					}
+				}
+			}
+		}
+		priority = 100
+	}
+	#decisions on the emperor
+	QIN_dec_open_discussions_on_the_emperors_education = { #1
+		icon = generic_political_discourse
+		allowed = {
+			original_tag = QIN
+		} 
+		available = { 
+			608 = {
+				is_owned_and_controlled_by = QIN
+			}
+		}
+		visible = {
+			NOT = { has_global_flag = QIN_flag_opened_discussions }
+		}
+		cost = 0
+		fire_only_once = yes
+		days_remove = 3
+		remove_effect = {
+			country_event = ww1_qing.279
+			custom_effect_tooltip = QIN_effect_furthur_educate
+		}
+		priority = 11
+	}
+	QIN_dec_imperial_etiquette = {
+		icon = generic_political_discourse
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			NOT = { has_idea = QIN_idea_court_opposition }
+			608 = {
+				is_owned_and_controlled_by = QIN
+			}
+		}
+		visible = {
+			has_global_flag = QIN_flag_opened_discussions
+			NOT = {
+				QIN_xuantong = {
+					has_trait = reluctant_cooperator
+				}
+			}
+		}
+		cost = 0
+		days_remove = 2
+		fire_only_once = yes
+		remove_effect = {
+			country_event = ww1_qing.280
+		}
+		priority = 11
+	}
+	QIN_unlock_the_forbidden_city = {
+		icon = GFX_decision_generic_independence
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_global_flag = QIN_flag_reduced_imperial_etiquette
+			608 = {
+				is_owned_and_controlled_by = QIN
+			}
+		}
+		days_remove = 30
+		visible = {
+			has_global_flag = QIN_flag_opened_discussions
+			NOT = {
+				QIN_xuantong = {
+					has_trait = reluctant_cooperator
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		remove_effect = {
+			QIN_xuantong = { 
+				remove_country_leader_trait = pampered_upbringing
+				add_country_leader_trait = reluctant_cooperator
+			}
+			custom_effect_tooltip = QIN_effect_furthur_educate
+		}
+		priority = 11
+	}
+	#3
+	QIN_dec_peking_tour = {
+		icon = generic_political_discourse
+		allowed = {
+			original_tag = QIN
+		} 
+		available = { 
+			608 = {
+				is_owned_and_controlled_by = QIN
+			}
+		}
+		visible = {
+			614 = {
+				is_owned_and_controlled_by = QIN
+			}
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			NOT = {
+				has_global_flag = QIN_flag_toured_peking
+			}
+		}
+		cost = 35
+		days_remove = 70
+		fire_only_once = yes
+		complete_effect = {
+			country_event = { id = ww1_qing.282 }
+		}
+		remove_effect = {
+			if = {
+				limit = { has_global_flag = QIN_flag_pca_peking_tour_agree }
+				country_event = ww1_qing.283
+			}
+			else = {
+				country_event = ww1_qing.281
+			}
+			custom_effect_tooltip = QIN_effect_furthur_educate
+		}
+		priority = 9
+	}
+	#4
+	QIN_15_years = { #16 year
+		icon = GFX_decision_generic_monarchy
 
-QIN_constitution_category = {
-	QIN_coup_timer = {
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			has_global_flag = QIN_flag_toured_peking
+		}
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = QIN_puyi_age_mission
+				days = -730
+			}
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -50
+			}
+		}
+		priority = 15
+	}
+	
+	QIN_invite_sir_reginald_johnston = {
+		icon = generic_political_discourse
+		target_trigger = {
+			FROM = { tag = ENG }
+		}
+		allowed = {
+			original_tag = QIN
+		} 
+		available = { 
+			NOT = { has_war_with = ENG }
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			has_global_flag = QIN_flag_toured_peking
+			NOT = { has_global_flag = QIN_flag_johnston_done }
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 900
+		complete_effect = {
+			country_event = { id = ww1_qing.312 days = 2 }
+		}
+		remove_effect = {
+			set_global_flag = QIN_flag_johnston_done
+			QIN_xuantong = { 
+				remove_country_leader_trait = manipulatable_curiousity
+				add_country_leader_trait = educated_emperor
+			}
+		}
+		priority = 15
+	}
+	QIN_dec_reforming_hand_of_the_emperor = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = QIN
+		} 
+		available = { 
+			NOT = { has_global_flag = QIN_flag_puyi_currently_busy }
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			has_global_flag = QIN_flag_toured_peking
+		}
+		cost = 0
+		days_re_enable = 0
+		days_remove = 60
+		complete_effect = {
+			set_global_flag = QIN_flag_puyi_currently_busy
+			custom_effect_tooltip = QIN_effect_puyi_reforming_hand
+			QIN_lower_opp_300 = yes
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			custom_effect_tooltip = QIN_effect_puyi_reforming_hand_end
+		}
+		priority = 14
+	}
+	QIN_dec_sichuan_tour = {
+		icon = GFX_decision_POL_looming_peasants_strike
+		allowed = {
+			original_tag = QIN
+		} 
+		available = { 
+			605 = {
+				is_controlled_by = QIN
+			}
+			NOT = { has_global_flag = QIN_flag_puyi_currently_busy }
+		}
+		visible = {
+			608 = {
+				is_owned_and_controlled_by = QIN
+			}
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			has_global_flag = QIN_flag_toured_peking
+		}
+		cost = 75
+		days_remove = 65
+		fire_only_once = yes
+		complete_effect = {
+			set_global_flag = QIN_flag_puyi_currently_busy
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			country_event = ww1_qing.284
+			set_global_flag = QIN_flag_toured_sichuan
+		}
+		priority = 9
+	}
+	QIN_dec_visit_to_america = {
+		icon = GFX_decision_SWI_swiss_democratic_tradition_campaign
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			NOT = { has_war_with = USA }
+			NOT = { has_global_flag = QIN_flag_puyi_currently_busy }
+		}
+		cancel_trigger = {
+			has_war_with = USA
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			has_global_flag = QIN_flag_toured_sichuan
+		}
+		cost = 75
+		days_remove = 80
+		fire_only_once = yes
+		complete_effect = {
+			set_global_flag = QIN_flag_puyi_currently_busy
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			country_event = ww1_qing.323
+		}
+		priority = 9
+	}
+	QIN_dec_baoding_military_academy = {
+		icon = GFX_decision_generic_army_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = { 
+			614 = {
+				is_owned_and_controlled_by = QIN
+			}
+			NOT = { has_global_flag = QIN_flag_puyi_currently_busy }
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			has_global_flag = QIN_flag_toured_peking
+		}
+		cost = 0
+		fire_only_once = yes
+		days_remove = 75
+		complete_effect = {
+			set_global_flag = QIN_flag_puyi_currently_busy
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			set_global_flag = QIN_flag_baoding
+			QIN_xuantong = {
+				add_corps_commander_role = {
+					traits = { QIN_underage trait_royal }
+					skill = 1
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 1
+				}
+			}
+		}
+		priority = 9
+	}
+	QIN_dec_invite_beiyang_advisors = {
+		icon = GFX_decision_generic_army_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = { 
+			has_idea = QIN_idea_beiyang_army
+			NOT = { has_global_flag = QIN_flag_puyi_currently_busy }
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			has_global_flag = QIN_flag_toured_peking
+			has_global_flag = QIN_flag_baoding
+		}
+		custom_cost_trigger = {
+			command_power > 99
+		}
+		custom_cost_text = decision_cost_CP_100
+		days_re_enable = 450
+		days_remove = 95
+		complete_effect = {
+			set_global_flag = QIN_flag_puyi_currently_busy
+			hidden_effect = {
+				add_command_power = -100
+			}
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			QIN_xuantong = {
+				add_planning = 1
+				add_attack = 1
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.15
+			}
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -50
+			}
+		}
+		priority = 9
+	}
+	QIN_dec_invite_army_tutors = {
+		icon = GFX_decision_generic_army_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = { 
+			NOT = { has_global_flag = QIN_flag_puyi_currently_busy }
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			has_global_flag = QIN_flag_toured_peking
+			has_global_flag = QIN_flag_baoding
+		}
+		custom_cost_trigger = {
+			has_army_experience > 99
+		}
+		custom_cost_text = decision_cost_armyxp_100
+		days_re_enable = 40
+		days_remove = 165
+		complete_effect = {
+			set_global_flag = QIN_flag_puyi_currently_busy
+			hidden_effect = {
+				army_experience = -100
+			}
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			random_list = {
+				50 = {
+					country_event = ww1_qing.285
+				}
+				50 = {
+					country_event = ww1_qing.287
+				}
+				15 = {
+					country_event = ww1_qing.286
+				}
+			}
+			custom_effect_tooltip = QIN_effect_effect_again
+		}
+		priority = 9
+	}
+	QIN_dec_study_the_great_war = {
+		icon = GFX_decision_generic_army_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+		
+			GER = {
+				OR = {
+					has_war_with = RUS
+					has_war_with = FRA
+					has_war_with = ENG
+				}
+			}
+			OR = {
+				any_country = {
+					has_attache_from = QIN
+				}
+				any_country = {
+					has_volunteers_amount_from = {
+						tag = QIN
+						count > 1
+					}
+				}
+				is_in_faction_with = GER
+				is_in_faction_with = FRA
+				is_in_faction_with = ENG
+				is_in_faction_with = RUS
+			}
+			NOT = { has_global_flag = QIN_flag_puyi_currently_busy }
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			has_global_flag = QIN_flag_toured_peking
+			has_global_flag = QIN_flag_baoding
+		}
+		fire_only_once = yes
+		days_remove = 100
+		complete_effect = {
+			set_global_flag = QIN_flag_puyi_currently_busy
+			hidden_effect = {
+				random_list = {
+					80 = {
+						country_event = { id = ww1_qing.293 days = 35 }
+					}
+					15 = {
+					}
+				}
+			}
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			QIN_xuantong = {
+				add_trait = {
+					trait = artillery_officer
+				}
+				add_defense = 1
+			}
+			#custom_effect_tooltip = QIN_effect_effect_again
+		}
+		cancel_trigger = {
+			has_global_flag = QIN_flag_recall_puyi
+		}
+		cancel_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+		}
+		priority = 9
+	}
+	QIN_dec_japanese_education = {
+		icon = GFX_decision_SOV_academy_of_sciences
+		allowed = {
+			original_tag = QIN
+		} 
+		target_trigger = {
+			FROM = { tag = JAP }
+		}
+		available = { 
+			NOT = {
+				has_war_with = JAP
+				JAP = {
+					has_capitulated = yes
+				}
+			}
+			QIN_xuantong = {
+				has_trait = inexperienced_monarch
+			}
+			NOT = { has_global_flag = QIN_flag_puyi_recieving_foreign_ed_elsewhere }
+			NOT = { has_global_flag = QIN_flag_puyi_currently_busy }
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			QIN_xuantong = {
+				has_trait = inexperienced_monarch
+			}
+			has_global_flag = QIN_flag_toured_peking
+		}
+		cancel_trigger = { 
+			OR = {
+				has_war_with = JAP
+				JAP = {
+					has_capitulated = yes
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		days_remove = 75
+		complete_effect = {
+			set_global_flag = QIN_flag_puyi_currently_busy
+			set_global_flag = QIN_flag_puyi_recieving_foreign_ed_elsewhere
+		}
+		cancel_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			clr_global_flag = QIN_flag_puyi_recieving_foreign_ed_elsewhere
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			QIN_xuantong = {
+				remove_country_leader_trait = inexperienced_monarch
+			}
+			custom_effect_tooltip = QIN_effect_japan_education_warning
+			hidden_effect = { country_event = ww1_qing.313 }
+		}
+		priority = 9
+	}
+	QIN_dec_german_education = {
+		icon = GFX_decision_SOV_academy_of_sciences
+		target_trigger = {
+			FROM = { tag = GER }
+		}
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			NOT = { 
+				has_war_with = GER 
+				GER = {
+					has_capitulated = yes
+				}
+				GER = {
+					has_country_flag = great_war_loser
+				}
+			}
+			QIN_xuantong = {
+				has_trait = inexperienced_monarch
+			}
+			NOT = { has_global_flag = QIN_flag_puyi_recieving_foreign_ed_elsewhere }
+			NOT = { has_global_flag = QIN_flag_puyi_currently_busy }
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			QIN_xuantong = {
+				has_trait = inexperienced_monarch
+			}
+			has_global_flag = QIN_flag_toured_peking
+		}
+		cancel_trigger = { 
+			OR = {
+				has_war_with = GER 
+				GER = {
+					has_capitulated = yes
+					has_country_flag = great_war_loser
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		days_remove = 120
+		complete_effect = {
+			set_global_flag = QIN_flag_puyi_currently_busy
+			set_global_flag = QIN_flag_puyi_recieving_foreign_ed_elsewhere
+		}
+		cancel_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			clr_global_flag = QIN_flag_puyi_recieving_foreign_ed_elsewhere
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			QIN_xuantong = {
+				remove_country_leader_trait = inexperienced_monarch
+			}
+		}
+		priority = 9
+	}
+	QIN_dec_british_education = {
+		icon = GFX_decision_SOV_academy_of_sciences
+		target_trigger = {
+			FROM = { tag = ENG }
+		}
+		allowed = {
+			original_tag = QIN
+		} 
+		available = { 
+			NOT = { 
+				has_war_with = ENG
+				ENG = {
+					has_capitulated = yes
+				}
+				ENG = {
+					has_country_flag = great_war_loser
+				}
+			}
+			QIN_xuantong = {
+				has_trait = inexperienced_monarch
+			}
+			NOT = { has_global_flag = QIN_flag_puyi_recieving_foreign_ed_elsewhere }
+			NOT = { has_global_flag = QIN_flag_puyi_currently_busy }
+		}
+		visible = {
+			QIN_xuantong = {
+				has_trait = reluctant_cooperator
+			}
+			QIN_xuantong = {
+				has_trait = inexperienced_monarch
+			}
+			has_global_flag = QIN_flag_toured_peking
+		}
+		cancel_trigger = { 
+			OR = {
+				has_war_with = ENG 
+				ENG = {
+					has_capitulated = yes
+					has_country_flag = great_war_loser
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		days_remove = 120
+		complete_effect = {
+			set_global_flag = QIN_flag_puyi_currently_busy
+			set_global_flag = QIN_flag_puyi_recieving_foreign_ed_elsewhere
+		}
+		cancel_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			clr_global_flag = QIN_flag_puyi_recieving_foreign_ed_elsewhere
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_puyi_currently_busy
+			QIN_xuantong = {
+				remove_country_leader_trait = inexperienced_monarch
+			}
+		}
+		priority = 9
+	}
+	
+}
+QIN_civil_war_category = {
+	QIN_civil_war_timer = {
+		#name = QIN_coup_timer
+		#desc = QIN_coup_timer_desc
 		icon = generic_prepare_civil_war
 		allowed = {
 			original_tag = QIN
@@ -13,45 +760,358 @@ QIN_constitution_category = {
 			}
 		}
 		available = {
-			OR = {
-
-				fascism < 0.1
-				#has_global_flag = QIN_flag_shikai_deal
-
-				OR = {
-					has_global_flag = xinhai_revolution
-				}
-			}
+			has_global_flag = QIN_flag_shikai_deal
 		}
 		priority = 101
-		days_mission_timeout = 100
+		days_mission_timeout = 50
 		fire_only_once = yes
 		is_good = no
-		complete_effect = {
-			add_political_power = 120
-			add_stability = 0.05
-			#if = {
-				#limit = { NOT = { has_global_flag = QIN_flag_shikai_deal } }
-				country_event = ww1_qing.198
-			#}
-			news_event = { id = qing_news.3 days = 1 }
-			set_global_flag = QIN_flag_conservative_coup_crushed
-		}
+		#complete_effect = {
+			#add_political_power = 120
+			#add_stability = 0.05
+			#country_event = ww1_qing.198
+			#news_event = { id = qing_news.3 days = 1 }
+			#set_global_flag = QIN_flag_conservative_coup_crushed
+		#}
 		timeout_effect = {
-			set_global_flag = xinhai_revolution
-			if = {
-				limit = { has_global_flag = QIN_flag_first_xinhai }
-				set_variable_to_random = {
-					var = CHI_rebellion_province
-					min = 1
-					max = 6
-					integer = yes
+			custom_effect_tooltip = QIN_civil_war_timer_tt
+			set_capital = { state = 598 }
+			custom_effect_tooltip = QIN_civil_war_tt
+			hidden_effect = {
+		start_civil_war = {
+			ruling_party = democratic
+			ideology = ROOT
+			capital = 608
+			states = all
+			states_filter = {
+				OR = {
+					region = 143
+					region = 155
+					region = 152
+					region = 145
+					region = 146
+					state = 755
+					state = 616
+					state = 890
+					state = 670
+					state = 604
+					state = 607
 				}
 			}
-			country_event = ww1_xinhai.2 
-			custom_effect_tooltip = QIN_effect_revolution_location
+			keep_political_leader = yes
+			keep_political_party_members = yes
+			PREV = {
+				country_event = { id = ww1_qing.271 days = 10 }
+				country_event = { id = ww1_qing.272 days = 15 }
+				every_character = {
+					limit = {
+						NOT = {
+							is_character = QIN_liang_qichao
+						}
+					}
+					set_nationality = PREV.PREV
+				}
+				QIN_liang_qichao = {
+					promote_character = yes
+				}
+				remove_ideas = QIN_idea_beiyang_army
+				remove_ideas = QIN_idea_xuantong_young
+				remove_ideas = QIN_idea_xuantong
+				set_cosmetic_tag = QIN_civil_war_republic
+				if = {
+					limit = {
+						OR = {
+							is_in_faction_with = GER
+							has_completed_focus = QIN_german_manufacturer
+						}
+					}
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_1
+						amount = 2000
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment_1
+						amount = 120
+						producer = GER
+					}
+				}
+				else_if = {
+					limit = {
+						NOT = {
+							has_war_with = GER
+						}
+					}
+					random_list = {
+						50 = {
+							add_equipment_to_stockpile = {
+								type = infantry_equipment_1
+								amount = 2000
+								producer = GER
+							}
+							add_equipment_to_stockpile = {
+								type = artillery_equipment_1
+								amount = 120
+								producer = GER
+							}
+						}
+						50 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							is_in_faction_with = ENG
+							has_completed_focus = QIN_british_manufacturer
+						}
+					}
+					add_equipment_to_stockpile = {
+								type = infantry_equipment_1
+								amount = 1500
+								producer = ENG
+							}
+							add_equipment_to_stockpile = {
+								type = artillery_equipment_1
+								amount = 100
+								producer = ENG
+							}
+							add_equipment_to_stockpile = {
+								type = fighter_equipment_0
+								amount = 8
+								producer = ENG
+							}
+				}
+				else_if = {
+					limit = {
+						NOT = {
+							has_war_with = ENG
+						}
+					}
+					random_list = {
+						50 = {
+							add_equipment_to_stockpile = {
+								type = infantry_equipment_1
+								amount = 1500
+								producer = ENG
+							}
+							add_equipment_to_stockpile = {
+								type = artillery_equipment_1
+								amount = 100
+								producer = ENG
+							}
+							add_equipment_to_stockpile = {
+								type = fighter_equipment_0
+								amount = 8
+								producer = ENG
+							}
+						}
+						50 = {
+						}
+					}
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.3
+				}
+			}
+			THIS = {
+				remove_ideas = QIN_idea_beiyang_army
+				set_cosmetic_tag = QIN
+				set_country_flag = QIN_civil_war_enemy
+				load_focus_tree = {
+					tree = qing_focus
+					keep_completed = yes
+				}
+				unlock_national_focus = QIN_support_yuans_reforms
+				unlock_national_focus = QIN_appoint_yuan_shikai
+				QIN = {
+					if = {
+						limit = {
+							has_global_flag = QIN_flag_qing_troop_defection
+						}
+						transfer_units_fraction= {
+							target = PREV
+							size = 0.85
+							stockpile_ratio = 0.85
+							army_ratio = 0.85
+							navy_ratio = 0.1
+							air_ratio = 0.2
+						}
+					}
+					else = {
+						transfer_units_fraction= {
+							target = PREV
+							size = 0.7
+							stockpile_ratio = 0.7
+							army_ratio = 0.7
+							navy_ratio = 0.7
+							air_ratio = 0.2
+						}
+					}
+					QIN_yuan_shikai = {
+						promote_character = oligarchism
+					}
+				}
+			}
+		}
+		set_global_flag = QIN_civil_war_constitutionalists
+		set_global_flag = QIN_flag_court_crushed
+		}
 		}
 	}
+	QIN_dec_offer_shikai_leadership = {
+		icon = generic_political_discourse
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			fascism > 0.05
+			NOT = { has_global_flag = QIN_civil_war_constitutionalists }
+		}
+		visible = { 
+			has_global_flag = QIN_flag_challenge_emperor 
+			NOT = { has_global_flag = QIN_flag_conservative_coup_crushed }
+		} 
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			add_political_power = -10
+			hidden_effect = {
+				country_event = { id = ww1_qing.273 days = 2 }
+			}
+			custom_effect_tooltip = QIN_effect_shikai_deal
+		}
+		priority = 100
+	}
+}
+QIN_constitution_category = {
+
+	QIN_reform_9 = { #Appeal to conservatives #Negotiate with the Manchu Court
+		icon = hol_attract_foreign_investors
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		days_re_enable = 10
+		available = {
+			QIN = { has_idea = QIN_idea_court_opposition }
+			NOT = { has_government = democratic }
+			has_political_power > -100
+		}
+		visible = {
+			NOT = { has_government = democratic }
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = { has_completed_focus = QIN_centralization_of_power }
+				}
+				if = {
+					limit = { has_global_flag = QIN_flag_longyu_dead }
+					add_political_power = -40
+				}
+				else = {
+					add_political_power = -50	
+				}
+			}
+			else = {
+				if = {
+					limit = { has_global_flag = QIN_flag_longyu_dead }
+					add_political_power = -20
+				}
+				else = {
+					add_political_power = -25
+				}
+			}
+		
+			QIN_lower_opp_50 = yes
+			custom_effect_tooltip = line_description
+			custom_effect_tooltip = QIN_effect_appease_conservatives_warning
+			if = {
+				limit = {
+					has_political_power < 0
+				}
+				add_stability = -0.002
+			}
+		
+			custom_effect_tooltip = QIN_effect_10_day
+		}
+		priority = 600
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				has_idea = QIN_idea_court_opposition
+			}
+		}
+	}
+	QIN_gift_manchu = { #Gift to conservatives
+		icon = hol_attract_foreign_investors
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		days_re_enable = 365
+		available = {
+			QIN = { has_idea = QIN_idea_court_opposition }
+
+			NOT = { has_government = democratic }
+		
+		}
+		visible = {
+			OR = {
+				NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
+				has_idea = QIN_idea_court_opposition
+			}
+			NOT = { has_government = democratic }
+			
+		}
+		days_remove = 75
+		modifier = {
+			industrial_capacity_factory = -0.1
+		}
+		complete_effect = {
+			QIN_lower_opp_75 = yes
+		}
+		priority = 600
+	}
+	QIN_Manchu_give_in_to_demand = { #Concession to conservatives
+		icon = hol_attract_foreign_investors
+		allowed = {
+			original_tag = QIN
+		}
+		cost = 0
+		days_re_enable = 15
+		available = {
+			QIN = { has_idea = QIN_idea_court_opposition }
+			NOT = { has_global_flag = xinhai_revolution }
+			NOT = { has_global_flag = qing_reformed }
+		}
+		visible = {
+			NOT = { has_global_flag = qing_reformed }
+			NOT = { has_government = democratic }
+			OR = {
+				NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
+				has_idea = QIN_idea_court_opposition
+			}
+		}
+		complete_effect = {
+			QIN_lower_opp_75 = yes
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -75
+			}
+			if = {
+				limit = {
+					has_stability > 0.6
+				}
+				add_stability = -0.005
+			}
+		}
+		priority = 600
+	}
+
 	#QIN_dec_offer_shikai_leadership = {
 	#	icon = generic_political_discourse
 	#	allowed = {
@@ -79,9 +1139,9 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		visible = {
-           has_completed_focus = QIN_national_assembly
+		   has_completed_focus = QIN_national_assembly
 		   NOT = { has_completed_focus = QIN_form_imperial_cabinet }
-        }
+		}
 		fire_only_once = yes
 		cost = 10
 		available = {
@@ -127,7 +1187,7 @@ QIN_constitution_category = {
 		cost = 20
 		fire_only_once = yes
 		complete_effect = {
-			add_stability = 0.05
+			add_stability = 0.02
 			set_global_flag = QIN_flag_banking
 			custom_effect_tooltip = QIN_effect_banking
 			mark_focus_tree_layout_dirty = yes
@@ -141,9 +1201,10 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		available = {
-			#NOT = { has_idea = QIN_idea_court_opposition }
-			has_completed_focus = QIN_social_reform
-			NOT = { has_global_flag = xinhai_revolution }
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_political_power > 0
+			}
 			has_global_flag = {
 				flag = QIN_flag_recent_edict
 				days > 45
@@ -167,9 +1228,10 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		available = {
-			#NOT = { has_idea = QIN_idea_court_opposition }
-			has_completed_focus = QIN_social_reform
-			#NOT = { has_global_flag = xinhai_revolution }
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_political_power > 0
+			}
 			has_global_flag = {
 				flag = QIN_flag_recent_edict
 				days > 45
@@ -193,8 +1255,10 @@ QIN_constitution_category = {
 			original_tag = QIN
 		}
 		available = {
-			#NOT = { has_idea = QIN_idea_court_opposition }
-			has_completed_focus = QIN_social_reform
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_political_power > 0
+			}
 			NOT = { has_global_flag = xinhai_revolution }
 			has_global_flag = {
 				flag = QIN_flag_recent_edict
@@ -213,6 +1277,133 @@ QIN_constitution_category = {
 		}
 		priority = 7
 	}
+	#Taxation Reform
+	QIN_edict_tax = { #Open Discussions on Taxes
+		icon = eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_political_power > 0
+			}
+			NOT = { has_global_flag = xinhai_revolution }
+			has_global_flag = {
+				flag = QIN_flag_recent_edict
+				days > 45
+			}
+		}
+		visible = { has_global_flag = QIN_flag_taxation_1 } 
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			add_political_power = -10
+			country_event = { id = ww1_qing.328 days = 0 }
+			#custom_effect_tooltip = QIN_effect_edict_ready
+			clr_global_flag = QIN_flag_recent_edict
+			set_global_flag = QIN_flag_recent_edict
+		}
+		priority = 7
+	}
+	QIN_edict_tax_reform = { #Tax Reform
+		icon = GFX_decision_generic_fundraising
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			NOT = { has_global_flag = xinhai_revolution }
+			has_global_flag = {
+				flag = QIN_flag_recent_edict
+				days > 45
+			}
+		}
+		visible = { has_global_flag = QIN_taxation_2 } 
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			add_political_power = -10
+			country_event = { id = ww1_qing.332 days = 0 }
+			clr_global_flag = QIN_flag_recent_edict
+			set_global_flag = QIN_flag_recent_edict
+		}
+		priority = 7
+	}
+	QIN_edict_provincial_tax = { #Provincial Reform
+		icon = GFX_decision_generic_fundraising
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_stability > 0.2
+			has_completed_focus = QIN_local_government_reform
+			NOT = { has_global_flag = xinhai_revolution }
+			has_global_flag = {
+				flag = QIN_flag_recent_edict
+				days > 45
+			}
+		}
+		visible = { has_global_flag = QIN_taxation_2 } 
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			add_political_power = -10
+			country_event = { id = ww1_qing.331 days = 0 }
+			clr_global_flag = QIN_flag_recent_edict
+			set_global_flag = QIN_flag_recent_edict
+		}
+		priority = 7
+	}
+	QIN_edict_maritime_customs = { #Maritime Custom Reform
+		icon = GFX_decision_generic_fundraising
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			NOT = { has_global_flag = xinhai_revolution }
+			has_global_flag = {
+				flag = QIN_flag_recent_edict
+				days > 45
+			}
+		}
+		visible = { has_global_flag = QIN_taxation_2 } 
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			add_political_power = -10
+			country_event = { id = ww1_qing.329 days = 0 }
+			#custom_effect_tooltip = QIN_effect_edict_ready
+			clr_global_flag = QIN_flag_recent_edict
+			set_global_flag = QIN_flag_recent_edict
+		}
+		priority = 7
+	}
+	QIN_edict_monetary_policy = { #Monetary Policy
+		icon = GFX_decision_generic_fundraising
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			#NOT = { has_idea = QIN_idea_court_opposition }
+			#has_global_flag = QIN_flag_taxation_1
+			NOT = { has_global_flag = xinhai_revolution }
+			has_global_flag = {
+				flag = QIN_flag_recent_edict
+				days > 45
+			}
+		}
+		visible = { has_global_flag = QIN_taxation_2 }
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			add_political_power = -10
+			country_event = { id = ww1_qing.330 days = 0 }
+			#custom_effect_tooltip = QIN_effect_edict_ready
+			clr_global_flag = QIN_flag_recent_edict
+			set_global_flag = QIN_flag_recent_edict
+		}
+		priority = 7
+	}
 	#Education Reform
 	QIN_edict_study_abroad = { #Edict on Study Abroad
 		icon = eng_trade_unions_support
@@ -220,7 +1411,6 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		available = {
-			#NOT = { has_idea = QIN_idea_court_opposition }
 			has_completed_focus = QIN_education_reform
 			NOT = { has_global_flag = xinhai_revolution }
 			has_global_flag = {
@@ -246,9 +1436,8 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		available = {
-			#NOT = { has_idea = QIN_idea_court_opposition }
 			has_completed_focus = QIN_education_reform
-			NOT = { has_global_flag = xinhai_revolution }\
+			NOT = { has_global_flag = xinhai_revolution }
 			has_global_flag = {
 				flag = QIN_flag_recent_edict
 				days > 45
@@ -299,7 +1488,7 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		available = {
-			#NOT = { has_idea = QIN_idea_court_opposition }
+			has_stability > 0.25
 			has_completed_focus = QIN_local_government_reform
 			NOT = { has_global_flag = xinhai_revolution }
 			has_global_flag = {
@@ -319,13 +1508,44 @@ QIN_constitution_category = {
 		}
 		priority = 7
 	}
+	QIN_edict_land_reform = {
+		icon = eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_stability > 0.25
+			has_completed_focus = QIN_local_government_reform
+			has_completed_focus = QIN_redirect_agricultural_funding
+			NOT = { has_global_flag = xinhai_revolution }
+			has_global_flag = {
+				flag = QIN_flag_recent_edict
+				days > 45
+			}
+		}
+		visible = { 
+			OR = {
+				has_completed_focus = QIN_local_government_reform 
+				has_completed_focus = QIN_redirect_agricultural_funding
+			}
+		} 
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			add_political_power = -10
+			country_event = { id = ww1_qing.348 days = 0 }
+			#custom_effect_tooltip = QIN_effect_edict_ready
+			clr_global_flag = QIN_flag_recent_edict
+			set_global_flag = QIN_flag_recent_edict
+		}
+		priority = 7
+	}
 	QIN_edict_river_development = {
 		icon = eng_trade_unions_support
 		allowed = {
 			original_tag = QIN
 		} 
 		available = {
-			#NOT = { has_idea = QIN_idea_court_opposition }
 			has_completed_focus = QIN_village_mechanization
 			NOT = { has_global_flag = xinhai_revolution }
 			has_global_flag = {
@@ -353,6 +1573,10 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		available = {
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_political_power > 0
+			}
 			has_global_flag = QIN_flag_judicial_reform_started
 			has_global_flag = {
 				flag = QIN_flag_recent_jud_edict
@@ -380,6 +1604,10 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		available = {
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_political_power > 0
+			}
 			has_global_flag = QIN_flag_judicial_reform_started
 			has_global_flag = {
 				flag = QIN_flag_recent_jud_edict
@@ -407,6 +1635,10 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		available = {
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_political_power > 0
+			}
 			has_global_flag = QIN_flag_judicial_reform_started
 			has_global_flag = {
 				flag = QIN_flag_recent_jud_edict
@@ -434,6 +1666,10 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		available = {
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_political_power > 0
+			}
 			has_global_flag = QIN_flag_judicial_reform_started
 			has_global_flag = {
 				flag = QIN_flag_recent_jud_edict
@@ -461,6 +1697,10 @@ QIN_constitution_category = {
 			original_tag = QIN
 		} 
 		available = {
+			OR = {
+				NOT = { has_idea = QIN_idea_court_opposition }
+				has_political_power > 0
+			}
 			has_global_flag = QIN_flag_judicial_reform_started
 			has_global_flag = {
 				flag = QIN_flag_recent_jud_edict
@@ -483,6 +1723,452 @@ QIN_constitution_category = {
 		priority = 7
 	}
 }
+QIN_warlord_category = {
+	QIN_integrate_province_dec = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_completed_focus = QIN_local_government_reform
+			custom_trigger_tooltip = {
+				tooltip = QIN_effect_any_province_loyal
+				OR = {
+					AND = {
+						check_variable = { var_henan_rebel = 1 }
+						controls_state = 607
+						controls_state = 891
+					}
+					AND = {					
+						check_variable = { var_hunan_rebel = 1 }
+						controls_state = 602
+						controls_state = 620
+						controls_state = 893
+					}
+					AND = {
+						check_variable = { var_jiangsu_rebel = 1 }
+						controls_state = 600
+						controls_state = 606
+						controls_state = 598
+						controls_state = 613
+					}
+					AND = {
+						check_variable = { var_guangxi_rebel = 1 }
+						controls_state = 592
+						controls_state = 593 
+						controls_state = 599
+					}	
+					AND = {
+						check_variable = { var_sichuan_rebel = 1 }
+						controls_state = 605
+					}
+					AND = {
+						check_variable = { var_yunnan_rebel = 1 }
+						controls_state = 325
+						controls_state = 603
+					}
+					AND = {
+						check_variable = { var_zhejiang_rebel = 1 }
+						controls_state = 595
+						controls_state = 596
+					}
+					AND = {
+						check_variable = { var_shaanxi_rebel = 1 }
+						controls_state = 622
+						controls_state = 283
+					}
+					AND = {
+						check_variable = { var_shandong_rebel = 1 }
+						controls_state = 597
+					}
+				}
+			}
+		}
+		visible = {
+			#has_global_flag = QIN_warlord_dec_open
+		}
+		cost = var:var_integration_cost
+		
+		days_re_enable = 0
+		
+		complete_effect = {
+			add_stability = 0.05
+			custom_effect_tooltip = local_army_integrated
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 4000
+				producer = QIN
+			}
+			add_tech_bonus = {
+				name = warlord_academy_tech_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+				category = electronics
+			}
+			add_tech_bonus = {
+				name = warlord_academy_tech_bonus
+				bonus = 1
+				uses = 1
+				category = support_tech
+				category = infantry_weapons
+				category = artillery
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { has_template = "Geming Qiyijun" }
+					}
+					division_template = {
+						name = "Geming Qiyijun"
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							artillery_brigade = { x = 0 y = 3 }
+							cavalry = { x = 1 y = 0 }
+							cavalry = { x = 1 y = 1 }
+						}
+						support = {
+							engineer = { x = 0 y = 0 }
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { var_henan_rebel = 1 }
+				}
+				set_country_flag = henan_integrated_flag
+				clear_variable = var_henan_rebel
+				hidden_effect = {
+					country_event = {
+						id = ww1_qing.384
+						days = 5
+						random_days = 15
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { var_shaanxi_rebel = 1 }
+				}
+				set_country_flag = shaanxi_integrated_flag
+				clear_variable = var_shaanxi_rebel
+				hidden_effect = {
+					country_event = {
+						id = ww1_qing.390
+						days = 5
+						random_days = 15
+					}
+					load_oob = PRC_1911_uprising2_shaanxi
+					load_oob = PRC_1911_uprising2_shaanxi_qing
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { var_shandong_rebel = 1 }
+				}
+				set_country_flag = shandong_integrated_flag
+				clear_variable = var_shandong_rebel
+				hidden_effect = {
+					country_event = {
+						id = ww1_qing.385
+						days = 5
+						random_days = 15
+					}
+					load_oob = PRC_1911_uprising2_shandong
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { var_hunan_rebel = 1 }
+				}
+				set_country_flag = hunan_integrated_flag
+				clear_variable = var_hunan_rebel
+				hidden_effect = {
+					country_event = {
+						id = ww1_qing.392
+						days = 5
+						random_days = 15
+					}
+					load_oob = PRC_1911_uprising2_hunan
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { var_guangxi_rebel = 1 }
+				}
+				set_country_flag = guangxi_integrated_flag
+				clear_variable = var_guangxi_rebel
+				hidden_effect = {
+					country_event = {
+						id = ww1_qing.387
+						days = 5
+						random_days = 15
+					}
+					load_oob = PRC_1911_uprising2_guangzhou
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { var_jiangsu_rebel = 1 }
+				}
+				set_country_flag = jiangsu_integrated_flag
+				clear_variable = var_jiangsu_rebel
+				hidden_effect = {
+					country_event = {
+						id = ww1_qing.386
+						days = 5
+						random_days = 15
+					}
+					load_oob = PRC_1911_uprising2_nanchang
+					load_oob = PRC_1911_uprising2_shanghai
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { var_zhejiang_rebel = 1 }
+				}
+				set_country_flag = zhejiang_integrated_flag
+				clear_variable = var_zhejiang_rebel
+				hidden_effect = {
+					country_event = {
+						id = ww1_qing.388
+						days = 5
+						random_days = 15
+					}
+					load_oob = PRC_1911_uprising2_zhejiang
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { var_yunnan_rebel = 1 }
+				}
+				set_country_flag = yunnan_integrated_flag
+				clear_variable = var_yunnan_rebel
+				hidden_effect = {
+					country_event = {
+						id = ww1_qing.391
+						days = 5
+						random_days = 15
+					}
+					load_oob = PRC_1911_uprising2_yunnan
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { var_sichuan_rebel = 1 }
+				}
+				set_country_flag = sichuan_integrated_flag
+				clear_variable = var_sichuan_rebel
+				hidden_effect = {
+					country_event = {
+						id = ww1_qing.389
+						days = 5
+						random_days = 15
+					}
+					load_oob = PRC_1911_uprising2_sichuan
+				}
+			}
+		}
+		priority = 7
+	}
+	QIN_replace_governors_dec = {
+		icon = eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_completed_focus = QIN_local_government_reform
+			custom_trigger_tooltip = {
+				tooltip = QIN_effect_any_province_disloyal
+				OR = {
+					check_variable = { var_henan_rebel > 1 }
+					check_variable = { var_hunan_rebel > 1 }
+					check_variable = { var_jiangsu_rebel > 1 }
+					check_variable = { var_guangxi_rebel > 1 }
+					check_variable = { var_sichuan_rebel > 1 }
+					check_variable = { var_yunnan_rebel > 1 }
+					check_variable = { var_zhejiang_rebel > 1 }
+					check_variable = { var_shaanxi_rebel > 1 }
+					check_variable = { var_shandong_rebel > 1 }
+				}
+			}
+		}
+		visible = {
+			#has_global_flag = QIN_warlord_dec_open
+		}
+		days_re_enable = 0
+		cost = var:var_integration_cost
+		complete_effect = {
+			QIN_random_prov_improve = yes
+			custom_effect_tooltip = QIN_effect_not_this_war
+		}
+		priority = 7
+	}
+}
+GER_great_war = {
+	QIN_join_entente = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+		allowed = {
+			tag = QIN
+		}
+		visible = {
+			tag = QIN
+			is_subject = no
+			NOT = {
+				has_global_flag = great_war_ends
+				has_global_flag = GER_capitulation
+				has_global_flag = FRA_capitulation
+				has_war_with = FRA
+			}
+			GER = {
+				has_war_with = FRA
+			}
+			NOT = {
+				has_global_flag = warlord_era
+			}
+		}
+		available = {
+			has_war = no
+			NOT = {
+				is_in_faction_with = FRA
+				is_in_faction_with = GER
+				has_country_flag = CHI_join_cp
+				has_global_flag = manchu_restoration
+			}
+		}
+		target_trigger = {
+			FROM = {
+				tag = FRA
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				is_subject = yes
+				is_in_faction_with = FRA
+				is_in_faction_with = GER
+				has_global_flag = great_war_ends
+				has_global_flag = GER_capitulation
+				has_global_flag = FRA_capitulation
+				has_war_with = FRA
+			}
+		}
+		cost = 200
+		days_remove = 35
+		fire_only_once = no
+		complete_effect = {
+			hidden_effect = { set_country_flag = CHI_join_entente }
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					is_faction_leader = yes
+				}
+				every_other_country = {
+					limit = {
+						is_in_faction_with = ROOT
+					}
+					FRA = { country_event = generic.2 }
+				}
+			}
+			FRA = { country_event = generic.2 }
+		}
+		cancel_effect = {
+			add_political_power = 200
+		}
+		ai_will_do = {
+			base = 2
+			modifier = {
+				add = 4
+				has_government = democratic
+			}
+		}
+	}
+	QIN_join_cp = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+		allowed = {
+			tag = QIN
+		}
+		visible = {
+			tag = QIN
+			is_subject = no
+			NOT = {
+				has_global_flag = great_war_ends
+				has_global_flag = GER_capitulation
+				has_global_flag = FRA_capitulation
+				has_war_with = GER
+			}
+			GER = {
+				has_war_with = FRA
+			}
+			OR = {
+				AND = {
+					has_country_flag = reunited_china
+					has_global_flag = warlord_era_end
+				}
+				NOT = {
+					has_global_flag = warlord_era
+				}
+			}
+		}
+		available = {
+			NOT = {
+				is_in_faction_with = FRA
+				is_in_faction_with = GER
+				has_country_flag = CHI_join_entente
+				has_global_flag = manchu_restoration
+			}
+		}
+		target_trigger = {
+			FROM = {
+				tag = GER
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				is_subject = yes
+				is_in_faction_with = FRA
+				is_in_faction_with = GER
+				has_global_flag = great_war_ends
+				has_global_flag = GER_capitulation
+				has_global_flag = FRA_capitulation
+				has_war_with = GER
+			}
+		}
+		cost = 250
+		days_remove = 35
+		fire_only_once = no
+		complete_effect = {
+			hidden_effect = { set_country_flag = CHI_join_cp }
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					is_faction_leader = yes
+				}
+				every_other_country = {
+					limit = {
+						is_in_faction_with = ROOT
+					}
+					GER = { country_event = generic.2 }
+				}
+			}
+			GER = { country_event = generic.2 }
+		}
+		cancel_effect = {
+			add_political_power = 250
+		}
+		ai_will_do = {
+			base = 15
+			modifier = {
+				add = 10
+				has_government = fascism
+			}
+		}
+	}
+}
 QIN_xinhai_revolution_category = {
 	QIN_wuchang_timer = {
 		icon = generic_prepare_civil_war
@@ -498,75 +2184,92 @@ QIN_xinhai_revolution_category = {
 		}
 		available = {
 			OR = {
-				AND = {
-					divisions_in_state = {
-						
-						size > 15
-						state = 620
-					}
-					divisions_in_state = {
-						size > 5
-						state = 605
-					}
-					divisions_in_state = {
-						size > 3
-						state = 325
-					}
-					divisions_in_state = {
-						size > 1
-						state = 593
-					}
-				}
-				OR = {
-					NOT = { has_government = neutrality }
-					has_global_flag = xinhai_revolution
-					has_global_flag = qing_reformed
-				}
+				NOT = { has_government = neutrality }
+				has_global_flag = xinhai_revolution
+				has_completed_focus = QIN_crush_the_tongmenghui
 			}
 		}
 		priority = 101
-		days_mission_timeout = 22
+		days_mission_timeout = 21
 		fire_only_once = yes
 		is_good = no
 		complete_effect = {
-			603 = { set_demilitarized_zone = no }
-			607 = { set_demilitarized_zone = no }
-			600 = { set_demilitarized_zone = no }
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = -100
+			603 = { 
+				set_demilitarized_zone = no 
 			}
-			add_stability = -0.1
+			607 = { 
+				set_demilitarized_zone = no 
+			}
+			600 = { 
+				set_demilitarized_zone = no 
+			}
+			hidden_effect = {
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 325
+							state = 593
+							state = 605
+							state = 620
+						}
+					}
+					set_border_war = no
+				}
+			}
+			add_stability = -0.15
 			add_popularity = {
 				ideology = fascism
-				popularity = 0.05
+				popularity = 0.15
 			}
 			clr_global_flag = wuchang_uprising
 			set_global_flag = QIN_warlord_watch
 		}
 		timeout_effect = {
+			hidden_effect = {
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 325
+							state = 593
+							state = 605
+							state = 620
+						}
+					}
+					set_border_war = no
+				}
+			}
 			set_global_flag = xinhai_revolution
-			country_event = ww1_xinhai.2 
+
+			if = {
+				limit = { has_global_flag = QIN_flag_first_xinhai }
+				set_variable_to_random = {
+					var = CHI_rebellion_province
+					min = 1
+					max = 6
+					integer = yes
+				}
+			}
+			country_event = ww1_xinhai.2
+			custom_effect_tooltip = QIN_effect_revolution_location
 		}
 	}
-	QIN_xinhai_timer = {
+	
+	QIN_xinhai_timer = { # Timer Until Rev
 		icon = generic_prepare_civil_war
 		allowed = {
 			original_tag = QIN
 		}  
 		available = {
 			OR = {
-				#NOT = { has_government = neutrality }
+				has_government = democratic
+				#has_government = communism
 				has_global_flag = xinhai_revolution
-				has_global_flag = qing_reformed
-				AND = {
-					has_completed_focus = QIN_finish_the_new_qing_reforms
-					has_global_flag = QIN_easy_mode
-				}
+				has_completed_focus = QIN_crush_the_tongmenghui
+				has_global_flag = QIN_flag_shikai_deal_with_tongmenghui
 			}
 		}
 		priority = 100
-		days_mission_timeout = 242
+		days_mission_timeout = 152
 		fire_only_once = yes
 		is_good = no
 		timeout_effect = {
@@ -581,7 +2284,7 @@ QIN_xinhai_revolution_category = {
 					integer = yes
 				}
 			}
-			country_event = ww1_qingrev.2
+			country_event = ww1_xinhai.2
 			custom_effect_tooltip = QIN_effect_revolution_location
 		}
 	}
@@ -634,6 +2337,7 @@ QIN_xinhai_revolution_category = {
 		}
 		priority = 10
 	}
+	
 	QIN_reform_1 = {
 		icon = generic_political_discourse
 		allowed = {
@@ -642,313 +2346,349 @@ QIN_xinhai_revolution_category = {
 		available = { 
 			has_completed_focus = QIN_find_corrupt_officials 
 			NOT = { has_global_flag = xinhai_revolution }
-			NOT = {  
-			has_global_flag = qing_reformed
-		}
 		}
 		visible = {
-			NOT = { has_global_flag = qing_reformed }
+			#NOT = { has_global_flag = qing_reformed }
+			always = no
 		}
 		cost = 0
-		days_re_enable = 68
+		days_re_enable = 5
 		complete_effect = {
 			add_political_power = -10
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 15
+				days = 10
+			}
+			
+			hidden_effect = {
+				if = {
+					limit = {
+						has_completed_focus = QIN_massive_government_crackdown
+					}
+					random_list = {
+						67 = {
+						}
+						17 = {
+							country_event = ww1_qing.309
+						}
+						3 = {
+							country_event = ww1_qing.310
+						}
+						5 = {
+							country_event = ww1_qing.308
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_completed_focus = QIN_pardon_corruption
+					}
+					random_list = {
+						67 = {
+						}
+						9 = {
+						country_event = ww1_qing.308 #Army
+						}
+						5 = {
+							country_event = ww1_qing.309 #Good
+						}
+						14 = {
+							country_event = ww1_qing.310 #Bad
+						}
+					}
+				}
+				else = {
+					random_list = {
+						67 = {
+						}
+						10 = {
+							country_event = ww1_qing.308
+						}
+						8 = {
+							country_event = ww1_qing.309
+						}
+						10 = {
+							country_event = ww1_qing.310
+						}
+					}
+				}
 			}
 		}
 		priority = 9
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
 	}
-	QIN_dec_imperial_propaganda = {
-		icon = eng_propaganda_campaigns
+	QIN_reform_2 = { #
+		icon = SWI_no_elected_president
 		allowed = {
 			original_tag = QIN
 		} 
 		available = {
-			has_completed_focus = QIN_imperial_propaganda
-			OR = {
-				has_idea = QIN_idea_low_legitimacy
-				has_idea = QIN_idea_low_legitimacy_2
-				has_idea = QIN_idea_low_legitimacy_3
-				has_idea = QIN_idea_low_legitimacy_4
-				has_idea = QIN_idea_political_corruption_3
-				has_idea = QIN_idea_tongmenghui
-				has_idea = QIN_idea_tongmenghui_2
-				has_idea = QIN_idea_tongmenghui_3
-				has_idea = QIN_idea_tongmenghui_4
-				has_idea = QIN_idea_tongmenghui_5
-			}
-		}
-		
-		visible = {
-			OR = {
-			has_completed_focus = QIN_the_4000_year_system
-			
-			has_completed_focus = QIN_divide_and_conquer
-			}
-			OR = {
-				has_government = neutrality
-				has_government = communism
-			}
-		}
-		cost = 75
-		days_re_enable = 2-0
-		days_remove = 110
-		complete_effect = {
-			random_list = {
-			50 = {
-			if = {
-				limit = {
-				has_idea = QIN_idea_low_legitimacy
-				}
-				swap_ideas = {
-					remove_idea = QIN_idea_low_legitimacy
-					add_idea = QIN_idea_low_legitimacy_2
-				}
-			}
-			else_if = {
-				limit = {
-				has_idea = QIN_idea_low_legitimacy_2
-				}
-				swap_ideas = {
-					remove_idea = QIN_idea_low_legitimacy_2
-					add_idea = QIN_idea_low_legitimacy_3
-				}
-			}
-			else_if = {
-				limit = {
-				has_idea = QIN_idea_low_legitimacy_3
-				}
-				swap_ideas = {
-					remove_idea = QIN_idea_low_legitimacy_3
-					add_idea = QIN_idea_low_legitimacy_4
-				}
-			}
-			else_if = {
-				limit = {
-				has_idea = QIN_idea_low_legitimacy_4
-				}
-				swap_ideas = {
-					remove_idea = QIN_idea_low_legitimacy_4
-					add_idea = QIN_idea_low_legitimacy_5
-				}
-			}
-			else = {
-				if = {
-					limit = {
-					has_idea = QIN_idea_political_corruption
-					}
-					swap_ideas = {
-						remove_idea = QIN_idea_political_corruption
-						add_idea = QIN_idea_political_corruption_2
-					}
-				}
-				else_if = {
-					limit = {
-					has_idea = QIN_idea_political_corruption_3
-					}
-					remove_ideas = {
-						QIN_idea_political_corruption_3
-					}
-				}
-				else = {
-					add_political_power = 25
-				}
-			}
-			}
-			50 = {
-				if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui
-				add_idea = QIN_idea_tongmenghui_2
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_2
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui_2
-				add_idea = QIN_idea_tongmenghui_3
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_3
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui_3
-				add_idea = QIN_idea_tongmenghui_4
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_4
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui_4
-				add_idea = QIN_idea_tongmenghui_5
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_5
-			}
-			remove_ideas = { QIN_idea_tongmenghui_5 }
-			}
-			else = {
-				if = {
-					limit = {
-					has_idea = QIN_idea_political_corruption
-					}
-					swap_ideas = {
-						remove_idea = QIN_idea_political_corruption
-						add_idea = QIN_idea_political_corruption_2
-					}
-				}
-				else_if = {
-					limit = {
-					has_idea = QIN_idea_political_corruption_3
-					}
-					remove_ideas = {
-						QIN_idea_political_corruption_3
-					}
-				}
-				else = {
-					add_political_power = 25
-				}
-			}
-			}
-			}
-			custom_effect_tooltip = QIN_effect_imperial_prop
-		}
-		
-		
-		priority = 0
-	}
-	
-	
-	
-	QIN_reform_9 = { #Appeal to conservatives
-		icon = hol_attract_foreign_investors
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 0
-		days_re_enable = 10
-		available = {
-			QIN = { has_idea = QIN_idea_court_opposition }
-			NOT = { has_government = democratic }
-			OR = {
-				AND = {
-					NOT = { has_global_flag = QIN_hard_mode }
-					has_political_power > -250
-				}
-				has_political_power > -75
-			}
+			NOT = { has_idea = QIN_idea_court_opposition }
+			has_active_mission = QIN_xinhai_timer
+			has_completed_focus = QIN_government_trials
 		}
 		visible = {
-			NOT = { has_government = democratic }
+			NOT = { has_completed_focus = QIN_efficient_government }
+			has_active_mission = QIN_xinhai_timer
 		}
+		cost = 15
+		days_re_enable = 140
 		complete_effect = {
-			if = {
-				limit = {
-					NOT = { has_completed_focus = QIN_centralization_of_power }
-				}
-				add_political_power = -50	
-			
-			}
-			else = {
-				add_political_power = -25
-			}
-		
-			custom_effect_tooltip = QIN_effect_court_5
-			modify_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = -50
-			}
-            custom_effect_tooltip = line_description
-			custom_effect_tooltip = QIN_effect_appease_conservatives_warning
-            if = {
-                limit = {
-                    has_political_power < -120
-                }
-                add_stability = -0.004
-            }
-            else_if = {
-                limit = {
-                    has_political_power < 0
-                }
-                add_stability = -0.003
-            }
-        
-			custom_effect_tooltip = QIN_effect_10_day
-		}
-		priority = 6
-	}
-	QIN_gift_manchu = { #Gift to conservatives
-		icon = hol_attract_foreign_investors
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 0
-		days_re_enable = 365
-		available = {
-			QIN = { has_idea = QIN_idea_court_opposition }
-
-			NOT = { has_government = democratic }
-		
-		}
-		visible = {
-			NOT = { has_government = democratic }
-		}
-		days_remove = 75
-		selectable_mission = yes
-		modifier = {
-			consumer_goods_factor = 0.1
-			industrial_capacity_factory = -0.1
-		}
-		complete_effect = {
-			custom_effect_tooltip = QIN_effect_court_5
-			modify_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = -75
-			}
-		}
-		priority = 6
-	}
-	QIN_Manchu_give_in_to_demand = { #Concession to conservatives
-		icon = hol_attract_foreign_investors
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 0
-		days_re_enable = 105
-		available = {
-			QIN = { has_idea = QIN_idea_court_opposition }
-			NOT = { has_global_flag = xinhai_revolution }
-			NOT = { has_global_flag = qing_reformed }
-		}
-		visible = {
-			NOT = { has_global_flag = qing_reformed }
-			NOT = { has_government = democratic }
-		}
-		complete_effect = {
-			custom_effect_tooltip = QIN_effect_court_5
-			modify_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = -50
-			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = -50
+				days = 10
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_completed_focus = QIN_massive_government_crackdown
+					}
+					random_list = {
+						60 = {
+						}
+						17 = {
+							country_event = ww1_qing.309
+						}
+						3 = {
+							country_event = ww1_qing.310
+						}
+						5 = {
+							country_event = ww1_qing.308
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_completed_focus = QIN_pardon_corruption
+					}
+					random_list = {
+						60 = {
+						}
+						9 = {
+						country_event = ww1_qing.308 #Army
+						}
+						5 = {
+							country_event = ww1_qing.309 #Good
+						}
+						14 = {
+							country_event = ww1_qing.310 #Bad
+						}
+					}
+				}
+				else = {
+					random_list = {
+						60 = {
+						}
+						10 = {
+							country_event = ww1_qing.308
+						}
+						8 = {
+							country_event = ww1_qing.309
+						}
+						10 = {
+							country_event = ww1_qing.310
+						}
+					}
+				}
+			}
+			
+		}
+		priority = 8
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
 			}
 		}
-		priority = 6
+	}
+	QIN_reform_10 = { #hold corruption trials 2
+		icon = SOV_place_hq
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			NOT = { has_idea = QIN_idea_court_opposition }
+			has_active_mission = QIN_xinhai_timer
+			NOT = { has_completed_focus = QIN_jumping_appeals }
+		}
+		visible = {
+			NOT = { has_completed_focus = QIN_efficient_government }
+			has_active_mission = QIN_xinhai_timer
+		}
+		cost = 25
+		days_re_enable = 325
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 45
+			}
+			
+			QIN_court_opp_20 = yes
+			
+			hidden_effect = {
+				if = {
+					limit = {
+						has_completed_focus = QIN_massive_government_crackdown
+					}
+					random_list = {
+						85 = {
+						}
+						17 = {
+							country_event = ww1_qing.309
+						}
+						3 = {
+							country_event = ww1_qing.310
+						}
+						5 = {
+							country_event = ww1_qing.308
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_completed_focus = QIN_pardon_corruption
+					}
+					random_list = {
+						85 = {
+						}
+						9 = {
+						country_event = ww1_qing.308 #Army
+						}
+						5 = {
+							country_event = ww1_qing.309 #Good
+						}
+						14 = {
+							country_event = ww1_qing.310 #Bad
+						}
+					}
+				}
+				else = {
+					random_list = {
+						85 = {
+						}
+						10 = {
+							country_event = ww1_qing.308
+						}
+						8 = {
+							country_event = ww1_qing.309
+						}
+						10 = {
+							country_event = ww1_qing.310
+						}
+					}
+				}
+			}
+		}
+		priority = 8
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	
+	QIN_dec_default_on_loans = { #Default On Loans
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		days_re_enable = 0
+		available = {
+			has_political_power < -100
+		}
+		visible = {
+			NOT = { has_global_flag = xinhai_revolution }
+			has_political_power < -100
+		}
+		complete_effect = {
+			effect_tooltip = {
+				set_political_power = 0
+			}
+			if = {
+				limit = {
+					has_political_power < -400
+				}
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -350
+				}
+			}
+			else_if = {
+				limit = {
+					has_political_power < -300
+				}
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -300
+				}
+			}
+			else_if = {
+				limit = {
+					has_political_power < -200
+				}
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -250
+				}
+			}
+			else = {
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -150
+				}
+			}
+			#custom_effect_tooltip = line_description
+			hidden_effect = {
+				set_political_power = 0
+			}
+		}
+		priority = 0
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+				has_political_power < 300
+			}
+		}
+	}
+	QIN_dec_emergency_crackdown = { #Emergency Crackdown
+		icon = GFX_decision_SWI_consolidate_council_power
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		days_re_enable = 0
+		available = {
+			NOT = { has_government = democratic }
+			has_stability < 0.1
+		}
+		visible = {
+			NOT = { has_government = democratic }
+			has_stability < 0.2
+			NOT = { has_global_flag = xinhai_revolution }
+		}
+		complete_effect = {
+			add_stability = 0.1
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = -350
+			}
+		}
+		priority = 0
+		ai_will_do = {
+			base = 0
+		}
 	}
 	QIN_dec_emergency_reform = { #Emergency Reform
 		icon = generic_prepare_civil_war
@@ -968,90 +2708,10 @@ QIN_xinhai_revolution_category = {
 
 		}
 		complete_effect = {
-			add_political_power = 100
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 100
-			}
-			custom_effect_tooltip = QIN_effect_court_5
-			modify_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = -200
-			}
+			QIN_lower_opp_200 = yes
 			custom_effect_tooltip = QIN_effect_emergency_reform
 		}
 		priority = 6
-	}
-    QIN_dec_end_warlord = { #
-		icon = eng_trade_unions_support
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 0
-		fire_only_once = yes
-		available = {
-			has_idea = QIN_idea_confidence_campaign
-		}
-		visible = {
-			has_idea = QIN_idea_confidence_campaign
-		}
-		complete_effect = {
-			remove_ideas = QIN_idea_confidence_campaign
-            
-			custom_effect_tooltip = QIN_effect_court_1
-			if = {
-				limit = {
-					QIN = { has_idea = QIN_idea_court_opposition }
-				}
-				modify_timed_idea = {
-					idea = QIN_idea_court_opposition
-					days = 50
-				}
-			}
-			else = {
-				add_timed_idea = {
-					idea = QIN_idea_court_opposition
-					days = 50
-				}
-			}
-		}
-		priority = 17
-	}
-	
-	QIN_dec_end_minzhu = { #
-		icon = eng_trade_unions_support
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 0
-		fire_only_once = yes
-		available = {
-			has_idea = QIN_idea_minzhu_trials
-		}
-		visible = {
-			has_idea = QIN_idea_minzhu_trials
-		}
-		complete_effect = {
-			remove_ideas = QIN_idea_minzhu_trials
-            
-			custom_effect_tooltip = QIN_effect_court_1
-			if = {
-				limit = {
-					QIN = { has_idea = QIN_idea_court_opposition }
-				}
-				modify_timed_idea = {
-					idea = QIN_idea_court_opposition
-					days = 50
-				}
-			}
-			else = {
-				add_timed_idea = {
-					idea = QIN_idea_court_opposition
-					days = 50
-				}
-			}
-		}
-		priority = 17
 	}
 	 QIN_dec_end_isolation = { # End Isolation
 		icon = generic_civil_support
@@ -1061,8 +2721,8 @@ QIN_xinhai_revolution_category = {
 		cost = 0
 		fire_only_once = yes
 		available = {
-			QIN = { NOT = { has_idea = QIN_idea_court_opposition } }
-            QIN = { has_idea = isolation }
+			NOT = { has_idea = QIN_idea_court_opposition }
+			has_idea = isolation
 		}
 		visible = {
 			has_idea = isolation
@@ -1070,44 +2730,39 @@ QIN_xinhai_revolution_category = {
 		}
 		complete_effect = {
 			add_ideas = civilian_economy
-            add_political_power = -150
-            
-			custom_effect_tooltip = QIN_effect_court_4
-			if = {
-				limit = {
-					QIN = { has_idea = QIN_idea_court_opposition }
-				}
-				modify_timed_idea = {
-					idea = QIN_idea_court_opposition
-					days = 300
-				}
-			}
-			else = {
-				add_timed_idea = {
-					idea = QIN_idea_court_opposition
-					days = 300
-				}
+			#add_political_power = -150
+			
+			QIN_court_opp_300 = yes
+		}
+		priority = 18
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 3
+				is_historical_focus_on = no
+				
 			}
 		}
-		priority = 17
 	}
-	
 	QIN_reform_3 = { #Poverty Relief
-		icon = generic_construction
+		icon = GFX_decision_generic_fundraising
 		allowed = {
 			original_tag = QIN
 		}
 		available = {
-		  NOT = { has_global_flag = qing_reformed }
-          has_completed_focus = QIN_first_qiongren_plan
+			NOT = {
+				has_completed_focus = QIN_finish_the_new_qing_reforms
+				has_global_flag = qing_reformed
+			}
+			has_completed_focus = QIN_first_qiongren_plan
 		}	
 		visible = {
-			NOT = { has_global_flag = qing_reformed }
-            has_completed_focus = QIN_reform_and_recovery
+			#NOT = { has_global_flag = qing_reformed }
+			has_completed_focus = QIN_reform_and_recovery
 		}
 
 		cost = 20
-		days_re_enable = 30
+		days_re_enable = 50
 		days_remove = 100
 		modifier = {
 			#consumer_goods_factor = 0.04
@@ -1118,7 +2773,7 @@ QIN_xinhai_revolution_category = {
 				mission = QIN_xinhai_timer
 				days = 60
 			}
-			add_stability = 0.02
+			add_stability = 0.008
 			
 		}
 		priority = 7
@@ -1131,8 +2786,7 @@ QIN_xinhai_revolution_category = {
 		
 		cost = 0
 		days_re_enable = 50
-		days_remove = 30
-		is_good = no
+		days_remove = 120
 		#modifier = {
 		#	consumer_goods_factor = 0.04
 		#	industrial_capacity_factory = -0.05
@@ -1159,143 +2813,10 @@ QIN_xinhai_revolution_category = {
 		remove_effect = {
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = -40
+				days = -30
 			}
 		}
 		priority = 6
-	}
-	QIN_reform_7 = { #Industrialization
-		icon = generic_construction
-		allowed = {
-			original_tag = QIN
-		} 
-		available = {
-			NOT = { has_idea = QIN_idea_court_opposition }
-            has_completed_focus = QIN_secound_qiongren_plan
-			#NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
-			#NOT = { has_global_flag = qing_reformed }
-		}
-        visible = { has_completed_focus = QIN_reform_and_recovery}
-		cost = 0
-		days_re_enable = 250
-		days_remove = 150
-		complete_effect = {
-			add_political_power = -50
-		}
-		modifier = {
-			industrial_capacity_factory = 0.02
-		}
-		remove_effect = {
-			if = { 
-				limit = { 
-					NOT = {
-						has_global_flag = qing_reformed 
-						has_completed_focus = QIN_finish_the_new_qing_reforms
-					}
-				}
-				add_stability = 0.05
-				add_days_mission_timeout = {
-					mission = QIN_xinhai_timer
-					days = 25
-				}
-			}
-			else = {
-				add_stability = 0.01
-			}
-			if = { 
-				limit = {
-					NOT = {
-						has_global_flag = qing_reformed 
-					}
-				}
-				custom_effect_tooltip = QIN_effect_court_0
-				if = {
-					limit = {
-						QIN = { has_idea = QIN_idea_court_opposition }
-					}
-					modify_timed_idea = {
-						idea = QIN_idea_court_opposition
-						days = 20
-					}
-				}
-				else = {
-					add_timed_idea = {
-						idea = QIN_idea_court_opposition
-						days = 20
-					}
-				}
-			}
-		}
-		priority = 7
-	}
-	QIN_reform_2 = { #hold corruption trials
-		icon = SWI_no_elected_president
-		allowed = {
-			original_tag = QIN
-		} 
-		available = {
-			OR = {
-				NOT = { QIN = { has_idea = QIN_idea_court_opposition } }
-				has_completed_focus = QIN_anti_corruption_council
-			}
-			NOT = { has_global_flag = xinhai_revolution }
-			NOT = { has_global_flag = qing_reformed }
-		}
-		visible = {
-			NOT = { has_global_flag = qing_reformed }
-		}
-		cost = 15
-		days_re_enable = 125
-		complete_effect = {
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 30
-			}
-			
-			
-		}
-		priority = 8
-	}
-	QIN_reform_10 = { #hold corruption trials 2
-		icon = SOV_place_hq
-		allowed = {
-			original_tag = QIN
-		} 
-		available = {
-			NOT = { has_idea = QIN_idea_court_opposition }
-			has_completed_focus = QIN_anti_corruption_council
-			NOT = { has_global_flag = xinhai_revolution }
-			NOT = { has_global_flag = qing_reformed }
-		}
-		visible = {
-			NOT = { has_global_flag = qing_reformed }
-		}
-		cost = 20
-		days_re_enable = 200
-		complete_effect = {
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 70
-			}
-			
-			custom_effect_tooltip = QIN_effect_court_1
-		if = {
-			limit = {
-				QIN = { has_idea = QIN_idea_court_opposition }
-			}
-			modify_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = 35
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = 35
-			}
-		}
-		}
-		priority = 8
 	}
 	QIN_reform_4 = { #Protest Crackdown
 		icon = oppression
@@ -1303,13 +2824,17 @@ QIN_xinhai_revolution_category = {
 			original_tag = QIN
 		} 
 		cost = 0
-		days_re_enable = 100
+		days_re_enable = 145
 		available = {
 			democratic < 0.2
 			has_stability > 0.1
 		}
 		visible = {
-			NOT = { has_global_flag = qing_reformed }
+			OR = {
+				NOT = { has_global_flag = qing_reformed }
+				NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
+				democratic < 0.3
+			}
 			OR = {
 				has_government = neutrality
 				has_government = fascism
@@ -1319,12 +2844,28 @@ QIN_xinhai_revolution_category = {
 		complete_effect = {
 			add_popularity = {
 				ideology = neutrality
-				popularity = -0.1
+				popularity = -0.125
 			}
-			add_stability = -0.03
+			hidden_effect = {
+				if = {
+					limit = { neutrality < 0.1 }
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.125
+					}
+				}
+			}
+			add_stability = -0.02
+			if = {
+				limit = { has_stability < 0.1 }
+				add_popularity = {
+					ideology = neutrality
+					popularity = -0.05
+				}
+			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 100
+				days = 75
 			}
 		}
 		priority = 6
@@ -1338,14 +2879,14 @@ QIN_xinhai_revolution_category = {
 			NOT = { has_government = democratic }
 			QIN = { num_of_military_factories > 0 }
 			has_active_mission = QIN_xinhai_timer
-			has_completed_focus = QIN_divide_and_conquer
+			has_completed_focus = QIN_target_tongmenghui_cells
 		}
 		visible = {
 			has_government = neutrality
 			has_completed_focus = QIN_divide_and_conquer
 		}
 		cost = 0
-		days_re_enable = 7
+		days_re_enable = 80
 		complete_effect = {
 				random_owned_state = {
 					limit = {
@@ -1359,63 +2900,72 @@ QIN_xinhai_revolution_category = {
 
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 200
+				days = 85
 			}
-			
-			if = {
-		limit = {
-		OR = {
-			has_idea = QIN_idea_tongmenghui
-			has_idea = QIN_idea_tongmenghui_2
-			has_idea = QIN_idea_tongmenghui_3
-			has_idea = QIN_idea_tongmenghui_4
-			has_idea = QIN_idea_tongmenghui_5
-			}
-		}
-			if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui
-				add_idea = QIN_idea_tongmenghui_2
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_2
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui_2
-				add_idea = QIN_idea_tongmenghui_3
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_3
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui_3
-				add_idea = QIN_idea_tongmenghui_4
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_4
-			}
-			swap_ideas = {
-				remove_idea = QIN_idea_tongmenghui_4
-				add_idea = QIN_idea_tongmenghui_5
-			}
-			}
-			else_if = {
-			limit = {
-			has_idea = QIN_idea_tongmenghui_5
-			}
-			remove_ideas = { QIN_idea_tongmenghui_5 }
-			}
-			else = {
-			}
+			random_list = {
+				25 = {
+					if = {
+						limit = {
+							OR = {
+								has_idea = QIN_idea_tongmenghui
+								has_idea = QIN_idea_tongmenghui_2
+								has_idea = QIN_idea_tongmenghui_3
+								has_idea = QIN_idea_tongmenghui_4
+								has_idea = QIN_idea_tongmenghui_5
+							}
+						}
+							if = {
+							limit = {
+							has_idea = QIN_idea_tongmenghui
+							}
+							swap_ideas = {
+								remove_idea = QIN_idea_tongmenghui
+								add_idea = QIN_idea_tongmenghui_2
+							}
+							}
+							else_if = {
+							limit = {
+							has_idea = QIN_idea_tongmenghui_2
+							}
+							swap_ideas = {
+								remove_idea = QIN_idea_tongmenghui_2
+								add_idea = QIN_idea_tongmenghui_3
+							}
+							}
+							else_if = {
+							limit = {
+							has_idea = QIN_idea_tongmenghui_3
+							}
+							swap_ideas = {
+								remove_idea = QIN_idea_tongmenghui_3
+								add_idea = QIN_idea_tongmenghui_4
+							}
+							}
+							else_if = {
+							limit = {
+							has_idea = QIN_idea_tongmenghui_4
+							}
+							swap_ideas = {
+								remove_idea = QIN_idea_tongmenghui_4
+								add_idea = QIN_idea_tongmenghui_5
+							}
+							}
+							else_if = {
+							limit = {
+							has_idea = QIN_idea_tongmenghui_5
+							}
+							remove_ideas = { QIN_idea_tongmenghui_5 }
+							}
+							else = {
+							}
+					}
+				}
+				75 = {
+					add_popularity = {
+						ideology = democratic
+						popularity = -0.05
+					}
+				}
 			}
 		}
 		priority = 8
@@ -1438,7 +2988,7 @@ QIN_xinhai_revolution_category = {
 			has_completed_focus = QIN_divide_and_conquer
 		}
 		cost = 0
-		days_re_enable = 100
+		days_re_enable = 210
 		complete_effect = {
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
@@ -1447,7 +2997,7 @@ QIN_xinhai_revolution_category = {
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 120
+				days = 85
 			}
 			
 			if = {
@@ -1462,7 +3012,7 @@ QIN_xinhai_revolution_category = {
 				}
 			
 				random_list = {
-				66 = {
+				15 = {
 					if = {
 					limit = {
 					has_idea = QIN_idea_tongmenghui
@@ -1508,10 +3058,10 @@ QIN_xinhai_revolution_category = {
 					else = {
 					}
 				}
-				33 = {
+				85 = {
 					add_popularity = {
 						ideology = democratic
-						popularity = -0.05
+						popularity = -0.035
 					}
 				}
 				}
@@ -1533,6 +3083,12 @@ QIN_xinhai_revolution_category = {
 		visible = {
 			has_government = neutrality
 			NOT = { has_completed_focus = QIN_imperial_bonds }
+			608 = { industrial_complex > 0 }
+			OR = {
+				NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
+				NOT = { has_global_flag = qing_reformed }
+				has_political_power < 0
+			}
 		}
 		cost = 0
 		days_re_enable = 5
@@ -1556,24 +3112,9 @@ QIN_xinhai_revolution_category = {
 				}
 			}
 			custom_effect_tooltip = QIN_effect_imperial_bonds_3
-			custom_effect_tooltip = QIN_effect_court_2
-		if = {
-			limit = {
-				QIN = { has_idea = QIN_idea_court_opposition }
-			}
-			modify_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = 75
-			}
+			QIN_court_opp_75 = yes
 		}
-		else = {
-			add_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = 75
-			}
-		}
-		}
-		priority = 8
+		priority = 1
 	}
 	QIN_dec_imperial_bonds = { #Imperial Bonds
 		icon = gre_investment_decisions
@@ -1588,6 +3129,7 @@ QIN_xinhai_revolution_category = {
 		}
 		visible = {
 			has_government = neutrality
+			608 = { industrial_complex > 0 }
 			has_completed_focus = QIN_imperial_bonds
 		}
 		cost = 0
@@ -1605,7 +3147,6 @@ QIN_xinhai_revolution_category = {
 			}
 			else = {
 			add_political_power = 85
-			add_stability = 0.01
 			}
 			random_list = {
 				75 = {
@@ -1620,24 +3161,9 @@ QIN_xinhai_revolution_category = {
 				}
 			}
 			
-			custom_effect_tooltip = QIN_effect_court_1
-		if = {
-			limit = {
-				QIN = { has_idea = QIN_idea_court_opposition }
-			}
-			modify_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = 50
-			}
+			QIN_court_opp_50 = yes
 		}
-		else = {
-			add_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = 50
-			}
-		}
-		}
-		priority = 8
+		priority = 1
 	}
 	QIN_dec_foreign_contracts = { #Foreign Contracts
 		icon = gre_investment_decisions
@@ -1653,6 +3179,8 @@ QIN_xinhai_revolution_category = {
 			NOT = { has_completed_focus = QIN_reform_and_recovery }
 		}
 		visible = {
+			NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
+			NOT = { has_completed_focus = QIN_reform_and_recovery }
 			NOT = { has_global_flag = qing_reformed }
 			NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
 		}
@@ -1677,13 +3205,266 @@ QIN_xinhai_revolution_category = {
 			
 			if = {
 				limit = { has_idea = QIN_idea_announce_reform }
-				remove_ideas = QIN_idea_announce_reform
+				random_list = {
+					50 = {
+					remove_ideas = QIN_idea_announce_reform
+					}
+					50 = {
+					}
+				}
+			}
+		}
+		priority = 1
+	}
+}
+#Beiyang Army Category
+QIN_beiyang_army_category = {
+	QIN_force_shikai_into_exile = {
+		icon = generic_prepare_civil_war
+		allowed = {
+			original_tag = QIN
+			always = no #Only activated by effect
+		}  
+		activation = {
+			original_tag = QIN
+			has_global_flag = QIN_flag_shikai_coup_ongoing
+			always = no
+		}
+		available = {
+			fascism > 0.8
+		}
+		priority = 101
+		days_mission_timeout = 75
+		is_good = yes
+
+		cancel_trigger = {
+			OR = {
+			#hidden_trigger = {
+				NOT = { has_idea = QIN_idea_beiyang_army }
+			#}
+				hidden_trigger = {
+					has_global_flag = QIN_flag_accept_shikai
+				}
+				NOT = {
+					has_character = QIN_yuan_shikai
+				}
+			}
+		}
+		timeout_effect = {
+			clr_global_flag = QIN_flag_accept_shikai
+			custom_effect_tooltip = QIN_effect_kick_out_shikai
+			set_temp_variable = { fascism_temp = party_popularity@fascism }
+			multiply_temp_variable = { fascism_temp = -0.5 }
+			if = {
+				limit = {
+					NOT = { has_completed_focus = QIN_military_plot }
+				}
+				add_stability = fascism_temp
+			}
+			else = {
+				add_stability = fascism_temp
+			}
+			custom_effect_tooltip = line_description
+			uncomplete_national_focus = {
+				focus = QIN_appoint_yuan_shikai
+				uncomplete_children = no
+				refund_political_power = no
+			}
+			set_global_flag = QIN_flag_need_new_regent
+			if = {
+				limit = { has_global_flag = QIN_flag_puyi_of_age }
+				promote_character = QIN_xuantong
+			}
+			else = {
+				country_event = { id = ww1_qing.291 days = 0 }
+			}
+		}
+		cancel_effect = {
+			hidden_effect = {
+				uncomplete_national_focus = {
+					focus = QIN_appoint_yuan_shikai
+					uncomplete_children = yes
+					refund_political_power = yes
+				}
+				set_global_flag = QIN_flag_need_new_regent
+				if = {
+					limit = { has_global_flag = QIN_flag_puyi_of_age }
+					promote_character = QIN_xuantong
+				}
+				else = {
+					country_event = { id = ww1_qing.291 days = 0 }
+				}
+			}
+		}
+		complete_effect = {
+			complete_national_focus = QIN_tongmenghui_pact 
+			set_global_flag = QIN_autocomplete_dilemma
+		}
+	}
+	QIN_warlord_era_mission = {
+		icon = revolt
+		days_mission_timeout = 55
+		activation = {
+			has_global_flag = QIN_chinese_warlord_crisis
+			NOT = {
+				has_global_flag = warlord_era
+				country_exists = CHI
+			}
+		}
+		priority = 1000
+		allowed = {
+			OR = {
+			original_tag = QIN
+			tag = QIN
+			}
+		}
+		available = {
+			OR = {
+				has_stability > 0.1
+				has_global_flag = warlord_era
+				has_global_flag = xinhai_revolution
+				#has_global_flag = national_protection_war
+			}
+		}
+		visible = {
+			has_global_flag = QIN_chinese_warlord_crisis
+			NOT = {
+				has_global_flag = warlord_era
+			}
+
+			NOT = { has_global_flag = xinhai_revolution }
+			
+		}
+		#fire_only_once = yes
+		is_good = no
+		timeout_effect = {
+			set_global_flag = warlord_era
+			QIN = {
+				create_faction = qing_empire
+				set_cosmetic_tag = QIN_government
+				add_ideas = QIN_idea_fractured_empire
+			}
+			#add_days_mission_timeout = {
+			#	mission = QIN_xinhai_timer
+			#	days = -150
+			#}
+		}
+		complete_effect = {
+			clr_global_flag = qing_oppress_cliques
+			clr_global_flag = QIN_chinese_warlord_crisis
+			custom_effect_tooltip = QIN_effect_warlord_warning
+		}
+	}
+	QIN_load_beiyang_army = {
+		icon = GFX_decision_generic_police_action
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		days_re_enable = 0
+		available = {
+			fascism > 0.2
+			has_idea = QIN_idea_beiyang_army
+			
+			NOT = { has_global_flag = QIN_flag_beiyang_disloyalty }
+			
+			OR = {
+				NOT = { has_global_flag = xinhai_revolution }
+				has_global_flag =  QIN_flag_accept_shikai
+			}
+		}
+		visible = {
+			NOT = {
+				has_global_flag = QIN_flag_beiyang_disloyalty
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { has_idea = QIN_idea_beiyang_army }
+				has_global_flag = QIN_flag_beiyang_disloyalty
+				has_global_flag = QIN_flag_beiyang_no_longer_a_problem
+			}
+		}
+		cancel_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { has_global_flag = QIN_flag_beiyang_no_longer_a_problem }
+					}
+					clr_global_flag = QIN_flag_beiyang_army_deployed
+					custom_effect_tooltip = QIN_effect_beiyang_reserves_2
+					delete_units = {
+						division_template = "Xinjian Lujun (Beiyang Army)"
+						disband = no
+					}
+				}
+			}
+		}
+		days_remove = 100
+		complete_effect = {
+			set_global_flag = QIN_flag_beiyang_army_deployed
+			add_stability = -0.05
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			hidden_effect = {
+				load_oob = QIN_1910_beiyang
+			}
+			custom_effect_tooltip = QIN_effect_beiyang_reserves
+			unlock_decision_tooltip = QIN_continue_beiyang_use
+		}
+		remove_effect = {
+			clr_global_flag = QIN_flag_beiyang_army_deployed
+			custom_effect_tooltip = QIN_effect_beiyang_reserves_2
+			delete_units = {
+				division_template = "Xinjian Lujun (Beiyang Army)"
+				disband = no
 			}
 		}
 		priority = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				has_war_with_major = yes
+			}
+			modifier = {
+				add = 100
+				has_country_flag = second_uprising
+			}
+		}
 	}
-}
-QIN_beiyang_army_category = {
+	QIN_continue_beiyang_use = {
+		icon = GFX_decision_generic_police_action
+		allowed = {
+			original_tag = QIN
+		} 
+		days_re_enable = 0
+		available = {
+			has_decision = QIN_load_beiyang_army
+			has_idea = QIN_idea_beiyang_army
+		}
+		visible = {
+			has_decision = QIN_load_beiyang_army
+		}
+		complete_effect = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			custom_effect_tooltip = QIN_effect_load_beiyang_army_extend
+			hidden_effect = {
+				add_days_remove = {
+					decision = QIN_load_beiyang_army
+					days = 100
+				}
+			}
+			
+		}
+		priority = 8
+	}
 	QIN_train_beiyang_unit = {
 		icon = eng_trade_unions_support
 		allowed = {
@@ -1704,10 +3485,10 @@ QIN_beiyang_army_category = {
 		}
 		days_remove = 131
 		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_up
+			#custom_effect_tooltip = QIN_influence_shikai_up
 			add_popularity = {
 				ideology = fascism
-				popularity = 0.05
+				popularity = 0.03
 			}
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
@@ -1715,13 +3496,13 @@ QIN_beiyang_army_category = {
 			}
 		}
 		remove_effect = {
-			add_political_power = 10
-			608 = {
-			create_unit = {
-				division = "division_template = \"Beiyang New Army\" start_experience_factor = 0.08 start_equipment_factor = 0.83"
-				owner = QIN
-			}
-			}
+			add_political_power = 25
+			#608 = {
+			#create_unit = {
+			#	division = "division_template = \"Beiyang New Army\" start_experience_factor = 0.08 start_equipment_factor = 0.83"
+			#	owner = QIN
+			#}
+			#}
 		}
 		priority = 7
 	}
@@ -1740,9 +3521,12 @@ QIN_beiyang_army_category = {
 			}
 			has_idea = QIN_idea_beiyang_army
 		}
+		visible = {
+			has_completed_focus = QIN_support_yuans_reforms
+		}
 		days_remove = 131
 		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_up
+			#custom_effect_tooltip = QIN_influence_shikai_up
 			add_popularity = {
 				ideology = fascism
 				popularity = 0.15
@@ -1753,58 +3537,39 @@ QIN_beiyang_army_category = {
 			}
 		}
 		remove_effect = {
-			add_political_power = 50
-			608 = {
-			create_unit = {
-				division = "division_template = \"Beiyang New Army\" start_experience_factor = 0.08 start_equipment_factor = 0.75"
-				owner = QIN
-			}
-			create_unit = {
-				division = "division_template = \"Beiyang New Army\" start_experience_factor = 0.08 start_equipment_factor = 0.75"
-				owner = QIN
-			}
-			create_unit = {
-				division = "division_template = \"Beiyang New Army\" start_experience_factor = 0.08 start_equipment_factor = 0.75"
-				owner = QIN
-			}
-			create_unit = {
-				division = "division_template = \"Beiyang New Army\" start_experience_factor = 0.08 start_equipment_factor = 0.75"
-				owner = QIN
-			}
-			create_unit = {
-				division = "division_template = \"Beiyang New Army\" start_experience_factor = 0.08 start_equipment_factor = 0.75"
-				owner = QIN
-			}
-			}
+			add_political_power = 125
+			#608 = {
+			#create_unit = {
+			#	division = "division_template = \"Beiyang New Army\" start_experience_factor = 0.08 start_equipment_factor = 0.75"
+			#	owner = QIN
+			#}
+			#}
+			
 		}
 		priority = 7
 	}
-	QIN_invite_shikai = {
-		icon = generic_political_discourse
-		allowed = {
-			original_tag = QIN
-		} 
-		available = {
-			has_idea = QIN_idea_beiyang_army
-			has_global_flag = xinhai_revolution
-		}
-		visible = {
-			has_global_flag = xinhai_revolution
-		}
-		days_remove = 250
-		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_up
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.25
+	QIN_mission_take_nanjing = {
+		icon = GFX_decision_generic_operation
+		activation = {
+			has_war_with = CHI
+			NOT = {
+				has_global_flag = manchu_restoration
+			}
+			598 = {
+				is_controlled_by = CHI
+			}
+			NOT = {
+				has_global_flag = QIN_flag_failed_to_take_nanjing
 			}
 		}
-		modifier = {
-			surrender_limit = 0.2
-			targeted_modifier = {
-				tag = CHI
-				attack_bonus_against = 0.25
-				defense_bonus_against = 0.25
+		days_mission_timeout = 155
+		is_good = no
+		allowed = {
+			original_tag = QIN
+		}
+		available = {
+			598 = {
+				is_controlled_by = QIN
 			}
 		}
 		cancel_trigger = {
@@ -1812,11 +3577,249 @@ QIN_beiyang_army_category = {
 				exists = no
 			}
 		}
+		complete_effect = {
+			army_experience = 50
+			add_war_support = 0.15
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+			}
+			CHI = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -2000
+				}
+			}
+			if = {
+				limit = {
+					has_decision = QIN_invite_shikai
+				}
+				hidden_effect = {
+					add_days_remove = {
+						decision = QIN_invite_shikai
+						days = 330
+					}
+				}
+				custom_effect_tooltip = QIN_effect_seize_nanjing
+			}
+			else = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.1
+				}
+			}
+			set_global_flag = QIN_flag_failed_to_take_nanjing
+		}
+		timeout_effect = {
+			set_global_flag = QIN_flag_failed_to_take_nanjing
+		}
+		priority = 8
+	}
+	QIN_invite_shikai = {
+		icon = generic_political_discourse
+		allowed = {
+			original_tag = QIN
+		}
+		available = {
+			has_idea = QIN_idea_beiyang_army
+			NOT = { has_completed_focus = QIN_confucian_socialism}
+			has_global_flag = xinhai_revolution
+			NOT = { has_global_flag = QIN_flag_selecting_regent }
+			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
+		}
+		visible = {
+			#has_global_flag = xinhai_revolution
+			NOT = { has_global_flag = QIN_flag_beiyang_defection }
+			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
+		}
+		#fire_only_once = yes
+		days_re_enable = 35
+		days_remove = 140
+		complete_effect = {
+		
+			if = {
+				limit = {
+					has_global_flag = QIN_flag_beiyang_disloyalty
+				}
+				custom_effect_tooltip = QIN_effect_beiyang_reserves
+				load_oob = QIN_1910_beiyang
+			}
+
+			custom_effect_tooltip = QIN_effect_shikai_oob
+			custom_effect_tooltip = line_description
+			if = {
+				limit = { has_idea = QIN_idea_beiyang_army_60 }
+				remove_ideas = QIN_idea_beiyang_army_60
+			}
+			set_global_flag = QIN_flag_accept_shikai
+			#custom_effect_tooltip = QIN_influence_shikai_up
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.2
+			}
+			hidden_effect = {
+				load_oob = QIN_beiyang
+			}
+			if = {
+				limit = { NOT = { has_global_flag = QIN_flag_first_shikai_invite } }
+				hidden_effect = {
+					country_event = { id = ww1_qing.349 days = 5 }
+				}
+			}
+			else_if = {
+				limit = { has_character = QIN_yuan_shikai }
+				complete_national_focus = QIN_appoint_yuan_shikai
+				QIN_yuan_shikai = {
+					promote_character = oligarchism
+				}
+			}
+			custom_effect_tooltip = QIN_influence_shikai_up
+			if = {
+				limit = {
+					has_character = QIN_yuan_shikai
+				}
+				QIN_yuan_shikai = {
+					remove_unit_leader_trait = sick
+				}
+			}
+		}
+		modifier = {
+			surrender_limit = 0.3
+			stability_factor = 0.1
+		}
+		targeted_modifier = {
+			tag = CHI
+			attack_bonus_against = 0.2
+			defense_bonus_against = 0.2
+		}
+		cancel_trigger = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				has_global_flag = QIN_flag_kick_out_shikai
+			}
+		}
 		remove_effect = {
-			add_ideas = QIN_idea_beiyang_deal
+			# add_ideas = QIN_idea_beiyang_deal
+			custom_effect_tooltip = QIN_effect_shikai_defects
+			set_global_flag = QIN_flag_beiyang_defection
+			hidden_effect = {
+				country_event = { id = ww1_xinhai.4 days = 0 }
+			}
+		}
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				surrender_progress < 0.01
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = no
+				OR = {
+					surrender_progress < 0.2
+					has_stability < 0.05
+				}
+			}
+			modifier = {
+				factor = 0
+				fascism < 0.05
+			}
+		}
+		priority = 600
+	}
+	QIN_offer_shikai_ranks = {
+		icon = GFX_decision_eng_puppet_usa
+		allowed = {
+			original_tag = QIN
+		} 
+		days_re_enable = 250
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				NOT = {
+					has_country_leader = {
+						character = QIN_yuan_shikai
+						ruling_only = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				surrender_progress < 0.05
+			}
+			modifier = {
+				factor = 0
+				fascism < 0.05
+			}
 		}
 		
-		priority = 6
+		fire_only_once = yes
+		cost = 0
+		available = {
+			has_idea = QIN_idea_beiyang_army
+			has_global_flag = xinhai_revolution
+			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
+		}
+		visible = {
+			OR = {
+				has_idea = QIN_idea_yuan_shikai_foot_injury
+				has_idea = QIN_idea_yuan_shikai_foot_injury_2
+				has_idea = QIN_idea_yuan_shikai_foot_injury_3
+			}
+			has_war_with = CHI
+		}
+		complete_effect = {
+			country_event = ww1_qing.350
+		}
+		priority = 601
+	}
+	QIN_offer_shikai_prime_minister = {
+		icon = GFX_decision_eng_puppet_usa
+		allowed = {
+			original_tag = QIN
+		} 
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				surrender_progress < 0.15
+			}
+			modifier = {
+				factor = 0
+				fascism < 0.05
+			}
+		}
+		days_re_enable = 250
+		fire_only_once = yes
+		cost = 0
+		
+		available = {
+			has_idea = QIN_idea_beiyang_army
+			has_global_flag = xinhai_revolution
+			NOT = { has_global_flag = QIN_flag_selecting_regent }
+			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
+		}
+		visible = {
+			OR = {
+				has_idea = QIN_idea_yuan_shikai_foot_injury
+				has_idea = QIN_idea_yuan_shikai_foot_injury_2
+				has_idea = QIN_idea_yuan_shikai_foot_injury_3
+			}
+			NOT = {
+				has_country_leader = {
+					character = QIN_yuan_shikai
+					ruling_only = yes
+				}
+			}
+			has_war_with = CHI
+		}
+		complete_effect = {
+			country_event = ww1_qing.351
+		}
+		priority = 601
 	}
 	QIN_dismiss_beiyang_commanders = {
 		icon = generic_civil_support
@@ -1825,15 +3828,19 @@ QIN_beiyang_army_category = {
 		} 
 		days_re_enable = 100
 		available = {
-			command_power > 14
+			#command_power > 14
 			has_idea = QIN_idea_beiyang_army
 		}
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = decision_cost_CP_15
 		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_down
+			#custom_effect_tooltip = QIN_influence_shikai_down
 			add_command_power = -15
 			add_popularity = {
 				ideology = fascism
-				popularity = -0.05
+				popularity = -0.1
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
@@ -1847,21 +3854,17 @@ QIN_beiyang_army_category = {
 		allowed = {
 			original_tag = QIN
 		} 
-		cost = 55
-		days_re_enable = 225
+		cost = 100
+		days_re_enable = 125
 		available = {
 			has_government = neutrality
 			has_idea = QIN_idea_beiyang_army
 		}
 		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_down
-			add_popularity = {
-				ideology = fascism
-				popularity = -0.08
-			}
+			#custom_effect_tooltip = QIN_influence_shikai_down
 			add_popularity = {
 				ideology = neutrality
-				popularity = 0.04
+				popularity = 0.075
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
@@ -1875,24 +3878,24 @@ QIN_beiyang_army_category = {
 		allowed = {
 			original_tag = QIN
 		} 
-		days_re_enable = 197
+		days_re_enable = 115
 		available = {
 			#has_completed_focus = QIN_anti_corruption_council
 			has_idea = QIN_idea_beiyang_army
 		}
 		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_down
+			#custom_effect_tooltip = QIN_influence_shikai_down
 			add_popularity = {
 				ideology = fascism
 				popularity = -0.1
 			}
 			add_popularity = {
 				ideology = democratic
-				popularity = 0.07
+				popularity = 0.05
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = -40
+				days = -75
 			}
 		}
 		priority = 6
@@ -1906,65 +3909,62 @@ QIN_beiyang_army_category = {
 			has_idea = QIN_idea_beiyang_army
 		}
 		cost = 75
-		fire_only_once = yes
+		days_re_enable = 400
 		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_down
+			#custom_effect_tooltip = QIN_influence_shikai_down
 			add_popularity = {
 				ideology = fascism
 				popularity = -0.1
-			}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = -10
 			}
 		}
 		priority = 6
 	}
 	
-	
+	QIN_bribe_beiyang_generals = {
+		icon = generic_political_discourse
+		allowed = {
+			original_tag = QIN
+		} 
+
+		cost = 0
+		days_re_enable = 270
+		available = {
+			has_idea = QIN_idea_beiyang_army
+			NOT = {	has_completed_focus = QIN_crackdown_on_bribery }
+		}
+		complete_effect = {
+			#custom_effect_tooltip = QIN_influence_shikai_up
+			add_political_power = -35
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.02
+			}
+			army_experience = 10
+		}
+		priority = 6
+	}
 	QIN_pardon_beiyang_officials = {
 		icon = generic_political_discourse
 		allowed = {
 			original_tag = QIN
 		} 
 		cost = 15
-		days_re_enable = 210
+		days_re_enable = 170
 		available = {
 			has_idea = QIN_idea_beiyang_army
 			NOT = { has_global_flag = QIN_flag_legality }
 		}
 		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_up
+			#custom_effect_tooltip = QIN_influence_shikai_up
 			add_popularity = {
 				ideology = fascism
-				popularity = 0.1
+				popularity = 0.15
 			}
 			add_political_power = 105
-		}
-		priority = 6
-	}
-	QIN_bribe_beiyang_generals = {
-		icon = generic_political_discourse
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 0
-		days_re_enable = 365
-		available = {
-			has_government = neutrality
-			has_idea = QIN_idea_beiyang_army
-		}
-		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_up
-			add_political_power = -35
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.05
-			}
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.05
-			}
 		}
 		priority = 6
 	}
@@ -1974,18 +3974,18 @@ QIN_beiyang_army_category = {
 			original_tag = QIN
 		} 
 		cost = 0
-		days_re_enable = 365
+		days_re_enable = 260
 		available = {
 			QIN_yuan_shikai = { is_leading_army_group = yes }
 			has_idea = QIN_idea_beiyang_army
 		}
 		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_up
+			#custom_effect_tooltip = QIN_influence_shikai_up
 			add_popularity = {
 				ideology = fascism
 				popularity = 0.15
 			}
-			add_political_power = 150
+			add_political_power = 105
 		}
 		priority = 6
 	}
@@ -1995,17 +3995,21 @@ QIN_beiyang_army_category = {
 			original_tag = QIN
 		} 
 		cost = 0
-		days_re_enable = 150
+		days_re_enable = 145
 		available = {
 			has_idea = QIN_idea_beiyang_army
+			#command_power > 14
+		}
+		custom_cost_trigger = {
 			command_power > 14
 		}
+		custom_cost_text = decision_cost_CP_15
 		complete_effect = {
-			custom_effect_tooltip = QIN_influence_shikai_up
+			#custom_effect_tooltip = QIN_influence_shikai_up
 			add_command_power = -15
 			add_popularity = {
 				ideology = fascism
-				popularity = 0.08
+				popularity = 0.125
 			}
 			add_political_power = 100
 		}
@@ -2017,326 +4021,288 @@ QIN_pay_indemnities_category = {
 	QIN_pay_russian_indemnities = {
 		icon = ger_mefo_bills
 		allowed = {
-			original_tag = QIN
+			OR = {
+				original_tag = QIN
+				tag = CHI
+			}
 		} 
 		cost = 1000
-		#days_re_enable = 60
-		available = {
-			RUS = {
-				NOT = { has_country_flag = QIN_flag_had_war }
-				NOT = { has_war_with = QIN }
-			}
-			QIN = {
-				has_idea = QIN_idea_payments_of_indemnities_russian
-			}
+		target_trigger = {
+			FROM = { tag = RUS }
 		}
+		available = { NOT = { has_war_with = RUS } }
+		visible = { has_country_flag = qing_russian_concession }
 		complete_effect = {
-		  remove_ideas = { QIN_idea_payments_of_indemnities_russian}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 150
-			}
-            RUS = {
-                set_country_flag = {
-                flag = QIN_flag_had_war
-                value = 1
-                }
-            }
+			QIN_end_russian_concession = yes
 		}
-		priority = 8
-	}
-	QIN_pay_japanese_indemnities = {
-		icon = ger_mefo_bills
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 300
-		#days_re_enable = 60
-		available = {
-			JAP = {
-				NOT = { has_country_flag = QIN_flag_had_war }
-				NOT = { has_war_with = QIN }
-			}
-			QIN = {
-				has_idea = QIN_idea_payments_of_indemnities_japan
-			}
-		}
-		complete_effect = {
-			remove_ideas = { QIN_idea_payments_of_indemnities_japan}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 100
-			}
-            JAP = {
-			 set_country_flag = {
-                flag = QIN_flag_had_war
-                value = 1
-                }
-            }
-		}
-		priority = 5
-	}
-	QIN_pay_usa_indemnities = {
-		icon = ger_mefo_bills
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 300
-		#days_re_enable = 60
-		available = {
-			USA = {
-				NOT = { has_country_flag = QIN_flag_had_war }
-				NOT = { has_war_with = QIN }
-			}
-			QIN = {
-				has_idea = QIN_idea_payments_of_indemnities_usa
-			}
-		}
-		complete_effect = {
-			remove_ideas = { QIN_idea_payments_of_indemnities_usa}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 100
-			}
-            USA = {
-			 set_country_flag = {
-                flag = QIN_flag_had_war
-                value = 1
-                }
-            }
-		}
-		priority = 5
-	}
-	QIN_pay_italian_indemnities = {
-		icon = ger_mefo_bills
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 300
-		#days_re_enable = 60
-		available = {
-			ITA = {
-				NOT = { has_country_flag = QIN_flag_had_war }
-				NOT = { has_war_with = QIN }
-			}
-			QIN = {
-				has_idea = QIN_idea_payments_of_indemnities_italian
-			}
-		}
-		complete_effect = {
-			remove_ideas = { QIN_idea_payments_of_indemnities_italian}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 100
-			}
-            ITA = {
-			 set_country_flag = {
-                flag = QIN_flag_had_war
-                value = 1
-                }
-            }
-		}
-		priority = 5
-	}
-	QIN_pay_french_indemnities = {
-		icon = ger_mefo_bills
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 500
-		#days_re_enable = 60
-		available = {
-			FRA = {
-				NOT = { has_country_flag = QIN_flag_had_war }
-				NOT = { has_war_with = QIN }
-			}
-			QIN = {
-				has_idea = QIN_idea_payments_of_indemnities_french
-			}
-		}
-		complete_effect = {
-		  remove_ideas = { QIN_idea_payments_of_indemnities_french}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 100
-			}
-            FRA = {
-			 set_country_flag = {
-                flag = QIN_flag_had_war
-                value = 1
-                }
-            }
-		}
-		priority = 6
-	}
-	QIN_pay_british_indemnities = {
-		icon = ger_mefo_bills
-		allowed = {
-			original_tag = QIN
-		} 
-		cost = 400
-		#days_re_enable = 60
-		available = {
-			ENG = {
-				NOT = { has_country_flag = QIN_flag_had_war }
-				NOT = { has_war_with = QIN }
-			}
-			QIN = {
-				has_idea = QIN_idea_payments_of_indemnities_british
-			}
-		}
-		complete_effect = {
-		  remove_ideas = { QIN_idea_payments_of_indemnities_british}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 100
-			}
-            ENG = {
-			 set_country_flag = {
-                flag = QIN_flag_had_war
-                value = 1
-                }
-            }
-		}
-		priority = 6
+		priority = 7
 	}
 	QIN_pay_german_indemnities = {
 		icon = ger_mefo_bills
 		allowed = {
-			original_tag = QIN
+			OR = {
+				original_tag = QIN
+				tag = CHI
+			}
 		} 
 		cost = 700
-		#days_re_enable = 60
-		available = {
-			GER = {
-				NOT = { has_country_flag = QIN_flag_had_war }
-				NOT = { has_war_with = QIN }
-			}
-			QIN = {
-				has_idea = QIN_idea_payments_of_indemnities_german
-			}
+		target_trigger = {
+			FROM = { tag = GER }
 		}
+		available = { NOT = { has_war_with = GER } }
+		visible = { has_country_flag = qing_german_concession }
 		complete_effect = {
-			remove_ideas = { QIN_idea_payments_of_indemnities_german}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 125
-			}
-            GER = {
-			 set_country_flag = {
-                flag = QIN_flag_had_war
-                value = 1
-                }
-            }
+			QIN_end_german_concession = yes
 		}
-		priority = 7
+		priority = 6
 	}
-	QIN_negotiate_boxer_protocol_terms = {
+	QIN_pay_french_indemnities = {
+		icon = ger_mefo_bills
 		allowed = {
-			original_tag = QIN
+			OR = {
+				original_tag = QIN
+				tag = CHI
+			}
 		} 
-		cost = boxer_negotiation_cost_var
-		days_re_enable = 120
-		available = {
-		#has_completed_focus = QIN_reform_and_recovery
-		QIN = { has_idea = QIN_idea_boxer_protocol }
-			NOT = {
-				has_war_with = GER
-				has_war_with = ENG
-				has_war_with = RUS
-				has_war_with = FRA
-			}
-			ENG = {
-				has_opinion = {
-					target = QIN
-					value > 0
-				}
-			}
-			GER = {
-				has_opinion = {
-					target = QIN
-					value > 0
-				}
-			}
-			RUS = {
-				has_opinion = {
-					target = QIN
-					value > 0
-				}
-			}
-			FRA = {
-				has_opinion = {
-					target = QIN
-					value > 0
-				}
-			}
+		cost = 500
+		target_trigger = {
+			FROM = { tag = FRA }
 		}
-		visible = { always = no }
+		available = { NOT = { has_war_with = FRA } }
+		visible = { has_country_flag = qing_french_concession }
 		complete_effect = {
-			if = {
-				limit = {
-					ENG = {
-						is_subject = no
-						exists = yes
-						NOT = { has_country_flag = great_war_loser }
-					}
-				}
-				ENG = {
-					country_event = { id = ww1_qing.159 days = 1 }
-				}
-			}
-			else = {
-				set_global_flag = qing_brit_demand_done
-			}
-			if = {
-				limit = {
-					FRA = {
-						is_subject = no
-						exists = yes
-						NOT = { has_country_flag = great_war_loser }
-					}
-				}
-				FRA = {
-					country_event = { id = ww1_qing.158 days = 1 }
-				}
-			}
-			else = {
-				set_global_flag = qing_french_demand_done
-			}
-			if = {
-				limit = {
-					GER = {
-						is_subject = no
-						exists = yes
-						NOT = { has_country_flag = great_war_loser }
-					}
-				}
-				GER = {
-					country_event = { id = ww1_qing.157 days = 1 }
-				}
-			}
-			else = {
-				set_global_flag = qing_german_demand_done
-			}
-			if = {
-				limit = {
-					RUS = {
-						is_subject = no
-						exists = yes
-						NOT = { has_war_with = SOV }
-						NOT = { has_country_flag = great_war_loser }
-					}
-				}
-				RUS = {
-					country_event = { id = ww1_qing.160 days = 1 }
-				}
-			}
-			else = {
-				set_global_flag = qing_russian_demand_done
-			}
+			QIN_end_french_concession = yes
 		}
-		priority = 9
+		priority = 5
 	}
+	QIN_pay_british_indemnities = {
+		icon = ger_mefo_bills
+		allowed = {
+			OR = {
+				original_tag = QIN
+				tag = CHI
+			}
+		} 
+		cost = 400
+		target_trigger = {
+			FROM = { tag = ENG }
+		}
+		available = { NOT = { has_war_with = eng } }
+		visible = { has_country_flag = qing_british_concession }
+		complete_effect = {
+			QIN_end_british_concession = yes
+		}
+		priority = 4
+	}
+	QIN_pay_japanese_indemnities = {
+		icon = ger_mefo_bills
+		allowed = {
+			OR = {
+				original_tag = QIN
+				tag = CHI
+			}
+		} 
+		cost = 325
+		target_trigger = {
+			FROM = { tag = JAP }
+		}
+		available = { NOT = { has_war_with = JAP } }
+		visible = { has_country_flag = qing_japanese_concession }
+		complete_effect = {
+			QIN_end_japanese_concession = yes
+		}
+		priority = 3
+	}
+	QIN_pay_usa_indemnities = {
+		icon = ger_mefo_bills
+		allowed = {
+			OR = {
+				original_tag = QIN
+				tag = CHI
+			}
+		} 
+		cost = 300
+		target_trigger = {
+			FROM = { tag = USA }
+		}
+		available = { NOT = { has_war_with = USA } }
+		visible = { has_country_flag = qing_american_concession }
+		complete_effect = {
+			QIN_end_american_concession = yes
+			
+		}
+		priority = 2
+	}
+	QIN_pay_italian_indemnities = {
+		icon = ger_mefo_bills
+		allowed = {
+			OR = {
+				original_tag = QIN
+				tag = CHI
+			}
+		} 
+		cost = 300
+		target_trigger = {
+			FROM = { tag = ITA }
+		}
+		available = { NOT = { has_war_with = ITA } }
+		visible = { has_country_flag = qing_italian_concession }
+		complete_effect = {
+			QIN_end_italian_concession = yes
+		}
+		priority = 1
+	}
+	QIN_pay_austrian_indemnities = {
+		icon = ger_mefo_bills
+		allowed = {
+			OR = {
+				original_tag = QIN
+				tag = CHI
+			}
+		} 
+		cost = 300
+		target_trigger = {
+			FROM = { tag = AUH }
+		}
+		available = { NOT = { has_war_with = AUH } }
+		visible = { has_country_flag = qing_austrian_concession }
+		complete_effect = {
+			QIN_end_austrian_concession = yes
+		}
+		priority = 1
+	}
+
+	# I commented them out since the relative events are already commented out.
+	# QIN_negotiate_boxer_protocol_terms = {
+	# 	allowed = {
+	# 		original_tag = QIN
+	# 	} 
+	# 	cost = boxer_negotiation_cost_var
+	# 	days_re_enable = 120
+	# 	available = {
+	# 		#has_completed_focus = QIN_reform_and_recovery
+	# 		has_idea = QIN_idea_boxer_protocol
+	# 		NOT = {
+	# 			has_war_with = GER
+	# 			has_war_with = ENG
+	# 			has_war_with = RUS
+	# 			has_war_with = FRA
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				country_exists = ENG
+	# 				NOT = { has_subject = ENG }
+	# 			}
+	# 			ENG = {
+	# 				has_opinion = {
+	# 					target = QIN
+	# 					value > 0
+	# 				}
+	# 			}
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				country_exists = GER
+	# 				NOT = { has_subject = GER }
+	# 			}
+	# 			GER = {
+	# 				has_opinion = {
+	# 					target = QIN
+	# 					value > 0
+	# 				}
+	# 			}
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				country_exists = RUS
+	# 				NOT = { has_subject = RUS }
+	# 			}
+	# 			RUS = {
+	# 				has_opinion = {
+	# 					target = QIN
+	# 					value > 0
+	# 				}
+	# 			}
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				country_exists = FRA
+	# 				NOT = { has_subject = FRA }
+	# 			}
+	# 			FRA = {
+	# 				has_opinion = {
+	# 					target = QIN
+	# 					value > 0
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# 	visible = { always = no }
+	# 	complete_effect = {
+	# 		if = {
+	# 			limit = {
+	# 				ENG = {
+	# 					is_subject = no
+	# 					exists = yes
+	# 					NOT = { has_country_flag = great_war_loser }
+	# 				}
+	# 			}
+	# 			ENG = {
+	# 				country_event = { id = ww1_qing.159 days = 1 }
+	# 			}
+	# 		}
+	# 		else = {
+	# 			set_global_flag = qing_brit_demand_done
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				FRA = {
+	# 					is_subject = no
+	# 					exists = yes
+	# 					NOT = { has_country_flag = great_war_loser }
+	# 				}
+	# 			}
+	# 			FRA = {
+	# 				country_event = { id = ww1_qing.158 days = 1 }
+	# 			}
+	# 		}
+	# 		else = {
+	# 			set_global_flag = qing_french_demand_done
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				GER = {
+	# 					is_subject = no
+	# 					exists = yes
+	# 					NOT = { has_country_flag = great_war_loser }
+	# 				}
+	# 			}
+	# 			GER = {
+	# 				country_event = { id = ww1_qing.157 days = 1 }
+	# 			}
+	# 		}
+	# 		else = {
+	# 			set_global_flag = qing_german_demand_done
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				RUS = {
+	# 					is_subject = no
+	# 					exists = yes
+	# 					NOT = { has_war_with = SOV }
+	# 					NOT = { has_country_flag = great_war_loser }
+	# 				}
+	# 			}
+	# 			RUS = {
+	# 				country_event = { id = ww1_qing.160 days = 1 }
+	# 			}
+	# 		}
+	# 		else = {
+	# 			set_global_flag = qing_russian_demand_done
+	# 		}
+	# 	}
+	# 	priority = 9
+	# }
 
 	QIN_wartime_necessities = {
 		icon = generic_break_treaty
@@ -2349,26 +4315,12 @@ QIN_pay_indemnities_category = {
 		available = {
 			has_completed_focus = QIN_reform_and_recovery
 		QIN = { has_idea = QIN_idea_boxer_protocol }
-		OR = {
-			AND = {
-			has_war_with = GER
-			is_in_faction_with = ENG
-			is_in_faction_with = RUS
-			is_in_faction_with = FRA
+			any_country = {
+				is_major = yes
+				has_war_with = QIN
+				NOT = { tag = SIK }
 			}
-			AND = {
-			is_in_faction_with = GER
-			has_war_with = ENG
-			has_war_with = FRA
-			has_war_with = RUS
-			}
-			AND = {
-			has_war_with = GER
-			has_war_with = ENG
-			has_war_with = FRA
-			has_war_with = RUS
-			}
-		}
+		
 		}
 		complete_effect = {
 			remove_ideas = QIN_idea_boxer_protocol
@@ -2387,42 +4339,45 @@ QIN_pay_indemnities_category = {
 			has_completed_focus = QIN_reform_and_recovery
 			QIN = { has_idea = QIN_idea_boxer_protocol }
 			OR = {
-			AND = {
-			strength_ratio = {
-				tag = GER
-				ratio > 1.2
-			}
-			strength_ratio = {
-				tag = RUS
-				ratio > 1.2
-			}
-			strength_ratio = {
-				tag = ENG
-				ratio > 1.2
-			}
-			strength_ratio = {
-				tag = FRA
-				ratio > 1.2
-			}
-			}
-			AND = {
-			OR = {
-			ENG = { is_subject_of = QIN }
-			ENG = { exists = no}
-			}
-			OR = {
-			RUS = { is_subject_of = QIN }
-			RUS = { exists = no}
-			}
-			OR = {
-			GER = { is_subject_of = QIN }
-			GER = { exists = no}
-			}
-			OR = {
-			FRA = { is_subject_of = QIN }
-			FRA = { exists = no}
-			}
-			}
+				AND = {
+					strength_ratio = {
+						tag = GER
+						ratio > 1
+					}
+					strength_ratio = {
+						tag = RUS
+						ratio > 1
+					}
+					strength_ratio = {
+						tag = ENG
+						ratio > 1
+					}
+					strength_ratio = {
+						tag = FRA
+						ratio > 1
+					}
+					has_equipment = {
+						infantry_equipment > 0
+					}
+				}
+				AND = {
+					OR = {
+						ENG = { is_subject_of = QIN }
+						ENG = { exists = no}
+					}
+					OR = {
+						RUS = { is_subject_of = QIN }
+						RUS = { exists = no}
+					}
+					OR = {
+						GER = { is_subject_of = QIN }
+						GER = { exists = no}
+					}
+					OR = {
+						FRA = { is_subject_of = QIN }
+						FRA = { exists = no}
+					}
+				}
 			}
 		}
 		complete_effect = {
@@ -2594,190 +4549,104 @@ QIN_integrate_korea_category = {
 		priority = 1
 	}
 }
-political_actions = {
-	anti_fascist_raids = {
-
-    	icon = generic_civil_support
-
-    	visible = {
-			NOT = { has_government = fascism }
-			NOT = { tag = QIN }
+QIN_weihaiwei_category = {
+	QIN_dec_seize_weihaiwei = {
+		icon = hol_attract_foreign_investors
+		allowed = {
+			tag = QIN
 		}
-
+		visible = {
+			is_china_or_warlord = yes
+			QIN = {
+				owns_state = 434
+			}
+			always = no
+		}
 		available = {
-            fascism > 0.1 
-        }
-	
-		modifier = {
-			fascism_drift = -0.05
-			stability_weekly = 0.007
+			controls_state = 872
 		}
-	
-		days_remove = 120
-		cost = 50
-
-		complete_effect = {
-			add_stability = -0.1
-		}
-		
+		cost = 0
+		days_remove = 5
+		fire_only_once = yes
+		priority = 1
 		remove_effect = {
+			transfer_state = 746
 		}
-		
 		ai_will_do = {
 			base = 0
 		}
-    }
-	anti_democratic_raids = {
-
-    	icon = generic_civil_support
-
-    	visible = {
-			NOT = { has_government = democratic }
+	}
+	QIN_dec_lugard_proposal = {
+		icon = GFX_decision_eng_ally_imperialist_coup
+		allowed = {
+			tag = QIN
 		}
-
+		target_trigger = {
+			FROM = { tag = ENG }
+		}
 		available = {
-            democratic > 0.1
-        }
-	
-		modifier = {
-			democratic_drift = -0.05
-			stability_weekly = 0.007
+			NOT = { has_war_with = ENG }
+			controls_state = 872
+			ENG = {
+				controls_state = 746
+				owns_state = 326
+			}
 		}
-	
-		days_remove = 120
-		cost = 50
-
+		cost = 0
+		fire_only_once = yes
+		priority = -1
 		complete_effect = {
-			add_stability = -0.1
-			if = {
-			limit = {
-				tag = QIN
+			ENG = {
+				country_event = { 
+					id = ww1_qing.401
+					hours = 5
+					random_hours = 24
+				}
 			}
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = -30
-			}
-			}
+			custom_effect_tooltip = QIN_effect_lugard_proposal
 		}
-		
-		remove_effect = {
-		}
-		
 		ai_will_do = {
-			factor = 0
-		}
-    }
-	ban_fascist_party = {
-
-		icon = generic_civil_support
-
-		available = {
-			fascism < 0.2
-		}
-
-		visible = {
-			NOT = { has_government = fascism }
-			fascism > 0
-			NOT = { tag = QIN }
-		}
-
-		remove_trigger = {
-			hidden_trigger = {
-				has_government = fascism
-			}
-		}
-	
-		modifier = {
-			fascism_drift = -0.05
-		}
-	
-		days_remove = -1
-		cost = 100
-		
-		complete_effect = {
-			hidden_effect = {
-				set_temp_variable = {
-					var = ban_ideology_var
-					value = party_popularity@fascism
-				}
-				multiply_temp_variable = {
-					var = ban_ideology_var
-					value = -1
-				}
-				add_popularity = {
-					ideology = fascism
-					popularity = ban_ideology_var
-				}
-				multiply_temp_variable = {
-					var = ban_ideology_var
-					value = 0.66
-				}				
-			}
-			remove_fascist_spirits_effect = yes
-			custom_effect_tooltip = ban_fascist_party_tt
-			add_stability = ban_ideology_var
-		}
-
-		ai_will_do = {
-			factor = 0
+			base = 0
 		}
 	}
-
-	ban_democratic_party = {
-
-		icon = generic_civil_support
-
+	QIN_dec_demand_weihaiwei = {
+		icon = GFX_decision_generic_civil_support
+		allowed = {
+			tag = QIN
+		}
 		available = {
-			democratic < 0.2
+			controls_state = 872 #jiaodong
+			746 = {
+				controller = {
+					NOT = { has_war_with = QIN }
+					has_war_with_major = yes
+					casualties > 50000
+				}
+			}
 		}
-
 		visible = {
-			NOT = { has_government = democratic }
-			democratic > 0
-			NOT = { tag = QIN }
+			NOT = { controls_state = 746 }
 		}
-
-		remove_trigger = {
-			hidden_trigger = {
-				has_government = democratic
-			}
-		}
-	
-		modifier = {
-			democratic_drift = -0.02
-		}
-	
-		days_remove = -1
-		cost = 100
-		
+		cost = 0
+		fire_only_once = yes
+		priority = 0
 		complete_effect = {
-			hidden_effect = {
-				set_temp_variable = {
-					var = ban_ideology_var
-					value = party_popularity@democratic
+			746 = {
+				controller = {
+					country_event = { 
+						id = ww1_qing.27
+						hours = 5
+						random_hours = 24
+					}
 				}
-				multiply_temp_variable = {
-					var = ban_ideology_var
-					value = -1
-				}
-				add_popularity = {
-					ideology = democratic
-					popularity = ban_ideology_var
-				}
-				multiply_temp_variable = {
-					var = ban_ideology_var
-					value = 0.66
-				}				
 			}
-			custom_effect_tooltip = ban_democratic_party_tt
-			add_stability = ban_ideology_var
 		}
-
 		ai_will_do = {
-			factor = 0
+			base = 0
 		}
 	}
-	
+}
+foreign_politics = {
 	QIN_sell_aruna_mountains = {
 		icon = hol_attract_foreign_investors
 		allowed = {
@@ -2793,7 +4662,7 @@ political_actions = {
 			ENG = {
 				has_opinion = {
 					target = PREV
-					value > 0
+					value > -25
 				}
 				NOT = { has_war_with = ROOT }
 			}
@@ -2823,25 +4692,275 @@ political_actions = {
 			add_political_power = 125
 			add_stability = -0.02
 			
-			custom_effect_tooltip = QIN_effect_court_1
-		if = {
-			limit = {
-				QIN = { has_idea = QIN_idea_court_opposition }
-			}
-			modify_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = 50
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = QIN_idea_court_opposition
-				days = 50
-			}
-		}
+			QIN_court_opp_50 = yes
 		}
 		ai_will_do = {
 			base = 0
 		}
+	}
+}
+political_actions = {
+	QIN_dec_end_warlord = { #Confidence Campaign
+		icon = eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		fire_only_once = yes
+		available = {
+			has_idea = QIN_idea_confidence_campaign
+		}
+		visible = {
+			has_idea = QIN_idea_confidence_campaign
+		}
+		complete_effect = {
+			remove_ideas = QIN_idea_confidence_campaign
+			
+			QIN_court_opp_50 = yes
+		}
+		priority = -5
+	}
+	
+	QIN_dec_end_minzhu = { #
+		icon = eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		fire_only_once = yes
+		available = {
+			has_idea = QIN_idea_minzhu_trials
+		}
+		visible = {
+			has_idea = QIN_idea_minzhu_trials
+		}
+		complete_effect = {
+			remove_ideas = QIN_idea_minzhu_trials
+			
+			QIN_court_opp_50 = yes
+		}
+		priority = -5
+	}
+	QIN_dec_imperial_propaganda = {
+		icon = eng_propaganda_campaigns
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_completed_focus = QIN_imperial_propaganda
+			OR = {
+				has_idea = QIN_idea_low_legitimacy
+				has_idea = QIN_idea_low_legitimacy_2
+				has_idea = QIN_idea_low_legitimacy_3
+				has_idea = QIN_idea_low_legitimacy_4
+			#	has_idea = QIN_idea_political_corruption_3
+				has_idea = QIN_idea_tongmenghui
+				has_idea = QIN_idea_tongmenghui_2
+				has_idea = QIN_idea_tongmenghui_3
+				has_idea = QIN_idea_tongmenghui_4
+				has_idea = QIN_idea_tongmenghui_5
+			}
+		}
+		
+		visible = {
+			OR = {
+				has_completed_focus = QIN_the_4000_year_system
+				has_completed_focus = QIN_divide_and_conquer
+			}
+			OR = {
+				has_government = neutrality
+				has_government = communism
+			}
+		}
+		cost = 75
+		days_re_enable = 180
+		days_remove = 110
+		complete_effect = {
+			random_list = {
+				50 = {
+					QIN_legitimacy_increase = yes
+				}
+				50 = {
+					if = {
+						limit = {
+						has_idea = QIN_idea_tongmenghui
+						}
+						swap_ideas = {
+							remove_idea = QIN_idea_tongmenghui
+							add_idea = QIN_idea_tongmenghui_2
+						}
+					}
+					else_if = {
+						limit = {
+						has_idea = QIN_idea_tongmenghui_2
+						}
+						swap_ideas = {
+							remove_idea = QIN_idea_tongmenghui_2
+							add_idea = QIN_idea_tongmenghui_3
+						}
+					}
+					else_if = {
+						limit = {
+						has_idea = QIN_idea_tongmenghui_3
+						}
+						swap_ideas = {
+							remove_idea = QIN_idea_tongmenghui_3
+							add_idea = QIN_idea_tongmenghui_4
+						}
+					}
+					else_if = {
+						limit = {
+						has_idea = QIN_idea_tongmenghui_4
+						}
+						swap_ideas = {
+							remove_idea = QIN_idea_tongmenghui_4
+							add_idea = QIN_idea_tongmenghui_5
+						}
+					}
+					else_if = {
+						limit = {
+						has_idea = QIN_idea_tongmenghui_5
+						}
+						remove_ideas = { QIN_idea_tongmenghui_5 }
+					}
+					else = {
+						add_political_power = 25
+					}
+				}
+			}
+			#custom_effect_tooltip = QIN_effect_imperial_prop
+		}
+		
+		
+		priority = 85
+	}
+	QIN_anti_democratic_raids = {
+
+		name = QIN_anti_democratic_raids
+
+		desc = QIN_anti_democratic_raids_desc
+
+		icon = generic_civil_support
+
+		allowed = {
+			tag = QIN
+		}
+
+		visible = {
+			has_country_flag = dont_trigger_political_event
+			NOT = { has_government = democratic }
+		}
+
+		available = {
+			democratic > 0.1
+		}
+	
+		modifier = {
+			democratic_drift = -0.05
+			stability_weekly = 0.007
+		}
+	
+		days_remove = 120
+		cost = 50
+
+		complete_effect = {
+			add_stability = -0.1
+			if = {
+				limit = {
+					has_active_mission = QIN_xinhai_timer
+				}
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -55
+				}
+			}
+		}
+		
+		remove_effect = {
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
+economy_decisions = {
+	QIN_reform_7 = { #Industrialization
+		icon = generic_construction
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			NOT = { has_idea = QIN_idea_court_opposition }
+			has_completed_focus = QIN_secound_qiongren_plan
+			#NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
+			#NOT = { has_global_flag = qing_reformed }
+		}
+		visible = { has_completed_focus = QIN_reform_and_recovery}
+		cost = 0
+		days_re_enable = 200
+		days_remove = 85
+		complete_effect = {
+			add_political_power = -35
+		}
+		modifier = {
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			if = {
+				limit = { 
+					NOT = {
+						has_global_flag = qing_reformed 
+						has_completed_focus = QIN_finish_the_new_qing_reforms
+					}
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				add_stability = 0.01
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = 15
+				}
+				random_list = {
+					75 = {
+					}
+					25 = {
+						random_owned_state = {
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+						}
+					}
+				}
+			}
+			else = {
+				random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				add_stability = 0.01
+			}
+			if = { 
+				limit = {
+					NOT = {
+						has_global_flag = qing_reformed 
+					}
+				}
+				QIN_court_opp_20 = yes
+			}
+		}
+		priority = 7
 	}
 }
