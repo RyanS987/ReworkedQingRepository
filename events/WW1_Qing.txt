@@ -1203,10 +1203,7 @@ country_event = {
 			factor = 100
 		}
 		add_political_power = -250
-		annex_country = {
-			target = CER
-			transfer_troops = no
-		}
+		
 		every_state = {
 			limit = {
 				OR = {
@@ -1637,6 +1634,8 @@ country_event = {
 	option = {
 		name = ww1_qing.395.a
 		ai_chance = { factor = 1000 }
+		add_war_support = 0.1
+		add_stability = 0.1
 		custom_effect_tooltip = QIN_influence_shikai_up
 		activate_decision = QIN_invite_shikai
 		set_global_flag = QIN_flag_accept_shikai
@@ -10752,7 +10751,7 @@ country_event = { #Foreign Contract
 		}
 		modifier = {
 			factor = 1.5
-			has_completed_focus = QIN_flag_unfair_punishment
+			has_global_flag = QIN_flag_unfair_punishment
 		}
 		modifier = {
 			factor = 2.0

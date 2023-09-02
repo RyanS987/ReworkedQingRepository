@@ -15,11 +15,11 @@ spriteTypes = {
 	}
 	SpriteType = {
 	name = "GFX_focus_summer_palace_communist"
-	texturefile = "gfx/interface/goals/focus_summer_palace_communist.dds"
+	texturefile = "gfx/interface/goals/focus_summer_palace_communist.png"
 	}
 	SpriteType = {
 	name = "GFX_focus_QIN_kang_youwei"
-	texturefile = "gfx/interface/goals/focus_QIN_kang_youwei.dds"
+	texturefile = "gfx/interface/goals/focus_QIN_kang_youwei.png"
 	}
 	SpriteType = {
 	name = "GFX_focus_QIN_qing_unity"
@@ -55,7 +55,7 @@ spriteTypes = {
 	}
 	SpriteType = {
 	name = "GFX_focus_mongolia"
-	texturefile = "gfx/interface/goals/focus_mongolia.dds"
+	texturefile = "gfx/interface/goals/focus_mongolia.png"
 	}
 	SpriteType = {
 	name = "GFX_focus_chinese_zodiac"
@@ -111,11 +111,11 @@ spriteTypes = {
 	}
 	SpriteType = {
 	name = "GFX_focus_shikai"
-	texturefile = "gfx/interface/goals/focus_shikai.dds"
+	texturefile = "gfx/interface/goals/focus_shikai.png"
 	}
 	SpriteType = {
 	name = "GFX_focus_summer_palace_2"
-	texturefile = "gfx/interface/goals/focus_summer_palace_2.dds"
+	texturefile = "gfx/interface/goals/focus_summer_palace_2.png"
 	}
 	SpriteType = {
 	name = "GFX_focus_hong_kong"
@@ -123,7 +123,7 @@ spriteTypes = {
 	}
 	SpriteType = {
 	name = "GFX_focus_sun_tzu"
-	texturefile = "gfx/interface/goals/focus_sun_tzu.dds"
+	texturefile = "gfx/interface/goals/focus_sun_tzu.png"
 	}
 	SpriteType = {
 	name = "GFX_focus_election_2"
@@ -131,7 +131,7 @@ spriteTypes = {
 	}
 	SpriteType = {
 	name = "GFX_focus_sun_yat_sen"
-	texturefile = "gfx/interface/goals/focus_sun_yat_sen.dds"
+	texturefile = "gfx/interface/goals/focus_sun_yat_sen.png"
 	}
 	SpriteType = {
 	name = "GFX_QIN_korea"

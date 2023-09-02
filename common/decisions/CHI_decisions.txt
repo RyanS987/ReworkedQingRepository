@@ -483,43 +483,6 @@ CHI_warlord_era = {
 			factor = 10000
 		}
 	}
-	QIN_warlord_era_mission = {
-		icon = GFX_decision_eng_blackshirt_march
-		days_mission_timeout = 30
-		activation = {
-			has_global_flag = chinese_warlord_crisis
-			NOT = {
-				has_global_flag = warlord_era
-			}
-			has_completed_focus = CHI_pacify_beiyang_army
-		}
-		allowed = {
-			original_tag = QIN
-		}
-		available = {
-			OR = {
-				has_global_flag = warlord_era
-				has_global_flag = national_protection_war
-			}
-		}
-		visible = {
-			has_global_flag = chinese_warlord_crisis
-			NOT = {
-				has_global_flag = warlord_era
-			}
-			has_completed_focus = CHI_pacify_beiyang_army
-		}
-		fire_only_once = yes
-		is_good = no
-		timeout_effect = {
-			set_global_flag = warlord_era
-			QIN = {
-				create_faction = qing_empire
-				set_cosmetic_tag = QIN_government
-				add_ideas = QIN_idea_fractured_empire
-			}
-		}
-	}
 	CHI_beiyang_triumvirate_dismantle = {
 		icon = GFX_decision_jap_conquer_china
 		days_mission_timeout = 70
