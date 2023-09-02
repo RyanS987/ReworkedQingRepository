@@ -556,6 +556,7 @@ ideas = {
 				high_command_cost_factor = 1
 				theorist_cost_factor = 1
 				stability_weekly = -0.001
+				custom_modifier_tooltip = QIN_modifier_beiyang_effects
 			}
 		}
 		QIN_idea_beiyang_army_2 = {
@@ -867,6 +868,21 @@ ideas = {
 			}
 		}
 		
+		QIN_idea_diverted_garrisons = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = CZE_planning_bonus
+			
+			available = {
+				has_war_with = CHI
+			}
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = -0.15
+				defense_bonus_against = -0.15
+			}
+		}
+		
 		QIN_idea_yuan_shikai_foot_injury = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -875,14 +891,16 @@ ideas = {
 			available = {
 				has_war_with = CHI
 			}
-			
-			targeted_modifier = {
-				tag = CHI
-				attack_bonus_against = -0.3
-				defense_bonus_against = -0.3
+			modifier = {
 				stability_weekly = -0.002
 			}
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = -0.35
+				defense_bonus_against = -0.35
+			}
 		}
+		
 		QIN_idea_yuan_shikai_foot_injury_2 = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -891,12 +909,13 @@ ideas = {
 			available = {
 				has_war_with = CHI
 			}
-			
+			modifier = {
+				stability_weekly = -0.002
+			}
 			targeted_modifier = {
 				tag = CHI
-				attack_bonus_against = -0.2
-				defense_bonus_against = -0.2
-				stability_weekly = -0.002
+				attack_bonus_against = -0.3
+				defense_bonus_against = -0.3
 			}
 		}
 		QIN_idea_yuan_shikai_foot_injury_3 = {
@@ -910,7 +929,28 @@ ideas = {
 			
 			targeted_modifier = {
 				tag = CHI
-				attack_bonus_against = -0.1
+				attack_bonus_against = -0.15
+				defense_bonus_against = -0.15
+			}
+		}
+		
+		QIN_idea_encircled_in_china = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_monarchist_uprising
+			
+			available = {
+				any_owned_state = {
+					is_coastal = yes
+					NOT = { is_controlled_by = CHI }
+				}
+				NOT = {
+					has_global_flag = xinhai_revolution_ends
+				}
+			}
+			
+			targeted_modifier = {
+				tag = QIN
 				defense_bonus_against = -0.1
 			}
 		}
@@ -1491,7 +1531,7 @@ ideas = {
 		QIN_idea_german_style_industry = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
-			picture = man_low_legitimacy5
+			picture = man_five_year_plan_industry
 			available = {
 			}
 			modifier = {
@@ -1924,24 +1964,7 @@ ideas = {
 				stability_factor = -0.005
 			}
 		}
-		
-		QIN_idea_court_opposition = {
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			picture = QIN_locked_court
-			available = {
-				AND = {
-					NOT = { has_global_flag = QIN_flag_court_crushed }
-					NOT = { has_global_flag = QIN_flag_court_panic }
-				}
-			}
-			on_remove = {
-				set_variable = { var_court_opp_days = 0 }
-			}
-			modifier = {
-				surrender_limit = -0.05
-			}
-		}
+
 		QIN_idea_expand_consumer_goods = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -2300,6 +2323,31 @@ ideas = {
 			picture = generic_flexible_foreign_policy2
 			modifier = {
 				research_speed_factor = 0.1
+			}
+		}
+	}
+	hidden_ideas = {
+		QIN_idea_court_opposition = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = QIN_locked_court
+			available = {
+				AND = {
+					NOT = { has_global_flag = QIN_flag_court_crushed }
+					NOT = { has_global_flag = QIN_flag_court_panic }
+				}
+			}
+			on_add = {
+				set_temp_variable = { democratic_temp = party_popularity@democratic }
+				multiply_temp_variable = { democratic_temp = -1.0 }
+				set_variable = { court_opp_pp_factor = democratic_temp }
+			}
+			on_remove = {
+				set_variable = { var_court_opp_days = 0 }
+			}
+			modifier = {
+				surrender_limit = -0.05
+				custom_modifier_tooltip = QIN_court_opp_pp_tt
 			}
 		}
 	}

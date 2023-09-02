@@ -24,9 +24,19 @@ set_global_flag = QIN_flag_recent_jud_edict
 
 set_country_flag = dont_trigger_political_event
 
-give_military_access = RUS #East Chinese Railway
 give_military_access = JAP #South Manchuria Railway
 give_military_access = GER #Qingdao–Jinan Railway
+
+diplomatic_relation = {
+	country = CER
+	relation = military_access
+	active = yes
+}
+diplomatic_relation = {
+	country = CER
+	relation = guarantee
+	active = yes
+}
 
 recruit_character = QIN_zaifeng
 recruit_character = QIN_yuan_shikai
@@ -107,6 +117,7 @@ QIN_yuan_shikai = {
 		electrical_engineering = 1
 		mechanical_engineering = 1
 		basic_train = 1
+        
 	}
 	set_politics = {
 		ruling_party = neutrality
@@ -132,6 +143,7 @@ QIN_yuan_shikai = {
 		isolation
 	}
 	add_dynamic_modifier = { modifier = unequal_treaties_dm }
+	add_dynamic_modifier = { modifier = qing_court_opp_dm }
 	set_variable = { unequal_treaties_consumer_goods = 0.38 }
 	set_variable = { unequal_treaties_research_speed = -0.5 }
 	set_variable = { unequal_treaties_resources_to_market = 0.88 }
@@ -139,6 +151,7 @@ QIN_yuan_shikai = {
 	set_variable = { unequal_treaties_military_factory = -0.25 }
 	set_variable = { unequal_treaties_civilian_factory = -0.25 }
 	set_variable = { unequal_treaties_dockyard = -0.25 }
+	set_variable = { court_opp_pp_factor = -0.32 }
 	set_country_flag = qing_russian_concession
 	set_country_flag = qing_german_concession
 	set_country_flag = qing_french_concession

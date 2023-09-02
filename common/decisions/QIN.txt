@@ -2194,35 +2194,40 @@ QIN_xinhai_revolution_category = {
 		fire_only_once = yes
 		is_good = no
 		complete_effect = {
-			603 = { 
-				set_demilitarized_zone = no 
-			}
-			607 = { 
-				set_demilitarized_zone = no 
-			}
-			600 = { 
-				set_demilitarized_zone = no 
-			}
 			hidden_effect = {
-				every_owned_state = {
-					limit = {
-						OR = {
-							state = 325
-							state = 593
-							state = 605
-							state = 620
-						}
-					}
-					set_border_war = no
+				603 = { 
+					set_demilitarized_zone = no 
 				}
+				607 = { 
+					set_demilitarized_zone = no 
+				}
+				600 = { 
+					set_demilitarized_zone = no 
+				}
+				605 = { 
+					set_demilitarized_zone = no 
+				}
+				hidden_effect = {
+					every_owned_state = {
+						limit = {
+							OR = {
+								state = 325
+								state = 593
+								state = 605
+								state = 620
+							}
+						}
+						set_border_war = no
+					}
+				}
+				add_stability = -0.15
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.15
+				}
+				clr_global_flag = wuchang_uprising
+				set_global_flag = QIN_warlord_watch
 			}
-			add_stability = -0.15
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.15
-			}
-			clr_global_flag = wuchang_uprising
-			set_global_flag = QIN_warlord_watch
 		}
 		timeout_effect = {
 			hidden_effect = {
@@ -2450,7 +2455,7 @@ QIN_xinhai_revolution_category = {
 						has_completed_focus = QIN_massive_government_crackdown
 					}
 					random_list = {
-						60 = {
+						80 = {
 						}
 						17 = {
 							country_event = ww1_qing.309
@@ -2468,7 +2473,7 @@ QIN_xinhai_revolution_category = {
 						has_completed_focus = QIN_pardon_corruption
 					}
 					random_list = {
-						60 = {
+						80 = {
 						}
 						9 = {
 						country_event = ww1_qing.308 #Army
@@ -2483,7 +2488,7 @@ QIN_xinhai_revolution_category = {
 				}
 				else = {
 					random_list = {
-						60 = {
+						80 = {
 						}
 						10 = {
 							country_event = ww1_qing.308
@@ -2527,7 +2532,7 @@ QIN_xinhai_revolution_category = {
 		complete_effect = {
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 45
+				days = 30
 			}
 			
 			QIN_court_opp_20 = yes
@@ -2698,7 +2703,7 @@ QIN_xinhai_revolution_category = {
 		cost = 0
 		fire_only_once = yes
 		available = {
-			QIN = { has_idea = QIN_idea_court_opposition }
+			#QIN = { has_idea = QIN_idea_court_opposition }
 			NOT = { has_government = democratic }
 			has_global_flag = QIN_emergency_reform_chosen
 		}
@@ -2708,6 +2713,11 @@ QIN_xinhai_revolution_category = {
 
 		}
 		complete_effect = {
+			add_political_power = 100
+			add_days_mission_timeout = {
+				mission = QIN_xinhai_timer
+				days = 50
+			}
 			QIN_lower_opp_200 = yes
 			custom_effect_tooltip = QIN_effect_emergency_reform
 		}
@@ -2771,7 +2781,7 @@ QIN_xinhai_revolution_category = {
 		remove_effect = {
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 60
+				days = 40
 			}
 			add_stability = 0.008
 			
@@ -2813,7 +2823,7 @@ QIN_xinhai_revolution_category = {
 		remove_effect = {
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = -30
+				days = -40
 			}
 		}
 		priority = 6
@@ -2870,106 +2880,6 @@ QIN_xinhai_revolution_category = {
 		}
 		priority = 6
 	}
-	QIN_dec_attack_tongmenghui_cell	= { #Attack Tongmenghui Cell
-		icon = eng_blackshirt_march
-		allowed = {
-			original_tag = QIN
-		} 
-		available = {
-			NOT = { has_government = democratic }
-			QIN = { num_of_military_factories > 0 }
-			has_active_mission = QIN_xinhai_timer
-			has_completed_focus = QIN_target_tongmenghui_cells
-		}
-		visible = {
-			has_government = neutrality
-			has_completed_focus = QIN_divide_and_conquer
-		}
-		cost = 0
-		days_re_enable = 80
-		complete_effect = {
-				random_owned_state = {
-					limit = {
-						arms_factory > 0
-					}
-					remove_building = {
-						type = arms_factory
-						level = 1
-					}
-				}
-
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 85
-			}
-			random_list = {
-				25 = {
-					if = {
-						limit = {
-							OR = {
-								has_idea = QIN_idea_tongmenghui
-								has_idea = QIN_idea_tongmenghui_2
-								has_idea = QIN_idea_tongmenghui_3
-								has_idea = QIN_idea_tongmenghui_4
-								has_idea = QIN_idea_tongmenghui_5
-							}
-						}
-							if = {
-							limit = {
-							has_idea = QIN_idea_tongmenghui
-							}
-							swap_ideas = {
-								remove_idea = QIN_idea_tongmenghui
-								add_idea = QIN_idea_tongmenghui_2
-							}
-							}
-							else_if = {
-							limit = {
-							has_idea = QIN_idea_tongmenghui_2
-							}
-							swap_ideas = {
-								remove_idea = QIN_idea_tongmenghui_2
-								add_idea = QIN_idea_tongmenghui_3
-							}
-							}
-							else_if = {
-							limit = {
-							has_idea = QIN_idea_tongmenghui_3
-							}
-							swap_ideas = {
-								remove_idea = QIN_idea_tongmenghui_3
-								add_idea = QIN_idea_tongmenghui_4
-							}
-							}
-							else_if = {
-							limit = {
-							has_idea = QIN_idea_tongmenghui_4
-							}
-							swap_ideas = {
-								remove_idea = QIN_idea_tongmenghui_4
-								add_idea = QIN_idea_tongmenghui_5
-							}
-							}
-							else_if = {
-							limit = {
-							has_idea = QIN_idea_tongmenghui_5
-							}
-							remove_ideas = { QIN_idea_tongmenghui_5 }
-							}
-							else = {
-							}
-					}
-				}
-				75 = {
-					add_popularity = {
-						ideology = democratic
-						popularity = -0.05
-					}
-				}
-			}
-		}
-		priority = 8
-	}
 	QIN_dec_army_inspection	= { #Attack Tongmenghui Cell
 		icon = generic_military
 		allowed = {
@@ -2988,7 +2898,7 @@ QIN_xinhai_revolution_category = {
 			has_completed_focus = QIN_divide_and_conquer
 		}
 		cost = 0
-		days_re_enable = 210
+		days_re_enable = 200
 		complete_effect = {
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
@@ -2997,7 +2907,7 @@ QIN_xinhai_revolution_category = {
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 85
+				days = 75
 			}
 			
 			if = {
@@ -3217,6 +3127,681 @@ QIN_xinhai_revolution_category = {
 		priority = 1
 	}
 }
+QIN_xinhai_army_category = {
+	QIN_professional_army_mission = {
+		allowed = {
+			original_tag = QIN
+		} 
+		activation = {
+			NOT = {
+				has_global_flag = QIN_flag_accept_shikai
+			}
+			has_global_flag = xinhai_revolution
+		}
+		available = {
+			has_global_flag = QIN_flag_accept_shikai
+		}
+		fire_only_once = no
+		icon = GFX_decision_generic_monarchy
+		is_good = yes
+		days_mission_timeout = 150
+		timeout_effect = {
+			division_template = {
+				name = "Guards Army"
+				division_names_group = CHI_INF_02
+				template_counter = 0
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					artillery_brigade = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					artillery_brigade = { x = 1 y = 3 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+					artillery_brigade = { x = 2 y = 3 }
+					infantry = { x = 3 y = 0 }
+					infantry = { x = 3 y = 1 }
+					infantry = { x = 3 y = 2 }
+					artillery_brigade = { x = 3 y = 3 }
+					infantry = { x = 4 y = 0 }
+					infantry = { x = 4 y = 1 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+				}
+			}
+			custom_effect_tooltip = QIN_effect_prof_army
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Right Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					owner = QIN
+				}
+				create_unit = {
+					division = "name = \"Left Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					owner = QIN
+				}
+				create_unit = {
+					division = "name = \"Front Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					owner = QIN
+				}
+				create_unit = {
+					division = "name = \"Rear Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					owner = QIN
+				}
+				create_unit = {
+					division = "name = \"Centre Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					owner = QIN
+				}
+				create_unit = {
+					division = "name = \"Reserve Division\" division_template = \"Guards Army\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = QIN
+				}
+			}
+			custom_effect_tooltip = QIN_effect_prof_army2
+		}
+		priority = 100
+	}
+	QIN_raise_militias = {
+		icon = generic_civil_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_global_flag = xinhai_revolution
+			
+			OR = {
+				has_active_mission = QIN_professional_army_mission
+				command_power > 15
+			}
+		}
+		days_re_enable = 9
+		
+		complete_effect = {
+			if = {
+				limit = {
+					has_active_mission = QIN_professional_army_mission
+				}
+				custom_effect_tooltip = QIN_effect_raise_militias_2
+				add_days_mission_timeout = {
+					mission = QIN_professional_army_mission
+					days = 30
+				}
+			}
+			else = {
+				add_stability = -0.003
+				add_command_power = -15
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.01
+			}
+			custom_effect_tooltip = line_description
+			custom_effect_tooltip = QIN_effect_raise_militias
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Zhili Irregulars Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.3"
+					owner = QIN
+				}
+				create_unit = {
+					division = "name = \"Zhili Irregulars Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.3"
+					owner = QIN
+				}
+				create_unit = {
+					division = "name = \"Zhili Irregulars Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.3"
+					owner = QIN
+				}
+			}
+			custom_effect_tooltip = QIN_effect_militias_removed
+		}
+		priority = 6
+	}
+}	
+QIN_yuan_auction_category = {
+	QIN_shikai_joins_the_rebels_mission = {
+		allowed = {
+			original_tag = QIN
+		} 
+		activation = {
+			has_idea = QIN_idea_beiyang_army
+			NOT = {
+				has_global_flag = QIN_flag_accept_shikai
+			}
+			has_global_flag = xinhai_revolution
+		}
+		available = {
+			has_global_flag = QIN_flag_accept_shikai
+		}
+		fire_only_once = no
+		icon = GFX_decision_eng_support_imperialist_coup
+		is_good = no
+		days_mission_timeout = 105
+		timeout_effect = {
+			hidden_effect = {
+				CHI = { country_event = { id = ww1_qing.425 } }
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.2
+				}
+			}
+			effect_tooltip = {
+				custom_effect_tooltip = QIN_effect_yuan_shikai_will_betray_us4
+				CHI = {
+					custom_effect_tooltip = QIN_effect_yuan_shikai_will_betray_us2
+				}
+				hidden_effect = {
+					CHI = {
+					#load_oob = QIN_beiyang_revolutionaries
+					}
+				}	
+				custom_effect_tooltip = QIN_effect_yuan_shikai_will_betray_us3
+			}
+		}
+		priority = 100
+	}
+	QIN_dec_19_articles = {
+		icon = GFX_decision_eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			
+		}
+		cost = 100
+		days_re_enable = 200
+		complete_effect = {
+			add_war_support = 0.03
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+		priority = 1
+	}
+	QIN_dec_flood_the_beiyang_army_with_opium = {
+		icon = GFX_decision_eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_idea = QIN_idea_opium_suppression
+		}
+		visible = {
+			has_global_flag = QIN_flag_accept_shikai
+			has_idea = QIN_idea_opium_suppression
+		}
+		cost = 0
+		days_re_enable = 200
+		complete_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.1
+			}
+			modify_timed_idea = {
+				idea = QIN_idea_opium_suppression
+				days = 100
+			}
+			random_unit_leader = {
+				limit = {
+					has_trait = yuan_shikai_loyalist
+					NOT = { has_trait = substance_abuser }
+				}
+				add_trait = {
+					 character = THIS
+					 trait = substance_abuser
+				}
+			}
+			random_unit_leader = {
+				limit = {
+					has_trait = yuan_shikai_loyalist
+					NOT = { has_trait = substance_abuser }
+				}
+				add_trait = {
+					 character = THIS
+					 trait = substance_abuser
+				}
+			}
+		}
+		priority = 1
+	}
+	QIN_encircle_the_revolutionaries = {
+		icon = GFX_decision_generic_army_support
+		activation = {
+			has_war_with = CHI
+			613 = {
+				is_owned_by = CHI
+			}
+			NOT = {
+				has_global_flag = manchu_restoration
+			}
+		}
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 500
+		allowed = {
+			original_tag = QIN
+		}
+		available = {
+			CHI = {
+				any_owned_state = {
+					is_coastal = yes
+				}
+			}
+			CHI = {
+				all_controlled_state = {
+					is_coastal = no
+				}
+			}
+		}
+		cancel_trigger = {
+			CHI = {
+				exists = no
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					has_active_mission = QIN_shikai_joins_the_rebels_mission
+				}
+				add_days_mission_timeout = {
+					mission = QIN_shikai_joins_the_rebels_mission
+					days = 200
+				}
+			}
+			else = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.1
+				}
+			}
+			
+			CHI = { add_ideas = QIN_idea_encircled_in_china }
+		}
+		priority = 11
+	}
+	QIN_engage_the_revolutionaries = {
+		icon = GFX_decision_hol_war_on_pacifism
+		activation = {
+			has_war_with = CHI
+			NOT = {
+				has_global_flag = manchu_restoration
+			}
+		}
+		days_mission_timeout = 365
+		fire_only_once = yes
+		is_good = no
+		allowed = {
+			original_tag = QIN
+		}
+		available = {
+			CHI = {
+				casualties > 320000
+			}
+		}
+		cancel_trigger = {
+			CHI = {
+				exists = no
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					has_active_mission = QIN_shikai_joins_the_rebels_mission
+				}
+				add_days_mission_timeout = {
+					mission = QIN_shikai_joins_the_rebels_mission
+					days = 200
+				}
+			}
+			else = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.1
+				}
+			}
+			army_experience = 250
+			add_war_support = 0.05
+		}
+		priority = 10
+	}
+	QIN_mission_take_wuhan = {
+		icon = GFX_decision_generic_operation
+		activation = {
+			has_war_with = CHI
+			NOT = {
+				has_global_flag = manchu_restoration
+			}
+			620 = {
+				is_controlled_by = CHI
+			}
+			NOT = {
+				has_global_flag = QIN_flag_failed_to_take_wuhan
+			}
+		}
+		is_good = no
+		days_mission_timeout = 195
+		fire_only_once = yes
+		allowed = {
+			original_tag = QIN
+		}
+		available = {
+			620 = {
+				is_controlled_by = QIN
+			}
+		}
+		cancel_trigger = {
+			CHI = {
+				exists = no
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					has_active_mission = QIN_shikai_joins_the_rebels_mission
+				}
+				add_days_mission_timeout = {
+					mission = QIN_shikai_joins_the_rebels_mission
+					days = 200
+				}
+			}
+			else = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.1
+				}
+			}
+			army_experience = 50
+			CHI = { 
+				add_war_support = -0.1
+			}
+			
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2500
+			}
+			CHI = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -2500
+				}
+			}
+			set_global_flag = QIN_flag_failed_to_take_wuhan
+		}
+		timeout_effect = {
+			set_global_flag = QIN_flag_failed_to_take_wuhan
+		}
+		priority = 9
+	}
+	QIN_mission_take_nanjing = {
+		icon = GFX_decision_generic_operation
+		activation = {
+			has_war_with = CHI
+			NOT = {
+				has_global_flag = manchu_restoration
+			}
+			598 = {
+				is_controlled_by = CHI
+			}
+			NOT = {
+				has_global_flag = QIN_flag_failed_to_take_nanjing
+			}
+		}
+		is_good = no
+		days_mission_timeout = 155
+		allowed = {
+			original_tag = QIN
+		}
+		available = {
+			598 = {
+				is_controlled_by = QIN
+			}
+		}
+		cancel_trigger = {
+			CHI = {
+				exists = no
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					has_active_mission = QIN_shikai_joins_the_rebels_mission
+				}
+				add_days_mission_timeout = {
+					mission = QIN_shikai_joins_the_rebels_mission
+					days = 300
+				}
+			}
+			else = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.1
+				}
+			}
+			army_experience = 50
+			add_war_support = 0.1
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+			}
+			CHI = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -2000
+				}
+			}
+			set_global_flag = QIN_flag_failed_to_take_nanjing
+		}
+		timeout_effect = {
+			set_global_flag = QIN_flag_failed_to_take_nanjing
+		}
+		priority = 8
+	}
+	QIN_invite_shikai = {
+		icon = generic_political_discourse
+		allowed = {
+			original_tag = QIN
+		}
+		available = {
+			#has_idea = QIN_idea_beiyang_army
+			NOT = { has_completed_focus = QIN_confucian_socialism }
+			has_global_flag = xinhai_revolution
+			NOT = { has_global_flag = QIN_flag_selecting_regent }
+			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
+			OR = {
+				has_global_flag = QIN_flag_beiyang_disloyalty
+				NOT = {
+					has_global_flag = QIN_flag_beiyang_army_deployed
+				}
+			}
+		}
+		visible = {
+			NOT = { has_global_flag = QIN_flag_beiyang_defection }
+			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
+		}
+		days_re_enable = 35
+		days_remove = -1
+		complete_effect = {
+			custom_effect_tooltip = QIN_influence_shikai_up
+			if = {
+				limit = {
+					has_character = QIN_yuan_shikai
+				}
+				QIN_yuan_shikai = {
+					remove_unit_leader_trait = sick
+				}
+			}
+			custom_effect_tooltip = line_description
+			custom_effect_tooltip = QIN_effect_shikai_oob
+			custom_effect_tooltip = line_description
+			
+			set_global_flag = QIN_flag_beiyang_army_deployed
+
+			hidden_effect = {
+				load_oob = QIN_1910_beiyang
+			}
+			
+			custom_effect_tooltip = QIN_effect_beiyang_reserves
+			
+			if = {
+				limit = { has_idea = QIN_idea_beiyang_army_60 }
+				remove_ideas = QIN_idea_beiyang_army_60
+			}
+			set_global_flag = QIN_flag_accept_shikai
+			#custom_effect_tooltip = QIN_influence_shikai_up
+			custom_effect_tooltip = line_description
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.15
+			}
+			hidden_effect = {
+				load_oob = QIN_beiyang
+			}
+			if = {
+				limit = { NOT = { has_global_flag = QIN_flag_first_shikai_invite } }
+				hidden_effect = {
+					country_event = { id = ww1_qing.349 days = 5 }
+				}
+			}
+			else_if = {
+				limit = { has_character = QIN_yuan_shikai }
+				complete_national_focus = QIN_appoint_yuan_shikai
+				QIN_yuan_shikai = {
+					promote_character = oligarchism
+				}
+			}
+		}
+		modifier = {
+			fascism_drift = 2
+			surrender_limit = 0.3
+			stability_factor = 0.1
+		}
+		targeted_modifier = {
+			tag = CHI
+			attack_bonus_against = 0.2
+			defense_bonus_against = 0.2
+		}
+		cancel_trigger = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				has_global_flag = QIN_flag_kick_out_shikai
+			}
+		}
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				surrender_progress < 0.01
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = no
+				OR = {
+					surrender_progress < 0.2
+					has_stability < 0.05
+				}
+			}
+			modifier = {
+				factor = 0
+				fascism < 0.05
+			}
+		}
+		priority = 50
+	}
+	QIN_offer_shikai_ranks = {
+		icon = GFX_decision_eng_puppet_usa
+		allowed = {
+			original_tag = QIN
+		} 
+		days_re_enable = 250
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				NOT = {
+					has_country_leader = {
+						character = QIN_yuan_shikai
+						ruling_only = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				surrender_progress < 0.05
+			}
+			modifier = {
+				factor = 0
+				fascism < 0.05
+			}
+		}
+	
+		cost = 0
+		available = {
+			has_idea = QIN_idea_beiyang_army
+			has_global_flag = xinhai_revolution
+		}
+		visible = {
+			OR = {
+				has_idea = QIN_idea_yuan_shikai_foot_injury
+				has_idea = QIN_idea_yuan_shikai_foot_injury_2
+				has_idea = QIN_idea_yuan_shikai_foot_injury_3
+			}
+			has_war_with = CHI
+		}
+		complete_effect = {
+			country_event = ww1_qing.350
+		}
+		priority = 11
+	}
+	QIN_offer_shikai_prime_minister = {
+		icon = GFX_decision_eng_puppet_usa
+		allowed = {
+			original_tag = QIN
+		} 
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				surrender_progress < 0.15
+			}
+			modifier = {
+				factor = 0
+				fascism < 0.05
+			}
+		}
+		days_re_enable = 250
+		fire_only_once = yes
+		cost = 0
+		
+		available = {
+			has_idea = QIN_idea_beiyang_army
+		}
+		visible = {
+			OR = {
+				has_idea = QIN_idea_yuan_shikai_foot_injury
+				has_idea = QIN_idea_yuan_shikai_foot_injury_2
+				has_idea = QIN_idea_yuan_shikai_foot_injury_3
+			}
+			NOT = {
+				has_country_leader = {
+					character = QIN_yuan_shikai
+					ruling_only = yes
+				}
+			}
+			has_war_with = CHI
+		}
+		complete_effect = {
+			country_event = ww1_qing.351
+		}
+		priority = 11
+	}
+}
+
+
 #Beiyang Army Category
 QIN_beiyang_army_category = {
 	QIN_force_shikai_into_exile = {
@@ -3234,7 +3819,7 @@ QIN_beiyang_army_category = {
 			fascism > 0.8
 		}
 		priority = 101
-		days_mission_timeout = 75
+		days_mission_timeout = 150
 		is_good = yes
 
 		cancel_trigger = {
@@ -3254,7 +3839,7 @@ QIN_beiyang_army_category = {
 			clr_global_flag = QIN_flag_accept_shikai
 			custom_effect_tooltip = QIN_effect_kick_out_shikai
 			set_temp_variable = { fascism_temp = party_popularity@fascism }
-			multiply_temp_variable = { fascism_temp = -0.5 }
+			multiply_temp_variable = { fascism_temp = -0.75 }
 			if = {
 				limit = {
 					NOT = { has_completed_focus = QIN_military_plot }
@@ -3548,279 +4133,7 @@ QIN_beiyang_army_category = {
 		}
 		priority = 7
 	}
-	QIN_mission_take_nanjing = {
-		icon = GFX_decision_generic_operation
-		activation = {
-			has_war_with = CHI
-			NOT = {
-				has_global_flag = manchu_restoration
-			}
-			598 = {
-				is_controlled_by = CHI
-			}
-			NOT = {
-				has_global_flag = QIN_flag_failed_to_take_nanjing
-			}
-		}
-		days_mission_timeout = 155
-		is_good = no
-		allowed = {
-			original_tag = QIN
-		}
-		available = {
-			598 = {
-				is_controlled_by = QIN
-			}
-		}
-		cancel_trigger = {
-			CHI = {
-				exists = no
-			}
-		}
-		complete_effect = {
-			army_experience = 50
-			add_war_support = 0.15
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 2000
-			}
-			CHI = {
-				add_equipment_to_stockpile = {
-					type = infantry_equipment
-					amount = -2000
-				}
-			}
-			if = {
-				limit = {
-					has_decision = QIN_invite_shikai
-				}
-				hidden_effect = {
-					add_days_remove = {
-						decision = QIN_invite_shikai
-						days = 330
-					}
-				}
-				custom_effect_tooltip = QIN_effect_seize_nanjing
-			}
-			else = {
-				add_popularity = {
-					ideology = neutrality
-					popularity = 0.1
-				}
-			}
-			set_global_flag = QIN_flag_failed_to_take_nanjing
-		}
-		timeout_effect = {
-			set_global_flag = QIN_flag_failed_to_take_nanjing
-		}
-		priority = 8
-	}
-	QIN_invite_shikai = {
-		icon = generic_political_discourse
-		allowed = {
-			original_tag = QIN
-		}
-		available = {
-			has_idea = QIN_idea_beiyang_army
-			NOT = { has_completed_focus = QIN_confucian_socialism}
-			has_global_flag = xinhai_revolution
-			NOT = { has_global_flag = QIN_flag_selecting_regent }
-			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
-		}
-		visible = {
-			#has_global_flag = xinhai_revolution
-			NOT = { has_global_flag = QIN_flag_beiyang_defection }
-			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
-		}
-		#fire_only_once = yes
-		days_re_enable = 35
-		days_remove = 140
-		complete_effect = {
-		
-			if = {
-				limit = {
-					has_global_flag = QIN_flag_beiyang_disloyalty
-				}
-				custom_effect_tooltip = QIN_effect_beiyang_reserves
-				load_oob = QIN_1910_beiyang
-			}
 
-			custom_effect_tooltip = QIN_effect_shikai_oob
-			custom_effect_tooltip = line_description
-			if = {
-				limit = { has_idea = QIN_idea_beiyang_army_60 }
-				remove_ideas = QIN_idea_beiyang_army_60
-			}
-			set_global_flag = QIN_flag_accept_shikai
-			#custom_effect_tooltip = QIN_influence_shikai_up
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.2
-			}
-			hidden_effect = {
-				load_oob = QIN_beiyang
-			}
-			if = {
-				limit = { NOT = { has_global_flag = QIN_flag_first_shikai_invite } }
-				hidden_effect = {
-					country_event = { id = ww1_qing.349 days = 5 }
-				}
-			}
-			else_if = {
-				limit = { has_character = QIN_yuan_shikai }
-				complete_national_focus = QIN_appoint_yuan_shikai
-				QIN_yuan_shikai = {
-					promote_character = oligarchism
-				}
-			}
-			custom_effect_tooltip = QIN_influence_shikai_up
-			if = {
-				limit = {
-					has_character = QIN_yuan_shikai
-				}
-				QIN_yuan_shikai = {
-					remove_unit_leader_trait = sick
-				}
-			}
-		}
-		modifier = {
-			surrender_limit = 0.3
-			stability_factor = 0.1
-		}
-		targeted_modifier = {
-			tag = CHI
-			attack_bonus_against = 0.2
-			defense_bonus_against = 0.2
-		}
-		cancel_trigger = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				has_global_flag = QIN_flag_kick_out_shikai
-			}
-		}
-		remove_effect = {
-			# add_ideas = QIN_idea_beiyang_deal
-			custom_effect_tooltip = QIN_effect_shikai_defects
-			set_global_flag = QIN_flag_beiyang_defection
-			hidden_effect = {
-				country_event = { id = ww1_xinhai.4 days = 0 }
-			}
-		}
-		ai_will_do = {
-			factor = 1000
-			modifier = {
-				factor = 0
-				surrender_progress < 0.01
-			}
-			modifier = {
-				factor = 0
-				is_historical_focus_on = no
-				OR = {
-					surrender_progress < 0.2
-					has_stability < 0.05
-				}
-			}
-			modifier = {
-				factor = 0
-				fascism < 0.05
-			}
-		}
-		priority = 600
-	}
-	QIN_offer_shikai_ranks = {
-		icon = GFX_decision_eng_puppet_usa
-		allowed = {
-			original_tag = QIN
-		} 
-		days_re_enable = 250
-		ai_will_do = {
-			factor = 1000
-			modifier = {
-				factor = 0
-				NOT = {
-					has_country_leader = {
-						character = QIN_yuan_shikai
-						ruling_only = yes
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				surrender_progress < 0.05
-			}
-			modifier = {
-				factor = 0
-				fascism < 0.05
-			}
-		}
-		
-		fire_only_once = yes
-		cost = 0
-		available = {
-			has_idea = QIN_idea_beiyang_army
-			has_global_flag = xinhai_revolution
-			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
-		}
-		visible = {
-			OR = {
-				has_idea = QIN_idea_yuan_shikai_foot_injury
-				has_idea = QIN_idea_yuan_shikai_foot_injury_2
-				has_idea = QIN_idea_yuan_shikai_foot_injury_3
-			}
-			has_war_with = CHI
-		}
-		complete_effect = {
-			country_event = ww1_qing.350
-		}
-		priority = 601
-	}
-	QIN_offer_shikai_prime_minister = {
-		icon = GFX_decision_eng_puppet_usa
-		allowed = {
-			original_tag = QIN
-		} 
-		ai_will_do = {
-			factor = 1000
-			modifier = {
-				factor = 0
-				surrender_progress < 0.15
-			}
-			modifier = {
-				factor = 0
-				fascism < 0.05
-			}
-		}
-		days_re_enable = 250
-		fire_only_once = yes
-		cost = 0
-		
-		available = {
-			has_idea = QIN_idea_beiyang_army
-			has_global_flag = xinhai_revolution
-			NOT = { has_global_flag = QIN_flag_selecting_regent }
-			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
-		}
-		visible = {
-			OR = {
-				has_idea = QIN_idea_yuan_shikai_foot_injury
-				has_idea = QIN_idea_yuan_shikai_foot_injury_2
-				has_idea = QIN_idea_yuan_shikai_foot_injury_3
-			}
-			NOT = {
-				has_country_leader = {
-					character = QIN_yuan_shikai
-					ruling_only = yes
-				}
-			}
-			has_war_with = CHI
-		}
-		complete_effect = {
-			country_event = ww1_qing.351
-		}
-		priority = 601
-	}
 	QIN_dismiss_beiyang_commanders = {
 		icon = generic_civil_support
 		allowed = {
@@ -3844,7 +4157,7 @@ QIN_beiyang_army_category = {
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 10
+				days = 5
 			}
 		}
 		priority = 6
@@ -3868,7 +4181,7 @@ QIN_beiyang_army_category = {
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 10
+				days = 5
 			}
 		}
 		priority = 6

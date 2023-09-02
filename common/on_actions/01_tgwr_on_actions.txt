@@ -6460,7 +6460,17 @@ on_actions = {
 			if = {
 				limit = { has_variable = var_court_opp_days }
 				add_to_variable = { var_court_opp_days = -1 }
+				set_temp_variable = { democratic_temp = party_popularity@democratic }
+				multiply_temp_variable = { democratic_temp = -1.0 }
+				set_variable = { court_opp_pp_factor = democratic_temp }
 			}
+		}
+	}
+	on_monthly_QIN = {
+		effect = {
+			set_temp_variable = { democratic_temp = party_popularity@democratic }
+			multiply_temp_variable = { democratic_temp = -1.0 }
+			set_variable = { court_opp_pp_factor = democratic_temp }
 		}
 	}
 }
