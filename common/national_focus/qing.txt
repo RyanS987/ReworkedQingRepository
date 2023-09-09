@@ -1328,6 +1328,30 @@ focus_tree = {
 			}
 			promote_character = QIN_kang_youwei
 			
+			if = {
+				limit = { 
+					has_idea = QIN_idea_western_legal_code
+				}
+				swap_ideas = {
+					remove_idea = QIN_idea_western_legal_code
+					add_idea = QIN_idea_western_legal_code_com
+				}
+			}
+			else_if = {
+				limit = { has_idea = QIN_idea_lijiao_confucian_legal_code }
+				swap_ideas = {
+					remove_idea = QIN_idea_lijiao_confucian_legal_code
+					add_idea = QIN_idea_lijiao_confucian_legal_code_com
+				}
+			}
+			else_if = {
+				limit = { has_idea = QIN_idea_reformed_confucian_legal_code }
+				swap_ideas = {
+					remove_idea = QIN_idea_reformed_confucian_legal_code
+					add_idea = QIN_idea_reformed_confucian_legal_code_com
+				}
+			}
+			
 			QIN_court_opp_150 = yes
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }	
@@ -2430,7 +2454,10 @@ focus_tree = {
 		mutually_exclusive = { focus = QIN_finish_the_new_qing_reforms }
 		mutually_exclusive = { focus = QIN_full_constitutional_monarchy }
 		available = {
-			has_global_flag = QIN_autocomplete_dilemma
+			OR = {
+				has_global_flag = QIN_autocomplete_dilemma
+				has_global_flag = QIN_flag_beiyang_agreement
+			}
 		}
 		completion_reward = {
 			add_political_power = 100
@@ -6249,15 +6276,16 @@ focus_tree = {
 			focus = QIN_control_the_board_of_punishment
 		}
 		available = {
-			democratic < 0.2
+			democratic < 0.15
 			has_active_mission = QIN_xinhai_timer
 		}
 		bypass = {
 		}
 		completion_reward = {
+			add_stability = -0.05
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 300
+				days = 100
 			}
 		}	
 		ai_will_do = {
@@ -7851,8 +7879,6 @@ focus_tree = {
 			focus = QIN_split_the_tongmenghui
 			focus = QIN_mislead_the_tongmenghui
 			focus = QIN_force_the_issue
-		}
-		prerequisite = {
 			focus = QIN_execute_tongmenghui_leaders
 		}
 		available = {
@@ -9014,16 +9040,34 @@ focus_tree = {
 				custom_effect_tooltip = QIN_effect_legal_reform_not_started
 			}
 			else_if = {
-				limit = { check_variable = { QIN_var_legal_reform > 5 } }
-				add_ideas = QIN_idea_western_legal_code
-			}
-			else_if = {
-				limit = { check_variable = { QIN_var_legal_reform < 2 } }
-				add_ideas = QIN_idea_lijiao_confucian_legal_code
+				limit = {
+					has_government = communism
+				}
+				if = {
+					limit = { check_variable = { QIN_var_legal_reform > 5 } }
+					add_ideas = QIN_idea_western_legal_code_com
+				}
+				else_if = {
+					limit = { check_variable = { QIN_var_legal_reform < 2 } }
+					add_ideas = QIN_idea_lijiao_confucian_legal_code_com
+				}
+				else = {
+					add_ideas = QIN_idea_reformed_confucian_legal_code_com
+				}
 			}
 			else = {
-				add_ideas = QIN_idea_reformed_confucian_legal_code
-			}
+				if = {
+					limit = { check_variable = { QIN_var_legal_reform > 5 } }
+					add_ideas = QIN_idea_western_legal_code
+				}
+				else_if = {
+					limit = { check_variable = { QIN_var_legal_reform < 2 } }
+					add_ideas = QIN_idea_lijiao_confucian_legal_code
+				}
+				else = {
+					add_ideas = QIN_idea_reformed_confucian_legal_code
+				}
+			}			
 			
 			QIN_legitimacy_increase = yes
 			
@@ -13215,6 +13259,7 @@ focus_tree = {
 			focus = QIN_suppress_monarchists
 			focus = QIN_maintain_status_quo
 			focus = QIN_complete_gender_equality
+			focus = QIN_the_antithesis_of_reform
 		}
 		available = {
 			
@@ -15724,13 +15769,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			NEP = {
-				country_event = ww1_qing.321
+				country_event = { id = ww1_qing.321 }
 			}
 			SKK = {
-				country_event = ww1_qing.321
+				country_event = { id = ww1_qing.321 }
 			}
 			BHU = {
-				country_event = ww1_qing.321
+				country_event = { id = ww1_qing.321 }
 			}
 		}
 		ai_will_do = {

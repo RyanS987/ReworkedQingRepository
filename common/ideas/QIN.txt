@@ -309,8 +309,13 @@ ideas = {
 				is_qing_monarchy = yes
 			}
 			modifier = {
-				political_power_gain = -0.5
+				political_power_gain = -0.75
 				#surrender_limit = -0.05
+				
+				army_org_factor = -0.1
+				experience_gain_army_factor = -0.2
+				command_power_gain_mult = -0.3
+				promote_cost_factor = 0.25
 				
 				political_advisor_cost_factor = -0.9
 				economy_cost_factor = -0.9
@@ -339,9 +344,14 @@ ideas = {
 			}
 			picture = por_monarchist_uprising
 			modifier = {
-				political_power_gain = -0.5
+				political_power_gain = -0.75
 				neutrality_drift = 0.05
 				#surrender_limit = -0.05
+				
+				army_org_factor = -0.05
+				experience_gain_army_factor = -0.2
+				command_power_gain_mult = -0.3
+				promote_cost_factor = 0.25
 				
 				political_advisor_cost_factor = -0.9
 				economy_cost_factor = -0.9
@@ -370,9 +380,14 @@ ideas = {
 			}
 			picture = por_monarchist_uprising
 			modifier = {
-				political_power_gain = -0.5
+				political_power_gain = -0.75
 				communism_drift = 0.05
 				#surrender_limit = -0.05
+				
+				army_org_factor = -0.05
+				experience_gain_army_factor = -0.2
+				command_power_gain_mult = -0.3
+				promote_cost_factor = 0.25
 				
 				political_advisor_cost_factor = -0.9
 				economy_cost_factor = -0.9
@@ -390,7 +405,7 @@ ideas = {
 				
 				production_factory_start_efficiency_factor = 0.1
 				production_factory_efficiency_gain_factor = 0.05
-				stability_factor = 0.1
+				stability_factor = 0.2
 			}
 		}
 		
@@ -422,6 +437,23 @@ ideas = {
 				improve_relations_maintain_cost_factor = -0.5
 			}
 		}
+		QIN_idea_western_legal_code_com = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			available = {
+				NOT = { has_completed_focus = QIN_full_constitutional_monarchy }
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				political_power_factor = -0.07
+				communism_drift = 0.04
+				democratic_drift = 0.01
+				stability_weekly = 0.001
+				stability_factor = 0.05
+				research_speed_factor = 0.12
+				improve_relations_maintain_cost_factor = -0.5
+			}
+		}
 		QIN_idea_reformed_confucian_legal_code = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -436,7 +468,35 @@ ideas = {
 				research_speed_factor = 0.1
 			}
 		}
+		QIN_idea_reformed_confucian_legal_code_com = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			available = {
+				NOT = { has_completed_focus = QIN_full_constitutional_monarchy }
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				communism_drift = 0.03
+				democratic_drift = 0.01
+				stability_weekly = 0.001
+				research_speed_factor = 0.1
+			}
+		}
 		QIN_idea_lijiao_confucian_legal_code = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			available = {
+				NOT = { has_completed_focus = QIN_full_constitutional_monarchy }
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				political_power_factor = 0.1
+				neutrality_drift = 0.01
+				democratic_drift = 0.01
+				stability_factor = 0.05
+			}
+		}
+		QIN_idea_lijiao_confucian_legal_code_com = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			available = {
@@ -1053,10 +1113,10 @@ ideas = {
 			removal_cost = -1
 			picture = generic_monarchist_uprising
 			modifier = {
-				political_power_factor = 0.15
-				army_org_factor = -0.1
-				experience_gain_army_factor = -0.1
-				command_power_gain_mult = -0.1
+				political_power_factor = 0.1
+				army_org_factor = -0.2
+				experience_gain_army_factor = -0.25
+				command_power_gain_mult = -0.3
 				promote_cost_factor = 0.5
 				army_chief_cost_factor = -0.5
 				high_command_cost_factor = -0.5
@@ -1069,8 +1129,8 @@ ideas = {
 			removal_cost = -1
 			picture = generic_monarchist_uprising
 			modifier = {
-				political_power_gain = -0.25
-				political_advisor_cost_factor = 0.25
+				political_power_factor = -0.15
+				political_advisor_cost_factor = 0.5
 				
 				army_org_factor = 0.05
 				experience_gain_army_factor = 0.15
@@ -1425,10 +1485,7 @@ ideas = {
 			removal_cost = -1
 			picture = man_low_legitimacy
 			available = {
-				OR = {
-					NOT = { has_global_flag = QIN_flag_court_crushed }
-					has_completed_focus = QIN_democratic_compromise
-				}
+				is_qing_monarchy = yes
 			}
 			modifier = {
 				ai_get_ally_desire_factor = -100
@@ -1441,10 +1498,7 @@ ideas = {
 			removal_cost = -1
 			picture = man_low_legitimacy2
 			available = {
-				OR = {
-					NOT = { has_global_flag = QIN_flag_court_crushed }
-					has_completed_focus = QIN_democratic_compromise
-				}
+				is_qing_monarchy = yes
 			}
 			modifier = {
 				ai_get_ally_desire_factor = -100
@@ -1457,10 +1511,7 @@ ideas = {
 			removal_cost = -1
 			picture = man_low_legitimacy3
 			available = {
-				OR = {
-					NOT = { has_global_flag = QIN_flag_court_crushed }
-					has_completed_focus = QIN_democratic_compromise
-				}
+				is_qing_monarchy = yes
 			}
 			modifier = {
 				ai_get_ally_desire_factor = -100
@@ -1473,10 +1524,7 @@ ideas = {
 			removal_cost = -1
 			picture = man_low_legitimacy4
 			available = {
-				OR = {
-					NOT = { has_global_flag = QIN_flag_court_crushed }
-					has_completed_focus = QIN_democratic_compromise
-				}
+				is_qing_monarchy = yes
 			}
 			modifier = {
 				ai_get_ally_desire_factor = -100
@@ -1490,10 +1538,7 @@ ideas = {
 			removal_cost = -1
 			picture = man_low_legitimacy5
 			available = {
-				OR = {
-					NOT = { has_global_flag = QIN_flag_court_crushed }
-					has_completed_focus = QIN_democratic_compromise
-				}
+				is_qing_monarchy = yes
 			}
 			modifier = {
 				ai_get_ally_desire_factor = -100
@@ -1511,10 +1556,7 @@ ideas = {
 			removal_cost = -1
 			picture = man_low_legitimacy5
 			available = {
-				OR = {
-					NOT = { has_global_flag = QIN_flag_court_crushed }
-					has_completed_focus = QIN_democratic_compromise
-				}
+				is_qing_monarchy = yes
 			}
 			modifier = {
 				ai_get_ally_desire_factor = -100

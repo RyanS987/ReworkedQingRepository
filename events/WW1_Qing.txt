@@ -1,6 +1,39 @@
 ﻿add_namespace = ww1_qing
 add_namespace = qing_news
 
+#KMT Rice Easter Egg
+country_event = {
+	title = ww1_qing.433.t
+	desc = ww1_qing.433.d
+	
+	id = ww1_qing.433
+
+	picture = GFX_report_event_kmt_rice
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = QIN
+		is_qing_monarchy = yes
+		has_global_flag = {
+			flag = QIN_flag_tongmenghui_fractured
+			days > 800
+		}
+		NOT = {
+			has_active_mission = QIN_xinhai_timer
+		}
+		NOT = {
+			has_global_flag = xinhai_revolution
+		}
+	}
+	
+	option = {
+		name = ww1_qing.433.a
+		ai_chance = { factor = 10 }
+		add_political_power = 10
+	}
+}
 #Chen Kuilong
 country_event = {
 	title = ww1_qing.432.t
@@ -2058,7 +2091,7 @@ country_event = {
 		name = ww1_qing.384.a
 		ai_chance = { factor = 10 }
 		
-		605 = {
+		607 = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = industrial_complex
@@ -2071,10 +2104,10 @@ country_event = {
 		name = ww1_qing.384.b
 		ai_chance = { factor = 10 }
 		
-		605 = {
+		607 = {
 			add_extra_state_shared_building_slots = 2
 		}
-		894 = {
+		891 = {
 			add_extra_state_shared_building_slots = 2
 		}
 	}
@@ -4906,7 +4939,7 @@ country_event = {
 		}
 		create_wargoal = {
 			type = puppet_wargoal_focus
-			target = PREV
+			target = FROM
 		}
 	}
 	option = {
@@ -4920,7 +4953,6 @@ country_event = {
 	desc = ww1_qing.321.d
 	id = ww1_qing.321
 	
-	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = {
@@ -4943,7 +4975,7 @@ country_event = {
 		name = ww1_qing.321.b
 		ai_chance = { factor = 1 }
 		QIN = {
-			country_event = ww1_qing.322
+			country_event = { id = ww1_qing.322 }
 		}
 	}
 }
@@ -9374,7 +9406,7 @@ country_event = {
 			has_character = QIN_sun_yatsen
 			NOT = {
 				has_global_flag = sun_yatsen_dead
-				has_country_flag = sun_yatsen_president
+				#has_country_flag = sun_yatsen_president
 			}
 		}
 		ai_chance = { factor = 70 }
@@ -13781,7 +13813,7 @@ country_event = {
 	}
 }
 
-# France refuses
+# Indemmnity Holder Refuses
 country_event = {
 	title = ww1_qing.129.t
 	desc = ww1_qing.129.d
@@ -13791,12 +13823,10 @@ country_event = {
 	option = {
 		name = ww1_qing.129.a
 		ai_chance = { factor = 10 }
-		FRA = {
-			QIN = {
-				create_wargoal = {
+		QIN = {
+			create_wargoal = {
 				type = annex_everything
-				target = FRA
-				}
+				target = FROM
 			}
 		}
 	}
@@ -13903,7 +13933,7 @@ country_event = {
 	}
 	option = { #compromise
 		name = ww1_qing.127.c 
-		ai_chance = { factor = 10 }
+		ai_chance = { factor = 80 }
 		trigger = {
 			is_faction_leader = yes
 		}
@@ -14258,9 +14288,13 @@ country_event = {
 	option = {
 		name = ww1_qing.110.a
 		ai_chance = { factor = 100 }
-		#add_state_core = 330
-		#add_state_core = 322
-		#add_state_core = 434
+		every_state = {
+			limit = {
+				is_core_of = SIK
+			}
+			add_core_of = QIN
+			remove_core_of = SIK
+		}
 		set_division_template_lock = {
 			division_template = "Ma Horse Raider Brigade"
 			is_locked = no
@@ -14311,9 +14345,13 @@ country_event = {
 	option = {
 		name = ww1_qing.110.b
 		ai_chance = { factor = 100 }
-		#add_state_core = 330
-		#add_state_core = 322
-		#add_state_core = 434
+		every_state = {
+			limit = {
+				is_core_of = SIK
+			}
+			add_core_of = QIN
+			remove_core_of = SIK
+		}
 		set_division_template_lock = {
 			division_template = "Ma Horse Raider Brigade"
 			is_locked = no
