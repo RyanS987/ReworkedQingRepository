@@ -99,6 +99,43 @@ characters={
 			}
 		}
 	}
+	QIN_zaiyi={
+		name="QIN_zaiyi"
+		advisor={
+			slot = political_advisor
+			idea_token = QIN_zaiyi
+			allowed  = {
+				is_china_or_warlord = yes
+			}
+			cost = 0
+			available = {
+				is_country_leader = no
+				has_government = neutrality
+			}	
+			visible = {
+				OR = {
+					has_completed_focus = QIN_invite_zaiyi
+					has_global_flag = QIN_test
+				}
+			}
+			traits  = {
+				fervent_anti_westerner
+			}
+			on_remove = {
+				QIN = {
+					QIN_court_opp_50 = yes
+				}
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/QIN/idea_QIN_zaiyi.png"
+			}
+		}
+	}
 	QIN_shanqi={
 		name="QIN_shanqi"
 		advisor={
@@ -496,6 +533,25 @@ characters={
 			}	
 		}
 	}
+	QIN_ruicheng={
+		name="QIN_ruicheng"
+		portraits={
+			army={
+				large="gfx/leaders/QIN/QIN_ruicheng.png"
+			}
+		}
+		corps_commander={
+			traits={ trait_cautious chinese_royalist }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			visible = {
+				original_tag = QIN
+			}	
+		}
+	}
 	QIN_sun_yatsen={
 		name="CHI_sun_yatsen"
 		portraits={
@@ -587,7 +643,7 @@ characters={
 				has_completed_focus = QIN_increase_army_influence
 			}
 			traits = {
-				CHI_trait_army_strongman
+				beiyang_strongman
 			}
 		}
 		corps_commander={
@@ -1312,6 +1368,22 @@ characters={
 			logistics_skill = 1
 		}
 	}
+	QIN_wang_zhanyuan = {
+		name = CHI_wang_zhanyuan
+		portraits = {
+			army = {
+				large = "gfx/leaders/CHI/CHI_wang_zhanyuan.png"
+			}
+		}
+		corps_commander = {
+			traits = { career_officer infantry_leader yuan_shikai_loyalist }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
 	QIN_cai_chengxun = {
 		name = CHI_cai_chengxun
 		portraits = {
@@ -1367,11 +1439,13 @@ characters={
 			allowed  = {
 				is_china_or_warlord = yes
 			}
-			cost  = 200
+			cost = 0
 			available = {
 				is_country_leader = no
+				has_completed_focus = QIN_form_imperial_cabinet
 			}	
 			traits  = {
+				beiyang_sympathizer
 				armaments_organizer
 			}
 			ai_will_do  = {

@@ -1,6 +1,16 @@
 ﻿l_english:
 #qing rework
 #focus
+ QIN_internal_focus:0 "Secure the Qing State"
+ QIN_internal_focus_desc:0 "Recent changes have completely changed the framework of our countries. Finally we can rule with a certain freedom we had not had since before the century of humiliation. We must never once again slip into the decrepit state we had once let China enter so long ago..."
+ QIN_restore_the_courts_position_desc:0 "How can we defy heaven's will? We were given the right to rule China, not the people, not the parliament. Parliament has served its purpose, keeping the Han chinese fooled that we would really give them democracy. The Tongmenghui are gone. Our authority is unquestioned. Our mandated rule must return, once and for all, never questioned again."
+ QIN_restore_the_courts_position:0 "By Heaven, The Court Must Rule"
+ QIN_block_parliament:0 "Court Assent"
+ QIN_block_parliament_desc:0 "Parliament is filled with those... those foreign educated fools! The foreign powers have poisened their minds with ideas of 'peoples liberty' and the degredation of the emperor's divine authority. Whatever it may take, whomever we must silence, only we can protect China from the barbarians and save our ancestor's legacy."
+ QIN_avenge_the_century_of_humiliation:0 "Golden Century, Golden Empire"
+ QIN_avenge_the_century_of_humiliation:0 "No more will the foreigners bully us. We will reclaim our spot in the world, as the great celestial empire, above the foreign barbarians!"
+ QIN_invite_zaiyi:0 "Renounce Prince Duan's Exile"
+ QIN_invite_zaiyi_desc:0 "The great supporter of the Boxer Rebellion, and the fervent anti-westerner. Zaiyi, Prince Duan, deserves a his rightful spot within our new government, and his 1900 banishment was only a unequal scheme forced on Cixi and the court by the treacherous foreiners. Under the will of heaven, those imperialists will soon learn the consequences of their decision, once and for all."
  QIN_the_power_of_the_emperor:0 "Power to the Emperor"
  QIN_the_power_of_the_emperor_desc:0 "The reforms have served their course, but it is time to restore our power. The emperor's will cannot be questioned by mere mortals, and his authority is divine."
  QIN_seize_the_cer_desc:0 "The Russians are too distracted to moniter their little concession, and we are much more powerful now. Time to take back what is rightfully ours"
@@ -83,7 +93,7 @@
  QIN_reinforce_trade_ports:0 "Fortify Trade Cities"
  QIN_reinforce_trade_ports_desc:0 "Reinforcing the trade cities will keep them safe from anyone who ever wants to take our goods forcefully again!"
  QIN_renovate_trade_ports:0 "Renovate Trade Harbors"
- QIN_renovate_trade_ports_desc:0 "More trade for China!"
+ QIN_renovate_trade_ports_desc:0 "We should expand our trade harbors so that we can facilitate more international trade by sea."
  QIN_trade_deal_with_france:0 "South-China Trade Deal"
  QIN_trade_deal_with_france_desc:0 "The French, with their position in Indochina, offer us the perfect oppurtunity to work on resource development with."
  
@@ -547,9 +557,9 @@
  QIN_taiwan_or_war:0 "Taiwan or War"
  QIN_taiwan_or_war_desc:0 "Taiwan is rightfully Chinese. Japan either leaves or we will make them leave"
  QIN_eliminate_the_beiyang_army:0 "Eliminate the Beiyang Army"
- QIN_eliminate_the_beiyang_army_desc:0 "We will mobilize our army against the Beiyang army. Let us see if they stand down"
+ QIN_eliminate_the_beiyang_army_desc:0 "Mobilize the new army against the old, corrupt Beiyang army. Let us see if they dare to stand against the might of China itself!"
  QIN_pacify_the_beiyang_army:0 "Bribe the Beiyang Army"
- QIN_pacify_the_beiyang_army_desc:0 "A little money will make any belligerants stop"
+ QIN_pacify_the_beiyang_army_desc:0 "For so long, the wretched Beiyang army has caused havoc on both the government and the people. No longer! Paying off these simple goons will make them finally get out of political affairs. While it is well known the treacherous Beiyang commanders have insidiously spread their corruption throughout our bureaucracy, their absence will finally leave room for those with China's, not their pockets, best at heart."
  QIN_the_fate_of_yuan_shikai:0 "The Fate of Yuan Shikai"
  QIN_the_fate_of_yuan_shikai_desc:0 "What shall we do with Yuan Shikai, the leader of the Beiyang Army?"
  QIN_capture_remnants_of_the_beiyang_army:0 "Capture the Remnants of the Beiyang Army"
@@ -609,15 +619,15 @@
  QIN_the_pyeongyang_incident:0 "The Pyeongyang Incident"
  QIN_the_pyeongyang_incident_desc:0 "We will frame the Japanese for a factory explosion in Korea, and use it to justify war"
  QIN_prepare_to_maintain_qing:0 "Prepare for the Revolution"
- QIN_prepare_to_maintain_qing_desc:0 "The revolution is coming, and everyone knows it. We must be ready"
+ QIN_prepare_to_maintain_qing_desc:0 "The revolution is coming, and everyone knows it. We must raise morale and gather weapons for this inevitable battle."
  QIN_consolidate_spare_weapons:0 "Consolidate Spare Weapons"
- QIN_consolidate_spare_weapons_desc:0 "We need to have the guns to take on the rebels"
+ QIN_consolidate_spare_weapons_desc:0 "We require more guns to take on the rebellion effectively."
  QIN_stockpile_supplies:0 "Stockpile Supplies"
- QIN_stockpile_supplies_desc:0 "Prepare now while you still can"
+ QIN_stockpile_supplies_desc:0 "Better to build up that stockpile now than later! (You're doing this during the revolution aren't you...)" "
  QIN_buy_german_equipment:0 "Buy German Equipment"
- QIN_buy_german_equipment_desc:0 "The Germans have always been more friendly to us than the other powers."
+ QIN_buy_german_equipment_desc:0 "The Germans have always been more friendly to us than the other powers. Let's import some German guns!"
  QIN_buy_entente_equipment:0 "Negotiate Entente Equipment"
- QIN_buy_entente_equipment_desc:0 "In desperate times we must turn to our former enemies."
+ QIN_buy_entente_equipment_desc:0 "Desperate times call for desperate measures. We must import weaponry from our former enemies."
  QIN_beg_japanese_for_assistance:0 "Beg Japanese for Assistance"
  QIN_beg_japanese_for_assistance_desc:0 "The war is desperate and stacked against us. The Japanese are the only ones close enough to turn the tide before its too late"
 ###regular
@@ -771,6 +781,8 @@
  QIN_offer_shikai_prime_minister:0 "Offer Yuan Shikai Prime Minister"
  QIN_offer_shikai_ranks_desc:0 "We need help, no matter what we must offer Shikai!"
  QIN_offer_shikai_prime_minister_desc:0 "We need help, no matter what we must offer Shikai!"
+ QIN_dec_offer_autonomies:0 "Offer Provincial Autonomy"
+ QIN_dec_offer_autonomies_desc:0 "Many local warlords refuse to march to our aid. A generous offer of post-revolution autonomy can break neutrality in our favor!"
  
  QIN_integrate_korea_category:0 "Integrating Korea"
  QIN_integrate_hamgyeong:0 "Integrate Hamgyeong"
@@ -859,9 +871,11 @@
  QIN_dec_demand_weihaiwei_desc:0 "We were unfairly pressured into ceding Weihaiwei in 1898 in our time of strife. In Britain's time of strife, its time they learn what it's like"
 
  QIN_xinhai_army_category:0 "[GetXinhaiUprisingName] Revolution"
- QIN_professional_army_mission:0 "Deployment of the Elite Zhili Army"
- QIN_professional_army_mission_desc:0 "Our previous attempt at reforming the army was destroyed during the 1900 Boxer Rebellion. Because we cannot trust the wily Yuan Shikai, we have already begun the training of a new army, though small, of elite foreign trained units to engage and defeat the revolutionaries. The only question is, can we hold until they are ready to deploy?"
+ QIN_professional_army_mission:0 "Creation of the Zhili Army"
+ QIN_professional_army_mission_desc:0 "Our previous attempt at reforming the army was destroyed during the 1900 Boxer Rebellion. Because we cannot trust the wily Yuan Shikai, we have already begun the training of a new army, though small, of elite foreign trained units to engage and defeat the revolutionaries. It's structure will be based on the now defunct Wuwei Corps, an army made to protect Peking, but over half of it dissolved after the Boxer Rebellion. The only question is, can we hold until they are ready to deploy?"
 
+ QIN_seize_local_arsenal:0 "Seize Local Arsenals"
+ QIN_seize_local_arsenal_desc:0 "Local workshops fund provincial administrators with tons of free guns. These are ripe for the taking, though it is certain to be low quality..."
  QIN_raise_militias:0 "Raise Loyalist Militias"
  QIN_raise_militias_desc:0 "There is no time, we must raise and arm soldiers now!"
  QIN_effect_raise_militias:0 "Low quality militias will be raised and seized from local governors in Zhili"
@@ -881,14 +895,16 @@
  QIN_tongmenghui_reorganize_timer:0 "Collapse of the Revolutionaries"
  QIN_tongmenghui_reorganize_timer_desc:0 "When this timer ends, the Tongmenghui will completely fall apart"
 #custom effects\
+ QIN_effect_parliament_disappointed:0 "The Advisory Council, expecting Zaifeng to be a great reformer like his brother the Guangxu Emperor, will be immensely disappointed!"
+ QIN_effect_parliamentary_expectations:0 "The Advisory Council wholeheartedly expects us to complete either '§YEstablish Parliament§W' or '§YEmpower the Empire Reform Association§W' §Obefore 1912§W. If we, fail, we will §Rlose §YConfidence in Progress§W and §Y50§W Tongmenghui Plot days"
  QIN_effect_tongmenghui_completely_fracture:0 "The Tongmenghui will §Gcompletely fracture§W, meaning we will never have to deal with §YTongmenghui Plots§W anymore!\n"
  QIN_effect_tongmenghui_plot_days:0 "§8Because the Tongmenghui Plot is no longer active, this will instead affect our stability:§W"
  QIN_modifier_beiyang_effects:0 "§RDuring times of peace, if Proto-Fascist support exceeds 50%, we will begin rapidly losing stability and political power, and if it exceeds 70%, the Tongmenghui will launch an uprising!§W\n\n§CUnlocks Beiyang Army decisions§W"
  QIN_engage_the_revolutionaries:0 "Confront the Revolutionary Army"
  QIN_encircle_the_revolutionaries_desc:0 "We must strangle the revolutionaries deep in China, where they cannot recieve any of the foreign supplies they have been stockpiling"
  QIN_encircle_the_revolutionaries:0 "Encircle the Revolutionaries"
- QIN_mission_take_wuhan:0 "Occupy Wuhan"
- QIN_mission_take_wuhan_desc:0 "Taking Wuhan will prove to Yuan Shikai that it is not worth joining the failing revolution!"
+ QIN_mission_take_wuhan:0 "Occupy Wuchang"
+ QIN_mission_take_wuhan_desc:0 "Taking Wuchang will prove to Yuan Shikai that it is not worth joining the failing revolution!"
  QIN_effect_militias_removed:0 "§RThese militias will be removed during the end of the revolution§W"
  QIN_effect_triple_revolt_now:0 "§RMinorities in the west will rebel within the next two months§W"
  QIN_effect_triple_revolt_delay:0 "§RMinority rebellion will be delayed until after the revolution, after which it will take around 2 months to happen§W"
@@ -1137,6 +1153,7 @@
  QIN_qing_reformed_effect:0 "After we complete this focus, Republican Revolutions will be prevented"
  QIN_korean_compromise_description:0 "We will offer Japan Outer Dalian in return that they do not annex Korea. It is important to note that they may ask for more territory, and that Korea will still remain Japan's puppet."
 #global flags
+ QIN_flag_chip_reforms:0 "Has completed focus §YJust for Time§W"
  qing_russian_concession:0 "Has §YRussian Indemnities§W"
  qing_british_concession:0 "Has §YBritish Indemnities§W"
  qing_french_concession:0 "Has §YFrench Indemnities§W"
@@ -1317,7 +1334,7 @@
  QIN_idea_beiyang_army_60:0 "Overwhelming Beiyang Influence"
  QIN_idea_severe_constitutional_limitations:0 "Severe Constitutional Limitations"
  QIN_idea_constitutional_limitations:0 "Unrestrictable Emperor"
- QIN_idea_small_constitutional_limitations:0 "Small Constitutional Limitations"
+ QIN_idea_small_constitutional_limitations:0 "Unrestrictable Emperor"
  QIN_idea_payments_of_indemnities_russian:0 "Payment of Russian Indemnities"
  QIN_idea_payments_of_indemnities_russian_desc:0 "Following the Boxer Protocol, we are forced to pay 67.5 million pounds, or 4.5 billion taels, at an annual interest rate of 4%  within 39 years, and be mortgaged tariffs and taxes."
  QIN_idea_payments_of_indemnities_british:0 "Payment of British Indemnities"
@@ -1398,12 +1415,44 @@
  JAP_break_korea_compromise:0 "Broke the Korean Compromise!"
  QIN_diplomatic_effort:0 "Diplomatic Effort"
  QIN_korean_qing_friendship:0 "Major Sino-Korean Diplomatic Effort"
+ QIN_invited_zaiyi:0 "Invited the Boxer Martyr"
  #events
-  ww1_qing.434.t:0 "Fractured but Alive"
-  ww1_qing.434.d:0 "While we have completely driven the Tongmenghui off of China, with their leaders fleeing to Japan like the cowardly terrorists they are, it would be naive to believe the troubles are over. Just like when the Han Dynasty put down the Yellow Turban Rebellion, we had to call upon and offer great amounts of autonomy to leaders of local New Armies to defeat the revolution, and our empire has completely fractured. While we remain in power in Beijing, with some influence over these regional lords, we have little control anymore of what happens in the south of our country."
-  ww1_qing.434.a:0 "The Warlord Era begins..."
+  #ww1_qing.434.t:0 "Fractured but Alive"
+  #ww1_qing.434.d:0 "While we have completely driven the Tongmenghui off of China, with their leaders fleeing to Japan like the cowardly terrorists they are, it would be naive to believe the troubles are over. Just like when the Han Dynasty put down the Yellow Turban Rebellion, we had to call upon and offer great amounts of autonomy to leaders of local New Armies to defeat the revolution, and our empire has completely fractured. While we remain in power in Beijing, with some influence over these regional lords, we have little control anymore of what happens in the south of our country."
+  #ww1_qing.434.a:0 "The Warlord Era begins..."
+ ww1_qing.439.t:0 "Preparative Democratization"
+ ww1_qing.439.d:0 "Preparative Constitutionalism, started in 1906, was a long process started by Cixi to transform the Qing state, the first step in the creation of a real Chinese constitution. With cheers of 'Long live the Qing State! Long live the Constitutional System', reformers across the nation celebrated the great progress of the Chinese state as we signed the constitution into effect by imperial edict.\n\nYet, the cracks are already being seen. Conservatives in our court have reached their limit accepting the 'parliament' that now holds much legislative authority. The constitution may have been passed, but it would be naive to believe our court power in the government is gone. On the contrary, much of the Qing state is still completely reactionary, often kept in line through the loopholes of the Qing Bureacracy. \n\nOn the contrary, it seems the reformers, and especially returning revolutionaries who have whittled down their rhetoric, are calling for a new era of 'Preparative Democratization', calling out the various princes and nobles allowed to retain roles in parliament, and the unfair powers the court still holds over the budding democratic parliament. Just like the announcement of the Constitution and Ministerial Systems in 1906, they expect us to continue to be just as ambitious in our reforms.\n\nIt is clear that we are soon facing a great dilemma. The court expects us to begin reversing the western style reforms we have passed to consilidate our power now that appeasing the reformers is not essential to avoid revolution. The reformers are soon expecting the announcement of more and more ambitious reforms that will soon democratize our government. There is no time to waste, and there is no more time for compromise and insincere promises."
+ ww1_qing.439.a:0 "Oh heaven, please keep China united!"
+  
+  ww1_qing.438.t:0 "Embrace the New Democracy?"
+  ww1_qing.438.d:0 "Finally, our great empire sees the light of democracy! Many question the old flag, saying it is a symbol of our autocratic, unequal past, and a symbol of Manchu oppression. Others, however, say that the flag was the symbol of our revitalization, and embodies China itself.\n\nSome have called for a flag to represent our new embracement of democracy. What should we choose?"
+  ww1_qing.438.a:0 "The old flag represents China perfectly!"
+  ww1_qing.438.b:0 "The flag must stay, but hang blue banners to celebrate!"
+  ww1_qing.438.c:0 "A new, more representative flag, should be in place!"
+  QIN_effect_change_color:0 "Our country will become blue"
+  QIN_effect_change_color2:0 "Our country and flag will become blue"
+  
+  
+  ww1_qing.437.t:0 "Parliament Outraged"
+  ww1_qing.437.d:0 "The entire year of 1911 has passed, and yet we have still not established parliament. Reformers and newspapers cite our delay as proof of yet another of our 'insincere reforms', and evidence that our government cannot be trusted to lead the nation. Many reformers have resigned, and the Tongmenghui are quickly moving to use our failure as propoganda."
+  ww1_qing.437.a:0 "Whatever"
+  
+  ww1_qing.436.t:0 "Parliament Outraged"
+  ww1_qing.436.d:0 "Reformers were shocked by our decision. Expecting a reformer, a brother of the great Guangxu Emperor, who would break the bonds of precedent and bring China into the new era, they see Zaifeng as no more than another conservative bootlicker, holding back China just as the corrupt court has done for years.\n\nWhile some reformers tried to protest, our court quickly removed them from office. \n\nReportedly, it seems that confidence in our government has all but evaporated. Many reformers resigned to try to maintain the prestige of the national assembly, whatever was left atleast, and it seems the Tongmenghui is already using our refusal as propoganda for the end to our government..."
+  ww1_qing.436.a:0 "Whatever"
+  
+  ww1_qing.435.t:0 "Petition on the 1911 Parliament"
+  ww1_qing.435.d:0 "Reformers were shocked by our decision. Expecting a reformer, a brother of the great Guangxu Emperor, who would break the bonds of precedent and bring China into the new era, they see Zaifeng as no more than another conservative bootlicker, holding back China just as the corrupt court has done for years. \n\nThe Advisory Council denies that such delay is necessary. Citing Japan, who's similar parliamentary delay had caused much unrest, they say that China can ill afford 3 years delay facing the perilous future it has ahead of it.\n\nStill, the people remain optimistic, and blame the corrupt court for the regent's decision. As such, they have gathered peacefully and sent another petition similar to the first, demanding the establishment of parliament by 1911.\n\nThe people's early confidence that Zaifeng would be a reformer is quickly evaporating. This may be our last chance to prove our legitimacy, and Chen Kuilong has already told the court that he is ready to put down the protests at our command."
+  ww1_qing.435.a:0 "The time for change is now!"
+  ww1_qing.435.b:0 "Is one no not enough?"
+  
+  ww1_qing.434.t:0 "Long Live Constitutional Government?"
+  ww1_qing.434.d:0 "In the very first week of the convening of the national assembly, the assembly and reformers alike have collectively created an ambitious petition to the government. Demanding the summoning of a true parliament that was more than just an 'advisory council' by no later than 1911, the petition was passed unanimously by the entire assembly amidst joyous shouts of 'Long live the Parliament! Long live the Great Qing State! Long live the contitutional policy of the Great Qing State!'.\n\nThe Qing court is in disarray. Originally, we expected that the deadline for Parliament's establishment would be 1916, giving us enough time to manage the burgeoning democracy within our country, and no one expected such a short deadline. Many conservative princes are completely outraged. Perhaps the advisory council, looking at the example of the reformist Guangxu emperor, has expected that Zaifeng, his brother, would be an ambitious, reforming regent.\n\nThe majority of governors are on board with the petition, eagerly looking at our court to prove its worth, and assure their confidence in progress. Several governors cite the case of the fall of the Ming Dynasty only 300 years earlier, whose emperor's caution had doomed the dynasty, and urge the regent to accept the petition. However, a few conservative officials, including Songshou (Min-Zhe), Zhao Erxun (Sichuan) and Changgeng (Shaan-gan), have refused to support the petitions. \n\nChen Kuilong, governor of Zhili (Peking, Hebei), has suggested a compromise. Instead of 1911, the parliamentary establishment will be moved to 1913. The petitioners will not be happy with this compromise, however, but it may be enough to keep atleast some of our legitimacy?"
+  ww1_qing.434.a:0 "Long live Parliament! Long live the Constitution!"
+  ww1_qing.434.b:0 "Our only choice is Chen Kuilong's compromise"
+  ww1_qing.434.c:0 "They need to learn to respect our prerogatives"
  
-  ww1_qing.433.t:0 "A Humble Ending to the Never-Ending Revolution [CHI.GetFlag]"
+  ww1_qing.433.t:0 "A Humble Ending to the Never-Ending Revolution"
   ww1_qing.433.d:0 "The bell rang, 'One order of Fried Rice, to go!'\n\nA simple rice shop in the coastal city of Zhejiang has attracted much local commotion, with its owner discovered to be none other than Chiang Kai-Shek. Thought to be exiled in America, Chiang has adopted the name "Zhong Liao", and disguised himself as an ordinary restaurant owner in his hometown. Perhaps he hid this attraction poorly; the restaurant was abbreviated as "KMT".\n\nWhen authorities confronted the location, they were attracted by the delicious smell of fried rice. Instead of detaining Chiang, they instead indulged in a great meal. It had been agreed, in exchange for avoiding political life, that Chiang will be allowed to continue to operate this local business. Afterall, it is a worthy example of mercy for our new state."
   ww1_qing.433.a:0 "Finally some good food..."
  
@@ -1416,7 +1465,7 @@
   QIN_effect_zhang_zhenfang:0 "This will appease Yuan Shikai, meaning he will be more loyal and therefore having the following effects:" 
  
   ww1_qing.431.t:0 "Send Duanfang West?"
-  ww1_qing.431.d:0 "Duanfang, full name Tohoro Duanfang, is a White Plain Banner bannerman. He has proved himself as viceroy of Liangjiang and Hugang, and he is a skilled diplomat. However, after the rebellion in the south started, Zhao Erfeng has proven himself incapable of suppressing the republican rebels.\n\nHowever, since Zhao Erfeng, one of our most skilled generals, was recently captured by the rebels and beheaded by republican generals. Our court wants to punish the rebels, however we first need to destroy them.\n\nSending Duanfang into the south, along with the Hubei New Army, would greatly help the Sichuan Garrison in destroying the rebels, but would come at a cost of leaving Hubei open to revolutionary activity. Now the decisions is up to the court, and Duanfang is ready to quell the uprising."
+  ww1_qing.431.d:0 "Duanfang, full name Tohoro Duanfang, is a White Plain Banner bannerman. He has proved himself as viceroy of Liangjiang and Hugang, and he is a skilled diplomat. However, after the rebellion in the south started, Zhao Erfeng has proven himself incapable of suppressing the republican rebels.\n\nHowever, since Zhao Erfeng, one of our most skilled generals, him being recently captured by the rebels and beheaded by revolutionary forces was a major blow to our forces in the region. Our court wants to punish the rebels, however we first need to destroy them.\n\nSending Duanfang west, along with the Hubei New Army, would greatly help the Sichuan garrison in destroying the rebels, but would come at a cost of leaving Hubei open to revolutionary activity. Now the decisions is up to the court, and Duanfang is ready to quell the uprising."
   ww1_qing.431.a:0 "Tell him to move troops from Hubei in"
  
   ww1_qing.430.t:0 "Hankou Conference"
@@ -1431,7 +1480,7 @@
   ww1_qing.429.c:0 "Nows our chance, kick Shikai out, no more of this!"
  
   ww1_qing.428.t:0 "Viceroy of Zhili resigns"
-  ww1_qing.428.d:0 "Chen Kuilong, viceroy of Zhili (Peking, Hebei), has loyally served our government for decades, and is a fervent royalist. However, he has taken ill, and has resigned his post."
+  ww1_qing.428.d:0 "Chen Kuilong, viceroy of Zhili, has resigned recently due to his illness. He was born in 1857. He was selected as a scholar in 1872, and passed the Imperial Examination 1875, him being awarded the Jinshi Scholarship in 1886 was a big point in his career too. After the Eight-Nation Alliance Forces landed in China May of 1900, he officially acted as Shuntian Fuyin. This was a turning point in his official career. He has successively served as Governor of Shuntian, Governor of Water Transport, Governor of Henan, Governor of Fujian, Governor of Sichuan, and Governor of Huguang, in 1909, he was appointed governor of Zhili and minister of Beiyang."
   ww1_qing.428.a:0 "He will be missed"
  
   ww1_qing.427.t:0 "Shandong Surrenders"
@@ -1474,7 +1523,7 @@
  ww1_qing.420.a:0 "Destroy the rebels!"
  
  ww1_qing.419.t:0 "1910 Nanyang Industrial Exposition"
- ww1_qing.419.d:0 "On June the 5th, the 1910 Nanyan industrial exposition has finally started. Duanfang, Governor-General of Liangjiang, and Cheng Qitai, Governor of Jiangsu, submitted a suggestion to the court, proposing that China should host an international exposition. It is an official fair backed by the court. \n\nA site of about 41 acres near San Pai Lou has been established for the exhibition. Along a main axis road are several exhibit buildings including the Administration Building, Fine Arts Building, Agriculture Building, Transportation Building, Foreign Exhibits Buildings, and then several buildings for the Chinese Provinces."
+ ww1_qing.419.d:0 "On June the 5th, the 1910 Nanyang industrial exposition has finally started. Duanfang, Governor-General of Liangjiang, and Cheng Qitai, Governor of Jiangsu, submitted a suggestion to the court, proposing that China should host an international exposition. It is an official fair backed by the court. \n\nA site of about 41 acres near San Pai Lou has been established for the exhibition. Along a main axis road are several exhibit buildings including the Administration Building, Fine Arts Building, Agriculture Building, Transportation Building, Foreign Exhibits Buildings, and then several buildings for the Chinese Provinces."
  ww1_qing.419.a:0 "Nice!"
  
  ww1_qing.418.t:0 "Schools across China"
@@ -1501,7 +1550,7 @@
  ww1_qing.413.c:0 "Who the hell cares?"
  
  ww1_qing.412.t:0 "General Liangbi Assasinated!"
- ww1_qing.412.d:0 "On his was home, Liangbi was attacked by a suicide bomber. The suicide bomber was Peng Jiazhen, a member of the Beijing Tongmenghui Society, and attacked Liangbi when he stepped out of a hotel. The bomber was hit in the head by shrapnel and died instantly. Liangbi's leg was severely wounded and he later died of his injuries, only calling the attacker a 'strange man'. Perhaps an expansion of the imperial guard could have prevented this?"
+ ww1_qing.412.d:0 "A leader of the Imperial Guards, general in the Eight Banners, Aisin-Gioro Liangbi was recently assasinated by a suicide bomber. The suicide bomber was Peng Jiazhen, a member of the Beijing Tongmenghui, and attacked Liangbi when he stepped out of a hotel. The bomber was hit in the head by shrapnel and died instantly. Liangbi's leg was severely wounded and he later died of his injuries, only calling the attacker a 'strange man'. Perhaps an expansion of the imperial guard could have prevented this?"
  ww1_qing.412.a:0 "Those damned revolutionaries!"
  
  ww1_qing.411.t:0 "Shen Jiaben Passes Away"
@@ -1559,7 +1608,7 @@
  ww1_qing.398.a:0 "Good"
  
  ww1_qing.397.t:0 "Dali Governor found working with the revolutionaries!"
- ww1_qing.397.d:0 "The Dali Governor has been found to be a part of the Dali sect of the Tongmenghui. He has officially professed to the court his deep regret, and claims that his connections were nothing more than a title to appease revolutionaries in the region"
+ ww1_qing.397.d:0 "The Dali Governor has been found to be a part of the Dali branch of the Tongmenghui. He has officially professed to the court his deep regret, and claims that his connections were nothing more than a title to appease revolutionaries in the region"
  ww1_qing.397.a:0 "Make sures he remembers our generous pardon"
  ww1_qing.397.b:0 "Too risky. Dismiss him!"
  
@@ -1573,8 +1622,8 @@
  ww1_qing.395.b:0 "We will win with the Zhili garrison alone!"
  
  ww1_qing.394.t:0 "Navy defects to the Tongmenghui"
- ww1_qing.394.d:0 "Our navy has defected to the Tongmenghui revolutionaries! The navy now sails on the Yangtze, preventing our armies from effectively crossing it!"
- ww1_qing.394.a:0 "Blasted revolutionaries!"
+ ww1_qing.394.d:0 "Our navy has defected to the Tongmenghui revolutionaries! Admiral Sa Zhenbing was ordered to sail the navy to Wuchang, to supress the revolution, but upon realizing his sailors' revolutionary tendencies, he left his post for Shanghai. The navy now sails on the Yangtze, preventing our armies from effectively crossing it, and the bigger ships will make transporting goods in and out of China almost impossible!"
+ ww1_qing.394.a:0 "And he just left?"
  
  ww1_qing.393.t:0 "Complete Provincial Authority"
  ww1_qing.393.d:0 "Not since Kangxi crushed the last Ming remnants over 200 years ago did China see this level of unity. The once powerful governors of the south, known as warlords, who disobeyed the central government at their will have finally been thrown out of power, willingly or not, and their realms integrated. No more will they oppose us, like they did forming the Mutual Protection of Southeast China in 1900, or when they worked behind our backs with Yuan Shikai."
@@ -1849,7 +1898,7 @@
  ww1_qing.336.c:0 "A noble attempt crushed by unworthy reactionaries"
  
  ww1_qing.335.t:0 "A Slow and Stable Bureaucracy"
- ww1_qing.335.d:0 "In Europe, and others influenced by it such as the United States and Japan, the bureaucracy has developed into the same refined method. A group of ministers, each managing a department, advise the chief executive on state affairs.\n\nThe Qing bureaucratic monarchy differs significantly from the ministerial system, despite initial visual similarities. Responsible for a vast, multi-ethinic empire, the Chinese governments have developed an intricate but outdated bureaucracy centered in Beijing over the last 700 years. \n\nThe central government includes prominent offices such as the Six Boards and the Censorate Grand Council handling administrative tasks, offering counsel to the emperor. However, these Six Boards are not like western institutions, being completely interconnected and with many officials holding multiple roles at the same time across multiple boards and the Grand Council. \n\nIn reality, there is no distinction between central, provincial, and local state functions. As such, to institute any of their ideas, the Boards must receive vast cooperation across all hierarchies of the 9 tier bureaucracy.\n\nIn addition, every official is appointed by the top, from the Grand Council to the most local administrators. The result has been a sort of inflation of officials, with too many qualified candidates to fit and thus many administrative roles being overfilled. The Six Boards often have executive committees of six equally ranked ministers each.\n\nThis system causes extreme problems for the empire. No minister is singly responsible for the actions of a position, or the conduct and corruption involved, and it is impossible to assign blame. The system has allowed corruption to grow rampant, as officials are overstretched covering multiple roles at the same time while there are too many unnecessary ones in obsolete roles.\n\nIn essence, the system is designed to prevent any one official from accumulating too much power, and to maximize the capability of the Emperor to intervene in any affair. In practice, the sheer amount of paperwork diverts all power to the conservative Manchu Grand Council. In addition, the Qing bureaucracy may be very stable but it is not nimble. Even the smallest reforms cannot be passed or implemented without broad consensus among officials, and systemic change requires either complete consensus or the hand of a reforming emperor.\n\n Strategy Recommendation - These two branches are concurrently exclusive (click the icon in tree to read description), meaning you can switch between them. Committing to one too early may endanger your stability and political power"
+ ww1_qing.335.d:0 "Optional Read: This event is for your historical immersion :)\n\nIn Europe, and others influenced by it such as the United States and Japan, the bureaucracy has developed into the same refined method. A group of ministers, each managing a department, advise the chief executive on state affairs.\n\nThe Qing bureaucratic monarchy differs significantly from the ministerial system, despite how it looks. Responsible for a vast, multi-ethinic empire, Chinese governments have developed an intricate but outdated bureaucracy around Beijing over the last 7 centuries.\n\nThe central government includes notable offices such as the Six Boards, handling administrative tasks and sharing advice to the emperor. However, the outside of name, Six Boards are nothing like western institutions. They are completely interconnected, with many officials holding multiple roles simultaneously across multiple boards as well as the Grand Council itself. \n\nCentral, provincial, and local state functions are fundamentally linked. To put even the simplest idea to action, the Boards must receive vast cooperation across the entire 9 tier bureaucracy, requiring inordinate amounts of time, effort, and often, bribes. Additionally, with every official, from the Grand Council down to the most local administrators,  appointed from the top, the result has been an inflation of officials, with too many qualified candidates to fit and thus many administrative roles being overfilled. The Six Boards often have executive committees of six equally ranked ministers each, preventing real action\n\nThis system has caused lots of damage to the empire. No minister is singly responsible for the actions of a position, and it is impossible to assign blame. The system has allowed corruption to grow rampant. While there are officials that are overwhelmed covering multiple roles at the same time, there are unnecessary ones in obsolete roles.\n\nIn theory, the system is built to prevent any one official from gaining too much power, and to allow the Emperor to intervene in any affair. In practice, the sheer amount of paperwork diverts all power to the conservative Manchu Grand Council. In addition while the Qing bureaucracy is very stable, it is not nimble. Even the smallest reforms will not be passed or implemented without broad consensus among officials, and systemic change requires either complete consensus or the hand of a reforming emperor.\n\nStrategy Recommendation - The two branches (Pro and Anti corruption) are concurrently exclusive, meaning you can switch between them. Committing fully to one too early may endanger your stability or political power"
  ww1_qing.335.a:0 "A system that will gain us much power"
  ww1_qing.335.b:0 "An example of the need for reform"
  
@@ -1929,11 +1978,11 @@
  ww1_qing.318.a:0 "Atleast we caught him"
  
  ww1_qing.317.t:0 "Puyi learns from the visitor"
- ww1_qing.317.d:0 "As was agreed, the visitor was allowed to converse with the emperor. Whatever was said to Puyi seemed to work very well, and Puyi's military skill began to improve rapidly."
+ ww1_qing.317.d:0 "As was agreed, the visitor was allowed to converse with the emperor. The things the visitor told Puyi were apparently worth the money according to the Emperor, and Puyi's ambitions to become a general the likes of Kangxi might be realized!"
  ww1_qing.317.a:0 "A fair exchange"
  
  ww1_qing.316.t:0 "The Emperor needs Glasses"
- ww1_qing.316.d:0 "Sir Reginald Johnston has recently approached the court. After much confusing translation, it turns out the Emperor has 'flawed vision' and needs 'glasses'. Apparently, the Emperor has had a visual examination done by one of the tutor's friends who is a western doctor.\n\n The court is outraged that the tutor suggests the Emperor is not perfect, and say that the divine emperor needs no such earthly modifications. Zaifeng, Puyi's father, said that the emperor cannot have bad vision, as that is impossible of a son of heaven. Still, Sir Reginald Johnston is unusually insistant, saying that it is an essential need."
+ ww1_qing.316.d:0 "Sir Reginald Johnston has recently approached the court. After much confusing translation, it turns out the Emperor has 'flawed vision' and needs 'glasses'. Apparently, the Emperor has had a visual examination done by one of the tutor's friends who is a western doctor.\n\n The court is outraged that the tutor suggests the Emperor is not perfect, and say that the divine emperor needs no such earthly modifications. Zaifeng, Puyi's father, said that the emperor cannot have bad vision, as that is impossible of a Son of Heaven. Still, Sir Reginald Johnston is unusually insistant, saying that it is an essential need."
  ww1_qing.316.a:0 "The tutor is right"
  ww1_qing.316.b:0 "Ha! The Emperor is Divine, and needs no such 'glasses'"
  
@@ -1957,8 +2006,8 @@
  ww1_qing.312.a:0 "A knowledgable tutor will be good for the Emperor"
  
  ww1_qing.311.t:0 "2nd Conference of Peking"
- ww1_qing.311.d:0 "Following our defeat in the great war, the great powers have come with their demands on our land."
- ww1_qing.311.a:0 "We have no choice"
+ ww1_qing.311.d:0 "Following our defeat in the Great War, the great powers have come with their demands on our land."
+ ww1_qing.311.a:0 "We have no choice..."
  
  ww1_qing.310.t:0 "Court backs corrupt official!"
  ww1_qing.310.d:0 "Following our decision to go after local corruption, we have found a man of no talent who has been using bribes to secure himself significant positions in several key areas. However, since several of these bribes were to the court, our court has backed the man, saying that these claims are nonsense."
@@ -1993,7 +2042,7 @@
  ww1_qing.302.t:0 "Puyi's Harsh Leadership"
  ww1_qing.302.d:0 "Watching on the frontlines with other officers, Puyi is often very harsh to the soldiers and those around him. It is likely this results from his pampered upbringing where he knows he can tell anyone to do anything. Some in the court say we should not let him act like this."
  ww1_qing.302.a:0 "His choice is divine"
- ww1_qing.302.b:0 "Lets try to get him to be nicer"
+ ww1_qing.302.b:0 "Hey, these men fight for you!"
  
  ww1_qing.301.t:0 "Great Shaanxi Famine spreads"
  ww1_qing.301.d:0 "Our decision not to send aid has caused the famine to spread furthur, and the only thing the people blame are us!"
@@ -2028,7 +2077,7 @@
  ww1_qing.294.b:0 "Tell the guards to bring him farther back!"
  
  ww1_qing.293.t: "Puyi injured in Europe!"
- ww1_qing.293.d: "While studying the war in a bunker near the front lines, a artillery shell hit nearby and Puyi was hit by a stray stone! While there is no lasting damage, and he is expected to recover soon, the entire court is completely outraged. \n\nMany court members are calling for the immediate recall of the emperor to the safety of Beijing, but this will certainly cancel the progress he makes on his trip to Europe!"
+ ww1_qing.293.d: "While studying the war in a bunker near the front lines, a artillery shell hit nearby and Puyi was hit by a stray stone! While there is no lasting damage, and he is expected to recover soon, the entire court is completely outraged. \n\nMany court members are calling for the immediate recall of the Emperor to the safety of Beijing, but this will certainly cancel the progress he makes on his trip to Europe!"
  ww1_qing.293.a: "I'm sure he will be fine"
  ww1_qing.293.b: "Great Heavens! Recall him back at once!"
  
@@ -2042,7 +2091,7 @@
  ww1_qing.291.d:0 "The last leader is no longer capable of leading our empire while the emperor is underage, and it is time to pick a new regent."
  ww1_qing.291.a:0 "Leader of the court, Empress Dowager Longyu"
  ww1_qing.291.c:0 "Prince Qing, leader of the Cabinet"
- ww1_qing.291.b:0 "Aisin-Gioro Natong will do this well"
+ ww1_qing.291.b:0 "Natong will do this well"
  
  ww1_qing.290.t:0 "Yunnan Salt Incident"
  ww1_qing.290.d:0 "The PCA (Parliament), finding Yunnan salt importants suspiciously low, has begun an investigation of the governor of Yunnan. Not only did they find that the Governor was hoarding salt taxes to himself, he was also siphoning money from almost all parts of the province's governance. \n\nBefore the PCA could act, however, the Yunnan Governor contacted the court, bribing several high court officials to recieve an official pardon (known as 'Jumping Appeal'), even keeping his post as governor! \n\nYet again, the court has corruptly interfered in the administration of the empire, but should we really question the court?"
@@ -2060,9 +2109,9 @@
  ww1_qing.287.b:0 "Strategic planning has always made our leaders great"
  
  ww1_qing.285.t:0 "Puyi studies newest military innovations"
- ww1_qing.285.d:0 "As the foreign war rages, we are gathering ever more intel on the newest battle strategies. This knowledge will come in handy in Puyi's military education"
+ ww1_qing.285.d:0 "As the foreign war rages, we are gathering ever more intel on the newest battle strategies. This knowledge will come in handy in Puyi's military education, and the court is deciding how to continue his education."
  ww1_qing.285.a:0 "Attack will prove more important"
- ww1_qing.285.b:0 "Defense for the Qing!"
+ ww1_qing.285.b:0 "Defense will be helpful"
  
  ww1_qing.286.t:0 "Puyi makes major progress in military training"
  ww1_qing.286.d:0 "The money we are spending on Puyi's military training has paid off, as the newest reports from his tutors indicate that he is progressing in his battlefield skill."
@@ -2079,7 +2128,7 @@
  ww1_qing.283.a:0 "Well thats something I guess"
  
  ww1_qing.282.t:0 "Upcoming Tour of Peking"
- ww1_qing.282.d:0 "Following our decision to allow the Emperor to leave the forbidden city, we are now organizing for him to travel around Peking like he always wanted. Certainly, this will help resolve some of his negative behavioral tendencies. While we will obviously visit the temples and allow the emperor to see the homes of several important court officials, Parliament has suggested that we allow the boy to tour the more poor parts of the city to see the true life of an average person."
+ ww1_qing.282.d:0 "Following our decision to allow the Emperor to leave the Forbidden City, we are now organizing for him to travel around Peking like he always wanted. Certainly, this will help resolve some of his negative behavioral tendencies. While we will obviously visit the temples and allow the emperor to see the homes of several important court officials, Parliament has suggested that we allow the boy to tour the more poor parts of the city to see the true life of an average person."
  ww1_qing.282.a:0 "We can't let him near those peasants!"
  ww1_qing.282.b:0 "The PCA is right, tour all parts of Peking"
  
@@ -2137,7 +2186,7 @@
  ww1_qing.269.c:0 "Perhaps our garrisons could use more support..."
  
  ww1_qing.268.t:0 "Death of Empress Dowager Longyu"
- ww1_qing.268.d:0 "Empress Dowager Longyu was the empress of Emperor Guangxu, the previous emperor before Xuantong. She helped spy of the previous emperor for Cixi and helped block the 100 days reform in 1898. She adopted Puyi after he ascended the throne and was a major voice in our court. Her death has brought much disorganization to the court, and they have dropped many of the old squabbles with reformers that Empress Dowager Longyu held."
+ ww1_qing.268.d:0 "Empress Dowager Longyu was the Empress of Emperor Guangxu, the previous emperor before Xuantong. She was a spy on the previous emperor for Cixi and helped block the 100 days reform in 1898. She adopted Puyi after he ascended the throne and was a major voice in our court. Her death has brought much disorganization to the court, and they have dropped many of the old squabbles with reformers that Empress Dowager Longyu held."
  
  ww1_qing.267.t:0 "Prominent Court official passes away"
  ww1_qing.267.d:0 "An important court member has recently passed away. Being one of the prominent members of the anti-reform faction, his death has significantly distracted the court from blocking ongoing reform."
@@ -2243,16 +2292,16 @@
  ww1_qing.234.a:0 "That's great"
  
  ww1_qing.233.t:0 "Investing in Artillery"
- ww1_qing.233.d:0 "The key to a great army is good artillery, and we have decided to invest a certain amount of gold into funding artillery for our army. One company in Taiyuan has offered to use the funding to furthur artillery research, although we could just use the gold to buy artillery"
- ww1_qing.233.a:0 "Fund the company"
+ ww1_qing.233.d:0 "The key to a great army is good artillery, and we have decided to invest a certain amount of gold into funding artillery for our army. The Hanyang Arsenal has offered to use the funding to further artillery research, with them promising to develop a 75mm cheap to produce infantry gun, although we could just use the gold to buy artillery"
+ ww1_qing.233.a:0 "Fund the Hanyang Arsenal"
  ww1_qing.233.b:0 "Buy Artillery"
  
  ww1_qing.232.t:0 "Southern River Development Seized!"
- ww1_qing.232.d:0 "Violence and revolution in the south have all but destroyed our ongoing industrialization in the region."
+ ww1_qing.232.d:0 "Violence and revolution in the south have all but destroyed our ongoing industrialization in the region, and now our progress has been halted."
  ww1_qing.232.a:0 "And its our fault we're not 'industrializing'?"
  
  ww1_qing.231.t:0 "Yellow River Development Seized!"
- ww1_qing.231.d:0 "Recently, due to overwhelming beiyang influence, the Beiyang army has seized our Yellow river industrialization!"
+ ww1_qing.231.d:0 "Recently, due to overwhelming Beiyang influence, the Beiyang army has seized our Yellow River industrialization, and took it for themselves!"
  ww1_qing.231.a:0 "We need to crush these corrupt soldiers!"
  
  ww1_qing.230.t:0 "Pearl River Development Finishes!"
@@ -2343,11 +2392,11 @@
  ww1_qing.214.t:0 "The Overthrowing of the Qing!"
  ww1_qing.214.d:0 "While our demands of an end to the Qing dynasty did not go over well with the Qing court, but with the Beiyang army practically crushed, a brief flying over of our airforce and a small bombing of the forbidden city quickly forced them to the table. Under this agreement, they would be allowed to keep their position in the forbidden city, living off a small government budget, but otherwise would be powerless. While most support the founding of a new republic, some have suggested restoring a Han Chinese emperor to the throne."
  ww1_qing.214.a:0 "Found a nation of the people"
- ww1_qing.214.b:0 "Establish a new constitutional monarchy under a Han ruler, and restore the Ming!"
+ ww1_qing.214.b:0 "Establish a new constitutional monarchy under a Han ruler, and restore the Empire!"
  
  ww1_qing.213.t:0 "Edict on the North Regional Armies"
  ww1_qing.213.d:0 "While much of our southern armies lie in the hands of powerful Han governors, the Viceroy of Zhili and Three Northeastern Provinces remain very loyal to us. Their armies already quite integrated, and are effectively our main army. Is it time to integrate these northern armies, at the behest of northern governors and court officials? \n\n§BYou have 100 days until this event times out automatically, instead of 14.§!"
- ww1_qing.213.a:0 "Fully incorporate the Zhili and Fengtian armies!"
+ ww1_qing.213.a:0 "Fully incorporate the Zhili and Fengtian provincial armies!"
  ww1_qing.213.b:0 "Take the reigns of these armies from the hands of the provincial lords!"
  ww1_qing.213.c:0 "Keep it as it is!"
  
@@ -2360,8 +2409,8 @@
  ww1_qing.210.d:0 "War has broken out across the western nations! Already, foreign indemnity payments have slowed, and new opportunities to lift the unequal treaties have opened up!"
  ww1_qing.210.a:0 "At long last, we shall rid ourselves of foreign shackles!"
  
- ww1_qing.209.t:0 "Death of Yiquang"
- ww1_qing.209.d:0 "Aisin Gioro Yi Quang, the former prime minister who served the emperor and was responsible for state affairs, has recently passed away. He opposed the invasion of Western culture, and together with Li Hongzhang, he was one of plenipotentiaries of the signing of the Boxer Protocol."
+ ww1_qing.209.t:0 "Death of Yikuang"
+ ww1_qing.209.d:0 "Yikuang, Prince Qing of First Rank, the former prime minister who served the Emperor and was responsible for state affairs, has recently passed away. He opposed the invasion of Western culture, and together with Li Hongzhang, he was one of plenipotentiaries of the signing of the Boxer Protocol."
  ww1_qing.209.a:0 "Rest in peace."
  
  ww1_qing.208.t:0 "A new age of prosperity!"
@@ -2854,6 +2903,7 @@
  ww1_qing.79.d:0 "A magistrate from Zhili has visited the imperial palace with what appears to be a old note that was found in a bottle, floating off the coast of a local fishing village off the coast of the Bo Hai. It has the imperialist English language on it, and no one in the court understands what it is talking about. They have asked you to try to comprehend what it is talking about. \n\nHere it reads: \n-------------------------------------\n'Hello! I am the developer for Qing. The content in this nation started as a submod long ago, and has now finally been integrated!! Anyway, thank you for taking the time out of your day to try it out.\n\nEssential Tips:\n\n- Use the Beiyang Army decisions. There is a reason they are at the top of the decisions!\n\n- The revolution is very hard to completely avoid, and very hard to fight, and fighting multiple revolutions is not uncommon. Instead of thinking about how to completely avoid the revolution, perhaps a better question would be whens the most strategic time to let the revolution happen.'\n-------------------------------------\n\nThere appears to be two more notes in the bottle. The court is confused, but perhaps you could make use these?"
  ww1_qing.79.a:0 "Give me the full background."
  ww1_qing.79.b:0 "Gameplay Tips (recommended unless you want the full clueless Qing noble experience)"
+ ww1_developer_note.5.a:0 "Alright just give me a cup of tea!"
  
  ww1_qing.78.t:0 "Gameplay advice"
  ww1_qing.78.d:0 "Recommended Tips:\n\n- These tips are for Qing, if you wish to play Tongmenghui through revolution, let the timer run out and choose to play as them. There is also a way to peacefully transition. NOTE: China update is not yet done, so content may be spares.\n\n- Like the Qing nobles, you may choose not to read events, descriptions, and decisions. However, it is recommended to read them, as it will help you have a better understanding of the history and whats going on, as well as being able to grasp the situation at hand, allowing you to better predict future disasters that may be coming. \n\n- Decisions are extremely important. Keep track of them.\n\n- Keep track of weekly stability. \n\n- Almost everything is done through decisions, events, party popularity, and national spirits.\n\n- It is highly recommended that you interact with the Beiyang army decisions. It is essential for political power\n\n- The revolution is designed to be almost impossible to avoid entirely. Don’t be disappointed if you have to fight one or even a few of them.\n\n- More things to either worry about or use to modernize will show up over time\n\n- Events are common, so be prepared for your plans to be dashed if you linger too close to the edge\n\n-The anti-Court opposition decisions quickly refresh, and if you have spare political power or Xinhai days, it is easy to get rid of them"
@@ -3180,10 +3230,15 @@
  #music
  qing_theme:0 "Cup of Solid Gold"
  #traits
+ fervent_anti_westerner:0 "Fervent Anti-Westerner"
+ QIN_modifier_court_empress:0 "Court Opposition Tickdown Speed: §Gx2§W\nTongmenghui Plot Tickdown Speed: §Rx2§W"
+ QIN_modifier_han_crackdown:0 "Tongmenghui Plot Tickdown Speed: §Gx0.8§W"
  QIN_beiyang_cabinet:0 "Beiyang Cabinet"
  memories_of_unstable_times:0 "Memories of Trial and Turbulance"
  liberal_emperor:0 "Fascinated with the West"
  court_conservative:0 "Court Conservative"
+ beiyang_sympathizer:0 "Beiyang Bureacrat"
+ beiyang_strongman:0 "Beiyang Strongman"
  QIN_underage:0 "Emperor in Training"
  QIN_underage_desc:0 "A young mind is least experienced yet least stubborn, "
  manipulatable_curiousity:0 "Manipulatable Curiousity"
@@ -3204,13 +3259,16 @@
  utopian_modernizer:0 "Utopian Modernizer"
  QIN_east_asia:0 "East Asia Idea"
  #Characters
+ QIN_wang_zhanyuan:0 "Wang Zhanyuan"
  QIN_longyu:0 "Empress Dowager Longyu"
  QIN_longyu_desc:0 "Empress of former Emperor Guangxu, adopted current emperor Xuantong"
  QIN_sheng_xuanhuai:0 "Sheng Xuanhuai"
  QIN_shen_jiaben:0 "Shen Jiaben"
  QIN_zaizhen:0 "Aisin-Gioro Zaizhen"
  QIN_yan_xiu:0 "Yan Xiu"
+ QIN_zaiyi:0 "Aisin-Gioro Zaiyi"
  QIN_tieliang:0 "Tie Liang"
+ QIN_ruicheng:0 "Ruicheng"
  #scriptedloc
  xinhai_revolution_historical:0 "Xinhai Revolution"
  xinhai_loc_1:0 "Gengxu" # 1910

@@ -1,0 +1,24 @@
+
+units = {
+	##### NAVAL UNITS #####
+	fleet = {
+		name = "Yung Feng"	#	MADE BY PWN3R1
+		naval_base = 10068
+		task_force = {
+			name = "Tiānjīn"	#THE SHIPs HAve ARRIVED	
+			location = 10068
+			ship = {
+				name = "ICN Yung Chi" 
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Yung Feng-class" } }
+			}
+			ship = {
+				name = "ICN Yung Chien" 
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Yung Feng-class" } }
+			}
+
+		}
+	}
+	
+}

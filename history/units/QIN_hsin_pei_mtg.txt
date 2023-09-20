@@ -1,0 +1,24 @@
+
+units = {
+	##### NAVAL UNITS #####
+	fleet = {
+		name = "Hsin Pei"	#	MADE BY PWN3R1
+		naval_base = 10068
+		task_force = {
+			name = "Tiānjīn"	#THE SHIPs HAve ARRIVED	
+			location = 10068
+			ship = {
+				name = "ICN Hsin Pei" 
+				definition = destroyer
+				equipment = { ship_hull_light_1 = { amount = 1 owner = QIN version_name = "Hsin Pei-class" } }
+			}
+			ship = {
+				name = "ICN Hsin Chen" 
+				definition = destroyer
+				equipment = { ship_hull_light_1 = { amount = 1 owner = QIN version_name = "Hsin Pei-class" } }
+			}
+
+		}
+	}
+	
+}

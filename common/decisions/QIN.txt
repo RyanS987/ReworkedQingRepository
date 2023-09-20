@@ -44,6 +44,9 @@ QIN_puyi_education_category = {
 						expire = "1968.1.1.1"
 					}
 				}
+				effect_tooltip = {
+					promote_character = QIN_xuantong
+				}
 			}
 			else_if = {
 				limit = {
@@ -55,10 +58,19 @@ QIN_puyi_education_category = {
 						civilian = { large = "gfx/leaders/QIN/QIN_xuantong_military.png" }
 					}
 				}
-				QIN_xuantong = {
-					promote_character = yes
+				#hidden_effect = {
+					add_country_leader_role = {
+						character = QIN_xuantong
+						promote_leader = yes
+						country_leader = {
+							ideology = conservatism
+							expire = "1968.1.1.1"
+						}
+					}
+				#}
+				effect_tooltip = {
+					promote_character = QIN_xuantong
 				}
-				#promote_character = QIN_xuantong
 			}
 			else_if = {
 				limit = {
@@ -2907,7 +2919,7 @@ QIN_xinhai_revolution_category = {
 			}
 			add_days_mission_timeout = {
 				mission = QIN_xinhai_timer
-				days = 75
+				days = 50
 			}
 			
 			if = {
@@ -3144,7 +3156,7 @@ QIN_xinhai_army_category = {
 		fire_only_once = no
 		icon = GFX_decision_generic_monarchy
 		is_good = yes
-		days_mission_timeout = 150
+		days_mission_timeout = 200
 		timeout_effect = {
 			division_template = {
 				name = "Guards Army"
@@ -3177,27 +3189,27 @@ QIN_xinhai_army_category = {
 			custom_effect_tooltip = QIN_effect_prof_army
 			capital_scope = {
 				create_unit = {
-					division = "name = \"Right Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					division = "name = \"Right Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 					owner = QIN
 				}
 				create_unit = {
-					division = "name = \"Left Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					division = "name = \"Left Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 					owner = QIN
 				}
 				create_unit = {
-					division = "name = \"Front Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					division = "name = \"Front Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 					owner = QIN
 				}
 				create_unit = {
-					division = "name = \"Rear Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					division = "name = \"Rear Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 					owner = QIN
 				}
 				create_unit = {
-					division = "name = \"Centre Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					division = "name = \"Centre Division\" division_template = \"Guards Army\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 					owner = QIN
 				}
 				create_unit = {
-					division = "name = \"Reserve Division\" division_template = \"Guards Army\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					division = "name = \"Reserve Division\" division_template = \"Guards Army\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
 					owner = QIN
 				}
 			}
@@ -3228,7 +3240,7 @@ QIN_xinhai_army_category = {
 				custom_effect_tooltip = QIN_effect_raise_militias_2
 				add_days_mission_timeout = {
 					mission = QIN_professional_army_mission
-					days = 30
+					days = 25
 				}
 			}
 			else = {
@@ -3243,19 +3255,105 @@ QIN_xinhai_army_category = {
 			custom_effect_tooltip = QIN_effect_raise_militias
 			capital_scope = {
 				create_unit = {
-					division = "name = \"Zhili Irregulars Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.3"
+					division = "name = \"Zhili Irregulars Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
 					owner = QIN
 				}
 				create_unit = {
-					division = "name = \"Zhili Irregulars Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.3"
+					division = "name = \"Zhili Irregulars Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
 					owner = QIN
 				}
 				create_unit = {
-					division = "name = \"Zhili Irregulars Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.3"
+					division = "name = \"Zhili Irregulars Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
 					owner = QIN
 				}
 			}
 			custom_effect_tooltip = QIN_effect_militias_removed
+		}
+		priority = 6
+	}
+	QIN_seize_local_arsenal = {
+		icon = GFX_decision_generic_industry
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_global_flag = xinhai_revolution
+			
+			OR = {
+				has_active_mission = QIN_professional_army_mission
+				command_power > 10
+			}
+		}
+		days_re_enable = 10
+		
+		complete_effect = {
+			if = {
+				limit = {
+					has_active_mission = QIN_professional_army_mission
+				}
+				custom_effect_tooltip = QIN_effect_raise_militias_2
+				add_days_mission_timeout = {
+					mission = QIN_professional_army_mission
+					days = 25
+				}
+			}
+			else = {
+				add_stability = -0.003
+				add_command_power = -10
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.01
+			}
+			custom_effect_tooltip = line_description
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1000
+			}
+		}
+		priority = 6
+	}
+	QIN_dec_offer_autonomies = {
+		icon = GFX_decision_eng_ally_imperialist_coup
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_global_flag = xinhai_revolution
+		}
+		days_re_enable = 25
+		
+		complete_effect = {
+		
+			QIN_random_prov_down = yes
+			if = {
+				limit = {
+					has_active_mission = QIN_professional_army_mission
+				}
+				add_days_mission_timeout = {
+					mission = QIN_professional_army_mission
+					days = 5
+				}
+			}
+			add_stability = -0.003
+			
+			
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Provincial Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+					owner = QIN
+				}
+				create_unit = {
+					division = "name = \"Provincial Regiment\" division_template = \"Loyalist Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+					owner = QIN
+				}
+			}
+			custom_effect_tooltip = QIN_effect_militias_removed
+			
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+			}
 		}
 		priority = 6
 	}
@@ -3380,7 +3478,7 @@ QIN_yuan_auction_category = {
 		}
 		is_good = no
 		fire_only_once = yes
-		days_mission_timeout = 500
+		days_mission_timeout = 960
 		allowed = {
 			original_tag = QIN
 		}
@@ -3430,7 +3528,7 @@ QIN_yuan_auction_category = {
 				has_global_flag = manchu_restoration
 			}
 		}
-		days_mission_timeout = 365
+		days_mission_timeout = 720
 		fire_only_once = yes
 		is_good = no
 		allowed = {
@@ -3438,7 +3536,7 @@ QIN_yuan_auction_category = {
 		}
 		available = {
 			CHI = {
-				casualties > 320000
+				casualties > 300000
 			}
 		}
 		cancel_trigger = {
@@ -3482,7 +3580,7 @@ QIN_yuan_auction_category = {
 			}
 		}
 		is_good = no
-		days_mission_timeout = 195
+		days_mission_timeout = 2000
 		fire_only_once = yes
 		allowed = {
 			original_tag = QIN
@@ -3550,7 +3648,7 @@ QIN_yuan_auction_category = {
 			}
 		}
 		is_good = no
-		days_mission_timeout = 155
+		days_mission_timeout = 2000
 		allowed = {
 			original_tag = QIN
 		}
@@ -3674,7 +3772,7 @@ QIN_yuan_auction_category = {
 			}
 		}
 		modifier = {
-			fascism_drift = 1.33
+			fascism_drift = 1.4
 			surrender_limit = 0.3
 			stability_factor = 0.1
 		}

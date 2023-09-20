@@ -780,6 +780,10 @@ QIN_democratic = {
 	color = rgb { 99 162 188 }
 	color_ui = rgb { 224 139 5 }
 }
+QIN_newdemocratic = {
+	color = rgb { 99 162 188 }
+	color_ui = rgb { 224 139 5 }
+}
 QIN_government = {
 	color = rgb { 99 162 188 }
 	color_ui = rgb { 224 139 5 }

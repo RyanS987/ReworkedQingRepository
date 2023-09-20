@@ -2,6 +2,14 @@ spriteTypes = {
 
 	###Qing Goals
 	SpriteType = {
+		name = "GFX_focus_five_race_star_flag"
+		texturefile = "gfx/interface/goals/five_race_star_flag.png"
+	}
+	SpriteType = {
+		name = "GFX_QIN_korea_split"
+		texturefile = "gfx/interface/goals/focus_QIN_korea_split.png"
+	}
+	SpriteType = {
 		name = "GFX_focus_qing_deal"
 		texturefile = "gfx/interface/goals/focus_qing_deal.dds"
 	}

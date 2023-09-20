@@ -139,6 +139,7 @@ QIN_pay_indemnities_category = {
 			has_country_flag = qing_japanese_concession
 			has_country_flag = qing_american_concession
 			has_country_flag = qing_italian_concession
+			has_country_flag = qing_austrian_concession
 		}
 	}
 }

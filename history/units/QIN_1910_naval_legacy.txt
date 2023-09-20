@@ -2,146 +2,267 @@
 units = {
 	##### NAVAL UNITS #####
 	fleet = {
-		name = "Zhonghuadiguo Haijun"			
+		name = "Zhōngguódìguó Hǎijūn"	#IMPERIAL CHINESE NAVY		
 		naval_base = 10068
 		task_force = {
-			name = "Hai Jiandui"			
+			name = "Hǎishàng Jiànduì"	#SEA FLEET - NOTE TO SELF, ADD A RIVER FLEET WITH ALL OF THE GUNBOATS		
 			location = 10068
 			ship = {
 				name = "ICN Hai Chi" 
 				definition = heavy_cruiser
-				equipment = { heavy_cruiser_1 = { amount = 1 owner = QIN version_name = "Hai Chi Class" } }
+				equipment = { heavy_cruiser_1 = { amount = 1 owner = QIN version_name = "Hai Chi-class" } }
 			}
 			ship = {
 				name = "ICN Hai Yung" 
 				definition = heavy_cruiser
-				equipment = { heavy_cruiser_1 = { amount = 1 owner = QIN version_name = "Hai Yung Class" } }
+				equipment = { heavy_cruiser_1 = { amount = 1 owner = QIN version_name = "Hai Yung-class" } }
 			}
 			ship = {
 				name = "ICN Hai Shew" 
 				definition = heavy_cruiser
-				equipment = { heavy_cruiser_1 = { amount = 1 owner = QIN version_name = "Hai Yung Class" } }
+				equipment = { heavy_cruiser_1 = { amount = 1 owner = QIN version_name = "Hai Yung-class" } }
 			}
 			ship = {
 				name = "ICN Hai Chen" 
 				definition = heavy_cruiser
-				equipment = { heavy_cruiser_1 = { amount = 1 owner = QIN version_name = "Hai Yung Class" } }
+				equipment = { heavy_cruiser_1 = { amount = 1 owner = QIN version_name = "Hai Yung-class" } }
+			}
+			ship = {
+				name = "ICN Nan Chen" 
+				definition = light_cruiser
+				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Nan Chen-class" } }
 			}
 			ship = {
 				name = "ICN Nan Shui" 
 				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Nan Chen Class" } }
-			}
-			ship = {
-				name = "ICN Pao Min" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Pao Min Class" } }
+				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Nan Chen-class" } }
 			}
 			ship = {
 				name = "ICN Ching Ching" 
 				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Kai Chi Class" } }
+				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Kai Chi-class" } }
 			}
 			ship = {
-				name = "ICN Tse Tien" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Fei Ting Class" } }
-			}
-			ship = {
-				name = "ICN Ching Yuen" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Chen Hai Class" } }
-			}
-			ship = {
-				name = "ICN Fu Po" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Fu Po Class" } }
-			}
-			ship = {
-				name = "ICN Yuan Kai" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Wei Yuen Class" } }
-			}
-			ship = {
-				name = "ICN Teng Ying Chow" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Wei Yuen Class" } }
-			}
-			ship = {
-				name = "ICN Chao Wu" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Wei Yuen Class" } }
-			}
-			ship = {
-				name = "ICN Hai Tung Hung" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Hai Tung Hung Class" } }
-			}
-			ship = {
-				name = "ICN Kuang Yuan" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan Class" } }
-			}
-			ship = {
-				name = "ICN Kuang Heng" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan Class" } }
-			}
-			ship = {
-				name = "ICN Kuang Li" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan Class" } }
-			}
-			ship = {
-				name = "ICN Kuang Chien" 
-				definition = light_cruiser
-				equipment = { light_cruiser_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan Class" } }
-			}
-			ship = {
-				name = "ICN Lei Chen" 
+				name = "ICN Lei Lung" 
 				definition = destroyer
-				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Bagua Class" } }
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Lei Lung-class" } }
 			}
 			ship = {
-				name = "ICN Lei Kun" 
+				name = "ICN Lei Fu" 
 				definition = destroyer
-				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Bagua Class" } }
-			}
-			ship = {
-				name = "ICN Lei Li" 
-				definition = destroyer
-				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Bagua Class" } }
-			}
-			ship = {
-				name = "ICN Lei Kan" 
-				definition = destroyer
-				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Bagua Class" } }
-			}
-			ship = {
-				name = "ICN Lei Chien" 
-				definition = destroyer
-				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Bagua Class" } }
-			}
-			ship = {
-				name = "ICN Lei Sun" 
-				definition = destroyer
-				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Bagua Class" } }
-			}
-			ship = {
-				name = "ICN Lei Ken" 
-				definition = destroyer
-				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Bagua Class" } }
-			}
-			ship = {
-				name = "ICN Lei Tui" 
-				definition = destroyer
-				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Bagua Class" } }
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Lei Lung-class" } }
 			}
 			ship = {
 				name = "ICN Lei Chung" 
 				definition = destroyer
-				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Bagua Class" } }
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Lei Chung-class" } }
 			}
+			ship = {
+				name = "ICN Tse Tien" 
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Fei Ting-class" } }
+			}
+			ship = {
+				name = "ICN Yuan Kai" 
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Wei Yuen-class" } }
+			}
+			ship = {
+				name = "ICN Teng Ying Chow" 
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Wei Yuen-class" } }
+			}
+			ship = {
+				name = "ICN Chao Wu" 
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Wei Yuen-class" } }
+			}
+			ship = {
+				name = "ICN Hai Tung Tung"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Hai Tung Tung-class" } }
+			}
+			ship = {
+				name = "ICN Kuang Yuan"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Kuang Heng"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Kuang Li"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Kuang Chien"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Kuang Woo
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Kuang Chi"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Kuang Keng"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Kuang King"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang King-class" } }
+			}
+			ship = {
+				name = "ICN Kuang Yu"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang King-class" } }
+			}
+			ship = {
+				name = "ICN Chiang Yuan"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Chiang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Chiang Hung"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Chiang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Chiang Li"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Chiang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Chiang Chen"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Chiang Yuan-class" } }
+			}
+			ship = {
+				name = "ICN Chu Tai"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Chu-class" } }
+			}
+			ship = {
+				name = "ICN Chu Tong"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Chu-class" } }
+			}
+			ship = {
+				name = "ICN Chu You"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Chu-class" } }
+			}
+			ship = {
+				name = "ICN Chu Chien"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Chu-class" } }
+			}
+			ship = {
+				name = "ICN Chu Yu"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Chu-class" } }
+			}
+			ship = {
+				name = "ICN Chu Kuan"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Chu-class" } }
+			}
+			ship = {
+				name = "ICN Kiang Ta"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Kiang Ta-class" } }
+			}
+			ship = {
+				name = "ICN Kiang Han"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Kiang Ta-class" } }
+			}
+			ship = {
+				name = "ICN Kiang Kung"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Kiang Ta-class" } }
+			}
+			ship = {
+				name = "ICN Kiang Ku"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Kiang Ta-class" } }
+			}
+			ship = {
+				name = "ICN Chen"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Chen-class" } }
+			}
+			ship = {
+				name = "ICN Su"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Chen-class" } }
+			}
+			ship = {
+				name = "ICN Lieh"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Lieh-class" } }
+			}
+			ship = {
+				name = "ICN Chang"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Lieh-class" } }
+			}
+			ship = {
+				name = "ICN Hu Peng"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Hu Peng-class" } }
+			}
+			ship = {
+				name = "ICN Hu Oah"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Hu Peng-class" } }
+			}
+			ship = {
+				name = "ICN Hu Ying"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Hu Peng-class" } }
+			}
+			ship = {
+				name = "ICN Hu Shun"
+				definition = destroyer
+				equipment = { destroyer_2 = { amount = 1 owner = QIN version_name = "Hu Peng-class" } }
+			}
+			ship = {
+				name = "ICN Chien An"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Chien An-class" } }
+			}
+			ship = {
+				name = "ICN Chien Wei"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Chien An-class" } }
+			}
+			ship = {
+				name = "ICN Kuang Ching"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang Ching-class" } }
+			}
+			ship = {
+				name = "ICN Kuang Pi"
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Kuang Ching-class" } }
+			}
+
 		}
 	}
+	
+	
 }
+
+	
+	

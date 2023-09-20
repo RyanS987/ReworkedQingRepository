@@ -48,6 +48,7 @@ leader_traits = {
 		sprite = 13
 		political_power_factor = 0.02
 		democratic_drift = -0.03
+		custom_modifier_tooltip = QIN_modifier_court_empress
 		
 		ai_will_do = {
 			factor = 10
@@ -57,6 +58,17 @@ leader_traits = {
 		random = no
 		political_power_factor = 0.05
 		consumer_goods_factor = 0.03
+	}
+	beiyang_sympathizer = {
+		random = no
+		sprite = 13
+		fascism_drift = 0.04
+		political_power_factor = 0.04
+	}
+	beiyang_strongman = {
+		random = no
+		sprite = 13
+		war_support_factor = 0.1
 	}
 	consultant_minister = {
 		random = no

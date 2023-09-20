@@ -1,0 +1,31 @@
+
+units = {
+	##### NAVAL UNITS #####
+	fleet = {
+		name = "Wàiguó Xúnyángjiàn"	# CHANG FENG CLASS GERMAN DESTROYERS		MADE BY PWN3R1
+		naval_base = 10068
+		task_force = {
+			name = "Tiānjīn"
+			location = 10068
+			ship = {
+				name = "ICN Chang Feng" 
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Chang Feng-class" } }
+			}
+						ship = {
+				name = "ICN Fu Po" 
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Chang Feng-class" } }
+			}
+						ship = {
+				name = "ICN Fei Yuen" 
+				definition = destroyer
+				equipment = { destroyer_1 = { amount = 1 owner = QIN version_name = "Chang Feng-class" } }
+			}
+			
+
+		}
+		
+	}
+	
+}
