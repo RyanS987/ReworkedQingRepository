@@ -1,0 +1,27 @@
+
+state={
+	id=601
+	name="STATE_601"
+
+	history={
+		victory_points = {
+			4425 1 
+		}
+		owner = RAJ
+		add_core_of = RAJ
+		add_core_of = BRM
+		buildings = {
+			infrastructure = 1
+
+		}
+
+	}
+
+	provinces={
+		1082 4425 4588 10920 12464 
+	}
+	manpower=848200
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+	local_supplies=1.000
+}

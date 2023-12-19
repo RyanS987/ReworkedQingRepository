@@ -1,0 +1,23 @@
+state={
+	id=910
+	name="STATE_910"
+	provinces={
+		1197 1934 4087 4318 4996 8063 
+	}
+	history={
+		owner = QIN
+		add_core_of = RAJ
+		add_core_of = BRM
+		buildings = {
+			infrastructure = 1
+		}
+		1912.2.1 = {
+			owner = RAJ
+			controller = RAJ
+		}
+	}
+	manpower=82753
+	state_category=pastoral
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

@@ -59,7 +59,7 @@ ideas = {
 			available = {
 				any_country = {
 					OR = {
-						has_completed_focus = CHI_aviation
+						has_completed_focus = CHI_open_up_camco
 						has_completed_focus = QIN_aviation
 					}
 				}
@@ -91,6 +91,28 @@ ideas = {
 					}
 				}
 			}
+		}
+	}
+	industrial_concern = {
+		designer = yes 
+		CHI_aioc = {
+			name = tsingtao_brewery
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+				NOT = { original_tag = QIN }
+			}
+			picture = tsingtao_brewery
+			research_bonus = { industry = 0.15 }
+			traits = { industrial_concern }
+			available = {
+				any_country = {
+					OR = {
+					has_completed_focus = CHI_german_manufacturer
+					has_completed_focus = QIN_german_manufacturer
+					}
+				}
+			}
+			ai_will_do = { factor = 2 }
 		}
 		CHI_mauser = { 
 			name = mauser
@@ -282,7 +304,7 @@ ideas = {
 				}
 			}
 		}
-		CHI_idea_three_principles = {
+		CHI_idea_three_principles_of_the_people = {
 			allowed = {
 				is_china_or_warlord_no_tt = yes
 			}
@@ -293,8 +315,7 @@ ideas = {
 				NOT = { has_government = fascism }
 			}
 			modifier = {
-				stability_weekly = 0.001
-				neutrality_drift = -0.02
+				democratic_drift = 0.02
 			}
 		}
 		CHI_idea_beiyang_government = {
@@ -1615,5 +1636,45 @@ ideas = {
 				fascism_drift = 0.02
 			}
 		}
+		CHI_idea_provisional_constitution = {
+			allowed = {
+				is_china_or_warlord = yes
+			}
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = HUN_treaty_of_triannon
+			available = {
+				NOT = { has_government = communism }
+			}
+			modifier = {
+				stability_factor = 0.1
+				democratic_drift = 0.02
+				surrender_limit = 0.2
+				political_advisor_cost_factor = 2
+				mobilization_laws_cost_factor = 2
+				economy_cost_factor = 2
+				trade_laws_cost_factor = 2
+			}
+		}
+		CHI_idea_official_constitution = {
+			allowed = {
+				is_china_or_warlord = yes
+			}
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = HUN_treaty_of_triannon
+			available = {
+				NOT = { has_government = communism }
+			}
+			modifier = {
+				stability_factor = 0.15
+				democratic_drift = 0.04
+				surrender_limit = 0.2
+				political_advisor_cost_factor = -0.25
+				mobilization_laws_cost_factor = -0.25
+				economy_cost_factor = -0.25
+				trade_laws_cost_factor = -0.25
+			}
+		}
 	}
-}
+	

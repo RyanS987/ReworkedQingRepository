@@ -496,6 +496,45 @@ music = {
 	}
 }
 music = {
+	song = "kwanghsu"
+	chance = {
+		modifier = {
+			factor = 0.2
+		}
+	}
+}
+music = {
+	song = "chinese_soliders_training_song"
+	chance = {
+		modifier = {
+			factor = 0.5
+		}
+	}
+}
+music = {
+	song = "the_yangtze_river"
+	chance = {
+		modifier = {
+			factor = 0.5
+		}
+	}
+}
+music = {
+	song = "china_stands_heroically_in_the_universe"
+	chance = {
+		modifier = {
+			factor = 3
+			tag = CHI
+			has_completed_focus = CHI_empire_of_china
+		}
+		modifier = {
+			factor = 0
+			tag = CHI
+			NOT = { has_completed_focus = CHI_empire_of_china }
+		}
+	}
+}
+music = {
 	song = "mahler_symphony_5"
 	chance = {	
 		modifier = {
@@ -510,6 +549,48 @@ music = {
 	chance = {
 		modifier = {
 			factor = 0
+		}
+	}
+}
+music = {
+	song = "march_of_double_10_victory"
+	chance = {
+		modifier = {
+			factor = 3
+			tag = CHI
+			has_completed_focus = CHI_supportsunyatsen
+		}
+		modifier = {
+			factor = 0
+			NOT = { has_completed_focus = CHI_supportsunyatsen }
+		}
+	}
+}
+music = {
+	song = "whampoa_military_academy_anthem"
+	chance = {
+		modifier = {
+			factor = 3
+			tag = CHI
+			has_completed_focus = CHI_fraternitysincerityexpertiseintegrity
+		}
+		modifier = {
+			factor = 0
+			NOT = { has_completed_focus = CHI_fraternitysincerityexpertiseintegrity }
+		}
+	}
+}
+music = {
+	song = "avanciermars"
+	chance = {
+		modifier = {
+			factor = 3
+			tag = CHI
+			has_completed_focus = "CHI_a_new_era_of_warfare"
+		}
+		modifier = {
+			factor = 0
+			NOT = { has_completed_focus = CHI_a_new_era_of_warfare }
 		}
 	}
 }

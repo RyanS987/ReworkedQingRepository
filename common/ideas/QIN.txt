@@ -118,7 +118,7 @@ ideas = {
 			allowed = { original_tag = QIN }
 			picture = aioc
 			research_bonus = {
-				industry = 0.15
+				industry = 0.25
 			}	
 			traits = { industrial_concern }
 			available = {
@@ -140,16 +140,12 @@ ideas = {
 			}
 			picture = generic_tank_manufacturer_3 
 			research_bonus = {
-				electronics = 0.10
+				electronics = 0.20
 			}	
 			traits = { electronics_concern }	
 			available = {
-				any_country = {
-					OR = {
-						has_completed_focus = CHI_british_manufacturer
-						has_completed_focus = QIN_british_manufacturer
-					}
-				}
+				has_completed_focus = QIN_british_manufacturer
+				
 				OR = {
 					any_allied_country = {
 						controls_province = 7108 #near Hong Kong
@@ -177,17 +173,6 @@ ideas = {
 		}						 
 	}
 	country = {
-		QIN_idea_purchase_restriction = {
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			picture = generic_army_problems
-			modifier = {
-				license_purchase_cost = 1.0
-				license_production_speed = -1.0
-				industrial_capacity_factory = -0.1
-				trade_laws_cost_factor = 5.0
-			}
-		}
 		QIN_idea_purchase_agreement = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -417,7 +402,7 @@ ideas = {
 			#}
 			picture = generic_economic_increase
 			modifier = {
-				consumer_goods_factor = -0.12
+				consumer_goods_factor = -0.25
 			}
 		}
 		QIN_idea_western_legal_code = {
@@ -516,7 +501,7 @@ ideas = {
 			removal_cost = -1
 			picture = HUN_treaty_of_triannon
 			modifier = {
-				add_stability_factor = -0.05
+				stability_factor = -0.05
 				political_power_factor = -0.1
 			}
 		}
@@ -693,7 +678,7 @@ ideas = {
 			available = {
 			}
 			modifier = {
-				consumer_goods_factor = 0.03
+				consumer_goods_factor = 0.05
 				stability_factor = 0.05
 			}
 		}
@@ -704,7 +689,7 @@ ideas = {
 			available = {
 			}
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.09
 				stability_factor = 0.08
 				stability_weekly = 0.001
 				communism_drift = 0.15
@@ -718,7 +703,7 @@ ideas = {
 			available = {
 			}
 			modifier = {
-				consumer_goods_factor = 0.1
+				consumer_goods_factor = 0.15
 				stability_weekly = 0.001
 			}
 		}
@@ -730,7 +715,7 @@ ideas = {
 			available = {
 			}
 			modifier = {
-				consumer_goods_factor = -0.075
+				consumer_goods_factor = -0.2
 				stability_weekly = -0.001
 			}
 		}
@@ -743,7 +728,7 @@ ideas = {
 			}
 			modifier = {
 				political_power_factor = 0.05
-				consumer_goods_factor = -0.05
+				consumer_goods_factor = -0.15
 				#stability_weekly = -0.001
 			}
 		}
@@ -755,7 +740,7 @@ ideas = {
 			available = {
 			}
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.25
 				production_speed_buildings_factor = -0.1
 				stability_weekly = -0.002
 				war_support_weekly = -0.002
@@ -1029,6 +1014,29 @@ ideas = {
 				democratic_drift = -0.02
 			}
 		}
+		QIN_idea_extensive_preparations = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = man_militarism
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.2
+				breakthrough_factor = 0.2
+			}
+		}
+		QIN_idea_stifle_the_national_conscious = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = NORDIC_army_monarchist
+			modifier = {
+				political_power_factor = 0.03
+				war_support_weekly = -0.002
+			}
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.03
+			}
+		}
 		
 		QIN_idea_crush_the_qing = {
 			allowed_civil_war = { always = yes }
@@ -1175,7 +1183,7 @@ ideas = {
 		QIN_idea_tongmenghui = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
-			picture = chi_warlord_integration5#CHI_tongmenghui
+			picture = chi_warlord_integration5 #CHI_tongmenghui
 			available = {
 				NOT = { has_government = democratic }
 				NOT = { has_global_flag = xinhai_revolution }
@@ -1397,11 +1405,69 @@ ideas = {
 			removal_cost = -1
 			picture = generic_constitutional_guarantees
 			modifier = {
-				conscription = -0.005
-				training_time_factor = 1.5
-				production_factory_max_efficiency_factor = -0.1
+				#conscription = -0.005
+				#training_time_factor = 1.5
+				#production_factory_max_efficiency_factor = -0.1
+				#production_speed_bunker_factor = -1.5
+
+				#license_purchase_cost = 1.0
+				#license_production_speed = -1.0
+				#industrial_capacity_factory = -0.1
 				
+				#trade_laws_cost_factor = 5.0
 				#stability_weekly = -0.001
+				#war_support_factor = 0.05
+				
+				#production_speed_infrastructure_factor = 0.05
+				#consumer_goods_factor = 0.05
+				trade_opinion_factor = 0.15
+				min_export = 0.05
+				
+				
+				custom_modifier_tooltip = QIN_scripted_loc_modifier_boxer_protocol
+				custom_modifier_tooltip = QIN_scripted_loc_modifier_boxer_protocol_2
+				custom_modifier_tooltip = QIN_scripted_loc_modifier_boxer_protocol_3
+				custom_modifier_tooltip = QIN_scripted_loc_modifier_boxer_protocol_4
+			}
+		}
+		QIN_idea_provincial_arsenals = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_army_problems
+			modifier = {
+				#global_building_slots_factor = -0.75
+				production_speed_buildings_factor = 0.1	
+				production_factory_start_efficiency_factor = 0.1 
+				custom_modifier_tooltip = QIN_modifier_provincial_arsenals_factories
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = 0.25
+					reliability = -0.25
+					instant = yes
+				}
+			}
+		}
+		QIN_idea_consolidate_southern_taxes = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = MEX_callistas
+			modifier = {
+				stability_factor = -0.1
+				political_power_gain = 0.5
+				consumer_goods_factor = -0.08
+			}
+		}
+		QIN_idea_four_power_loan = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = SPR_seize_the_gold_reserves
+			modifier = {
+				stability_factor = -0.05
+				production_speed_infrastructure_factor = 0.05
+					
+				local_resources_factor = 0.1
+				production_lack_of_resource_penalty_factor = -0.2
 			}
 		}
 		QIN_idea_boxer_protocol_1 = {
@@ -1581,7 +1647,8 @@ ideas = {
 			modifier = {
 				political_power_factor = -0.05
 				production_speed_arms_factory_factor = 0.1
-				production_speed_industrial_complex_factor = -0.03
+				production_speed_industrial_complex_factor = -0.05
+				production_speed_infrastructure_factor = -0.05
 			}
 		}
 		QIN_idea_german_advisors = {
@@ -1592,11 +1659,14 @@ ideas = {
 				NOT = { has_war_with = GER }
 			}
 			modifier = {
-				political_power_factor = -0.05
-				high_command_cost_factor = -0.15
+				political_power_factor = -0.1
+				production_speed_arms_factory_factor = 0.1
+				production_speed_industrial_complex_factor = -0.05
+				production_speed_infrastructure_factor = -0.05
 				army_org_factor = 0.1
 				planning_speed = 0.1
 				command_power_gain = 0.15
+				high_command_cost_factor = -0.15
 				experience_gain_army_factor = -0.05
 				land_doctrine_cost_factor = -0.10
 			}
@@ -1661,11 +1731,11 @@ ideas = {
 			picture = idea_under_construction
 			targeted_modifier = {
 				tag = FRA
-				cic_to_target_factor = 0.07
+				cic_to_target_factor = 0.125
 				extra_trade_to_target_factor = 0.5
 			}
 			modifier = {
-				production_lack_of_resource_penalty_factor = -0.2
+				production_lack_of_resource_penalty_factor = -0.1
 				min_export = -0.2
 			}
 		}
@@ -1928,7 +1998,7 @@ ideas = {
 			removal_cost = -1
 			picture = generic_goods_red_bonus
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.1
 			}
 		}
 		
@@ -1950,7 +2020,7 @@ ideas = {
 			picture = AST_idea_Australian_Dollar
 			modifier = {
 				
-				consumer_goods_factor = -0.05
+				consumer_goods_factor = -0.15
 			}
 		}
 		QIN_idea_canton_system = {

@@ -1,0 +1,633 @@
+on_actions = {
+	on_peaceconference_ended = {
+		effect = {
+			if = {
+				limit = {
+					original_tag = QIN					#winner
+					FROM = {
+						original_tag = CHI
+					}					#loser
+				}
+				QIN = {
+					annex_country = {
+						target = CHI
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_country_flag = xinhai_victory
+							has_global_flag = xinhai_revolution_ends
+						}
+					}
+					set_global_flag = xinhai_revolution_ends
+					set_country_flag = xinhai_victory
+					add_timed_idea = {
+						idea = CHI_idea_xinhai_revolution_ends
+						days = 360
+					}
+					news_event = {
+						id = kis_news.119
+					}
+					add_ideas = CHI_idea_inflation5
+					add_ideas = CHI_idea_army_corruption3
+				}
+				every_state = {
+					limit = {
+						is_core_of = CHI
+					}
+					remove_core_of = CHI
+				}
+				every_state = {
+					limit = {
+						is_claimed_by = CHI
+					}
+					remove_claim_by = CHI
+				}
+			}
+			if = {
+				limit = {
+					original_tag = CHI					#winner
+					FROM = {
+						original_tag = QIN
+					}					#loser
+				}
+				QIN = {
+					transfer_units_fraction = {
+						target = CHI
+						size = 1
+						stockpile_ratio = 1
+						army_ratio = 1
+						navy_ratio = 1
+						air_ratio = 1
+					}
+					every_unit_leader = {
+						set_nationality = CHI
+					}
+					if = {
+						limit = {
+							NOT = { country_exists = MON }
+						}
+						MON = {
+							transfer_state = 330
+							load_oob = "MON_army"
+						}
+					}
+					if = {
+						limit = {
+							NOT = { country_exists = TAN }
+						}
+						TAN = {
+							transfer_state = 329
+						}
+					}
+				}
+				CHI = {
+					annex_country = {
+						target = QIN
+						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_country_flag = xinhai_victory
+							has_global_flag = xinhai_revolution_ends
+						}
+					}
+					set_global_flag = xinhai_revolution_ends
+					add_timed_idea = {
+						idea = CHI_idea_xinhai_revolution_ends
+						days = 360
+					}
+					set_country_flag = xinhai_victory
+					news_event = {
+						id = kis_news.119
+					}
+					add_ideas = CHI_idea_inflation5
+					add_ideas = CHI_idea_army_corruption3
+					drop_cosmetic_tag = yes
+					promote_character = CHI_sun_yatsen					
+					give_military_access = JAP #South Manchuria Railway
+					give_military_access = GER #Qingdao-Jinan Railway
+					diplomatic_relation = {
+						country = CER
+						relation = military_access
+						active = yes
+					}
+					diplomatic_relation = {
+						country = CER
+						relation = guarantee
+						active = yes
+					}
+				}
+				else_if = {
+					limit = {
+						has_global_flag = manchu_restoration
+					}
+					if = {
+						limit = {
+							has_completed_focus = CHI_ruling_of_yuan_shikai
+						}
+						CHI = {
+							set_capital = { state = 608 }
+						}
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = QIN
+					}
+					remove_core_of = QIN
+				}
+				every_state = {
+					limit = {
+						is_claimed_by = QIN
+					}
+					remove_claim_by = QIN
+				}
+			}
+			if = {
+				limit = {
+					original_tag = GDC
+					has_country_flag = CHI_kuomintang_flag
+					FROM = {
+						original_tag = GXC
+					}
+				}
+				annex_country = {
+					target = GXC
+				}
+				if = {
+					limit = {
+						has_country_leader = {
+							character = GDC_chen_jiongming
+							ruling_only = yes
+						}
+					}
+					GDC_chen_jiongming = {
+						remove_country_leader_role = {
+							ideology = social_liberalism
+						}
+						remove_country_leader_role = {
+							ideology = authoritarian_democracy
+						}
+						remove_country_leader_role = {
+							ideology = stratocracy
+						}
+					}
+				}
+			}
+		}
+	}
+			
+	#*evil laugh*
+	on_puppet = {
+		effect = {
+			#China/Qing
+			if = {
+				limit = {
+					OR = {
+						original_tag = CHI
+						original_tag = QIN
+					}
+					FROM = {
+						tag = GER
+					}
+				}
+				set_cosmetic_tag = CHI_GER
+			}
+			if = {
+				limit = {
+					OR = {
+						original_tag = CHI
+						original_tag = QIN
+					}
+					FROM = {
+						tag = ENG
+					}
+				}
+				set_cosmetic_tag = CHI_ENG
+			}
+			if = {
+				limit = {
+					OR = {
+						original_tag = CHI
+						original_tag = QIN
+					}
+					FROM = {
+						tag = RUS
+					}
+				}
+				set_cosmetic_tag = CHI_RUS
+			}
+			if = {
+				limit = {
+					OR = {
+						original_tag = CHI
+						original_tag = QIN
+					}
+					KOR = {
+						has_cosmetic_tag = KOR_joseon
+					}
+					FROM = {
+						tag = KOR
+					}
+				}
+				set_cosmetic_tag = CHI_ming
+			}
+			if = {
+				limit = {
+					OR = {
+						original_tag = CHI
+						original_tag = QIN
+					}
+					NOT = {
+						KOR = {
+							has_cosmetic_tag = KOR_joseon
+						}
+					}
+					FROM = {
+						tag = KOR
+					}
+				}
+				set_cosmetic_tag = CHI_KOR
+			}
+		}
+	}
+	on_release_as_puppet = {
+		effect = {
+			#China/Qing
+			if = {
+				limit = {
+					OR = {
+						original_tag = CHI
+						original_tag = QIN
+					}
+					FROM = {
+						tag = GER
+					}
+				}
+				set_cosmetic_tag = CHI_GER
+			}
+			if = {
+				limit = {
+					OR = {
+						original_tag = CHI
+						original_tag = QIN
+					}
+					FROM = {
+						tag = ENG
+					}
+				}
+				set_cosmetic_tag = CHI_ENG
+			}
+			if = {
+				limit = {
+					OR = {
+						original_tag = CHI
+						original_tag = QIN
+					}
+					FROM = {
+						tag = RUS
+					}
+				}
+				set_cosmetic_tag = CHI_RUS
+			}
+			if = {
+				limit = {
+					OR = {
+						original_tag = CHI
+						original_tag = QIN
+					}
+					KOR = {
+						has_cosmetic_tag = KOR_joseon
+					}
+					FROM = {
+						tag = KOR
+					}
+				}
+				set_cosmetic_tag = CHI_ming
+			}
+			if = {
+				limit = {
+					OR = {
+						original_tag = CHI
+						original_tag = QIN
+					}
+					NOT = {
+						KOR = {
+							has_cosmetic_tag = KOR_joseon
+						}
+					}
+					FROM = {
+						tag = KOR
+					}
+				}
+				set_cosmetic_tag = CHI_KOR
+			}
+			#Other
+			if = {
+				limit = {
+					original_tag = GXC
+					is_subject = yes
+				}
+				if = {
+					limit = {
+						FROM = {
+							is_kuomintang_state = yes
+						}
+					}
+					set_cosmetic_tag = GXC_KMT
+				}
+			}
+			if = {
+				limit = {
+					original_tag = YUN
+					is_subject = yes
+				}
+				if = {
+					limit = {
+						FROM = {
+							is_kuomintang_state = yes
+						}
+					}
+					set_cosmetic_tag = YUN_KMT
+				}
+			}
+			if = {
+				limit = {
+					original_tag = XSM
+					is_subject = yes
+				}
+				if = {
+					limit = {
+						FROM = {
+							is_kuomintang_state = yes
+						}
+					}
+					set_cosmetic_tag = XSM_KMT
+				}
+			}
+			if = {
+				limit = {
+					original_tag = FNG
+					is_subject = yes
+				}
+				if = {
+					limit = {
+						FROM = {
+							is_kuomintang_state = yes
+						}
+					}
+					set_cosmetic_tag = FNG_KMT
+				}
+			}
+		}
+	}
+	on_startup = {
+		effect = {
+			QIN = {
+				if = {
+					limit = {
+						is_ai = no
+					}
+					country_event = { id = ww1_qing.79 }
+					country_event = { id = ww1_qing.475 }
+				}
+				add_days_mission_timeout = {
+					mission = QIN_pay_russian_indemnities
+					days = -237
+				}
+				add_days_mission_timeout = {
+					mission = QIN_pay_german_indemnities
+					days = -171
+				}
+				add_days_mission_timeout = {
+					mission = QIN_pay_french_indemnities
+					days = -183
+				}
+				add_days_mission_timeout = {
+					mission = QIN_pay_british_indemnities
+					days = -262
+				}
+				add_days_mission_timeout = {
+					mission = QIN_pay_japanese_indemnities
+					days = -180
+				}
+				add_days_mission_timeout = {
+					mission = QIN_pay_usa_indemnities
+					days = -180
+				}
+				add_days_mission_timeout = {
+					mission = QIN_pay_italian_indemnities
+					days = -78
+				}
+				add_days_mission_timeout = {
+					mission = QIN_pay_austrian_indemnities
+					days = -104
+				}
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					original_tag = QIN
+					any_enemy_country = {
+						original_tag = CHI
+					}
+					NOT = {
+						has_country_flag = tibet_released
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = TIB
+						OR = {
+							is_owned_by = QIN
+							is_owned_by = CHI
+						}
+					}
+					TIB = {
+						transfer_state = PREV
+					}
+				}
+				set_country_flag = tibet_released
+				if = {
+					limit = {
+						TIB = {
+							OR = {
+								is_subject_of = QIN
+								is_subject_of = CHI
+							}
+						}
+					}
+					end_puppet = TIB
+				}
+			}
+			if = {
+				limit = {
+					original_tag = CHI
+					has_country_flag = chinese_second_revolution
+					has_war_with = CHI
+				}
+				transfer_navy = {
+					target = CHI
+				}
+				every_unit_leader = {
+					set_nationality = CHI
+				}
+				if = {
+					limit = {
+						has_character = CHI_duan_qirui
+					}
+					CHI_duan_qirui = {
+						set_nationality = CHI
+					}
+				}
+				if = {
+					limit = {
+						has_character = CHI_li_yuanhong
+					}
+					CHI_li_yuanhong = {
+						set_nationality = CHI
+					}
+				}
+				if = {
+					limit = {
+						has_character = CHI_yuan_shikai
+					}
+					CHI_yuan_shikai = {
+						set_nationality = CHI
+						promote_character = yes
+					}
+				}
+				if = {
+					limit = {
+						has_character = CHI_sun_yatsen
+					}
+					CHI_sun_yatsen = {
+						set_nationality = CHI
+						promote_character = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					original_tag = CHI
+					has_country_flag = CHI_national_protection_flag
+					any_other_country = {
+						original_tag = CHI
+						NOT = { has_country_flag = CHI_national_protection_flag }
+						has_war_with = PREV
+					}
+				}
+				CHI = {
+					country_event = ww1_china.155
+				}
+			}
+			if = {
+				limit = {
+					original_tag = CHI
+					NOT = { has_country_flag = CHI_national_protection_flag }
+					any_other_country = {
+						original_tag = CHI
+						has_country_flag = CHI_national_protection_flag
+						has_war_with = PREV
+					}
+				}
+				NPA = {
+					country_event = ww1_china.154
+					change_tag_from = NPA
+				}
+			}
+		}
+	}
+	on_daily_QIN = { #Update court opposition
+		effect = {
+			if = {
+				limit = { has_variable = var_court_opp_days }
+				add_to_variable = { var_court_opp_days = -1 }
+				set_temp_variable = { democratic_temp = party_popularity@democratic }
+				multiply_temp_variable = { democratic_temp = -1.0 }
+				set_variable = { court_opp_pp_factor = democratic_temp }
+			}
+			if = {
+				limit = {
+					has_idea_with_trait = court_empress
+				}
+				if = {
+					limit = {
+						has_idea = QIN_idea_court_opposition
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = -1
+					}
+					add_to_variable = { var_court_opp_days = -1 }
+					round_variable = temp_days_var
+				}
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -1
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = QIN_flag_easy_court 
+				}
+				if = {
+					limit = {
+						has_idea = QIN_idea_court_opposition
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = -3
+					}
+					add_to_variable = { var_court_opp_days = -3 }
+					round_variable = temp_days_var
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = QIN_flag_easy_court2
+				}
+				if = {
+					limit = {
+						has_idea = QIN_idea_court_opposition
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = -1
+					}
+					add_to_variable = { var_court_opp_days = -1 }
+					round_variable = temp_days_var
+				}
+			}
+			if = {
+				limit = {
+					has_idea = QIN_idea_han_crackdown
+				}
+				random_list = {
+					20 = {
+						add_days_mission_timeout = {
+							mission = QIN_xinhai_timer
+							days = 1
+						}
+					}
+					80 = {
+					}
+				}
+			}
+		}
+	}
+	on_monthly_QIN = {
+		effect = {
+			set_temp_variable = { democratic_temp = party_popularity@democratic }
+			multiply_temp_variable = { democratic_temp = -1.0 }
+			set_variable = { court_opp_pp_factor = democratic_temp }
+		}
+	}
+}

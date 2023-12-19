@@ -39,4 +39,8 @@ opinion_modifiers = {
 	QIN_unfriendly_recall = { value = -10 }
 	
 	QIN_opinion_uncivilized_refusal = { value = -15 }
+	
+	QIN_opinion_exploited_chaos = { value = -15 }
+	
+	CHI_approached_us = { value = 15 }
 }	

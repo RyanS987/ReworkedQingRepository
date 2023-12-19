@@ -51,6 +51,7 @@ QIN_xinhai_revolution_category = {
 		NOT = {
 			has_global_flag = QIN_flag_manchu_rest_not_done
 			has_global_flag = xinhai_revolution
+			has_global_flag = small_qing_rebellion
 		}
 	}
 }
@@ -96,7 +97,7 @@ QIN_yuan_auction_category = {
 	allowed = {
 		tag = QIN
 	}
-	visible = { 
+	visible = {
 		has_idea = QIN_idea_beiyang_army
 		has_global_flag = xinhai_revolution
 		NOT = { has_global_flag = QIN_yuan_shikai_government }
@@ -120,6 +121,7 @@ QIN_beiyang_army_category = {
 QIN_pay_indemnities_category = {
 	priority = 8
 	icon = political_operation
+#	picture = GFX_decision_qin_indemnities
 	allowed = {
 		OR = {
 			tag = QIN

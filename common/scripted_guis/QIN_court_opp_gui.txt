@@ -5,13 +5,19 @@ scripted_gui = {
 		parent_window_token = top_bar
 
 	    triggers = {
+			qing_court_text_bg_visible = {
+				tag = QIN
+			}
 		    court_opposition_visible = {
+				tag = QIN
 				QIN = { has_idea = QIN_idea_court_opposition }
 		    }
 			court_opposition_not_active_visible = {
+				tag = QIN
 				QIN = { NOT = { has_idea = QIN_idea_court_opposition } }
 			}
 			court_opp_text_visible = {
+				tag = QIN
 				QIN = { has_idea = QIN_idea_court_opposition }
 			}
 		}

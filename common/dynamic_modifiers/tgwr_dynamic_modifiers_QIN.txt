@@ -1,16 +1,156 @@
-
+chi_rebellious_warlord = {
+	enable = { always = yes }
+	remove_trigger = { 
+		NOT = { is_owned_by = CHI }
+		NOT = { is_owned_by = QIN }
+	}
+	icon = GFX_modifiers_state_manpower
+	
+	local_org_regain = -0.05
+	army_speed_factor_for_controller = -0.10
+	state_production_speed_buildings_factor = -0.10
+	state_resources_factor = -0.50
+	local_factories = -0.50
+}
 unequal_treaties_dm = {
 	enable = { always = yes }
 
 	min_export = var:unequal_treaties_resources_to_market
-	consumer_goods_factor = var:unequal_treaties_consumer_goods
+	#consumer_goods_factor = var:unequal_treaties_consumer_goods
 	research_speed_factor = var:unequal_treaties_research_speed
 	production_speed_industrial_complex_factor = var:unequal_treaties_civilian_factory
 	production_speed_arms_factory_factor = var:unequal_treaties_military_factory
 	production_speed_dockyard_factor = var:unequal_treaties_dockyard
 	production_speed_infrastructure_factor = var:unequal_treaties_infrastructure
 }
+
+boxer_protocol_dm = {
+	enable = { has_idea = QIN_idea_boxer_protocol }
+
+	# Canal
+	consumer_goods_factor = var:boxer_protocol_consumer_goods
+	production_speed_infrastructure_factor = var:boxer_protocol_infrastructure
+	
+	# Foreign Rights
+	stability_weekly = var:boxer_protocol_stability_weekly
+	war_support_factor = var:boxer_protocol_war_support
+	
+	# Xinchou Treaty
+	conscription = var:boxer_protocol_conscription
+	training_time_factor = var:boxer_protocol_training_time
+	production_factory_max_efficiency_factor = var:boxer_protocol_cap
+	production_speed_bunker_factor = var:boxer_protocol_forts
+	trade_laws_cost_factor = var:boxer_protocol_trade_cost
+}
+boxer_protocol_purchase_restriction_dm = {
+	enable = { 
+		has_idea = QIN_idea_boxer_protocol 
+		NOT = {
+			has_global_flag = QIN_flag_removed_purchase_restriction
+		}
+	}
+	license_purchase_cost = 1.0
+	license_production_speed = -1.0
+	industrial_capacity_factory = -0.1
+}
+QIN_provincial_arsenals_dm = {
+	enable = {
+		has_idea = QIN_idea_provincial_arsenals
+	}
+	global_building_slots_factor = provincial_arsenals_max_factories
+}
 qing_court_opp_dm = {
 	enable = { has_idea = QIN_idea_court_opposition }
 	political_power_factor = court_opp_pp_factor
+}
+qing_russian_dm = {
+	enable = { 
+		OR = {
+			QIN = { has_country_flag = qing_russian_concession } 
+			CHI = { has_country_flag = qing_russian_concession }
+		}
+	}
+	civilian_factory_use = russian_factories
 }	
+qing_german_dm = {
+	enable = { 
+		OR = {
+			QIN = { has_country_flag = qing_german_concession } 
+			CHI = { has_country_flag = qing_german_concession }
+		}
+	}
+	civilian_factory_use = german_factories
+}	
+qing_british_dm = {
+	enable = { 
+		OR = {
+			QIN = { has_country_flag = qing_british_concession } 
+			CHI = { has_country_flag = qing_british_concession }
+		}
+	}
+	civilian_factory_use = british_factories
+}	
+qing_french_dm = {
+	enable = { 
+		OR = {
+			QIN = { has_country_flag = qing_french_concession } 
+			CHI = { has_country_flag = qing_french_concession }
+		}
+	}
+	civilian_factory_use = french_factories
+}	
+qing_japanese_dm = {
+	enable = { 
+		OR = {
+			QIN = { has_country_flag = qing_japanese_concession } 
+			CHI = { has_country_flag = qing_japanese_concession }
+		}
+	}
+	civilian_factory_use = japanese_factories
+}	
+qing_american_dm = {
+	enable = { 
+		OR = {
+			QIN = { has_country_flag = qing_american_concession } 
+			CHI = { has_country_flag = qing_american_concession }
+		}
+	}
+	civilian_factory_use = american_factories
+}	
+qing_italian_dm = {
+	enable = { 
+		OR = {
+			QIN = { has_country_flag = qing_italian_concession } 
+			CHI = { has_country_flag = qing_italian_concession }
+		}
+	}
+	civilian_factory_use = italian_factories
+}	
+qing_austrian_dm = {
+	enable = { 
+		OR = {
+			QIN = { has_country_flag = qing_austrian_concession } 
+			CHI = { has_country_flag = qing_austrian_concession }
+		}
+	}
+	civilian_factory_use = austrian_factories
+}	
+
+QIN_twelve_step_plan = {
+	icon = GFX_idea_man_low_legitimacy5
+
+	stability_factor = 0.05
+	weekly_manpower = var:QIN_twelve_step_plan_weekly_manpower
+	conscription = var:QIN_twelve_step_plan_conscription
+	production_speed_infrastructure_factor = var:QIN_twelve_step_plan_production_speed_infrastructure_factor
+	political_power_factor = var:QIN_twelve_step_plan_political_power_factor
+	trade_opinion_factor = var:QIN_twelve_step_plan_trade_opinion_factor
+	stability_weekly = var:QIN_twelve_step_plan_stability_weekly
+	research_speed_factor = var:QIN_twelve_step_plan_research_speed_factor
+	army_speed_factor = var:QIN_twelve_step_plan_army_speed_factor
+	production_speed_industrial_complex_factor = var:QIN_twelve_step_plan_production_speed_industrial_complex_factor
+	production_speed_arms_factory_factor = var:QIN_twelve_step_plan_production_speed_arms_factory_factor
+	war_support_weekly = var:QIN_twelve_step_plan_war_support_weekly
+	local_resources_factor = var:QIN_twelve_step_plan_local_resources_factor
+	industrial_capacity_factory = var:QIN_twelve_step_plan_industrial_capacity_factory
+}

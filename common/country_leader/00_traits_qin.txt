@@ -20,6 +20,17 @@ leader_traits = {
 			factor = 2
 		}
 	}
+	railway_protectionist = {
+		sprite = 10
+		random = no
+		
+		stability_factor = 0.02
+		production_speed_rail_way_factor = 0.07
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 	judicial_reformer = {
 		random = no
 		sprite = 13
@@ -49,6 +60,16 @@ leader_traits = {
 		political_power_factor = 0.02
 		democratic_drift = -0.03
 		custom_modifier_tooltip = QIN_modifier_court_empress
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	fervent_anti_westerner = {
+		random = no
+		sprite = 13
+		stability_factor = -0.05
+		army_attack_against_major_factor = 0.1
 		
 		ai_will_do = {
 			factor = 10
@@ -151,5 +172,138 @@ leader_traits = {
 		political_power_factor = 0.1
 		stability_factor = -0.05
 		war_support_factor = 0.05
+	}
+	divisive_emperor = {
+		random = no
+		political_power_factor = 0.1
+		stability_factor = -0.05
+		war_support_factor = 0.05
+	}
+	father_of_the_republic = {
+		random = no
+		stability_factor = 0.15
+		political_power_gain = 0.1
+	}
+	emperor_of_unity_proclamation = {
+		random = no
+		stability_factor = 0.15
+	}
+	chinese_federalist = {
+		random = no
+		stability_factor = 0.05
+		democratic_acceptance = 10
+	}
+	chinese_nationalist = {
+		random = no
+		political_power_gain = 0.05
+		democratic_acceptance = 10
+	}
+	yuan_shikai_loyalist = {
+		random = no
+		war_support_factor = 0.05
+	}
+	chinese_royalist = {
+		random = no
+		drift_defence_factor = 0.05
+		neutrality_acceptance = 10
+	}
+	tyrant = {
+		random = no
+		political_power_factor = -0.10
+		stability_factor = -0.10
+		war_support_factor = -0.10
+	}
+	civil_administration = {
+		random = no
+		stability_factor = 0.05
+		democratic_acceptance = 10
+	}
+	corrupted_bureaucrat = {
+		political_power_factor = -0.1
+		consumer_goods_factor = 0.05
+	}
+	CHI_trait_dictator = {
+		political_power_factor = 0.10
+		stability_factor = 0.05
+	}
+	CHI_trait_imperial_prime_minister = {
+		random = no
+		political_power_gain = 0.15
+		political_advisor_cost_factor = -0.20
+		neutrality_acceptance = 50
+		democratic_acceptance = 10
+	}
+	CHI_trait_ambitious_commander = {
+		random = no
+		political_power_gain = -0.5
+		army_leader_cost_factor = -0.5
+		high_command_cost_factor = -0.5
+		fascism_drift = 0.1
+	}
+	CHI_trait_foreign_minister = {
+		random = no
+		improve_relations_maintain_cost_factor = -0.5
+		trade_opinion_factor = 0.3
+		opinion_gain_monthly_same_ideology_factor = 0.5
+	}
+	CHI_trait_accepted_monarch = {
+		random = no
+		political_power_factor = 0.05
+		stability_factor = 0.05
+	}
+	CHI_trait_army_strongman = {
+		random = no
+		political_power_factor = -0.05
+		war_support_weekly = 0.01
+		training_time_factor = -0.15
+	}
+	CHI_trait_conservative_reformer = {
+		random = no
+		stability_factor = 0.05
+		research_speed_factor = 0.05
+	}
+	CHI_trait_socialist_advocate = {
+		random = no
+		stability_factor = 0.05
+		democratic_acceptance = 20
+		communism_acceptance = 20
+	}
+	king_shanxi = {
+		random = no
+		consumer_goods_factor = -0.10
+	}
+	japanophobia = {
+		random = no
+		ai_strategy = {
+			type = befriend
+			id = JAP
+			value = -100
+		}
+		ai_strategy = {
+			type = antagonize
+			id = "JAP"
+			value = 100
+		}
+		ai_strategy = {
+			type = alliance
+			id = JAP
+			value = -100
+		}
+	}
+	no_resistance = {
+		random = no
+		targeted_modifier = {
+			tag = JAP
+			army_attack_factor = -0.30
+			army_defence_factor = -0.30
+		}
+	}
+	hate_opium = {
+		random = no
+		political_power_factor = 0.05
+	}
+	christian_general = {
+		random = no
+		party_popularity_stability_factor = 0.15
 	}
 }

@@ -3,11 +3,14 @@ characters = {
 		name="CHI_zhang_zongchang"
 		portraits={
 			civilian={
-				large="gfx/leaders/CHI/Portrait_Shandong_Zhang_Zongchang.png"
+				large="gfx/leaders/CHI/CHI_zhang_zongchang.png"
 			}
 			army={
-				large="gfx/leaders/CHI/Portrait_Shandong_Zhang_Zongchang.png"
-				}
+				large="gfx/leaders/CHI/CHI_zhang_zongchang.png"
+			}
+		}
+		country_leader = {
+			ideology = despotism
 		}
 		country_leader = {
 			ideology = stratocracy
@@ -25,33 +28,33 @@ characters = {
 		name="CHI_chu_yupu"
 		portraits={
 			army={
-				large="gfx/leaders/CHI/Portrait_Shandong_Chu_Yupu.png"
+				large="gfx/leaders/CHI/CHI_chu_yupu.png"
 			}
 		}
-			corps_commander={
+		corps_commander={
 			traits={ war_hero }
 			skill=2
 			attack_skill=2
 			defense_skill=3
 			planning_skill=2
-			logistics_skill=2	
-			}
+			logistics_skill=2
+		}
 	}
 	SDC_sun_dianying = {
 		name="CHI_sun_dianying"
 		portraits={
 			army={
-				large="gfx/leaders/CHI/Portrait_Shandong_Chu_Yupu.png"
+				large="gfx/leaders/CHI/CHI_sun_dianying.png"
 				#reminer to shandong dev to add him as poladvisor small=
 			}
 		}
-			corps_commander={
+		corps_commander={
 			skill=1
 			attack_skill=1
 			defense_skill=1
 			planning_skill=2
-			logistics_skill=1	
-			}
+			logistics_skill=1
+		}
 	}
 }
 

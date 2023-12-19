@@ -803,7 +803,7 @@ defined_text = {
 	name = GetTongmenghuiPlotName
 	text = {
 		trigger = {
-			has_global_flag = QIN_flag_first_xinhai
+			has_global_flag = QIN_flag_first_xinhai_over
 		}
 		localization_key = QIN_tongmenghui_plot_loc
 	}
@@ -815,12 +815,29 @@ defined_text = {
 	name = GetTongmenghuiPlotNameDesc
 	text = {
 		trigger = {
-			has_global_flag = QIN_flag_first_xinhai
+			has_global_flag = QIN_flag_first_xinhai_over
 		}
 		localization_key = QIN_xinhai_timer_loc_desc2
 	}
 	text = {
 		localization_key = QIN_xinhai_timer_loc_desc
+	}
+}
+defined_text = {
+	name = GetXinhaiFlagLoc
+	text = {
+		trigger = {
+			QIN = {
+				exists = yes
+			}
+			NOT = {
+				has_global_flag = manchu_restoration
+			}
+		}
+		localization_key = xinhai_revolution_qing_loc
+	}
+	text = {
+		localization_key = xinhai_revolution_regular_loc
 	}
 }
 defined_text = {
@@ -833,5 +850,119 @@ defined_text = {
 	}
 	text = {
 		localization_key = QIN_loc_yuan_auction2
+	}
+}
+defined_text = {
+	name = QIN_scripted_loc_boxer
+	text = {
+		trigger = {
+			has_global_flag = QIN_flag_removed_purchase_restriction
+		}
+		localization_key = line_description
+	}
+	text = {
+		localization_key = QIN_modifier_boxer_purchase_restriction
+	}
+}
+defined_text = {
+	name = QIN_scripted_loc_boxer_2
+	text = {
+		trigger = {
+			has_global_flag = QIN_flag_removed_foreign_rights
+		}
+		localization_key = line_description
+	}
+	text = {
+		localization_key = QIN_modifier_boxer_foreign_rights
+	}
+}
+defined_text = {
+	name = QIN_scripted_loc_boxer_3
+	text = {
+		trigger = {
+			has_global_flag = QIN_flag_removed_xinchou
+		}
+		localization_key = line_description
+	}
+	text = {
+		localization_key = QIN_modifier_boxer_xinchou
+	}
+}
+defined_text = {
+	name = QIN_scripted_loc_boxer_4
+	text = {
+		trigger = {
+			has_global_flag = QIN_flag_removed_grand_canal_fund
+		}
+		localization_key = line_description
+	}
+	text = {
+		localization_key = QIN_modifier_boxer_grand_canal_fund
+	}
+}
+defined_text = {
+	name = GetPurchaseAgreementName
+	text = {
+		trigger = {
+			ENG = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		localization_key = QIN_a_deal_with_the_west_britain
+	}
+	text = {
+		trigger = {
+			ENG = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					has_war_with = ROOT
+				}
+			}
+			JAP = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		localization_key = QIN_a_deal_with_the_west_japan
+	}
+	text = {
+		localization_key = QIN_a_deal_with_the_west_default
+	}
+}
+defined_text = {
+	name = GetPurchaseAgreementDesc
+	text = {
+		trigger = {
+			ENG = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		localization_key = QIN_a_deal_with_the_west_desc_britain
+	}
+	text = {
+		trigger = {
+			ENG = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					has_war_with = ROOT
+				}
+			}
+			JAP = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		localization_key = QIN_a_deal_with_the_west_desc_japan
+	}
+	text = {
+		localization_key = QIN_a_deal_with_the_west_desc_default
 	}
 }

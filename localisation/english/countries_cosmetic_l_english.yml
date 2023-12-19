@@ -423,6 +423,8 @@
  CHI_revolution_democratic:0 "Chinese Revolutionary Alliance"
  CHI_neutrality_sichuan:0 "Sichuan"
  CHI_neutrality_sichuan_DEF:0 "the Sichuan Military Government"
+ CHI_neutrality_sichuan_han:0 "Great Han"
+ CHI_neutrality_sichuan_han_DEF:0 "the Great Han Sichuan Military Government"
  CHI_neutrality_hubei:0 "Hubei"
  CHI_neutrality_hubei_DEF:0 "the Hubei Military Government"
  CHI_neutrality_guangxi:0 "Guangxi"

@@ -1,0 +1,29 @@
+spriteTypes = {
+	# QING/CHINA
+	spriteType = {
+		name = "GFX_decision_qin_xinhai_rev"
+		texturefile = "gfx/interface/decisions/decision_qin_xinhai_rev.dds"
+	}	
+	spriteType = {
+		name = "GFX_decision_qin_beiyang_army"
+		texturefile = "gfx/interface/decisions/decision_qin_beiyang_army.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_qin_puyi_education"
+		texturefile = "gfx/interface/decisions/decision_qin_puyi_education.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_qin_weihaiwei"
+		texturefile = "gfx/interface/decisions/decision_qin_weihaiwei.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_qin_indemnities"
+		texturefile = "gfx/interface/decisions/decision_qin_indemnities.dds"
+	}
+	
+	#Traits
+	spriteType = {
+		name = "GFX_trait_QIN_underage"
+		texturefile = "gfx/interface/traits/trait_underage.png"
+	}
+}

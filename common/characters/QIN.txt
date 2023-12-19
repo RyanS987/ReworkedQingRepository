@@ -61,7 +61,7 @@ characters={
 		}
 		portraits={
 			civilian={
-				large="gfx/leaders/CHI/CHI_Kang_Youwei.png"
+				large="gfx/leaders/QIN/QIN_Kang_Youwei.png"
 				small="gfx/interface/ideas/QIN/idea_QIN_Kang_Youwei.png"
 			}
 		}
@@ -202,6 +202,38 @@ characters={
 			}
 		}
 	}
+	QIN_tang_shouqian={
+		name="QIN_tang_shouqian"
+		advisor={
+			slot = political_advisor
+			idea_token = QIN_tang_shouqian
+			allowed  = {
+				is_china_or_warlord = yes
+			}
+			cost = 0
+			available = {
+				NOT = {
+					has_completed_focus = QIN_nationalize_railways
+				}
+			}	
+			traits  = {
+				railway_protectionist
+			}
+			on_remove = {
+				QIN = {
+					add_political_power = -35
+				}
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/QIN/idea_QIN_tang_shouqian.png"
+			}
+		}
+	}
 	QIN_sheng_xuanhuai={
 		name="QIN_sheng_xuanhuai"
 		advisor={
@@ -218,8 +250,9 @@ characters={
 				captain_of_industry
 			}
 			on_remove = {
-			QIN = {
-				add_political_power = -25
+				QIN = {
+					add_political_power = -15
+					QIN_court_opp_50 = yes
 				}
 			}
 			ai_will_do  = {
@@ -291,11 +324,12 @@ characters={
 			}
 		}
 	}
+	
 	QIN_zaizhen={
 		name="QIN_zaizhen"
 		advisor={
 			slot = political_advisor
-			idea_token = QIN_yan_xiu
+			idea_token = QIN_zaizhen
 			allowed  = {
 				is_china_or_warlord = yes
 			}
@@ -320,6 +354,7 @@ characters={
 			}
 		}
 	}
+	
 	QIN_zhang_jian={
 		name="QIN_zhang_jian"
 		advisor={
@@ -457,6 +492,52 @@ characters={
 			traits={ generallissimo }
 		}
 	}
+	QIN_zaifu={
+		name="QIN_zaifu"
+		portraits={
+			army={
+				large="gfx/leaders/QIN/QIN_zaifu.png"
+			}
+		}
+		corps_commander={
+			traits={ politically_connected reckless trait_royal }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			visible = {
+				original_tag = QIN
+			}	
+		}
+	}
+	QIN_nalehe={
+		name="QIN_nalehe"
+		portraits={
+			army={
+				large="gfx/leaders/QIN/QIN_nalehe.png"
+			}
+		}
+		corps_commander={
+			traits={ politically_connected trait_royal }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=1
+			visible = {
+				original_tag = QIN
+			}	
+		}
+	}
+	QIN_duanfang={
+		name="QIN_duanfang"
+		portraits={
+			army={
+				large="gfx/leaders/QIN/QIN_duanfang.png"
+			}
+		}
+	}
 	QIN_zaitao={
 		advisor={
 			slot = army_chief
@@ -588,7 +669,7 @@ characters={
 		
 		portraits={
 			civilian={
-				large="gfx/leaders/CHI/CHI_xuantong.png"
+				large="gfx/leaders/QIN/QIN_Xuantong.png"
 			}
 			army = {
 				large = "gfx/leaders/QIN/QIN_xuantong_military.png"
@@ -599,7 +680,7 @@ characters={
 		name="QIN_zhang_xun"
 		portraits={
 			civilian={
-				large="gfx/leaders/CHI/CHI_Zhang_Xun.png"
+				large="gfx/leaders/QIN/QIN_Zhang_Xun.png"
 			}
 		}
 		corps_commander={
@@ -1084,7 +1165,7 @@ characters={
 		name="QIN_liang_dunyan"
 		portraits={
 			army={
-				small="GFX_idea_generic_political_advisor_asia_1"
+				small="GFX_idea_QIN_idea_QIN_liang_dunyan"
 			}
 		}
 	}
@@ -1468,7 +1549,7 @@ characters={
 			}
 			ledger = army
 			available = {
-				608 = { is_owned_and_controlled_by = ROOT }
+				614 = { is_owned_and_controlled_by = ROOT }
 			}
 			cost = 100
 			traits = {
@@ -1492,7 +1573,7 @@ characters={
 			ledger = army
 			available = {
 				has_country_flag = chinese_air_force
-				608 = { is_owned_and_controlled_by = ROOT }
+				614 = { is_owned_and_controlled_by = ROOT }
 			}
 			cost = 100
 			traits = {

@@ -35,12 +35,21 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
+		
+			# Lu Rongting
 			every_unit_leader = {
 				limit = {
-					has_id = 73047
+					is_character = QIN_lu_rongting
 				}
 				set_nationality = CHI
 			}
+			CHI = {
+				country_event = {
+					id = ww1_chi.23
+					days = 2 
+				}
+			}
+			#Xinhai News
 			set_global_flag = kis_xinhairenews
 			
 			CHI = {
@@ -58,6 +67,7 @@ country_event = {
 						integer = yes
 					}
 				}
+				
 				set_variable = { CHI_rebellion_province = CHI_tempvar_rebellion_province }
 				if = {
 					limit = {
@@ -114,6 +124,7 @@ country_event = {
 							value = 5
 							compare = less_than_or_equals
 						}
+						NOT = {  has_global_flag = QIN_flag_first_xinhai_over }
 					}
 					set_cosmetic_tag = CHI_neutrality_hubei
 					set_state_owner = 620
@@ -126,6 +137,7 @@ country_event = {
 					transfer_state = 620
 				}
 				
+				# Every State Core/Claim
 				every_state = {
 					limit = {
 						is_core_of = QIN
@@ -144,6 +156,7 @@ country_event = {
 					add_claim_by = CHI
 				}
 				
+				
 				set_politics = {
 					ruling_party = neutrality
 					elections_allowed = no
@@ -156,7 +169,28 @@ country_event = {
 					democratic = 36
 					neutrality = 59
 				}
-				promote_character = CHI_li_yuanhong
+				
+				#Leader
+				if = {
+					limit = {
+						NOT = {
+							has_global_flag = QIN_flag_first_xinhai
+						}
+					}
+					promote_character = CHI_li_yuanhong
+				}
+				else = {
+					create_country_leader = {
+						name = QIN_revolutionary_council
+						picture = "gfx/leaders/CHI/CHI_beiyang_triumvirate.png"
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					}
+				}
+				
+				
 				
 				if = {
 					limit = {
@@ -170,10 +204,6 @@ country_event = {
 					}
 				}
 				
-				load_focus_tree = {
-					tree = china_focus
-					keep_completed = yes
-				}
 				if = {
 					limit = {
 						QIN = {
@@ -190,7 +220,6 @@ country_event = {
 					}
 					add_ideas = QIN_idea_boxer_protocol_1
 				}
-				#add_ideas = QIN_idea_payments_of_indemnities
 				if = {
 					limit = {
 						QIN = {
@@ -296,6 +325,7 @@ country_event = {
 					unlock_national_focus = CHI_fight_against_famine
 				}
 			}
+			
 			QIN = {
 				remove_ideas = QIN_idea_tongmenghui
 				if = {
@@ -320,7 +350,14 @@ country_event = {
 					idea = QIN_idea_xinhai_revolution
 					days = 125
 				}
-				
+				country_event = {
+					id = ww1_qing.449 # rui cheng resigns
+					days = 2
+				}
+				country_event = {
+					id = ww1_qing.450 # zhang renjun resigns
+					days = 105
+				}
 				if = {
 					limit = {
 						has_idea = QIN_idea_beiyang_army
@@ -394,6 +431,13 @@ country_event = {
 						owns_state = 620
 					}
 					load_oob = "PRC_1911_Wuchang"
+					create_country_leader = {
+						name = CHI_wuchang_council
+						picture = "gfx/leaders/CHI/CHI_wuchang_officers.png"
+						ideology = oligarchism
+						traits = {
+						}
+					}
 				}
 				else = {
 					load_oob = "PRC_1911_Wuchang"
@@ -417,7 +461,24 @@ country_event = {
 				popularity = -1.0
 			}
 			#set_global_flag = QIN_next_uprising
-			clr_global_flag = wuchang_uprising
+
+			if = {
+				limit = {
+					has_global_flag = wuchang_uprising
+				}
+				if = {
+					QIN = {
+						#Sheng Xuanhuai Resigns in Disgrace!
+						country_event = {
+							id = ww1_qing.466
+							days = 15
+							random_days = 14
+						}
+					}
+				}
+				clr_global_flag = wuchang_uprising
+			}
+			
 			if = {
 				limit = {
 					NOT = {
@@ -616,6 +677,37 @@ country_event = {
 		}
 	}
 }
+#Li Yuanhong becomes leader
+country_event = {
+	id = ww1_xinhai.23
+	
+	title = ww1_xinhai.23.t
+	desc = ww1_xinhai.23.d
+				
+	is_triggered_only = yes    
+    trigger = {
+        NOT = { has_global_flag = xinhai_revolution_ends }
+        CHI = {
+            exists = yes
+        }
+    }
+    
+	#effects are the same
+    immediate = {
+		hidden_effect = {
+			promote_character = CHI_li_yuanhong
+		}
+		
+	}
+	option = {
+        name = ww1_xinhai.23.a
+        effect_tooltip = {
+		promote_character = CHI_li_yuanhong
+        }
+    }
+}
+		
+	
 #Changsha Uprising
 country_event = {
 	id = ww1_xinhai.12
@@ -737,40 +829,59 @@ country_event = {
 }
 #Shanghai Uprising
 country_event = {
-	id = ww1_xinhai.17
-	hidden = yes
-	is_triggered_only = yes
-	
-	trigger = {
-		NOT = { has_global_flag = xinhai_revolution_ends }
-		CHI = {
-			exists = yes
-		}
-	}
-	
-	immediate = {
-		set_state_owner = 613
-		load_oob = PRC_1911_uprising2_shanghai
-		load_oob = PRC_1911_uprising2_shanghai_minbing
-		
-		set_global_flag = QIN_third_uprising
-		set_global_flag = QIN_first_second_up
-		promote_character = CHI_huang_xing
-		set_politics = {
-			ruling_party = democratic
-			elections_allowed = no
-		}
-		drop_cosmetic_tag = yes
-		set_cosmetic_tag = CHI_revolution
-		set_country_flag = second_uprising
-		
-		QIN = {
-			set_country_flag = second_uprising
-			QIN_chen_bingkun = {
-				set_nationality = CHI
+    id = ww1_xinhai.17
+    #Added title because it is no longer hidden
+	title = ww1_xinhai.17.t
+	desc = ww1_xinhai.17.d
+
+	#Not changed cause still triggered and checked under same circumstances.
+    is_triggered_only = yes    
+    trigger = {
+        NOT = { has_global_flag = xinhai_revolution_ends }
+        CHI = {
+            exists = yes
+        }
+    }
+    
+	#effects are the same
+    immediate = {
+		hidden_effect = {
+			set_state_owner = 613
+			load_oob = PRC_1911_uprising2_shanghai
+			if = {
+				limit = {
+					has_global_flag = QIN_hard_mode
+				}
+				load_oob = PRC_1911_uprising2_shanghai
 			}
-			QIN_random_prov_down = yes
-			QIN_random_prov_down = yes
+			load_oob = PRC_1911_uprising2_shanghai_minbing
+			
+			set_global_flag = QIN_third_uprising
+			set_global_flag = QIN_first_second_up
+			retire_country_leader = yes
+			promote_character = CHI_huang_xing
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = CHI_revolution
+			set_country_flag = second_uprising
+			
+			QIN = {
+				set_country_flag = second_uprising
+				QIN_chen_bingkun = {
+					set_nationality = CHI
+				}
+				QIN_random_prov_down = yes
+				QIN_random_prov_down = yes
+			}
+		}
+	}	
+    option = {
+        name = ww1_xinhai.17.a
+        effect_tooltip = {
+			promote_character = CHI_huang_xing
 		}
 	}
 }
@@ -791,7 +902,24 @@ country_event = {
 		set_state_owner = 325
 		set_state_owner = 603
 		load_oob = PRC_1911_uprising2_yunnan
+		if = {
+				limit = {
+					has_global_flag = QIN_hard_mode
+				}
+				load_oob = PRC_1911_uprising2_yunnan_minbing
+			}
+			
 		load_oob = PRC_1911_uprising2_yunnan_minbing
+		
+			hidden_effect = {
+	
+	QIN = {
+					country_event = {
+					id = ww1_qing.452 # li jingxin captured
+					days = 2
+				}
+			}
+		}
 	}
 }
 #Zhejiang Uprising
@@ -1053,7 +1181,6 @@ country_event = {
 		has_global_flag = xinhai_revolution
 		NOT = {
 			has_global_flag = xinhai_revolution_ends
-			has_global_flag = QIN_flag_don't_trigger_xinhai_again
 		}
 		OR = {
 			has_global_flag = QIN_flag_beiyang_defection
@@ -1092,7 +1219,6 @@ country_event = {
 	option = {
 		name = ww1_xinhai.4.a
 		ai_chance = { factor = 100 }
-		set_global_flag = QIN_flag_don't_trigger_xinhai_again
 		remove_ideas = QIN_idea_xuantong_young
 		
 		set_politics = {
@@ -1184,7 +1310,6 @@ country_event = {
 	}
 	immediate = {
 		clr_global_flag = QIN_third_uprising
-		#QIN = { remove_ideas =  QIN_idea_xinhai_revolution }
 		if = {
 			limit = {
 				CHI = { exists = yes } 
@@ -1291,6 +1416,26 @@ country_event = {
 	}
 }
 
+#Provisional Constitution enacted
+country_event = {
+	title = ww1_xinhai.24.t
+	desc = ww1_xinhai.24.d
+	#picture = 
+	id = ww1_xinhai.24
+	trigger = {
+		tag = CHI
+		NOT = { country_exists = QIN }
+		CHI = { exists = yes }
+		}
+	fire_only_once = yes
+	option = {
+		name = ww1_xinhai.24.a
+		add_ideas = CHI_idea_provisional_constitution
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
 #YUAN IS PRESIDENT OF CHINA
 country_event = {
 	title = ww1_xinhai.6.t

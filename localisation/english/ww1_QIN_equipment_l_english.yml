@@ -1,0 +1,13 @@
+﻿l_english:
+#reminder to add artillery and naval vessels
+
+ QIN_infantry_equipment_0:0 "Type 88 rifle"
+ QIN_infantry_equipment_0_short:0 "Type 88"
+ QIN_infantry_equipment_1:0 "Guangxu Type 33 rifle"
+ QIN_infantry_equipment_1_short:0 "Guangxu Type 33"
+ QIN_infantry_equipment_2:0 "Mauser M1907"
+ QIN_infantry_equipment_2_short:0 "Mauser M1907"
+ QIN_infantry_equipment_3:0 "Bergmann MP18"
+ QIN_infantry_equipment_3_short:0 "Bergmann MP18"
+ #QIN_infantry_equipment_3:0 "ZB vz. 98/22" #reminder to change the GFX and add this later
+ #QIN_infantry_equipment_3_short:0 "Vz. 98/22" #reminder to change the GFX

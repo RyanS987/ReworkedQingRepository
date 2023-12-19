@@ -889,7 +889,7 @@ QIN_civil_war_category = {
 								producer = ENG
 							}
 							add_equipment_to_stockpile = {
-								type = fighter_equipment_0
+								type = fighter_equipment_1
 								amount = 8
 								producer = ENG
 							}
@@ -913,7 +913,7 @@ QIN_civil_war_category = {
 								producer = ENG
 							}
 							add_equipment_to_stockpile = {
-								type = fighter_equipment_0
+								type = fighter_equipment_1
 								amount = 8
 								producer = ENG
 							}
@@ -1805,26 +1805,69 @@ QIN_warlord_category = {
 		
 		complete_effect = {
 			add_stability = 0.05
+			custom_effect_tooltip = line_description
+			
 			custom_effect_tooltip = local_army_integrated
+			#Changing provincial Arsenal function
+			#How much to change it by
+			set_temp_variable = { provincial_arsenals_temp_difference = 0.05 } #CHANGE THIS to edit
+			
+			#Local var to compare
+			set_temp_variable = { temp_var = provincial_arsenals_temp_difference }
+			multiply_temp_variable = { temp_var = -1 }
+			#Reset the value to the max if necessary
+			if = {
+				limit = {
+					check_variable = {
+						provincial_arsenals_max_factories > temp_var
+					}
+				}
+				set_temp_variable = { provincial_arsenals_temp_difference = provincial_arsenals_max_factories }
+				multiply_temp_variable = { provincial_arsenals_temp_difference = -1 }
+			}
+			#Add it
+			if = {
+				limit = {
+					OR = {
+						check_variable = { #Check its not already maximumly improved
+							provincial_arsenals_max_factories < 0
+						}
+						check_variable = { #Or is a reduction
+							provincial_arsenals_temp_difference < 0
+						}
+					}
+				}
+				add_to_variable = {
+					var = provincial_arsenals_max_factories
+					value = provincial_arsenals_temp_difference
+					tooltip = QIN_effect_modify_provincial_arsenals
+				}
+			}
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
-				amount = 4000
+				amount = 3000
 				producer = QIN
 			}
-			add_tech_bonus = {
-				name = warlord_academy_tech_bonus
-				bonus = 1
-				uses = 1
-				category = industry
-				category = electronics
-			}
-			add_tech_bonus = {
-				name = warlord_academy_tech_bonus
-				bonus = 1
-				uses = 1
-				category = support_tech
-				category = infantry_weapons
-				category = artillery
+			random_list = {
+				50 = {
+					add_tech_bonus = {
+						name = warlord_academy_tech_bonus
+						bonus = 1
+						uses = 1
+						category = industry
+						category = electronics
+					}
+				}
+				50 = {
+					add_tech_bonus = {
+						name = warlord_academy_tech_bonus
+						bonus = 1
+						uses = 1
+						category = support_tech
+						category = infantry_weapons
+						category = artillery
+					}
+				}
 			}
 			hidden_effect = {
 				if = {
@@ -2280,29 +2323,72 @@ QIN_xinhai_revolution_category = {
 			OR = {
 				has_government = democratic
 				#has_government = communism
-				has_global_flag = xinhai_revolution
+				#has_global_flag = xinhai_revolution
 				has_completed_focus = QIN_crush_the_tongmenghui
 				has_global_flag = QIN_flag_shikai_deal_with_tongmenghui
 			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_global_flag = xinhai_revolution
+				has_global_flag = small_qing_rebellion
+			}	
 		}
 		priority = 100
 		days_mission_timeout = 152
 		fire_only_once = yes
 		is_good = no
 		timeout_effect = {
-			set_global_flag = xinhai_revolution
-
 			if = {
-				limit = { has_global_flag = QIN_flag_first_xinhai }
-				set_variable_to_random = {
-					var = CHI_rebellion_province
-					min = 1
-					max = 6
-					integer = yes
+				limit = {
+					NOT = {
+						has_global_flag = QIN_flag_first_xinhai
+					}
 				}
+				set_global_flag = xinhai_revolution
+				country_event = { id = ww1_xinhai.2 }
+				custom_effect_tooltip = QIN_effect_revolution_location
 			}
-			country_event = ww1_xinhai.2
-			custom_effect_tooltip = QIN_effect_revolution_location
+			else = {
+				hidden_effect = {
+					set_variable_to_random = {
+						var = CHI_rebellion_province
+						min = 1
+						max = 6
+						integer = yes
+					}
+					random_list = {
+						50 = {
+							set_variable_to_random = {
+								var = CHI_rebellion_province
+								min = 1
+								max = 6
+								integer = yes
+							}
+							set_variable_to_random = {
+								var = CHI_rebellion_province
+								min = 1
+								max = 6
+								integer = yes
+							}
+						}
+						25 = {
+							set_variable_to_random = {
+								var = CHI_rebellion_province
+								min = 1
+								max = 6
+								integer = yes
+							}
+						}
+						25 = {
+						}
+					}
+				}
+				country_event = {
+					id = ww1_qing.442
+				}
+				custom_effect_tooltip = QIN_effect_revolution_location
+			}
 		}
 	}
 	QIN_edict_provincial_assemblies = {
@@ -2320,37 +2406,37 @@ QIN_xinhai_revolution_category = {
 		fire_only_once = yes
 		complete_effect = {
 			custom_effect_tooltip = QIN_effect_local_reform
-					if = {
-						limit = { has_stability < 0.10 }
-						add_political_power = 30
-					}
-					else_if = {
-						limit = { has_stability < 0.20 }
-						add_political_power = 50
-					}
-					else_if = {
-						limit = { has_stability < 0.30 }
-						add_political_power = 80
-					}
-					else_if = {
-						limit = { has_stability < 0.40 }
-						add_political_power = 115
-					}
-					else_if = {
-						limit = { has_stability < 0.50 }
-						add_political_power = 150
-					}
-					else_if = {
-						limit = { has_stability < 0.70 }
-						add_political_power = 200
-					}
-					else_if = {
-						limit = { has_stability < 0.80 }
-						add_political_power = 250
-					}
-					else = {
-						add_political_power = 300
-					}
+			if = {
+				limit = { has_stability < 0.10 }
+				add_political_power = 30
+			}
+			else_if = {
+				limit = { has_stability < 0.20 }
+				add_political_power = 50
+			}
+			else_if = {
+				limit = { has_stability < 0.30 }
+				add_political_power = 80
+			}
+			else_if = {
+				limit = { has_stability < 0.40 }
+				add_political_power = 115
+			}
+			else_if = {
+				limit = { has_stability < 0.50 }
+				add_political_power = 150
+			}
+			else_if = {
+				limit = { has_stability < 0.70 }
+				add_political_power = 200
+			}
+			else_if = {
+				limit = { has_stability < 0.80 }
+				add_political_power = 250
+			}
+			else = {
+				add_political_power = 300
+			}
 		}
 		priority = 10
 	}
@@ -3022,10 +3108,10 @@ QIN_xinhai_revolution_category = {
 						has_completed_focus = QIN_finish_the_new_qing_reforms
 					}
 				}
-			add_political_power = 115
+			add_political_power = 100
 			}
 			else = {
-			add_political_power = 50
+				add_political_power = 50
 			}
 			608 = {
 				remove_building = {
@@ -3064,11 +3150,11 @@ QIN_xinhai_revolution_category = {
 						has_completed_focus = QIN_finish_the_new_qing_reforms
 					}
 				}
-			add_political_power = 150
-			add_stability = 0.02
+				add_political_power = 125
+				#add_stability = 0.02
 			}
 			else = {
-			add_political_power = 85
+				add_political_power = 75
 			}
 			random_list = {
 				75 = {
@@ -3084,57 +3170,6 @@ QIN_xinhai_revolution_category = {
 			}
 			
 			QIN_court_opp_50 = yes
-		}
-		priority = 1
-	}
-	QIN_dec_foreign_contracts = { #Foreign Contracts
-		icon = gre_investment_decisions
-		allowed = {
-			original_tag = QIN
-		} 
-		available = {
-			has_government = neutrality
-			#608 = { industrial_complex > 0 }
-			NOT = { has_global_flag = qing_reformed }
-			NOT = { has_global_flag = xinhai_revolution }
-			NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
-			NOT = { has_completed_focus = QIN_reform_and_recovery }
-		}
-		visible = {
-			NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
-			NOT = { has_completed_focus = QIN_reform_and_recovery }
-			NOT = { has_global_flag = qing_reformed }
-			NOT = { has_completed_focus = QIN_finish_the_new_qing_reforms }
-		}
-		cost = 0
-		days_re_enable = 200
-		complete_effect = {
-			add_political_power = 100
-			random_owned_state = {
-				limit = { is_coastal = yes }
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			
-			
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = -75
-			}
-			
-			if = {
-				limit = { has_idea = QIN_idea_announce_reform }
-				random_list = {
-					50 = {
-					remove_ideas = QIN_idea_announce_reform
-					}
-					50 = {
-					}
-				}
-			}
 		}
 		priority = 1
 	}
@@ -3357,114 +3392,6 @@ QIN_xinhai_army_category = {
 		}
 		priority = 6
 	}
-}	
-QIN_yuan_auction_category = {
-	QIN_shikai_joins_the_rebels_mission = {
-		allowed = {
-			original_tag = QIN
-		} 
-		activation = {
-			has_idea = QIN_idea_beiyang_army
-			NOT = {
-				has_global_flag = QIN_flag_accept_shikai
-			}
-			has_global_flag = xinhai_revolution
-		}
-		available = {
-			has_global_flag = QIN_flag_accept_shikai
-		}
-		fire_only_once = no
-		icon = GFX_decision_eng_support_imperialist_coup
-		is_good = no
-		days_mission_timeout = 105
-		timeout_effect = {
-			hidden_effect = {
-				CHI = { country_event = { id = ww1_qing.425 } }
-				add_popularity = {
-					ideology = fascism
-					popularity = -0.2
-				}
-			}
-			effect_tooltip = {
-				custom_effect_tooltip = QIN_effect_yuan_shikai_will_betray_us4
-				CHI = {
-					custom_effect_tooltip = QIN_effect_yuan_shikai_will_betray_us2
-				}
-				hidden_effect = {
-					CHI = {
-					#load_oob = QIN_beiyang_revolutionaries
-					}
-				}	
-				custom_effect_tooltip = QIN_effect_yuan_shikai_will_betray_us3
-			}
-		}
-		priority = 100
-	}
-	QIN_dec_19_articles = {
-		icon = GFX_decision_eng_trade_unions_support
-		allowed = {
-			original_tag = QIN
-		} 
-		available = {
-			
-		}
-		cost = 100
-		days_re_enable = 200
-		complete_effect = {
-			add_war_support = 0.03
-			add_popularity = {
-				ideology = democratic
-				popularity = 0.1
-			}
-		}
-		priority = 1
-	}
-	QIN_dec_flood_the_beiyang_army_with_opium = {
-		icon = GFX_decision_eng_trade_unions_support
-		allowed = {
-			original_tag = QIN
-		} 
-		available = {
-			has_idea = QIN_idea_opium_suppression
-		}
-		visible = {
-			has_global_flag = QIN_flag_accept_shikai
-			has_idea = QIN_idea_opium_suppression
-		}
-		cost = 0
-		days_re_enable = 200
-		complete_effect = {
-			add_popularity = {
-				ideology = fascism
-				popularity = -0.1
-			}
-			modify_timed_idea = {
-				idea = QIN_idea_opium_suppression
-				days = 100
-			}
-			random_unit_leader = {
-				limit = {
-					has_trait = yuan_shikai_loyalist
-					NOT = { has_trait = substance_abuser }
-				}
-				add_trait = {
-					 character = THIS
-					 trait = substance_abuser
-				}
-			}
-			random_unit_leader = {
-				limit = {
-					has_trait = yuan_shikai_loyalist
-					NOT = { has_trait = substance_abuser }
-				}
-				add_trait = {
-					 character = THIS
-					 trait = substance_abuser
-				}
-			}
-		}
-		priority = 1
-	}
 	QIN_encircle_the_revolutionaries = {
 		icon = GFX_decision_generic_army_support
 		activation = {
@@ -3527,9 +3454,12 @@ QIN_yuan_auction_category = {
 			NOT = {
 				has_global_flag = manchu_restoration
 			}
+			has_global_flag = xinhai_revolution
+			NOT = {
+				has_global_flag = QIN_flag_enganged_the_revolutionaries
+			}
 		}
 		days_mission_timeout = 720
-		fire_only_once = yes
 		is_good = no
 		allowed = {
 			original_tag = QIN
@@ -3562,6 +3492,7 @@ QIN_yuan_auction_category = {
 			}
 			army_experience = 250
 			add_war_support = 0.05
+			set_global_flag = QIN_flag_enganged_the_revolutionaries
 		}
 		priority = 10
 	}
@@ -3697,6 +3628,114 @@ QIN_yuan_auction_category = {
 		}
 		priority = 8
 	}
+}	
+QIN_yuan_auction_category = {
+	QIN_shikai_joins_the_rebels_mission = {
+		allowed = {
+			original_tag = QIN
+		} 
+		activation = {
+			has_idea = QIN_idea_beiyang_army
+			NOT = {
+				has_global_flag = QIN_flag_accept_shikai
+			}
+			has_global_flag = xinhai_revolution
+		}
+		available = {
+			has_global_flag = QIN_flag_accept_shikai
+		}
+		cancel_trigger = {
+			NOT = {
+				has_global_flag = xinhai_revolution
+			}
+		}
+		fire_only_once = no
+		icon = GFX_decision_eng_support_imperialist_coup
+		is_good = no
+		days_mission_timeout = 105
+		timeout_effect = {
+			hidden_effect = {
+				CHI = { country_event = { id = ww1_qing.425 } }
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.2
+				}
+			}
+			effect_tooltip = {
+				custom_effect_tooltip = QIN_effect_yuan_shikai_will_betray_us4
+				CHI = {
+					custom_effect_tooltip = QIN_effect_yuan_shikai_will_betray_us2
+				}
+				custom_effect_tooltip = QIN_effect_yuan_shikai_will_betray_us3
+			}
+		}
+		priority = 100
+	}
+	QIN_dec_19_articles = {
+		icon = GFX_decision_eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			
+		}
+		cost = 100
+		days_re_enable = 200
+		complete_effect = {
+			add_war_support = 0.03
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+		priority = 1
+	}
+	QIN_dec_flood_the_beiyang_army_with_opium = {
+		icon = GFX_decision_eng_trade_unions_support
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			has_idea = QIN_idea_opium_suppression
+		}
+		visible = {
+			has_global_flag = QIN_flag_accept_shikai
+			has_idea = QIN_idea_opium_suppression
+		}
+		cost = 0
+		days_re_enable = 200
+		complete_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.1
+			}
+			modify_timed_idea = {
+				idea = QIN_idea_opium_suppression
+				days = 100
+			}
+			random_unit_leader = {
+				limit = {
+					has_trait = yuan_shikai_loyalist
+					NOT = { has_trait = substance_abuser }
+				}
+				add_trait = {
+					 character = THIS
+					 trait = substance_abuser
+				}
+			}
+			random_unit_leader = {
+				limit = {
+					has_trait = yuan_shikai_loyalist
+					NOT = { has_trait = substance_abuser }
+				}
+				add_trait = {
+					 character = THIS
+					 trait = substance_abuser
+				}
+			}
+		}
+		priority = 1
+	}
 	QIN_invite_shikai = {
 		icon = generic_political_discourse
 		allowed = {
@@ -3716,8 +3755,14 @@ QIN_yuan_auction_category = {
 			}
 		}
 		visible = {
-			NOT = { has_global_flag = QIN_flag_beiyang_defection }
+			NOT = { has_global_flag = QIN_flag_beiyang_defection } #
 			NOT = { has_global_flag = QIN_flag_kick_out_shikai }
+			NOT = {
+				has_country_leader = {
+					character = QIN_yuan_shikai
+					ruling_only = yes
+				}
+			}
 		}
 		days_re_enable = 35
 		days_remove = -1
@@ -3875,8 +3920,31 @@ QIN_yuan_auction_category = {
 		fire_only_once = yes
 		cost = 0
 		
+		cancel_trigger = {
+			has_country_leader = {
+				character = QIN_yuan_shikai
+				ruling_only = yes
+			}
+		}
+		
+		days_mission_timeout = 100
+		selectable_mission = yes
 		available = {
 			has_idea = QIN_idea_beiyang_army
+		}
+		activation = {
+			OR = {
+				has_idea = QIN_idea_yuan_shikai_foot_injury
+				has_idea = QIN_idea_yuan_shikai_foot_injury_2
+				has_idea = QIN_idea_yuan_shikai_foot_injury_3
+			}
+			NOT = {
+				has_country_leader = {
+					character = QIN_yuan_shikai
+					ruling_only = yes
+				}
+			}
+			has_war_with = CHI
 		}
 		visible = {
 			OR = {
@@ -3893,7 +3961,13 @@ QIN_yuan_auction_category = {
 			has_war_with = CHI
 		}
 		complete_effect = {
-			country_event = ww1_qing.351
+			country_event = { id = ww1_qing.351 }
+		}
+		timeout_effect = {
+			custom_effect_tooltip = QIN_effect_shikai_ultimatum
+			hidden_effect = {
+				country_event = { id = ww1_qing.351 }
+			}
 		}
 		priority = 11
 	}
@@ -4436,15 +4510,89 @@ QIN_pay_indemnities_category = {
 				original_tag = QIN
 				tag = CHI
 			}
-		} 
-		cost = 1000
-		target_trigger = {
-			FROM = { tag = RUS }
 		}
-		available = { NOT = { has_war_with = RUS } }
-		visible = { has_country_flag = qing_russian_concession }
+		cost = 1000
+		activation = {
+			RUS = { exists = yes }
+			NOT = { has_war_with = RUS }
+			has_country_flag = qing_russian_concession
+		}
+		visible = { 
+			RUS = { exists = yes }
+			NOT = { has_war_with = RUS }
+			has_country_flag = qing_russian_concession
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = qing_russian_concession }
+				RUS = {
+					OR = {
+						has_war_with = ROOT
+						is_subject_of = ROOT
+						has_civil_war = yes
+						exists = no
+						has_war_with = SOV
+					}
+				}
+			}
+		}
+		cancel_effect = {
+			country_event = { id = ww1_qing.142 }
+		}
+		days_mission_timeout = 365
+		selectable_mission = yes
+
 		complete_effect = {
+			custom_effect_tooltip = QIN_effect_indemnities_resolved
 			QIN_end_russian_concession = yes
+		}
+		timeout_effect = {
+			#custom_effect_tooltip = QIN_effect_chinese_interest
+			activate_mission = QIN_pay_russian_indemnities
+			if = {
+				limit = {
+					has_political_power > -1
+				}
+				add_political_power = -40
+				if = {
+					limit = {
+						check_variable = { russian_factories > 0 }
+					}
+					set_temp_variable = { tempfactories = russian_factories }
+					multiply_temp_variable = {
+						var = tempfactories
+						value = -1
+					}
+					RUS = {
+						add_political_power = 20
+						custom_effect_tooltip = QIN_effect_factory_nationalization_reversed
+						add_offsite_building = { type = industrial_complex level = tempfactories }
+					}
+					set_variable = { russian_factories = 0 }
+				}
+				else = {
+					RUS = {
+						add_political_power = 20
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_will_miss_payment
+				RUS = {
+					country_event = {
+						id = ww1_qing.454
+					}
+				}
+			}
+			custom_effect_tooltip = line_description
+			if = {
+				limit = {
+					check_variable = { russian_factories > 0 }
+				}
+				custom_effect_tooltip = current_factories_owed
+				custom_effect_tooltip = current_factories_RUS
+				custom_effect_tooltip = line_description
+			}
 		}
 		priority = 7
 	}
@@ -4457,13 +4605,89 @@ QIN_pay_indemnities_category = {
 			}
 		} 
 		cost = 700
-		target_trigger = {
-			FROM = { tag = GER }
+		days_mission_timeout = 365
+		selectable_mission = yes
+		#target_trigger = {
+		#	FROM = { tag = GER }
+		#}
+		activation = {
+			GER = { exists = yes }
+			NOT = { has_war_with = GER }
+			has_country_flag = qing_german_concession
 		}
-		available = { NOT = { has_war_with = GER } }
-		visible = { has_country_flag = qing_german_concession }
+		visible = { 
+			GER = { exists = yes }
+			NOT = { has_war_with = GER }
+			has_country_flag = qing_german_concession
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = qing_german_concession }
+				
+				GER = {
+					OR = {
+						has_war_with = ROOT
+						is_subject_of = ROOT
+						has_civil_war = yes
+						exists = no
+						has_country_flag = great_war_loser
+					}
+				}
+			}
+		}
+		cancel_effect = {
+			country_event = { id = ww1_qing.140 }
+		}
 		complete_effect = {
+			custom_effect_tooltip = QIN_effect_indemnities_resolved
 			QIN_end_german_concession = yes
+		}
+		timeout_effect = {
+			activate_mission = QIN_pay_german_indemnities
+			if = {
+				limit = {
+					has_political_power > -1
+				}
+				add_political_power = -28
+				if = {
+					limit = {
+						check_variable = { german_factories > 0 }
+					}
+					set_temp_variable = { tempfactories = german_factories }
+					multiply_temp_variable = {
+						var = tempfactories
+						value = -1
+					}
+					GER = {
+						add_political_power = 14
+						custom_effect_tooltip = QIN_effect_factory_nationalization_reversed
+						add_offsite_building = { type = industrial_complex level = tempfactories }
+					}
+					set_variable = { german_factories = 0 }
+				}
+				else = {
+					GER = {
+						add_political_power = 14
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_will_miss_payment
+				GER = {
+					country_event = {
+						id = ww1_qing.454
+					}
+				}
+			}
+			custom_effect_tooltip = line_description
+			if = {
+				limit = {
+					check_variable = { german_factories > 0 }
+				}
+				custom_effect_tooltip = current_factories_owed
+				custom_effect_tooltip = current_factories_GER
+				custom_effect_tooltip = line_description
+			}
 		}
 		priority = 6
 	}
@@ -4476,13 +4700,89 @@ QIN_pay_indemnities_category = {
 			}
 		} 
 		cost = 500
-		target_trigger = {
-			FROM = { tag = FRA }
+		days_mission_timeout = 365
+		selectable_mission = yes
+		#target_trigger = {
+		#	FROM = { tag = FRA }
+		#}
+		activation = {
+			FRA = { exists = yes }
+			NOT = { has_war_with = FRA }
+			has_country_flag = qing_french_concession
 		}
-		available = { NOT = { has_war_with = FRA } }
-		visible = { has_country_flag = qing_french_concession }
+		visible = { 
+			FRA = { exists = yes }
+			NOT = { has_war_with = FRA }
+			has_country_flag = qing_french_concession
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = qing_french_concession }
+				FRA = {
+					OR = {
+						has_war_with = ROOT
+						is_subject_of = ROOT
+						exists = no
+						has_government = communism
+						has_country_flag = great_war_loser
+					}
+				}
+			}
+		}
+		cancel_effect = {
+			country_event = { id = ww1_qing.143 }
+		}
 		complete_effect = {
+			custom_effect_tooltip = QIN_effect_indemnities_resolved
 			QIN_end_french_concession = yes
+		}
+		timeout_effect = {
+			activate_mission = QIN_pay_french_indemnities
+			if = {
+				limit = {
+					has_political_power > -1
+				}
+				add_political_power = -20
+				if = {
+					limit = {
+						check_variable = { french_factories > 0 }
+					}
+					set_temp_variable = { tempfactories = french_factories }
+					multiply_temp_variable = {
+						var = tempfactories
+						value = -1
+					}
+					FRA = {
+						add_political_power = 10
+						custom_effect_tooltip = QIN_effect_factory_nationalization_reversed
+						add_offsite_building = { type = industrial_complex level = tempfactories }
+					}
+					set_variable = { french_factories = 0 }
+
+				}
+				else = {
+					FRA = {
+						add_political_power = 10
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_will_miss_payment
+				FRA = {
+					country_event = {
+						id = ww1_qing.454
+					}
+				}
+			}
+			custom_effect_tooltip = line_description
+			if = {
+				limit = {
+					check_variable = { french_factories > 0 }
+				}
+				custom_effect_tooltip = current_factories_owed
+				custom_effect_tooltip = current_factories_FRA
+				custom_effect_tooltip = line_description
+			}
 		}
 		priority = 5
 	}
@@ -4495,13 +4795,92 @@ QIN_pay_indemnities_category = {
 			}
 		} 
 		cost = 400
-		target_trigger = {
-			FROM = { tag = ENG }
+		days_mission_timeout = 365
+		selectable_mission = yes
+		#target_trigger = {
+		#	FROM = { tag = ENG }
+		#}
+		available = { NOT = { has_war_with = ENG } }
+		activation = {
+			ENG = { exists = yes }
+			NOT = { has_war_with = ENG }
+			has_country_flag = qing_british_concession
 		}
-		available = { NOT = { has_war_with = eng } }
-		visible = { has_country_flag = qing_british_concession }
+		visible = { 
+			ENG = { exists = yes }
+			NOT = { has_war_with = ENG }
+			has_country_flag = qing_british_concession
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = qing_british_concession }
+				ENG = {
+					OR = {
+						has_war_with = ROOT
+						is_subject_of = ROOT
+						exists = no
+						has_government = communism
+						has_country_flag = great_war_loser
+					}
+				}
+			}
+		}
+		cancel_effect = {
+			country_event = { id = ww1_qing.141 }
+		}
+		
 		complete_effect = {
+			custom_effect_tooltip = QIN_effect_indemnities_resolved
 			QIN_end_british_concession = yes
+		}
+		timeout_effect = {
+			activate_mission = QIN_pay_british_indemnities
+			if = {
+				limit = {
+					has_political_power > -1
+				}
+				add_political_power = -16
+				if = {
+					limit = {
+						check_variable = { british_factories > 0 }
+					}
+					set_temp_variable = { tempfactories = british_factories }
+					multiply_temp_variable = {
+						var = tempfactories
+						value = -1
+					}
+					ENG = {
+						add_political_power = 8
+						custom_effect_tooltip = QIN_effect_factory_nationalization_reversed
+						add_offsite_building = { type = industrial_complex level = tempfactories }
+					}
+
+					set_variable = { british_factories = 0 }
+
+				}
+				else = {
+					ENG = {
+						add_political_power = 8
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_will_miss_payment
+				ENG = {
+					country_event = {
+						id = ww1_qing.454
+					}
+				}
+			}
+			custom_effect_tooltip = line_description
+			if = {
+				limit = {
+					check_variable = { british_factories > 0 }
+				}
+				custom_effect_tooltip = current_factories_owed
+				custom_effect_tooltip = current_factories_ENG
+				custom_effect_tooltip = line_description
+			}
 		}
 		priority = 4
 	}
@@ -4512,16 +4891,95 @@ QIN_pay_indemnities_category = {
 				original_tag = QIN
 				tag = CHI
 			}
-		} 
-		cost = 325
-		target_trigger = {
-			FROM = { tag = JAP }
 		}
+		cost = 325
+		days_mission_timeout = 365
+		selectable_mission = yes
+		#target_trigger = {
+		#	FROM = { tag = JAP }
+		#}
 		available = { NOT = { has_war_with = JAP } }
-		visible = { has_country_flag = qing_japanese_concession }
+		activation = {
+			JAP = { exists = yes }
+			NOT = { has_war_with = JAP }
+			has_country_flag = qing_japanese_concession
+		}
+		visible = { 
+			JAP = { exists = yes }
+			NOT = { has_war_with = JAP }
+			has_country_flag = qing_japanese_concession
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = qing_japanese_concession }
+				JAP = {
+					OR = {
+						has_war_with = ROOT
+						is_subject_of = ROOT
+						exists = no
+						has_civil_war = yes
+						has_government = communism
+						has_country_flag = great_war_loser
+					}
+				}
+			}
+		}
+		cancel_effect = {
+			country_event = { id = ww1_qing.145 }
+		}
+		
 		complete_effect = {
+			custom_effect_tooltip = QIN_effect_indemnities_resolved
 			QIN_end_japanese_concession = yes
 		}
+		timeout_effect = {
+			activate_mission = QIN_pay_japanese_indemnities
+			if = {
+				limit = {
+					has_political_power > -1
+				}
+				add_political_power = -13
+				if = {
+					limit = {
+						check_variable = { japanese_factories > 0 }
+					}
+					set_temp_variable = { tempfactories = japanese_factories }
+					multiply_temp_variable = {
+						var = tempfactories
+						value = -1
+					}
+					JAP = {
+						add_political_power = 7
+						custom_effect_tooltip = QIN_effect_factory_nationalization_reversed
+						add_offsite_building = { type = industrial_complex level = tempfactories }
+					}
+					set_variable = { japanese_factories = 0 }
+				}
+				else = {
+					JAP = {
+						add_political_power = 7
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_will_miss_payment
+				JAP = {
+					country_event = {
+						id = ww1_qing.454
+					}
+				}
+			}
+			custom_effect_tooltip = line_description
+			if = {
+				limit = {
+					check_variable = { japanese_factories > 0 }
+				}
+				custom_effect_tooltip = current_factories_owed
+				custom_effect_tooltip = current_factories_JAP
+				custom_effect_tooltip = line_description
+			}
+		}
+		
 		priority = 3
 	}
 	QIN_pay_usa_indemnities = {
@@ -4533,14 +4991,86 @@ QIN_pay_indemnities_category = {
 			}
 		} 
 		cost = 300
-		target_trigger = {
-			FROM = { tag = USA }
+		days_mission_timeout = 365
+		selectable_mission = yes
+		#target_trigger = {
+		#	FROM = { tag = USA }
+		#}
+		activation = {
+			USA = { exists = yes }
+			NOT = { has_war_with = USA }
+			has_country_flag = qing_american_concession
 		}
-		available = { NOT = { has_war_with = USA } }
-		visible = { has_country_flag = qing_american_concession }
+		visible = { 
+			USA = { exists = yes }
+			NOT = { has_war_with = USA }
+			has_country_flag = qing_american_concession
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = qing_american_concession }
+				USA = {
+					OR = {
+						has_war_with = ROOT
+						is_subject_of = ROOT
+						exists = no
+					}
+				}
+			}
+		}
+		cancel_effect = {
+			country_event = { id = ww1_qing.346 }
+		}
 		complete_effect = {
+			custom_effect_tooltip = QIN_effect_indemnities_resolved
 			QIN_end_american_concession = yes
-			
+		}
+		timeout_effect = {
+			activate_mission = QIN_pay_usa_indemnities
+			if = {
+				limit = {
+					has_political_power > -1
+				}
+				add_political_power = -12
+				if = {
+					limit = {
+						check_variable = { american_factories > 0 }
+					}
+					set_temp_variable = { tempfactories = american_factories }
+					multiply_temp_variable = {
+						var = tempfactories
+						value = -1
+					}
+					USA = {
+						add_political_power = 6
+						custom_effect_tooltip = QIN_effect_factory_nationalization_reversed
+						add_offsite_building = { type = industrial_complex level = tempfactories }
+					}
+					set_variable = { american_factories = 0 }
+				}
+				else = {
+					USA = {
+						add_political_power = 6
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_will_miss_payment
+				USA = {
+					country_event = {
+						id = ww1_qing.454
+					}
+				}
+			}
+			custom_effect_tooltip = line_description
+			if = {
+				limit = {
+					check_variable = { american_factories > 0 }
+				}
+				custom_effect_tooltip = current_factories_owed
+				custom_effect_tooltip = current_factories_USA
+				custom_effect_tooltip = line_description
+			}
 		}
 		priority = 2
 	}
@@ -4552,14 +5082,92 @@ QIN_pay_indemnities_category = {
 				tag = CHI
 			}
 		} 
+		days_mission_timeout = 800
+		selectable_mission = yes
 		cost = 300
-		target_trigger = {
-			FROM = { tag = ITA }
+		
+		available = {
+			NOT = { has_war_with = ITA } 
 		}
-		available = { NOT = { has_war_with = ITA } }
-		visible = { has_country_flag = qing_italian_concession }
+		activation = {
+			ITA = { exists = yes }
+			NOT = { has_war_with = ITA }
+			has_country_flag = qing_italian_concession
+		}
+		visible = { 
+			ITA = { exists = yes }
+			NOT = { has_war_with = ITA }
+			has_country_flag = qing_italian_concession
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = qing_italian_concession }
+				ITA = {
+					OR = {
+						has_war_with = ROOT
+						is_subject_of = ROOT
+						exists = no
+						has_civil_war = yes
+						has_government = communism
+						has_capitulated = yes
+						has_country_flag = great_war_loser
+					}
+				}
+			}
+		}
+		cancel_effect = {
+			country_event = { id = ww1_qing.146 }
+		}
 		complete_effect = {
+			custom_effect_tooltip = QIN_effect_indemnities_resolved
 			QIN_end_italian_concession = yes
+		}
+		timeout_effect = {
+			activate_mission = QIN_pay_italian_indemnities
+			if = {
+				limit = {
+					has_political_power > -1
+				}
+				add_political_power = -12
+				if = {
+					limit = {
+						check_variable = { italian_factories > 0 }
+					}
+					set_temp_variable = { tempfactories = italian_factories }
+					multiply_temp_variable = {
+						var = tempfactories
+						value = -1
+					}
+					ITA = {
+						add_political_power = 6
+						custom_effect_tooltip = QIN_effect_factory_nationalization_reversed
+						add_offsite_building = { type = industrial_complex level = tempfactories }
+					}
+					set_variable = { italian_factories = 0 }
+				}
+				else = {
+					ITA = {
+						add_political_power = 6
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_will_miss_payment
+				ITA = {
+					country_event = {
+						id = ww1_qing.454
+					}
+				}
+			}
+			custom_effect_tooltip = line_description
+			if = {
+				limit = {
+					check_variable = { italian_factories > 0 }
+				}
+				custom_effect_tooltip = current_factories_owed
+				custom_effect_tooltip = current_factories_ITA
+				custom_effect_tooltip = line_description
+			}
 		}
 		priority = 1
 	}
@@ -4572,13 +5180,92 @@ QIN_pay_indemnities_category = {
 			}
 		} 
 		cost = 300
-		target_trigger = {
-			FROM = { tag = AUH }
-		}
+		#target_trigger = {
+		#	FROM = { tag = AUH }
+		#}
+		days_mission_timeout = 800
+		selectable_mission = yes
 		available = { NOT = { has_war_with = AUH } }
-		visible = { has_country_flag = qing_austrian_concession }
+		activation = {
+			AUH = { exists = yes }
+			NOT = { has_war_with = AUH }
+			has_country_flag = qing_austrian_concession
+		}
+		visible = { 
+			AUH = { exists = yes }
+			NOT = { has_war_with = AUH }
+			has_country_flag = qing_austrian_concession
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = qing_austrian_concession }
+				AUH = {
+					OR = {
+						has_war_with = ROOT
+						has_war_with = HUN
+						is_subject_of = ROOT
+						exists = no
+						has_civil_war = yes
+						has_government = communism
+						has_capitulated = yes
+						has_country_flag = great_war_loser
+					}
+				}
+			}
+		}
+		cancel_effect = {
+			country_event = { id = ww1_qing.144 }
+		}
 		complete_effect = {
+			custom_effect_tooltip = QIN_effect_indemnities_resolved
 			QIN_end_austrian_concession = yes
+		}
+		timeout_effect = {
+			activate_mission = QIN_pay_austrian_indemnities
+			if = {
+				limit = {
+					has_political_power > -1
+				}
+				add_political_power = -12
+				if = {
+					limit = {
+						check_variable = { austrian_factories > 0 }
+					}
+					set_temp_variable = { tempfactories = austrian_factories }
+					multiply_temp_variable = {
+						var = tempfactories
+						value = -1
+					}
+					AUH = {
+						add_political_power = 6
+						custom_effect_tooltip = QIN_effect_factory_nationalization_reversed
+						add_offsite_building = { type = industrial_complex level = tempfactories }
+					}
+					set_variable = { austrian_factories = 0 }
+				}
+				else = {
+					AUH = {
+						add_political_power = 6
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_will_miss_payment
+				AUH = {
+					country_event = {
+						id = ww1_qing.454
+					}
+				}
+			}
+			custom_effect_tooltip = line_description
+			if = {
+				limit = {
+					check_variable = { austrian_factories > 0 }
+				}
+				custom_effect_tooltip = current_factories_owed
+				custom_effect_tooltip = current_factories_AUH
+				custom_effect_tooltip = line_description
+			}
 		}
 		priority = 1
 	}
@@ -4714,7 +5401,78 @@ QIN_pay_indemnities_category = {
 	# 	}
 	# 	priority = 9
 	# }
-
+	QIN_dec_foreign_contracts = { #Foreign Contracts
+		icon = gre_investment_decisions
+		allowed = {
+			original_tag = QIN
+		} 
+		available = {
+			NOT = {
+				has_global_flag = xinhai_revolution
+				has_completed_focus = QIN_invite_zaiyi
+			}
+		}
+		visible = {
+			NOT = {
+				has_war_with = RUS
+				has_war_with = FRA
+				has_war_with = USA
+				has_war_with = ITA
+				has_war_with = JAP
+				has_war_with = GER
+				has_war_with = ENG
+				has_war_with = AUH
+			}
+		}
+		cost = 0
+		days_re_enable = 100
+		complete_effect = {
+			if = {
+				limit = { has_completed_focus = QIN_large_contracts }
+				add_political_power = 150
+			}
+			else = {
+				add_political_power = 100
+			}
+			
+			if = {
+				limit = {
+					has_completed_focus = QIN_smaller_contracts
+				}
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -50
+				}
+			}
+			else = {
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -75
+				}
+			}
+			custom_effect_tooltip = line_description
+			random_owned_state = {
+				limit = {
+					is_controlled_by = ROOT 
+					OR = {
+						region = 143
+						region = 144
+						region = 15
+						region = 165
+						region = 164
+						region = 155
+					}
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		priority = 12
+	}
 	QIN_wartime_necessities = {
 		icon = generic_break_treaty
 		allowed = {
@@ -4734,7 +5492,24 @@ QIN_pay_indemnities_category = {
 		
 		}
 		complete_effect = {
-			remove_ideas = QIN_idea_boxer_protocol
+			set_variable = { boxer_protocol_conscription = 0 }
+			set_variable = { boxer_protocol_training_time = 0 }
+			set_variable = { boxer_protocol_cap = 0 }
+			set_variable = { boxer_protocol_trade_cost = 0 }
+			set_variable = { boxer_protocol_forts = 0 }
+			set_global_flag = QIN_flag_removed_xinchou
+			if = {
+				limit = {
+					#has_global_flag = QIN_flag_removed_xinchou
+					has_global_flag = QIN_flag_removed_foreign_rights
+					has_global_flag = QIN_flag_removed_grand_canal_fund
+					has_global_flag = QIN_flag_removed_purchase_restriction
+				}
+				remove_ideas = QIN_idea_boxer_protocol
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_remove_xinchou
+			}
 		}
 		priority = 9
 	}
@@ -4792,7 +5567,84 @@ QIN_pay_indemnities_category = {
 			}
 		}
 		complete_effect = {
-			remove_ideas = QIN_idea_boxer_protocol
+			set_variable = { boxer_protocol_conscription = 0 }
+			set_variable = { boxer_protocol_training_time = 0 }
+			set_variable = { boxer_protocol_cap = 0 }
+			set_variable = { boxer_protocol_trade_cost = 0 }
+			set_variable = { boxer_protocol_forts = 0 }
+			set_global_flag = QIN_flag_removed_xinchou
+			if = {
+				limit = {
+					#has_global_flag = QIN_flag_removed_xinchou
+					has_global_flag = QIN_flag_removed_foreign_rights
+					has_global_flag = QIN_flag_removed_grand_canal_fund
+					has_global_flag = QIN_flag_removed_purchase_restriction
+				}
+				remove_ideas = QIN_idea_boxer_protocol
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_remove_xinchou
+			}
+		}
+		priority = 9
+	}
+	QIN_end_the_grand_canal_fund = {
+		icon = generic_nationalism
+		fire_only_once = yes
+		allowed = {
+			original_tag = QIN
+		} 
+		cost = 0
+		days_re_enable = 180
+		available = {
+			608 = {
+				infrastructure > 3
+			}
+			598 = {
+				infrastructure > 2
+			}
+			606 = {
+				infrastructure > 2
+			}
+			607 = {
+				infrastructure > 2
+			}
+			614 = {
+				infrastructure > 2
+			}
+		}
+		complete_effect = {
+			add_political_power = 50
+			set_variable = { boxer_protocol_consumer_goods = 0 }
+			set_variable = { boxer_protocol_infrastructure = 0 }
+			set_global_flag = QIN_flag_removed_grand_canal_fund
+			if = {
+				limit = {
+					has_global_flag = QIN_flag_removed_xinchou
+					has_global_flag = QIN_flag_removed_foreign_rights
+					#has_global_flag = QIN_flag_removed_grand_canal_fund
+					has_global_flag = QIN_flag_removed_purchase_restriction
+				}
+				remove_ideas = QIN_idea_boxer_protocol
+			}
+			else = {
+				custom_effect_tooltip = QIN_effect_remove_grand_canal_fund
+			}
+			QIN_lower_opp_75 = yes
+			
+			if = {
+				limit = {
+					NOT = { has_completed_focus = QIN_massive_government_crackdown }
+				}
+				custom_effect_tooltip = QIN_effect_unhappy_officials
+				add_stability = -0.03
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -35
+				}
+				QIN_jiangsu_rebel_down = yes
+				
+			}
 		}
 		priority = 9
 	}
@@ -5373,5 +6225,141 @@ economy_decisions = {
 			}
 		}
 		priority = 7
+	}
+}
+prospect_for_resources = {
+	develop_guangdong_deposits = { #593
+		
+		icon = generic_operation
+
+		allowed = {
+			
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 593
+			controls_state = 593
+			if = {
+				limit = {
+					tag = QIN
+				}
+				has_completed_focus = QIN_guangzhou_resource_prospection
+			}
+		}
+		highlight_states = {
+		highlight_state_targets = {
+			state = 593
+		}
+		}
+
+		visible = {
+			owns_state = 593
+			controls_state = 593
+			593 = {
+				NOT = {
+					has_state_flag = guangdong_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = { 
+			593 = { set_state_flag = guangdong_developed } 
+			593 = {
+			add_resource = {
+				type = tungsten
+				amount = 5
+			}
+			add_resource = {
+				type = steel
+				amount = 5
+			}
+			add_resource = {
+				type = chromium
+				amount = 2
+			}
+			}
+		}
+		priority = -1
+	}
+	develop_guangxi_deposits = { #599
+		
+		icon = generic_operation
+
+		allowed = {
+			
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 599
+			controls_state = 599
+			if = {
+				limit = {
+					tag = QIN
+				}
+				has_completed_focus = QIN_guangzhou_resource_prospection
+			}
+		}
+		highlight_states = {
+		highlight_state_targets = {
+			state = 599
+		}
+		}
+
+		visible = {
+			owns_state = 599
+			controls_state = 599
+			599 = {
+				NOT = {
+					has_state_flag = guangxi_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = { 
+			599 = { set_state_flag = guangxi_developed } 
+			599 = {
+			add_resource = {
+					type = tungsten
+					amount = 1
+				}
+				add_resource = {
+					type = steel
+					amount = 9
+				}
+			add_resource = {
+				type = chromium
+				amount = 1
+			}
+			}
+		}
+		priority = -1
 	}
 }

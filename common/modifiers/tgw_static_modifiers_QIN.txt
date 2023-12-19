@@ -1,0 +1,30 @@
+# All global modifiers are here. They are applied from certain game-features.
+# Effects are fully scriptable here.
+# These names can NOT be removed or changes, as the code uses them....
+
+#LaR Compliance
+#completion_reward = {
+#	add_relation_modifier = {
+#		target = HOL
+#		modifier = FRA_reorganized_departments
+#	}
+#}
+CHI_breakaway_integration = {
+	valid_relation_trigger = {
+		ROOT = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+				has_government = fascism
+			}
+		}
+	}
+	resistance_damage_to_garrison = 0.05
+	required_garrison_factor = 0.10
+	compliance_gain = 0.10
+}
+QIN_east_asia = {
+	valid_relation_trigger = {
+	}
+	compliance_gain = 0.1
+}
