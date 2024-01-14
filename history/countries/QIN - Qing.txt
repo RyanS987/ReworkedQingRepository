@@ -4,9 +4,10 @@
 #					GENERIC VALUES
 #-------------------------------------------------------
 set_research_slots = 2
-set_stability = 0.32
+set_stability = 0.37
 set_war_support = 0.19
 set_convoys = 64
+set_political_power = 70
 
 set_variable = { var_integration_cost = 100 }
 set_variable = { var_henan_rebel = 2 }

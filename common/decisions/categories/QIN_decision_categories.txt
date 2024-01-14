@@ -24,7 +24,7 @@ QIN_civil_war_category = {
 }
 QIN_constitution_category = {
 	priority = 10
-	icon = political_operation
+	icon = QIN_court_decision_icon
 	allowed = {
 		tag = QIN
 	}
@@ -95,12 +95,23 @@ QIN_yuan_auction_category = {
 	icon = military_operation
 	picture = GFX_decision_qin_beiyang_army
 	allowed = {
-		tag = QIN
+		OR = {
+			tag = QIN
+			tag = CHI
+		}
 	}
 	visible = {
-		has_idea = QIN_idea_beiyang_army
-		has_global_flag = xinhai_revolution
-		NOT = { has_global_flag = QIN_yuan_shikai_government }
+		OR = {
+			AND = {
+				tag = QIN
+				has_idea = QIN_idea_beiyang_army
+				has_global_flag = xinhai_revolution
+			}
+			tag = CHI
+		}
+		QIN = {
+			exists = yes
+		}		
 	}
 	visible_when_empty = yes
 }

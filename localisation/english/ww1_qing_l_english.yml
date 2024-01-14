@@ -238,8 +238,8 @@ QIN_kaiser_in_formosa_desc:0 "After putting drugs into an Austro-Hungarian diplo
  QIN_pardon_corruption_desc:0 "There are long lines of warlords willing to pay for favors. Perhaps we should take them up on these offers..."
  QIN_jumping_appeals:0 "The Jumping Appeal System"
  QIN_jumping_appeals_desc:0 "Years ago, as part of our new reforms, we outlawed Jumping Appeals, or the ability for corrupt officials to go directly to the imperial court for a pardon and bypass regular judicial processes. However, in these dire times, we need this extra money and control."
- QIN_appointment_by_merit:0 "Appointments by Merit"
- QIN_appointment_by_merit_desc:0 "Our bureaucracy has allowed unskilled people who either pay or inherit their way into office for far too long. Only skill will get us through these hard times."
+ QIN_appointment_by_merit:0 "Abolish Juan-na"
+ QIN_appointment_by_merit_desc:0 "Our bureaucracy has allowed unskilled people who either pay or inherit their way into office for far too long under the Qing office purchase system, known as Juan-na. Only skill will get us through these hard times."
  QIN_paid_appointments:0 "Paid Appointments"
  QIN_paid_appointments_desc:0 "Money is tight, and there are plenty of people willing to pay to get an office in our government. What could go wrong?"
  QIN_warlord_appeasement:0 "Warlord Accord"
@@ -702,12 +702,21 @@ QIN_kaiser_in_formosa_desc:0 "After putting drugs into an Austro-Hungarian diplo
  QIN_state_university:0 "Peking University"
  QIN_state_university_desc:0 "If we have enough money, we can afford to revive higher education."
 #decisions
+ QIN_russia_deal_category:0 "Russian Civil War Intervention"
+ QIN_russia_deal_category_desc:0 "While the other powers are too busy fighting each other to afford battling in Russia, we can afford to send our entire army out there to help secure influence. We can go with the Soviets and take an easy win for a small prize, or we can go with the Whites for the long haul and score a grand treasure... a puppet Russia!"
+ QIN_dec_deal_with_red_russia:0 "Offer Deal to Soviet Russia"
+ QIN_dec_deal_with_red_russia_desc:0 "We will offer the Soviets our support in them winning the Russian Civil War in exchange for Central Asia."
+ QIN_dec_deal_with_white_russia:0 "Offer Deal to White Russia"
+ QIN_dec_deal_with_white_russia_desc:0 "We will offer the White Russian Army our support in them winning the Russian Civil War in exchange for Central Asia and exerting strong influence over a restored Tsar."
  QIN_shikai_joins_the_rebels_mission:0 "Shikai Declares for the Revolutionaries"
  QIN_shikai_joins_the_rebels_mission_desc:0 "The Qing have refused to offer Shikai anything, and he feels his power fading. Knowing the revolutionaries have much to offer, its time to take his chances with them."
  QIN_yuan_auction_category:0 "Bidding for Yuan Shikai"
  QIN_yuan_auction_category_desc:0 "Neither the Qing nor the revolutionaries have any real army, and the fighting consists mostly of weak provincial garrisons and partisan forces. Yuan Shikai has spent decades building the large, modern Beiyang army and ensuring its personally loyal to him, and now his choices will truly decide the fate of China. \n\nA power hungry man, Yuan has great ambitions for himself, and we will have to offer him more and more to keep his favor for our cause, as the consequences of him joining the enemy are far too great...\n\nIt is of utmost importance that, if not fully endorse Yuan, atleast keep him from joining the enemy completely![GetYuanAuctionLoc]"
  QIN_loc_yuan_auction:0 "\n\nCurrent Proto Fascist Support: [?party_popularity@fascism|%t0]\n\nEvery time §YProto-Fascist§W support reaches §R75%§W, Shikai will move §Yone step closer§W to betraying us, and Proto-Fascist support will reset to 50%. After this happens §Y3§W times, §Rhe will betray us§W.\n\nIn addition, if the revolutionaries make too much progress against Qing (ie. they take too much land in the north), then Shikai will defect."
  QIN_loc_yuan_auction2:0 "\n\n§OThe crafty Yuan Shikai has huge ambitions, and if we don't recall him before the timer runs out, he will strike a deal with the revolutionaries and defect to them!§W"
+ CHI_loc_yuan_auction:0 "\n\n§YThe Qing government has not recalled Yuan Shikai. If they keep ignoring him, perhaps soon he will join us?§W\n\n§RHowever, knowing his history of betrayal, can we really trust Shikai in our new republic?§W"
+ CHI_loc_yuan_auction3:0 "\n\n§GYuan Shikai is on our side!§W\n\n§RHowever, knowing his history of betrayal, can we really trust Shikai in our new republic?§W"
+ CHI_loc_yuan_auction2:0 "\n\nEven though Shikai commands the enemy Qing's armies, his influence greatly destabilizes their nation. Every time their §YProto-Fascist§W support reaches §G75%§W, Shikai will move §Yone step closer§W to betraying them, and their Proto-Fascist support will reset to 50%. After this happens §Y3§W times, §Ghe will betray them§W.\n\nIn addition, several other events and circumstances may persuade Shikai to defect to us. \n\n§RHowever, knowing his history of betrayal, can we really trust Shikai in our new republic?§W"
 
  QIN_sell_aruna_mountains:0 "Sell Aruna Mountains"
  QIN_sell_aruna_mountains_desc:0 "We will offer to sell the Aruna Mountains to the British for around 125 PP"
@@ -718,6 +727,8 @@ QIN_kaiser_in_formosa_desc:0 "After putting drugs into an Austro-Hungarian diplo
  
  QIN_mission_take_nanjing:0 "Reseize Nanjing"
  QIN_mission_take_nanjing_desc:0 "The revolutionaries have setup in Nanjing their capital. Taking it back will prove that our mandate still stands"
+ CHI_mission_hold_nanjing:0 "Hold Nanjing"
+ CHI_mission_hold_nanjing_desc:0 "Nanjing will be our capital, like it was for the great Ming Dynasty! We cannot let the Qing recapture it"
  QIN_invite_shikai:0 "Accept Beiyang Support against Revolutionaries"
  QIN_dec_offer_shikai_leadership:0 "Offer Shikai the Presidency"
  QIN_dec_offer_shikai_leadership:0 "We will offer Yuan Shikai the presidency in the new republic, in return for their support of our newly formed democracy."
@@ -766,7 +777,17 @@ QIN_kaiser_in_formosa_desc:0 "After putting drugs into an Austro-Hungarian diplo
  QIN_reform_11_desc:0 "Sending troops in to make sure protesters understand the consequences of dissent will temporarily stall revolution, but only serve to inflame anger in the long run!"
  QIN_Manchu_give_in_to_demand:0 "Concessions to the Conservatives"
  QIN_Manchu_give_in_to_demand_desc:0 "We may have to temporarily slow reforms down to get any of our more important plans through"
- QIN_reform_10:0 "Major Corruption Trial"
+ 
+ QIN_administrative_reform:0 "Administrative Inspection"
+ this_decision_is_repeatable_15:0 "§OThis decision is repeatable every 50 days§W"
+ QIN_effect_major_30:0 "Modifies the '§YAdministrative Inspection§W' decision's §YTongmenghui Plot§W days by: §G+20§W\n\n"
+ QIN_effect_major_30_undo:0 "Modifies the '§YAdministrative Inspection§W' decision's §YTongmenghui Plot§W days by: §R-20§W\n\n"
+ QIN_effect_no_major_trial_undo:0 "§7You will be able to take the §!'Administrative Inspection'§7 decision again!§W"
+ QIN_effect_no_major_trial:0 "§RYou cannot take the decision §!'Administrative Inspection'§R while this focus is active§W"
+ QIN_effect_appointments_by_merit:0 "Modifies the '§YAdministrative Inspection§W' decision's §YCourt Opposition§W days by: §G-30§W\n\n"
+ QIN_effect_appointments_by_merit_undo:0 "Modifies the '§YAdministrative Inspection§W' decision's §YCourt Opposition§W days by: §R+30§W\n\n"
+ 
+ QIN_administrative_reform_desc:0 "The Qing bureacracy is rife with corrupt officials only in it for themselves. It is only a matter of time before a mistake they make turns into a nation-wide revolution. A complete overhaul requires massive action, but atleast we can use our powers of appointment and dismissal to mitigate some critical flaws"
  QIN_gift_manchu: "Prepare Gift for Manchu Nobility"
  QIN_reform_9_desc:0 "Maybe a little money or a few favors will get them to budge"
  QIN_reform_9:0 "Negotiate with the Manchu Court"
@@ -783,7 +804,8 @@ QIN_kaiser_in_formosa_desc:0 "After putting drugs into an Austro-Hungarian diplo
  QIN_reform_4:0 "Major Protest Crackdown"
  QIN_reform_3:0 "Poverty Relief"
  QIN_reform_2:0 "Hold Corruption Trials"
- QIN_reform_1:0 "Minor Corruption Busting"
+ QIN_effect_unlock_low_trials_undo:0 "Removes the §YHold Corruption Trials§W decision."
+ QIN_reform_1:0 "Minor Corruption Busting" #UNUSED
  QIN_reform_1_desc:0 "Start replacing corrupt mayors and governors. However, we can only do this once every month due to the fragile system we have"
  QIN_xinhai_timer:0 "[GetTongmenghuiPlotName]"
  QIN_tongmenghui_plot_loc:0 "Small Tongmenghui Uprising"
@@ -1143,9 +1165,6 @@ QIN_kaiser_in_formosa_desc:0 "After putting drugs into an Austro-Hungarian diplo
  QIN_effect_control_board_of_punishment:0 "§6Will combine the ideas 'Paid Appointments' and 'Qing Bureaucracy' into one, and improve it§W"
  QIN_effect_no_bribe_beiyang_undo:0 "§GYou will be able to take the §!'Bribe Beiyang Generals'§G decision again§W"
  QIN_effect_no_bribe_beiyang:0 "§RYou cannot take the decision §!'Bribe Beiyang Generals'§R while this focus is active§W"
- QIN_effect_unlock_low_trials_undo:0 "Removes the §YHold Corruption Trials§W decision."
- QIN_effect_no_major_trial_undo:0 "§7You will be able to take the §!'Major Corruption Trial'§7 decision again!§W"
- QIN_effect_no_major_trial:0 "§RYou cannot take the decision §!'Major Corruption Trial'§R while this focus is active§W"
  QIN_effect_the_offer:0 "§GWhat the visitor claims he will teach Puyi: §!"
  QIN_effect_massive_bribe:0 "§RThe focus 'Massive Government Crackdown' will be locked for another 300 days.§!"
  QIN_effect_japanese_meddling:0 "§GWill be removed if we go to war with Japan, if we ally with Japan, or if we revoke Japan's military access.§!"
@@ -1566,6 +1585,38 @@ QIN_kaiser_in_formosa_desc:0 "After putting drugs into an Austro-Hungarian diplo
  QIN_korean_qing_friendship:0 "Major Sino-Korean Diplomatic Effort"
  QIN_invited_zaiyi:0 "Invited the Boxer Martyr"
  #events§
+
+ ww1_qing.482.t:0 "White Russia declines the deal"
+ ww1_qing.482.d:0 "The Russian Anti-communist forces have declined our deal and will not accept our cooperation in the Russian Civil War."
+ ww1_qing.482.a:0 "Time to make the Russo-Japanese War look like child's play..."
+
+ ww1_qing.481.t:0 "White Russia agrees to the deal!"
+ ww1_qing.481.d:0 "The Russian Anti-communist forces have agreed to our heavy handed deal, and will give us both our Central Asian claims and control over the Russian Tsardom once the war is over."
+ ww1_qing.481.a:0 "Oh how the tables have turned, and we will have the last laugh!"
+
+ ww1_qing.480.t:0 "Qing makes a chilling offer to us..."
+ ww1_qing.480.d:0 "Today the Qing Empire, still not satisfied by stealing Russian lands in the Far East and Central Asia have set their sights even further. They offer to cooperate with obliterating the Bolsheviks in exchange for recognizing their control over their current lands, us giving up Central Asia to be their tributary states, and even control over a restored Tsar after we win! However, as our faction is quite weak, we might need all the help we can get..."
+ ww1_qing.480.a:0 "Da, death is a preferable alternative to communism."
+ ww1_qing.480.b:0 "N-nyet, can totally do this on our own... r-right guys?!"
+
+ ww1_qing.479.t:0 "Soviets decline the deal"
+ ww1_qing.479.d:0 "The Soviets have decided to decline our deal and will not accept our cooperation in the Russian Civil War."
+ ww1_qing.479.a:0 "Maybe the Whites will accept our support instead..."
+
+ ww1_qing.478.t:0 "Soviets agree to the deal!"
+ ww1_qing.478.d:0 "The Soviets have decided our deal was worth it and will give us our Central Asian claims once the war is over."
+ ww1_qing.478.a:0 "A toast to our new Red friends!"
+
+ ww1_qing.477.t:0 "Qing proposes a deal to us!"
+ ww1_qing.477.d:0 "Today the Qing Empire, still not satisfied by stealing Russian lands in the Far East and Central Asia have set their sights even further. They offer to cooperate with ending the anti-communist white forces in exchange for recognizing their control over their current lands, as well as us giving up Central Asia to be their tributary states."
+ ww1_qing.477.a:0 "Da, the revolution must finish quickly and we do not need those underdeveloped lands any longer."
+ ww1_qing.477.b:0 "Nyet, the whites are weak and we don't need costly support from those Chinese dogs!"
+
+ ww1_qing.476.t:0 "Yuan Shikai's Deal Rejected by the Republics"
+ ww1_qing.476.d:0 "What we expected from refusing to invite Shikai has happened, and he quietely tried to contact the rebels and join them. However, it seems the rebels did not want the dirty Yuan Shikai in their ranks too, and would rather keep him out than get his massive army. Without the support of any government and now a traitor to us, he has fled the country."
+ ww1_qing.476.a:0 "His treachery finally caught up to him"
+
+ 
  ww1_qing.475.t:0 "Optional: Difficulty Setting"
  ww1_qing.475.d:0 "Following the cancelling of integration, and after much request, I have decided to restore the difficulty settings, atleast for now until I am confident in a very concrete playthrough on historical mode. Anyway, enjoy! (Historical is recommended!)"
  ww1_qing.475.a:0 "§GVery Easy§W"
@@ -2272,7 +2323,7 @@ QIN_kaiser_in_formosa_desc:0 "After putting drugs into an Austro-Hungarian diplo
  ww1_qing.322.t:0 "[FROM.GetName] refuses!"
  ww1_qing.322.d:0 "[FROM.GetName] has refused to accept our demands, counting on other powers to protect them."
  ww1_qing.322.a:0 "War it is"
- ww1_qing.322.a:0 "It is not worth the war"
+ ww1_qing.322.b:0 "It is not worth the war"
  
  ww1_qing.321.t:0 "[QIN.GetName] demands our submission!"
  ww1_qing.321.d:0 "Citing a historical precedent of tributary states, the [QIN.GetName] has demanded that we submit to their overlordship"

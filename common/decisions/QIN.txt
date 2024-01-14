@@ -76,7 +76,25 @@ QIN_puyi_education_category = {
 				limit = {
 					NOT = { has_global_flag = QIN_yuan_shikai_government }
 				}
-				QIN_xuantong= {
+				hidden_effect = {
+					if = {
+						limit = {
+							NOT = { can_be_country_leader = QIN_xuantong }
+						}
+						QIN_xuantong = {
+							add_country_leader_role = {
+								promote_leader = yes
+								country_leader = {
+									ideology = semi_constitutional_monarchy
+								}
+							}
+						}
+					}
+					else = {
+						promote_character = QIN_xuantong
+					}
+				}
+				QIN_xuantong = {
 					set_portraits = {
 						civilian = { large = "gfx/leaders/QIN/QIN_xuantong_military.png" }
 					}
@@ -2526,17 +2544,17 @@ QIN_xinhai_revolution_category = {
 			}
 		}
 	}
-	QIN_reform_2 = { #
+	QIN_reform_2 = { #Hold Corruption Trials
 		icon = SWI_no_elected_president
 		allowed = {
 			original_tag = QIN
 		} 
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
-			has_active_mission = QIN_xinhai_timer
 			has_completed_focus = QIN_government_trials
 		}
 		visible = {
+			always = no
 			NOT = { has_completed_focus = QIN_efficient_government }
 			has_active_mission = QIN_xinhai_timer
 		}
@@ -2611,30 +2629,47 @@ QIN_xinhai_revolution_category = {
 			}
 		}
 	}
-	QIN_reform_10 = { #hold corruption trials 2
-		icon = SOV_place_hq
+	QIN_administrative_reform = { #Administrative Reform
+		icon = GFX_decision_jap_conquer_china
 		allowed = {
 			original_tag = QIN
 		} 
 		available = {
 			NOT = { has_idea = QIN_idea_court_opposition }
-			has_active_mission = QIN_xinhai_timer
 			NOT = { has_completed_focus = QIN_jumping_appeals }
 		}
 		visible = {
 			NOT = { has_completed_focus = QIN_efficient_government }
 			has_active_mission = QIN_xinhai_timer
 		}
-		cost = 25
-		days_re_enable = 325
+		cost = 50
+		days_re_enable = 50
 		complete_effect = {
-			add_days_mission_timeout = {
-				mission = QIN_xinhai_timer
-				days = 30
+			if = {
+				limit = {
+					has_completed_focus = QIN_government_trials
+				}
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = 50
+				}
 			}
-			
-			QIN_court_opp_20 = yes
-			
+			else = {
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = 30
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIN_appointment_by_merit
+				}
+				QIN_court_opp_20 = yes
+			}
+			else = {
+				QIN_court_opp_50 = yes
+			}
+			custom_effect_tooltip = line_description
 			hidden_effect = {
 				if = {
 					limit = {
@@ -2688,8 +2723,9 @@ QIN_xinhai_revolution_category = {
 					}
 				}
 			}
+			custom_effect_tooltip = this_decision_is_repeatable_15
 		}
-		priority = 8
+		priority = 80000
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -2794,7 +2830,7 @@ QIN_xinhai_revolution_category = {
 		}
 	}
 	QIN_dec_emergency_reform = { #Emergency Reform
-		icon = generic_prepare_civil_war
+		icon = GFX_decision_eng_support_imperialist_coup
 		allowed = {
 			original_tag = QIN
 		} 
@@ -2819,7 +2855,7 @@ QIN_xinhai_revolution_category = {
 			QIN_lower_opp_200 = yes
 			custom_effect_tooltip = QIN_effect_emergency_reform
 		}
-		priority = 6
+		priority = 2
 	}
 	 QIN_dec_end_isolation = { # End Isolation
 		icon = generic_civil_support
@@ -3319,7 +3355,7 @@ QIN_xinhai_army_category = {
 				command_power > 10
 			}
 		}
-		days_re_enable = 10
+		days_re_enable = 15
 		
 		complete_effect = {
 			if = {
@@ -3511,7 +3547,7 @@ QIN_xinhai_army_category = {
 			}
 		}
 		is_good = no
-		days_mission_timeout = 2000
+		days_mission_timeout = 900
 		fire_only_once = yes
 		allowed = {
 			original_tag = QIN
@@ -3817,7 +3853,7 @@ QIN_yuan_auction_category = {
 			}
 		}
 		modifier = {
-			fascism_drift = 1.4
+			fascism_drift = 1.2
 			surrender_limit = 0.3
 			stability_factor = 0.1
 		}
@@ -4422,13 +4458,13 @@ QIN_beiyang_army_category = {
 			add_political_power = -35
 			add_popularity = {
 				ideology = fascism
-				popularity = 0.04
+				popularity = 0.035
 			}
 			add_popularity = {
 				ideology = neutrality
 				popularity = 0.02
 			}
-			army_experience = 10
+			army_experience = 15
 		}
 		priority = 6
 	}
@@ -4459,7 +4495,7 @@ QIN_beiyang_army_category = {
 			original_tag = QIN
 		} 
 		cost = 0
-		days_re_enable = 260
+		days_re_enable = 235
 		available = {
 			QIN_yuan_shikai = { is_leading_army_group = yes }
 			has_idea = QIN_idea_beiyang_army
@@ -5909,6 +5945,7 @@ QIN_weihaiwei_category = {
 		}
 	}
 }
+
 foreign_politics = {
 	QIN_sell_aruna_mountains = {
 		icon = hol_attract_foreign_investors

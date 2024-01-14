@@ -1120,7 +1120,7 @@ ideas = {
 		QIN_idea_paid_appointments = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
-			picture = generic_monarchist_uprising
+			picture = ast_abandon_the_westminster_system
 			modifier = {
 				political_power_factor = 0.1
 				army_org_factor = -0.2
@@ -1136,7 +1136,7 @@ ideas = {
 		QIN_idea_merit_appointments = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
-			picture = generic_monarchist_uprising
+			picture = SPA_la_division_azul
 			modifier = {
 				political_power_factor = -0.15
 				political_advisor_cost_factor = 0.5

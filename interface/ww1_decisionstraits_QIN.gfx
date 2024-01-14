@@ -21,6 +21,12 @@ spriteTypes = {
 		texturefile = "gfx/interface/decisions/decision_qin_indemnities.dds"
 	}
 	
+	#icons
+	spriteType = {
+		name = "GFX_decision_category_QIN_court_decision_icon"
+		texturefile = "gfx/interface/decisions/decision_QIN_court_opposition_category.png"
+	}
+	
 	#Traits
 	spriteType = {
 		name = "GFX_trait_QIN_underage"
