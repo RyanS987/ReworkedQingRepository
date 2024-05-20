@@ -16675,20 +16675,15 @@ country_event = {
 				target = CHI
 				type = annex_everything
 			}
-			if = {
-				limit = {
-					has_subject_autonomy_feature = yes
-				}
-				set_autonomy = {
-					target = QIN
-					autonomy_state = autonomy_wtt_imperial_subject
-					end_wars = no
-					end_civil_wars = no
-				}
-				else = {
-					puppet = QIN
-				}
+
+			set_autonomy = {
+				target = QIN
+				autonomy_state = autonomy_wtt_imperial_subject
+				end_wars = no
+				end_civil_wars = no
 			}
+			
+			
 			country_event = { id = ww1_qing.126 days = 0 }
 		}
 	}

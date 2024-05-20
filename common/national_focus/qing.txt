@@ -10946,24 +10946,28 @@ focus_tree = {
 					OR = {
 						state = 561
 						state = 560
+						state = 967
+						state = 966
 						state = 409
+						state = 465
+						state = 964
 						state = 408
-						state = 655
+						state = 569
+						state = 963
 					}
 					NOT = {
 						is_owned_by = QIN
 						is_owned_by = JAP
 					}
-					owner = {
-						OR = {
-							has_war_with = GER
-							has_war_with = ENG
-							has_war_with = FRA
-							has_war_with = SOV
-							has_war_with = RUS
+					OR = {
+						tag = CER
+						owner = {
+							has_war_with_major = yes
+							OR = {
+								casualties > 1250000
+								is_major = no
+							}
 						}
-						casualties > 1250000
-						NOT = { has_war_with = QIN }
 					}
 				}
 			}
@@ -10972,9 +10976,14 @@ focus_tree = {
 					NOT = {
 						state = 561
 						state = 560
+						state = 967
+						state = 966
 						state = 409
+						state = 465
+						state = 964
 						state = 408
-						state = 655
+						state = 569
+						state = 963
 					}
 					NOT = {
 						owner = {
@@ -11008,15 +11017,17 @@ focus_tree = {
 					country_event = { id = ww1_qing.41 }
 				}
 			}
-			transfer_state = 560
 			transfer_state = 561
-			transfer_state = 408
+			transfer_state = 560
+			transfer_state = 967
+			transfer_state = 966
 			transfer_state = 409
+			transfer_state = 465
+			transfer_state = 964
+			transfer_state = 408
+			transfer_state = 569
+			transfer_state = 963
 			transfer_state = 655
-			
-			#QIN = {
-			#	add_state_claim = 873
-			#}
 			country_event = { id = ww1_qing.39 }
 
 			hidden_effect = {
@@ -11048,6 +11059,7 @@ focus_tree = {
 			any_state = {
 				AND = {
 					OR = {
+						state = 570
 						state = 908
 						state = 909
 						state = 589
@@ -11083,6 +11095,9 @@ focus_tree = {
 			909 = {
 						is_owned_and_controlled_by = QIN
 			}
+			570 = {
+						is_owned_and_controlled_by = QIN
+			}
 		}
 		completion_reward = {
 			add_threat = 5
@@ -11092,6 +11107,7 @@ focus_tree = {
 				}
 			}
 			transfer_state = 589
+			transfer_state = 570
 			transfer_state = 732
 			transfer_state = 909
 			transfer_state = 908
@@ -11153,17 +11169,23 @@ focus_tree = {
 		}
 		
 		available = {
-			561 = {
-						is_owned_and_controlled_by = QIN
-			}
-			560 = {
-						is_owned_and_controlled_by = QIN
-			}
-			408 = {
-						is_owned_and_controlled_by = QIN
-			}
-			409 = {
-						is_owned_and_controlled_by = QIN
+			all_state = {
+				OR = {
+					NOT = {
+						OR = {
+							state = 561
+							state = 560
+							state = 967
+							state = 966
+							state = 409
+							state = 465
+							state = 964
+							state = 408
+							state = 569
+						}
+					}
+					is_controlled_by = QIN
+				}
 			}
 		}
 		bypass = {
@@ -11171,25 +11193,45 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.025
 			563 = {
-				add_manpower = 420000
+				add_manpower = 370000
 			}
 			561 = {
 				add_core_of = QIN
 			}
+			963 = {
+				add_core_of = QIN
+			}
+			967 = {
+				add_core_of = QIN
+			}
+			964 = {
+				add_core_of = QIN
+			}
+			965 = {
+				add_core_of = QIN
+			}
+			569 = {
+				set_state_name = "Outer Hokiang"
+				add_core_of = QIN
+			}
+			966 = {
+				set_state_name = "Outer Jilin"
+				add_core_of = QIN
+				add_manpower = -10000
+			}
 			560 = {
-					set_state_name = "Outer Jilin"
-					add_core_of = QIN
-					add_manpower = -10000
+				add_core_of = QIN
+				add_manpower = -10000
 			}
 			408 = {
-					set_state_name = "Haishenwei"
-					add_core_of = QIN
-					add_manpower = -300000
+				set_state_name = "Haishenwei"
+				add_core_of = QIN
+				add_manpower = -200000
 			}
 			409 = {
-					set_state_name = "Boli"
-					add_core_of = QIN
-					add_manpower = -72000
+				set_state_name = "Boli"
+				add_core_of = QIN
+				add_manpower = -72000
 			}
 			set_province_name = {
 				id = 12189
@@ -11242,15 +11284,29 @@ focus_tree = {
 			}
 			909 = {
 				add_core_of = QIN
-				add_manpower = -145000
+				add_manpower = -5000
+			}
+			570 = {
+				add_core_of = QIN
+				add_manpower = -20000
 			}
 			589 = {
 				add_core_of = QIN
-				add_manpower = -95000
+				add_manpower = -175000
 			}
 			732 = {
 				add_core_of = QIN
-				add_manpower = -95000
+				add_manpower = -195000
+			}
+			
+			40 = {
+				add_manpower = 150000
+			}
+			588 = {
+				add_manpower = 180000
+			}
+			585 = {
+				add_manpower = 175000
 			}
 		}			
 		ai_will_do = {
@@ -11280,10 +11336,25 @@ focus_tree = {
 					560 = {
 								is_owned_and_controlled_by = QIN
 					}
-					408 = {
+					967 = {
+								is_owned_and_controlled_by = QIN
+					}
+					966 = {
 								is_owned_and_controlled_by = QIN
 					}
 					409 = {
+								is_owned_and_controlled_by = QIN
+					}
+					965 = {
+								is_owned_and_controlled_by = QIN
+					}
+					964 = {
+								is_owned_and_controlled_by = QIN
+					}
+					408 = {
+								is_owned_and_controlled_by = QIN
+					}
+					963 = {
 								is_owned_and_controlled_by = QIN
 					}
 				}

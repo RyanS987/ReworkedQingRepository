@@ -1,8 +1,8 @@
 ﻿capital = 598
-oob = "QIN_1910"
+# oob = "QIN_1910"
 
 set_research_slots = 2
-set_stability = 0.53
+set_stability = 0.70
 set_war_support = 0.55
 set_convoys = 13
 
@@ -10,54 +10,52 @@ give_military_access = RUS #Chinese Eastern Railway
 give_military_access = JAP #South Manchuria Railway
 give_military_access = GER #Qingdao–Jinan Railway
 
+diplomatic_relation = {
+	country = CER
+	relation = military_access
+	active = yes
+}
+diplomatic_relation = {
+	country = CER
+	relation = guarantee
+	active = yes
+}
 
 recruit_character = CHI_jiang_kanghu
 recruit_character = CHI_li_dazhao
-recruit_character = CHI_wuchang_officers
 recruit_character = CHI_li_yuanhong
 recruit_character = CHI_huang_xing
-
-recruit_character = CHI_yuan_shikai
 
 recruit_character = CHI_yuan_keding
 recruit_character = CHI_yan_xishan
 recruit_character = CHI_cai_e
-recruit_character = CHI_ch_eng_te_ch_uan
 recruit_character = CHI_xiong_xiling
-recruit_character = CHI_tu_hsi_kuei
-recruit_character = CHI_ch_en_ch_i_mei
+recruit_character = CHI_du_xigui
+recruit_character = CHI_chen_qimei
 recruit_character = CHI_tang_shaoyi
-recruit_character = CHI_chang_ching_hui
 recruit_character = CHI_ha_hanzhang
 recruit_character = CHI_liang_ruhao
-recruit_character = CHI_chin_yun_peng
+recruit_character = CHI_jin_yunpeng
 recruit_character = CHI_zhou_xuexi
-recruit_character = CHI_ch_en_lu
+recruit_character = CHI_chen_lu
 recruit_character = CHI_zhu_qiqian
-recruit_character = CHI_wang_shih_chen
-recruit_character = CHI_tuan_chih_kuei
-recruit_character = CHI_kuo_sung_ling
+recruit_character = CHI_duan_zhigui
 recruit_character = CHI_lu_zhengxiang
-recruit_character = CHI_duan_qirui
-recruit_character = CHI_sun_yatsen
 recruit_character = CHI_zhang_guotao
 recruit_character = CHI_wang_jingwei
 recruit_character = CHI_hu_hanmin
-recruit_character = CHI_hans_von_seeckt
+recruit_character = CHI_chiang_kaishek
 recruit_character = CHI_song_jiaoren
 recruit_character = CHI_yang_hucheng
 recruit_character = CHI_chen_jiongming
 recruit_character = CHI_tang_jiyao
-recruit_character = CHI_liang_qichao
 recruit_character = CHI_beiyang_triumvirate
 recruit_character = CHI_liao_zhongkai
 recruit_character = CHI_cai_yuanpei
 recruit_character = CHI_li_jishen
 recruit_character = CHI_lin_sen
-recruit_character = CHI_xuantong
 recruit_character = CHI_zhao_hengti
-recruit_character = CHI_xu_shichang
-recruit_character = CHI_xu_chongzhi
+recruit_character = CHI_chen_lifu
 recruit_character = CHI_baoding_military_academy
 recruit_character = CHI_baoding_aviation_academy
 recruit_character = CHI_yunnan_military_academy
@@ -91,7 +89,6 @@ recruit_character = CHI_nanking_naval_academy
 		elections_allowed = no
 	}
 
-
 	set_popularities = {
 		fascism = 0
 		communism = 0
@@ -106,10 +103,7 @@ recruit_character = CHI_nanking_naval_academy
 }
 
 1914.1.1 = {
-	load_oob = "QIN_1910"
-	load_oob = "PRC_1911_Wuchang"
-	load_oob = PRC_1911_uprising2
-	load_oob = PRC_1911_uprising3
+	load_oob = "CHI_1912"
 	
 	delete_unit_template_and_units = {
 		division_template = "Minbing"
@@ -117,7 +111,31 @@ recruit_character = CHI_nanking_naval_academy
 	}
 	
 	QIN = {
-		every_unit_leader = {
+		every_character = {
+			limit = {
+				NOT = {
+					is_character = QIN_yikuang
+					is_character = QIN_kang_youwei
+					is_character = QIN_zaitao
+					is_character = QIN_liangbi
+					is_character = QIN_tieliang
+					is_character = QIN_zaifeng
+					is_character = QIN_xuantong
+					is_character = QIN_liang_hu
+					is_character = QIN_zaize
+					is_character = QIN_natong
+					is_character = QIN_liang_dunyan
+					is_character = QIN_wuzhen
+					is_character = QIN_shouxun
+					is_character = QIN_zaixun
+					is_character = QIN_li_shenghe
+					is_character = QIN_baoding_aviation_academy
+					is_character = QIN_baoding_military_academy
+					is_character = QIN_yunnan_aviation_academy
+					is_character = QIN_yunnan_military_academy
+					is_character = QIN_nanking_naval_academy
+				}
+			}
 			set_nationality = CHI
 		}
 	}
@@ -208,12 +226,24 @@ recruit_character = CHI_nanking_naval_academy
 	complete_national_focus = CHI_nation_recovery
 	complete_national_focus = CHI_restore_military_production
 	complete_national_focus = CHI_pave_way_for_industrialization
-	complete_national_focus = CHI_nanjing_arsenal
+	unlock_national_focus = CHI_nanjing_arsenal
 	complete_national_focus = CHI_appease_the_colonialists
 
 	# complete_national_focus = CHI_advisory_council
 	# complete_national_focus = CHI_prince_qing_cabinet
 	complete_national_focus = CHI_stand_with_tongmenghui
+	unlock_national_focus = CHI_hold_parliamentary_elections
+	
+	set_party_name = {
+		ideology = democratic
+		long_name = CHI_kuomintang_party_long
+		name = CHI_kuomintang_party
+	}
+	set_party_name = {
+		ideology = neutrality
+		long_name = CHI_neutrality_progressive_party
+		name = CHI_neutrality_progressive_party
+	}
 
 	complete_national_focus = CHI_restore_the_nation
 
@@ -224,21 +254,14 @@ recruit_character = CHI_nanking_naval_academy
 	unlock_national_focus = CHI_parliament_liquidation
 	unlock_national_focus = CHI_reorganization_loans
 
-	complete_national_focus = CHI_recovery_of_naval_infrastructure
+	unlock_national_focus = CHI_recovery_of_naval_infrastructure
 
 	complete_national_focus = CHI_army_westernization
 
 	retire_character = CHI_song_jiaoren
 	CHI_sun_yatsen = {
-		add_country_leader_role = {
-			promote_leader = yes
-			country_leader = {
-				ideology = socialism
-				traits = {
-					father_of_the_republic
-				}
-			}
-		}
+		promote_character = tridemism
+		add_country_leader_trait = father_of_the_republic
 	}
 
 
@@ -249,6 +272,11 @@ recruit_character = CHI_nanking_naval_academy
 		unequal_treaties
 		CHI_idea_beiyang_government
 		PRC_government_corruption
+		CHI_idea_illiteracy
+		CHI_idea_weak_industry
+		CHI_banditry
+		CHI_idea_unstable_republic
+		CHI_idea_yuan_constitution
 	}
 
 	remove_ideas = {
@@ -276,4 +304,6 @@ recruit_character = CHI_nanking_naval_academy
 	set_capital = {
 		state = 608
 	}
+
+    country_event = { id = ww1_developer_note.6 days = 1 }
 }

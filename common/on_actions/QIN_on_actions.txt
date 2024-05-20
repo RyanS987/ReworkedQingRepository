@@ -1,0 +1,87 @@
+on_actions = {
+	on_daily_QIN = { #Update court opposition
+		effect = {
+			if = {
+				limit = { has_variable = var_court_opp_days }
+				add_to_variable = { var_court_opp_days = -1 }
+				set_temp_variable = { democratic_temp = party_popularity@democratic }
+				multiply_temp_variable = { democratic_temp = -1.0 }
+				set_variable = { court_opp_pp_factor = democratic_temp }
+			}
+			if = {
+				limit = {
+					has_idea_with_trait = court_empress
+				}
+				if = {
+					limit = {
+						has_idea = QIN_idea_court_opposition
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = -1
+					}
+					add_to_variable = { var_court_opp_days = -1 }
+					round_variable = temp_days_var
+				}
+				add_days_mission_timeout = {
+					mission = QIN_xinhai_timer
+					days = -1
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = QIN_flag_easy_court 
+				}
+				if = {
+					limit = {
+						has_idea = QIN_idea_court_opposition
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = -3
+					}
+					add_to_variable = { var_court_opp_days = -3 }
+					round_variable = temp_days_var
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = QIN_flag_easy_court2
+				}
+				if = {
+					limit = {
+						has_idea = QIN_idea_court_opposition
+					}
+					modify_timed_idea = {
+						idea = QIN_idea_court_opposition
+						days = -1
+					}
+					add_to_variable = { var_court_opp_days = -1 }
+					round_variable = temp_days_var
+				}
+			}
+			if = {
+				limit = {
+					has_idea = QIN_idea_han_crackdown
+				}
+				random_list = {
+					20 = {
+						add_days_mission_timeout = {
+							mission = QIN_xinhai_timer
+							days = 1
+						}
+					}
+					80 = {
+					}
+				}
+			}
+		}
+	}
+	on_monthly_QIN = {
+		effect = {
+			set_temp_variable = { democratic_temp = party_popularity@democratic }
+			multiply_temp_variable = { democratic_temp = -1.0 }
+			set_variable = { court_opp_pp_factor = democratic_temp }
+		}
+	}
+}

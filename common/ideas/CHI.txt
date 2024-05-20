@@ -7,8 +7,8 @@ ideas = {
 				is_china_or_warlord_no_tt = yes
 				NOT = { original_tag = QIN }
 			}
-			research_bonus = { naval_equipment = 0.15 } 
-			traits = { naval_manufacturer } 
+			research_bonus = { naval_equipment = 0.15 }
+			traits = { naval_manufacturer }
 			picture = generic_naval_manufacturer_2
 			available = {
 				OR = {
@@ -19,8 +19,9 @@ ideas = {
 				}
 				any_country = {
 					OR = {
-						has_completed_focus = CHI_japanese_manufacturer
 						has_completed_focus = QIN_japanese_qing_research_coalition
+						has_completed_focus = CHI_shanghai_shipyards
+						has_completed_focus = ANC_focus_align_with_japan
 					}
 				}
 			}
@@ -31,8 +32,8 @@ ideas = {
 				is_china_or_warlord_no_tt = yes
 				NOT = { original_tag = QIN }
 			}
-			research_bonus = { naval_equipment = 0.05 } 
-			traits = { naval_manufacturer } 
+			research_bonus = { naval_equipment = 0.05 }
+			traits = { naval_manufacturer }
 			cost = 100
 			picture = generic_naval_manufacturer_1
 			available = {
@@ -42,7 +43,15 @@ ideas = {
 					}
 					controls_province = 10068 #Tianjin
 				}
-				any_country = { has_completed_focus = CHI_recovery_of_naval_infrastructure }
+				OR = {
+					any_country = {
+						OR = {
+							has_completed_focus = QIN_recovery_of_naval_infrastructure
+							has_completed_focus = CHI_recovery_of_naval_infrastructure
+						}
+					}
+					has_completed_focus = CHI_local_naval_development
+				}
 			}
 		}
 	}
@@ -54,29 +63,32 @@ ideas = {
 				NOT = { original_tag = QIN }
 			}
 			picture = CHI_camco
-			research_bonus = { air_equipment = 0.10 } 
+			research_bonus = { air_equipment = 0.10 }
 			traits = { light_aircraft_manufacturer }
 			available = {
-				any_country = {
-					OR = {
-						has_completed_focus = CHI_open_up_camco
-						has_completed_focus = QIN_aviation
+				OR = {
+					any_country = {
+						OR = {
+							has_completed_focus = QIN_aviation
+							has_completed_focus = CHI_aviation
+						}
 					}
+					has_completed_focus = CHI_train_pilots_warlord
 				}
 			}
 		}
 	}
 	materiel_manufacturer = {
-		designer = yes 
+		designer = yes
 		CHI_hanyang_arsenal = { 
 			name = hanyang_arsenal
 			allowed = {
 				is_china_or_warlord_no_tt = yes
 				NOT = { original_tag = QIN }
 			}
-			research_bonus = { infantry_weapons = 0.15 } 
-			traits = { infantry_equipment_manufacturer } 
-			picture = generic_artillery_manufacturer_2
+			research_bonus = { infantry_weapons = 0.15 }
+			traits = { infantry_equipment_manufacturer }
+			picture = generic_infantry_equipment_manufacturer_2 
 			available = {
 				OR = {
 					any_allied_country = {
@@ -84,35 +96,52 @@ ideas = {
 					}
 					controls_province = 12467 #Hanyang
 				}
-				any_country = {
-					OR = {
-						has_completed_focus = CHI_hanyang
-						has_completed_focus = QIN_hanyang
+				OR = {
+					any_country = {
+						OR = {
+							has_completed_focus = QIN_hanyang
+							has_completed_focus = CHI_hanyang
+						}
 					}
+					has_completed_focus = CHI_local_arms_production
 				}
 			}
 		}
-	}
-	industrial_concern = {
-		designer = yes 
-		CHI_aioc = {
-			name = tsingtao_brewery
+		CHI_taiyuan_arsenal = { 
+			name = taiyuan_arsenal
 			allowed = {
 				is_china_or_warlord_no_tt = yes
 				NOT = { original_tag = QIN }
 			}
-			picture = tsingtao_brewery
-			research_bonus = { industry = 0.15 }
-			traits = { industrial_concern }
+			research_bonus = { infantry_weapons = 0.10 }
+			traits = { infantry_equipment_manufacturer }
+			picture = generic_infantry_equipment_manufacturer_3 
 			available = {
-				any_country = {
-					OR = {
-					has_completed_focus = CHI_german_manufacturer
-					has_completed_focus = QIN_german_manufacturer
+				OR = {
+					any_allied_country = {
+						controls_province = 1519 #Taiyuan
 					}
+					controls_province = 1519 #Taiyuan
 				}
 			}
-			ai_will_do = { factor = 2 }
+		}
+		CHI_mukden_arsenal = { 
+			name = mukden_arsenal
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+				NOT = { original_tag = QIN }
+			}
+			research_bonus = { infantry_weapons = 0.10 }
+			traits = { infantry_equipment_manufacturer }
+			picture = generic_infantry_equipment_manufacturer_1
+			available = {
+				OR = {
+					any_allied_country = {
+						controls_province = 11771 #Mukden
+					}
+					controls_province = 11771 #Mukden
+				}
+			}
 		}
 		CHI_mauser = { 
 			name = mauser
@@ -120,8 +149,8 @@ ideas = {
 				is_china_or_warlord_no_tt = yes
 				NOT = { original_tag = QIN }
 			}
-			research_bonus = { infantry_weapons = 0.05 } 
-			traits = { infantry_equipment_manufacturer } 
+			research_bonus = { infantry_weapons = 0.05 }
+			traits = { infantry_equipment_manufacturer }
 			equipment_bonus = {
 				infantry_equipment = {
 					build_cost_ic = -0.1 
@@ -132,8 +161,9 @@ ideas = {
 			available = {
 				any_country = {
 					OR = {
-						has_completed_focus = CHI_mauser_contract
 						has_completed_focus = QIN_mauser_contract
+						has_completed_focus = CHI_mauser_contract
+						has_completed_focus = ANC_focus_align_with_germany
 					}
 				}
 				NOT = { has_war_with = GER }
@@ -145,8 +175,8 @@ ideas = {
 				is_china_or_warlord_no_tt = yes
 				NOT = { original_tag = QIN }
 			}
-			research_bonus = { artillery = 0.05 } 
-			traits = { artillery_manufacturer } 
+			research_bonus = { artillery = 0.05 }
+			traits = { artillery_manufacturer }
 			cost = 100
 			picture = generic_artillery_manufacturer_3
 			available = {
@@ -163,8 +193,8 @@ ideas = {
 			allowed = {
 				is_china_or_warlord_no_tt = yes
 			}
-			research_bonus = { motorized_equipment = 0.10 } 
-			traits = { motorized_equipment_manufacturer } 
+			research_bonus = { motorized_equipment = 0.10 }
+			traits = { motorized_equipment_manufacturer }
 			picture = generic_motorized_equipment_manufacturer_3
 			available = {
 				OR = {
@@ -173,7 +203,7 @@ ideas = {
 					}
 					controls_province = 1047 #Guangzhou
 				}
-			} 
+			}
 		}
 	}
 	industrial_concern = {
@@ -247,7 +277,7 @@ ideas = {
 		idea_overseas_chinese_community = {
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
-			picture = prc_low_popular_support3
+			picture = eng_steady_as_she_goes
 			removal_cost = -1
 			modifier = {
 				weekly_manpower = 75
@@ -256,6 +286,7 @@ ideas = {
 			}
 		}
 		german_advisors = { 
+			picture = GRE_german_military_mission
 			allowed = {
 				is_china_or_warlord_no_tt = yes
 			}
@@ -271,6 +302,43 @@ ideas = {
 			removal_cost=-1 
 			modifier = {
 				army_org_factor = 0.07
+			}
+		}
+		russian_advisors = {
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				NOT = {
+					has_war_with = GER
+					has_government = communism
+				}
+			}
+			removal_cost=-1 
+			modifier = {
+				army_attack_factor = 0.07
+			}
+		}
+		soviet_advisors = {
+			picture = saf_soviet_advisers
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				NOT = {
+					has_war_with = SOV
+					has_government = fascism
+				}
+			}
+			removal_cost=-1 
+			modifier = {
+				army_defence_factor = 0.07
 			}
 		}
 		CHI_idea_support_for_revolution = {
@@ -304,7 +372,7 @@ ideas = {
 				}
 			}
 		}
-		CHI_idea_three_principles_of_the_people = {
+		CHI_idea_three_principles = {
 			allowed = {
 				is_china_or_warlord_no_tt = yes
 			}
@@ -315,7 +383,8 @@ ideas = {
 				NOT = { has_government = fascism }
 			}
 			modifier = {
-				democratic_drift = 0.02
+				stability_weekly = 0.001
+				neutrality_drift = -0.02
 			}
 		}
 		CHI_idea_beiyang_government = {
@@ -332,6 +401,7 @@ ideas = {
 				}
 			}
 			modifier = {
+				custom_modifier_tooltip = plus_100_bataillons_limit
 				army_chief_cost_factor = -0.1
 				navy_chief_cost_factor = -0.1
 				air_chief_cost_factor = -0.1
@@ -524,6 +594,7 @@ ideas = {
 				NOT = {
 					has_government = democratic
 					has_government = communism
+					has_country_flag = republican_plot_fired
 				}	
 			}
 			modifier = {
@@ -542,6 +613,7 @@ ideas = {
 			available = {
 				has_civil_war = no
 				has_government = democratic
+				NOT = { has_country_flag = militarist_plot_fired }
 			}
 			modifier = {
 				fascism_drift = 0.05
@@ -555,7 +627,7 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
-			picture = anti_soviet_pact
+			picture = generic_disjointed_gov
 			available = {
 				is_subject = no
 				NOT = {
@@ -592,7 +664,7 @@ ideas = {
 			modifier = {
 				political_power_factor = -0.05
 				stability_factor = -0.05
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.1
 				industrial_capacity_factory = -0.05
 				industrial_capacity_dockyard = -0.05
 				production_speed_buildings_factor = -0.05
@@ -608,6 +680,7 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			modifier = {
+				custom_modifier_tooltip = plus_50_bataillons_limit
 				ai_join_ally_desire_factor = -2000
 				surrender_limit = 0.1
 			}
@@ -634,9 +707,18 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			available = {
-				is_kuomintang_state = yes
+				OR = {
+					is_kuomintang_state = yes
+					any_other_country = {
+						is_kuomintang_state = yes
+						OR = {
+							is_in_faction_with = ROOT
+							has_subject = ROOT
+						}
+					}
+				}
 				NOT = { has_global_flag = northern_expedition_end }
-				has_war = yes
+				# has_war = yes
 			}
 			modifier = {
 				army_org_factor = 0.05
@@ -655,7 +737,7 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.1
 			}
 		}
 		CHI_idea_foreign_military_aid1 = {
@@ -699,14 +781,15 @@ ideas = {
 				owns_state = 608
 			}
 			modifier = {
+				custom_modifier_tooltip = plus_100_bataillons_limit
 				army_chief_cost_factor = -0.2
 				navy_chief_cost_factor = -0.2
 				air_chief_cost_factor = -0.2
 				high_command_cost_factor = -0.2
-                army_attack_factor = 0.05
-                army_defence_factor = 0.05
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
 				democratic_drift = -0.10
-                fascism_drift = 0.10
+				fascism_drift = 0.10
 			}
 		}
 		CHI_idea_local_military_development1 = {
@@ -718,6 +801,7 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			modifier = {
+				custom_modifier_tooltip = plus_50_bataillons_limit
 				army_attack_factor = 0.05
 				army_defence_factor = 0.05
 			}
@@ -731,6 +815,7 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			modifier = {
+				custom_modifier_tooltip = plus_50_bataillons_limit
 				army_attack_factor = 0.1
 				army_defence_factor = 0.1
 				army_morale_factor = 0.2
@@ -745,6 +830,7 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			modifier = {
+				custom_modifier_tooltip = plus_100_bataillons_limit
 				army_attack_factor = 0.1
 				army_defence_factor = 0.1
 				army_morale_factor = 0.2
@@ -773,7 +859,7 @@ ideas = {
 				num_of_civilian_factories < 25
 			}
 			modifier = {
-				consumer_goods_factor = 0.025
+				consumer_goods_factor = 0.05
 				production_factory_max_efficiency_factor = -0.05
 				industrial_capacity_factory = -0.10
 				production_speed_buildings_factor = -0.030
@@ -786,13 +872,22 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			available = {
-				NOT = { has_war_with = JAP }
 				OR = {
-					is_subject_of = JAP
-					any_neighbor_country = {
-						OR = {
-							tag = JAP
-							is_subject_of = JAP
+					AND = {
+						is_subject = no
+						any_neighbor_country = {
+							OR = {
+								tag = JAP
+								is_subject_of = JAP
+							}
+							NOT = { has_war_with = ROOT }
+						}
+					}
+					AND = {
+						is_subject = yes
+						OVERLORD = {
+							is_china_or_warlord = yes
+							original_tag = JAP
 						}
 					}
 				}
@@ -918,19 +1013,100 @@ ideas = {
 				war_support_factor = 0.07
 			}
 		}
+		CHI_idea_duan_qirui_executive = {
+			picture = CHI_duan_qirui
+			allowed = {
+				is_china_or_warlord_no_tt = yes
+			}
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			available = {
+				NOT = {
+					has_government = communism
+					has_country_leader = {
+						character = CHI_duan_qirui
+						ruling_only = yes
+					}
+				}
+				608 = { owns_or_subject_of = yes }
+			}
+			modifier = {
+				war_support_factor = 0.05
+			}
+		}
 		CHI_idea_li_duan_conflict = {
 			allowed = {
 				is_china_or_warlord_no_tt = yes
 			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
-			picture = anti_soviet_pact
+			picture = SPR_the_popular_front
 			available = {
 				has_country_leader = {
 					character = CHI_li_yuanhong
 					ruling_only = yes
 				}
 				has_idea = CHI_idea_duan_qirui
+			}
+			on_add = {
+				if = {
+					limit = {
+						has_character = CHI_duan_qirui
+					}
+					CHI_duan_qirui = {
+						set_can_be_fired_in_advisor_role = {
+							slot = political_advisor
+							value = no
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_idea = CHI_duan_qirui_political }
+						}
+						activate_advisor = CHI_duan_qirui_political
+					}
+				}
+				if = {
+					limit = {
+						has_character = CHI_feng_guozhang
+					}
+					CHI_feng_guozhang = {
+						set_can_be_fired_in_advisor_role = {
+							slot = political_advisor
+							value = no
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_idea = CHI_feng_guozhang_political }
+						}
+						activate_advisor = CHI_feng_guozhang_political
+					}
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						has_character = CHI_duan_qirui
+					}
+					CHI_duan_qirui = {
+						set_can_be_fired_in_advisor_role = {
+							slot = political_advisor
+							value = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_character = CHI_feng_guozhang
+					}
+					CHI_feng_guozhang = {
+						set_can_be_fired_in_advisor_role = {
+							slot = political_advisor
+							value = yes
+						}
+					}
+				}
 			}
 			modifier = {
 				stability_factor = -0.1
@@ -960,8 +1136,14 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			available = {
-				has_character = QIN_feng_guozhang
-				NOT = { has_government = communism }
+				has_character = CHI_feng_guozhang
+				NOT = {
+					has_government = communism
+					has_country_leader = {
+						character = CHI_feng_guozhang
+						ruling_only = yes
+					}
+				}
 			}
 			modifier = {
 				stability_factor = 0.05
@@ -975,7 +1157,7 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			available = {
-				has_character = QIN_feng_guozhang
+				has_character = CHI_feng_guozhang
 				NOT = { has_government = communism }
 			}
 			modifier = {
@@ -989,12 +1171,9 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
-			# available = {
-			# 	has_country_leader = {
-			# 		character = CHI_duan_qirui
-			# 		ruling_only = yes
-			# 	}
-			# }
+			available = {
+				owns_state = 608
+			}
 			modifier = {
 				war_support_factor = 0.10
 				political_power_factor = -0.05
@@ -1007,6 +1186,9 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
+			available = {
+				owns_state = 608
+			}
 			modifier = {
 				war_support_factor = 0.10
 				political_power_factor = 0.10
@@ -1019,6 +1201,9 @@ ideas = {
 			}
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
+			available = {
+				owns_state = 608
+			}
 			modifier = {
 				war_support_factor = 0.10
 				political_power_factor = 0.10
@@ -1088,6 +1273,17 @@ ideas = {
 				consumer_goods_factor = -0.15
 			}
 		}
+		CHI_idea_provisional_constitution = {
+			picture = HUN_treaty_of_triannon
+			removal_cost = -1
+			available = {
+				has_elections = yes
+			}
+			modifier = {
+				stability_factor = 0.05
+				democratic_drift = 0.01
+			}
+		}
 		CHI_idea_yuan_constitution = {
 			picture = HUN_treaty_of_triannon
 			removal_cost = -1
@@ -1099,7 +1295,8 @@ ideas = {
 			}
 			modifier = {
 				political_power_factor = 0.05
-				neutrality_drift = 0.05
+				stability_factor = -0.05
+				# neutrality_drift = 0.05
 				democratic_drift = -0.02
 			}
 		}
@@ -1116,19 +1313,34 @@ ideas = {
 			picture = chi_chinese_unity
 			removal_cost = -1
 			available = {
-				OR = {
-					has_country_leader = {
-						character = CHI_yuan_shikai
-						ruling_only = yes
-					}
-					QIN = {
-						has_completed_focus = QIN_maintain_status_quo
-					}
+				has_country_leader = {
+					character = CHI_yuan_shikai
+					ruling_only = yes
 				}
 			}
 			modifier = {
 				political_power_gain = 0.1
 				stability_weekly = 0.002
+			}
+		}
+		CHI_idea_unstable_republic = {
+			picture = jap_intervene_in_china
+			removal_cost = -1
+			allowed = {
+				original_tag = CHI
+			}
+			allowed_civil_war = { always = yes }
+			available = {
+				is_subject = no
+				is_qing_monarchy = no
+			}
+			modifier = {
+
+			}
+			rule = {
+				can_not_declare_war = yes
+				can_join_factions = no
+				can_decline_call_to_war = yes
 			}
 		}
 		CHI_idea_no_popular_support = {
@@ -1392,6 +1604,112 @@ ideas = {
 				democratic_drift = 0.2
 			}
 		}
+		CHI_idea_civilian_concessions = {
+			name = CHI_concessions_to_people
+			picture = ast_all_in
+			removal_cost = -1
+			available = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+				NOT = {
+					has_country_leader = {
+						character = CHI_duan_qirui
+						ruling_only = yes
+					}
+					has_country_leader = {
+						character = CHI_li_yuanhong
+						ruling_only = yes
+					}
+					has_country_flag = CHI_national_protection_flag
+				}
+			}
+			modifier = {
+				consumer_goods_factor = 0.3
+				production_speed_buildings_factor = -0.4
+				stability_weekly = 0.001
+				war_support_weekly = -0.002
+			}
+			on_remove = {
+				if = {
+					limit = {
+						OR = {
+							has_government = fascism
+							has_government = neutrality
+						}
+						NOT = {
+							has_country_leader = {
+								character = CHI_duan_qirui
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = CHI_li_yuanhong
+								ruling_only = yes
+							}
+							has_country_flag = CHI_national_protection_flag
+						}
+					}
+					country_event = {
+						id = ww1_china.200
+						days = 180
+					}
+				}
+			}
+		}
+		CHI_idea_army_concessions = {
+			name = CHI_concessions_to_army
+			picture = ast_all_in
+			removal_cost = -1
+			available = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+				NOT = {
+					has_country_leader = {
+						character = CHI_duan_qirui
+						ruling_only = yes
+					}
+					has_country_leader = {
+						character = CHI_li_yuanhong
+						ruling_only = yes
+					}
+					has_country_flag = CHI_national_protection_flag
+				}
+			}
+			modifier = {
+				production_speed_arms_factory_factor = -0.4
+				production_speed_dockyard_factor = -0.4
+				war_support_weekly = 0.001
+				stability_weekly = -0.002
+			}
+			on_remove = {
+				if = {
+					limit = {
+						OR = {
+							has_government = fascism
+							has_government = neutrality
+						}
+						NOT = {
+							has_country_leader = {
+								character = CHI_duan_qirui
+								ruling_only = yes
+							}
+							has_country_leader = {
+								character = CHI_li_yuanhong
+								ruling_only = yes
+							}
+							has_country_flag = CHI_national_protection_flag
+						}
+					}
+					country_event = {
+						id = ww1_china.199
+						days = 180
+					}
+				}
+			}
+		}
 		CHI_idea_expand_public_works = {
 			picture = ast_all_in
 			removal_cost = -1
@@ -1511,14 +1829,14 @@ ideas = {
 					has_government = neutrality
 				}
 				NOT = {
-					has_country_leader = {
-						character = CHI_duan_qirui
-						ruling_only = yes
-					}
-					has_country_leader = {
-						character = CHI_li_yuanhong
-						ruling_only = yes
-					}
+					# has_country_leader = {
+					# 	character = CHI_duan_qirui
+					# 	ruling_only = yes
+					# }
+					# has_country_leader = {
+					# 	character = CHI_li_yuanhong
+					# 	ruling_only = yes
+					# }
 					has_country_flag = CHI_national_protection_flag
 					has_global_flag = yuan_shikai_dead
 					has_country_leader = {
@@ -1526,6 +1844,7 @@ ideas = {
 						ruling_only = yes
 					}
 				}
+				has_cosmetic_tag = CHI_hongxian_empire
 			}
 			modifier = {
 				political_power_gain = 0.1
@@ -1636,45 +1955,153 @@ ideas = {
 				fascism_drift = 0.02
 			}
 		}
-		CHI_idea_provisional_constitution = {
-			allowed = {
-				is_china_or_warlord = yes
-			}
-			allowed_civil_war = { always = yes }
+		CHI_build_supply_depots = {
 			removal_cost = -1
-			picture = HUN_treaty_of_triannon
+			picture = generic_supply_depot
 			available = {
-				NOT = { has_government = communism }
+				
 			}
 			modifier = {
-				stability_factor = 0.1
-				democratic_drift = 0.02
-				surrender_limit = 0.2
-				political_advisor_cost_factor = 2
-				mobilization_laws_cost_factor = 2
-				economy_cost_factor = 2
-				trade_laws_cost_factor = 2
+				production_speed_supply_node_factor = 1.5
 			}
 		}
-		CHI_idea_official_constitution = {
-			allowed = {
-				is_china_or_warlord = yes
-			}
-			allowed_civil_war = { always = yes }
+		CHI_emergency_industry = {
 			removal_cost = -1
-			picture = HUN_treaty_of_triannon
+			picture = generic_improved_industries
 			available = {
-				NOT = { has_government = communism }
+				
 			}
 			modifier = {
-				stability_factor = 0.15
-				democratic_drift = 0.04
-				surrender_limit = 0.2
-				political_advisor_cost_factor = -0.25
-				mobilization_laws_cost_factor = -0.25
-				economy_cost_factor = -0.25
-				trade_laws_cost_factor = -0.25
+				conversion_cost_civ_to_mil_factor = -0.4
+				conversion_cost_mil_to_civ_factor = -0.4
+			}
+		}
+		CHI_provincial_reform = {
+			removal_cost = -1
+			picture = chi_warlord_integration5
+			available = {
+				is_kuomintang_state = yes
+			}
+			modifier = {
+				party_popularity_stability_factor = 0.10
+			}
+		}
+		CHI_national_revolution_army = {
+			removal_cost = -1
+			picture = national_revolution_army
+			available = {
+				is_kuomintang_state = yes
+			}
+			modifier = {
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.15
+			}
+		}
+		CHI_may_fourth_movement = {
+			removal_cost = -1
+			picture = gre_political_instability_republican
+			available = {
+				NOT = {
+					any_country = {
+						is_china_or_warlord_no_tt = yes
+						owns_state = 872
+					}
+				}
+			}
+			modifier = {
+				stability_factor = -0.10
+				political_power_factor = -0.10
+				industrial_capacity_factory = -0.30
+				democratic_drift = 0.02
+				communism_drift = 0.01
+			}
+		}
+		CHI_banditry = {
+			picture = tur_coordinated_balkan_armed_forces
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.05
+			}
+		}
+		CHI_idea_merchant_army = {
+			picture = tur_coordinated_balkan_armed_forces
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.05
+				consumer_goods_factor = 0.10
+			}
+		}
+		CHI_idea_sun_yatsen_president = {
+			picture = CHI_sun_yatsen
+			allowed_civil_war = { always = yes }
+			available = {
+				OR = {
+					has_war_with = CHI
+					is_kuomintang_state = yes
+					has_idea = CHI_idea_constitutional_movement
+				}
+				NOT = {
+					has_country_leader = {
+						character = CHI_sun_yatsen
+						ruling_only = yes
+					}
+					any_other_country = {
+						has_country_leader = {
+							character = CHI_sun_yatsen
+							ruling_only = yes
+						}
+					}
+				}
+			}
+			modifier = {
+				stability_factor = 0.05
+				democratic_drift = 0.01
+				democratic_acceptance = 10
+			}
+		}
+		CHI_idea_sun_yatsen_president_2 = {
+			name = CHI_idea_sun_yatsen_president
+			picture = CHI_sun_yatsen
+			allowed_civil_war = { always = yes }
+			available = {
+				is_kuomintang_state = yes
+				has_idea = CHI_idea_constitutional_movement
+				NOT = {
+					has_country_leader = {
+						character = CHI_sun_yatsen
+						ruling_only = yes
+					}
+					any_other_country = {
+						has_country_leader = {
+							character = CHI_sun_yatsen
+							ruling_only = yes
+						}
+					}
+				}
+			}
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		CHI_idea_united_front = {
+			picture = saf_soviet_advisers
+			allowed_civil_war = { always = yes }
+			available = {
+				is_kuomintang_state = yes
+				NOT = {
+					has_government = fascism
+				}
+			}
+			modifier = {
+				political_power_factor = -0.05
+				stability_factor = -0.05
+				war_support_factor = 0.05
+				communism_drift = 0.01
+				communism_acceptance = 10
 			}
 		}
 	}
-	
+}

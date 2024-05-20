@@ -50,6 +50,11 @@ leader_traits = {
 		justify_war_goal_time = -0.2
 		political_power_factor = -0.1
 	}
+	lunatic_advisor = {
+		random = no
+		party_popularity_stability_factor = 0.25
+		political_power_factor = -0.1
+	}
 	emperor_taisho = {
 		random = no
 		stability_factor = 0.5		#FOR THE EMPERAH
@@ -97,11 +102,6 @@ leader_traits = {
 		ai_strategy = {
 			type = antagonize
 			id = "RUS"
-			value = 200
-		}
-		ai_strategy = {
-			type = antagonize
-			id = "SOV"
 			value = 200
 		}
 	}
@@ -274,6 +274,7 @@ leader_traits = {
 	### TURKEY
 	abdulhamid_absolute_monarchy = {
 		random = no
+		stability_factor = -0.1
 		political_power_factor = 0.15
 		political_advisor_cost_factor = -0.15
 	}
@@ -300,6 +301,7 @@ leader_traits = {
 
 	abdulhamid_head_of_hamidiye = {
 		random = no
+		stability_factor = -0.05
 		modifier_army_sub_unit_irregular_cavalry_attack_factor = 0.15
 		resistance_damage_to_garrison = -0.15
 		resistance_decay = 0.1
@@ -308,7 +310,7 @@ leader_traits = {
 	abdulhamid_absolute_monarchy2 = {
 		random = no
 		political_power_factor = 0.25
-		stability_factor = -0.1
+		stability_factor = -0.2
 		political_advisor_cost_factor = -0.25
 		trade_laws_cost_factor = -0.25
 		mobilization_laws_cost_factor = -0.25
@@ -440,7 +442,17 @@ leader_traits = {
 		stability_factor = 0.05
 		political_advisor_cost_factor = -0.05
 		political_power_factor = 0.05
-	}	
+	}
+
+	grand_vizier_said_halim = {
+		random = no
+		sprite = 13
+
+		political_power_cost = 0.05
+		stability_factor = 0.03
+		recruitable_population_factor = 0.03
+		fascism_acceptance = 5
+	}
 	
 	the_council_on_the_management_of_ottoman_debt = {
 		random = no
@@ -901,7 +913,7 @@ leader_traits = {
 		sprite = 13
 		
 		stability_factor = 0.05
-		consumer_goods_factor = -0.8
+		consumer_goods_factor = -0.08
 		industrial_capacity_factory = 0.1
 		production_factory_max_efficiency_factor = 0.15
 		trade_opinion_factor = 0.15
@@ -1025,11 +1037,10 @@ leader_traits = {
 	}
 	TUR_marshal_vezier = {
 		random = no
-		command_power_gain_mult = 0.15
-		max_command_power_mult = 0.25
-		fascism_acceptance = -50
-		army_org_factor = 0.05
-		war_support_factor = 0.1
+		democratic_acceptance = 5
+		stability_factor = 0.15
+		war_support_factor = -0.1
+		ai_focus_defense_factor = 0.15
 	}
 	TUR_harbiye_naziri = {
 		random = no
@@ -1098,7 +1109,7 @@ leader_traits = {
 		sprite = 13
 		random = no
 		army_morale_factor = 0.1
-		power_balance_weekly = -0.001
+		power_balance_weekly = -0.002
 		army_core_defence_factor = 0.05
 		army_core_attack_factor = 0.05
 		mobilization_speed = 0.05
@@ -1201,16 +1212,16 @@ leader_traits = {
 		stability_factor = 0.15
 		democratic_drift = 0.03
 	}
-	pan_turkic_sociologist = {
+	ittihadist_ideologue = {
 		random = no
 		sprite = 13
-		stability_factor = 0.05
-		compliance_gain = 0.01
-		non_core_manpower = 0.15
+
+		political_power_factor = 0.1
+		neutrality_acceptance = 15
+		fascism_acceptance = 15
 	}
 	TUR_monopoly = {
 		random = no
-		sprite = 13 
 		
 		ai_will_do = {
 			factor = 1
@@ -1315,7 +1326,7 @@ leader_traits = {
 		random = no
 		political_power_gain = -0.04
 		stability_factor = -0.0125
-		consumer_goods_factor = -0.8
+		consumer_goods_factor = -0.08
 		industrial_capacity_factory = 0.02
 	}
 	eng_o_trait = {
@@ -1347,6 +1358,13 @@ leader_traits = {
 		air_equipment_upgrade_xp_cost = -0.1
 		aircraft_manufacturer_cost_factor = -0.02
 		materiel_manufacturer_cost_factor = -0.02
+	}
+	eng_navalist_journalist = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.05
+		war_support_factor = 0.05
+		industrial_capacity_dockyard = 0.10
 	}
 	ENG_father_of_republic_pease = {
 		random = no
@@ -1672,6 +1690,19 @@ leader_traits = {
 		drift_defence_factor = 0.5
 		resistance_growth_on_our_occupied_states = 0.25
 	}
+	siberian_machiavelli = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.1
+		consumer_goods_factor = 0.1
+		production_factory_start_efficiency_factor = 0.05
+		stability_factor = -0.05
+	}
+	dealbreaker = {
+		random = no
+		# to do
+	}
+
 	
 	#AUSTRIA
 	oldschool_kaiser = {
@@ -1908,6 +1939,11 @@ leader_traits = {
 		political_power_gain = 0.15
 		stability_factor = -0.1
 	}
+	fra_homme_de_la_defaite = {
+		random = no
+		political_power_factor = -0.25
+		stability_factor = -0.25
+	}
 	fra_dictator = {
 		random = no
 		political_power_factor = 0.1
@@ -1926,6 +1962,12 @@ leader_traits = {
 	retired_minister_of_war = {
 		war_support_factor = 0.1
 		high_command_cost_factor = -0.5
+	}
+	verdun_lion = {
+		war_support_factor = 0.05
+		stability_factor = 0.05
+		army_core_attack_factor = 0.1
+		army_core_defence_factor = 0.1
 	}
 	GER_schliffen = {
 		ai_focus_aggressive_factor = 0.75
@@ -1976,8 +2018,14 @@ leader_traits = {
 	socialist_giant = {
 		sprite = 13
 		random = no
-		stability_factor = 0.1
-		communism_acceptance = 75
+		stability_factor = 0.15
+		war_support_factor = -0.05
+	}
+	influencal_president = {
+		sprite = 13
+		random = no
+		political_power_gain = 0.10
+		stability_factor = 0.05
 	}
 	le_pere_fallieres = {
 		random = no
@@ -2061,7 +2109,7 @@ leader_traits = {
 		political_power_cost = 0.1
 		stability_factor = -0.05
 		drift_defence_factor = 0.2
-		consumer_goods_factor = -0.8
+		consumer_goods_factor = -0.08
 	}
 	head_of_underground = {
 		random = no
@@ -2086,7 +2134,7 @@ leader_traits = {
 		stability_factor = 0.05
 		drift_defence_factor = 0.2
 		neutrality_drift = 0.002
-		consumer_goods_factor = -0.8
+		consumer_goods_factor = -0.08
 		
 	}
 	great_compromiser = {
@@ -2115,7 +2163,7 @@ leader_traits = {
 		random = no
 		democratic_drift = 0.02
 		research_speed_factor = 0.02
-		consumer_goods_factor = -0.8
+		consumer_goods_factor = -0.08
 		stability_factor = 0.04
 	}
 	political_swimmer = {
@@ -2263,6 +2311,12 @@ leader_traits = {
 		stability_factor = 0.15
 		political_power_gain = 0.1
 	}
+	ambitious_wicked_man = {
+		random = no
+		stability_factor = -0.10
+		war_support_factor = 0.05
+		political_power_gain = 0.1
+	}
 	#Greece
 	gre_ethnarch = {
        random = no
@@ -2346,7 +2400,7 @@ leader_traits = {
 		sprite = 13
 		neutrality_drift = 0.1
 		neutrality_acceptance = 50
-		stability_weekly_factor = 0.0010
+		stability_factor = 0.05
 		political_power_gain = -0.10
 		ai_will_do = {
 			factor = 0
@@ -2357,6 +2411,47 @@ leader_traits = {
 		random = no
 		sprite = 13
 		stability_factor = 0.05
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	moderate_syndicalist = {
+		random = no
+		sprite = 13
+		production_factory_start_efficiency_factor = 0.05
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	autonomous_anarchist = {
+		random = no
+		sprite = 13
+		resistance_growth_on_our_occupied_states = 0.15
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	pacifist_anarchist = {
+		random = no
+		sprite = 13
+		resistance_growth_on_our_occupied_states = 0.05
+		war_support_weekly = -0.0025
+		stability_weekly_factor = 0.0025
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	aggressive_peacemaker = {
+		random = no
+		sprite = 13
+		production_speed_buildings_factor = 0.05
+		stability_factor = 0.05
+		puppet_cost_factor = 0.5
+		war_support_factor = -0.10
 		ai_will_do = {
 			factor = 0
 		}
@@ -2448,6 +2543,14 @@ leader_traits = {
 			value = 100
 		}
 	}
+	anglophile = {
+		random = no
+		ai_strategy = {
+			type = befriend
+			id = ENG
+			value = 10
+		}
+	}
 	serbophobia = {
 		random = no
 		ai_strategy = {
@@ -2521,6 +2624,23 @@ leader_traits = {
 		intel_network_gain_factor = 0.15
 		own_operative_detection_chance_factor = -0.1
 		intelligence_agency_defense = 0.1
+	}
+	police_officer = {
+		random = no
+		stability_factor = 0.10
+	}
+	al_kabir = {
+		random = no
+		stability_factor = 0.10
+	}
+	oil_baron = {
+		random = no
+		political_power_factor = 0.05
+		improve_relations_maintain_cost_factor = -0.1
+		fuel_gain_factor = 0.35
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	light_cruiser_naval_manufacturer = {
 		random = no
@@ -2632,5 +2752,53 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
+	}
+
+	
+	monarchist_nationalist = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.1
+		fascism_drift = 0.02
+		neutrality_drift = 0.02
+	}
+
+	federative_socialist = {
+		sprite = 13
+		random = no
+		communism_drift = 0.03
+		political_power_gain = 0.1
+	}
+
+	moderate_socialist = {
+		sprite = 13
+		random = no
+		communism_drift = 0.01
+		democratic_drift = 0.01
+	}
+
+	consensual_figure = {
+		sprite = 13
+		random = no
+		stability_weekly_factor = 0.0025
+	}
+
+	industrial_reformer = {
+		sprite = 13
+		random = no
+		consumer_goods_factor = -0.1
+	}
+
+	anarchist_author = {
+		sprite = 13
+		random = no
+		communism_drift = 0.05
+		stability_factor = -0.05
+	}
+	MON_spiritual_leader = {
+		random = no
+		stability_factor = 0.05
+		neutrality_drift = 0.01
+		political_power_gain = 0.05
 	}
 }

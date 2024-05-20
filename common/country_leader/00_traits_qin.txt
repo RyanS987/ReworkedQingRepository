@@ -173,12 +173,6 @@ leader_traits = {
 		stability_factor = -0.05
 		war_support_factor = 0.05
 	}
-	divisive_emperor = {
-		random = no
-		political_power_factor = 0.1
-		stability_factor = -0.05
-		war_support_factor = 0.05
-	}
 	father_of_the_republic = {
 		random = no
 		stability_factor = 0.15
@@ -220,7 +214,7 @@ leader_traits = {
 	}
 	corrupted_bureaucrat = {
 		political_power_factor = -0.1
-		consumer_goods_factor = 0.05
+		consumer_goods_factor = 0.10
 	}
 	CHI_trait_dictator = {
 		political_power_factor = 0.10
@@ -241,6 +235,7 @@ leader_traits = {
 		fascism_drift = 0.1
 	}
 	CHI_trait_foreign_minister = {
+		sprite = 13
 		random = no
 		improve_relations_maintain_cost_factor = -0.5
 		trade_opinion_factor = 0.3
@@ -252,17 +247,20 @@ leader_traits = {
 		stability_factor = 0.05
 	}
 	CHI_trait_army_strongman = {
+		sprite = 12
 		random = no
 		political_power_factor = -0.05
 		war_support_weekly = 0.01
 		training_time_factor = -0.15
 	}
 	CHI_trait_conservative_reformer = {
+		sprite = 13
 		random = no
 		stability_factor = 0.05
 		research_speed_factor = 0.05
 	}
 	CHI_trait_socialist_advocate = {
+		sprite = 13
 		random = no
 		stability_factor = 0.05
 		democratic_acceptance = 20
@@ -270,7 +268,7 @@ leader_traits = {
 	}
 	king_shanxi = {
 		random = no
-		consumer_goods_factor = -0.10
+		consumer_goods_factor = -0.30
 	}
 	japanophobia = {
 		random = no
@@ -297,6 +295,11 @@ leader_traits = {
 			army_attack_factor = -0.30
 			army_defence_factor = -0.30
 		}
+		targeted_modifier = {
+			tag = MAN
+			army_attack_factor = -0.30
+			army_defence_factor = -0.30
+		}
 	}
 	hate_opium = {
 		random = no
@@ -305,5 +308,32 @@ leader_traits = {
 	christian_general = {
 		random = no
 		party_popularity_stability_factor = 0.15
+	}
+	schemer_yuan = { #yuan shikai
+		random = no
+		political_power_factor = -0.30
+		fascism_drift = 0.05
+	}
+	CHI_beiyang_triumvirate = {
+		random = no
+		political_power_factor = -0.40
+	}
+	beiyang_dragon = { #wang shizen
+		sprite = 12
+		random = no
+		army_defence_factor = 0.10
+		stability_factor = 0.05
+	}
+	beiyang_tiger = { #duan qirui
+		sprite = 12
+		random = no
+		army_attack_factor = 0.10
+		command_power_gain_mult = 0.20
+	}
+	beiyang_dog = { #feng guozhang
+		sprite = 12
+		random = no
+		army_org_factor = 0.10
+		consumer_goods_factor = 0.05
 	}
 }

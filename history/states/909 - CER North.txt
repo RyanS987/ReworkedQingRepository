@@ -1,9 +1,7 @@
 state={
 	id=909
 	name="STATE_909"
-	provinces={
-		1702 1749 4781 4800 7822 10531 10713 12427 12509 
-	}
+
 	history={
 		owner = RUS
 		add_core_of = RUS
@@ -11,8 +9,13 @@ state={
 			infrastructure = 1
 		}
 	}
-	manpower=901425
-	state_category=rural
+
+	provinces={
+		12427 10713
+	}
+	
+	manpower=15000
 	buildings_max_level_factor=1.000
+	state_category=wasteland
 	local_supplies=0.000
 }
