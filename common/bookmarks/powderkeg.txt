@@ -125,21 +125,7 @@ bookmarks = {
 		}
 
 		# Minors ####
-		"ITA"={
-			minor = yes
-			history = "ITA_POWDERKEG_DESC"
-			ideology = neutrality
-			ideas = {
-				ITA_lackluster_industrialisation
-				idea_italy_triple_alliance
-				ITA_questione_meridionale		
-			}
-			focuses = {
-				ITA_arditi
-				ITA_claim_on_lybia
-				ITA_denouncing_triple_alliance
-			}
-		}
+	
 		"SER"={
 			minor = yes
 			history = "SER_POWDERKEG_DESC"
@@ -153,6 +139,22 @@ bookmarks = {
 				SER_grand_coalition
 				SER_balkan_strategy
 				SER_serbian_golden_age
+			}
+		}
+		
+		"ITA"={
+			minor = yes
+			history = "ITA_POWDERKEG_DESC"
+			ideology = neutrality
+			ideas = {
+				ITA_lackluster_industrialisation
+				idea_italy_triple_alliance
+				ITA_questione_meridionale		
+			}
+			focuses = {
+				ITA_arditi
+				ITA_claim_on_lybia
+				ITA_denouncing_triple_alliance
 			}
 		}
 
@@ -286,7 +288,21 @@ bookmarks = {
 				KOR_discussions_on_japanese_korea
 			}
 		}
-
+		"IND"={
+			minor = yes
+			history = "IND_POWDERKEG_DESC"
+			ideology = neutrality
+			ideas = {
+				VIN_union_of_protectorates
+				VIN_french_exploitation
+				VIN_colonial_army
+			}
+			focuses = {
+				VIN_integrate_laos
+				VIN_sarraut_administration
+				VIN_takeover_the_asian_fleet
+			}
+		}
 		"BRA"={
 			minor = yes
 			history = "BRA_POWDERKEG_DESC"
