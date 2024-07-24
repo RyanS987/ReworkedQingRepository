@@ -9813,12 +9813,88 @@ focus_tree = {
 		}
 		
 		available = {
-			always = no
+			605 = {
+				is_controlled_by = QIN
+			}
+			592 = {
+				is_controlled_by = QIN
+			}
+			620 = {
+				is_controlled_by = QIN
+			}
+			598 = {
+				is_controlled_by = QIN
+			}
 		}
 		bypass = {
 		}
 		completion_reward = {
-			custom_effect_tooltip = QIN_WIP
+			QIN_jiangsu_rebel_down = yes
+			QIN_guangxi_rebel_down = yes
+			QIN_sichuan_rebel_down = yes
+			
+			custom_effect_tooltip = line_description
+			#Changing provincial Arsenal function
+			#How much to change it by
+			set_temp_variable = { provincial_arsenals_temp_difference = 0.25 } #CHANGE THIS to edit
+			
+			#Local var to compare
+			set_temp_variable = { temp_var = provincial_arsenals_temp_difference }
+			multiply_temp_variable = { temp_var = -1 }
+			#Reset the value to the max if necessary
+			if = {
+				limit = {
+					check_variable = {
+						provincial_arsenals_max_factories > temp_var
+					}
+				}
+				set_temp_variable = { provincial_arsenals_temp_difference = provincial_arsenals_max_factories }
+				multiply_temp_variable = { provincial_arsenals_temp_difference = -1 }
+			}
+			#Add it
+			if = {
+				limit = {
+					OR = {
+						check_variable = { #Check its not already maximumly improved
+							provincial_arsenals_max_factories < 0
+						}
+						check_variable = { #Or is a reduction
+							provincial_arsenals_temp_difference < 0
+						}
+					}
+				}
+				add_to_variable = {
+					var = provincial_arsenals_max_factories
+					value = provincial_arsenals_temp_difference
+					tooltip = QIN_effect_modify_provincial_arsenals
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = QIN_guangzhou_resource_prospection
+				}
+				592 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = QIN_flag_opium_suppression
+				}
+				605 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 		}			
 		ai_will_do = {
 			factor = 0
@@ -10720,6 +10796,9 @@ focus_tree = {
 			728 = {
 				is_owned_and_controlled_by = VIN
 			}
+			728 = {
+				is_owned_and_controlled_by = IND
+			}
 			}
 		}
 		bypass = {
@@ -10731,6 +10810,7 @@ focus_tree = {
 					728 = {
 						is_owned_and_controlled_by = VIN
 					}
+					
 				}
 			}
 		}
@@ -11999,6 +12079,17 @@ focus_tree = {
 			671 = {
 				owner = {
 					country_event = { id = ww1_qing.63 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					728 = {
+						is_owned_and_controlled_by = QIN
+					}
+				}
+				set_province_name = {
+					id = 11981
+					name = "Guangzhouwan"
 				}
 			}
 		}			
@@ -14022,7 +14113,6 @@ focus_tree = {
 			factor = 0
 		}
 		available = {
-			always = no
 			NOT = { has_idea = QIN_idea_reverse_reforms }
 			is_subject = no
 		}
@@ -14030,7 +14120,11 @@ focus_tree = {
 			focus = QIN_restore_the_courts_position
 		}
 		completion_reward = {
-			custom_effect_tooltip = QIN_WIP
+			add_named_threat = {
+				threat = 10
+				name = QIN_threat_retribution
+			}
+			add_ideas = QIN_idea_golden_century_golden_empire
 		}
 	}
 	focus = {

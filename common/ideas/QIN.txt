@@ -1470,6 +1470,17 @@ ideas = {
 				production_lack_of_resource_penalty_factor = -0.2
 			}
 		}
+		QIN_idea_golden_century_golden_empire = {
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = SPA_crusade_against_democracy
+			modifier = {
+				justify_war_goal_time = -0.75
+				generate_wargoal_tension = -1.0
+				trade_opinion_factor = -0.5
+				production_lack_of_resource_penalty_factor = 0.1
+			}
+		}
 		QIN_idea_boxer_protocol_1 = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1

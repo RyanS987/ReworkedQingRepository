@@ -1487,6 +1487,8 @@ QIN_kaiser_in_formosa_desc:0 "After putting drugs into an Austro-Hungarian diplo
  QIN_idea_police:0 "Organized Police"
  QIN_idea_provincial_reform:0 "Disbanding of Regional Armies"
  QIN_idea_government_retirement:0 "Government Funded Retirement Homes"
+ QIN_idea_golden_century_golden_empire:0 "Glorious Retribution"
+ QIN_threat_retribution:0 "Avenge the Century of Humiliation"
  QIN_idea_opium_suppression:0 "Opium Eradication Effort"
  QIN_idea_opium_suppression_desc:0 "Our expansion of efforts to eliminate opium face heavy opposition, but there is a light at the end of the tunnel"
  QIN_idea_allow_opium:0 "Opium Trade"

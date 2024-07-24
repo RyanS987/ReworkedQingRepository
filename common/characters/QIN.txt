@@ -424,24 +424,25 @@ characters={
 		}
 	}
 	QIN_yinchang={
-		advisor={
+		advisor = {
 			slot = army_chief
 			idea_token = QIN_yinchang
-			allowed  = {
-				is_china_or_warlord = yes
+			allowed = {
+				is_china_or_warlord_no_tt = yes
 			}
-			traits  = {
+			traits = {
 				army_chief_organizational_2 
 			}
-			ai_will_do  = {
-				factor  = 1
+			cost = 10
+			ai_will_do = {
+				factor = 1
 			}
 		}
 		name="QIN_yinchang"
 		portraits={
 			army={
 				large="gfx/leaders/CHI/CHI_Yinchang.png"
-				small="GFX_idea_generic_air_asia_3"
+				small="gfx/interface/ideas/QIN/idea_QIN_Yinchang.png"
 			}
 		}
 		field_marshal={
@@ -1137,7 +1138,7 @@ characters={
 		name="QIN_natong"
 		portraits={
 			civilian={
-				small="GFX_idea_generic_political_advisor_asia_3"
+				small="gfx/interface/ideas/QIN/idea_QIN_Natong.png"
 				large="gfx/leaders/QIN/QIN_natong.png"
 			}
 		}
